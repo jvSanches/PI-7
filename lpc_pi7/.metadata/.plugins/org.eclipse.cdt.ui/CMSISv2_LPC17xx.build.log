@@ -1,0 +1,6 @@
+16:30:30 **** Build of configuration Debug for project CMSISv2_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+
+16:30:30 Build Finished (took 163ms)
+

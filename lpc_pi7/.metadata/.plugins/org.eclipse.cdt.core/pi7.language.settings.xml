@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+	<configuration id="com.crt.advproject.config.exe.debug.1065890367" name="Debug">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider id="com.crt.advproject.GCCBuildCommandParser">
+				<language id="org.eclipse.cdt.core.gcc">
+					<resource project-relative-path="src/drivers/ledonboard/leds.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/main.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="FreeRTOS_src/queue.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/pi7/comunicacao_pc/modbus.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="FreeRTOS_src/list.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/drivers/console/consoleprint.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/pi7/interpretador_comando/interpretador_comando.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="FreeRTOS_src/tasks.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/pi7/estado_trajetoria/estado_trajetoria.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/pi7/programa_trajetoria/programa_trajetoria.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/drivers/uart/uart.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/drivers/pwm/pwm.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/cr_startup_lpc17.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="FreeRTOS_src/croutine.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/pi7/comunicacao_pic/comunicacao_pic.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="src/drivers/console/basic_io.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+				</language>
+			</provider>
+		</extension>
+	</configuration>
+</project>

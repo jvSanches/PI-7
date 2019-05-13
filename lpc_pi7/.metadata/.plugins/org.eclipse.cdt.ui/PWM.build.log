@@ -1,0 +1,31 @@
+16:30:31 **** Build of configuration Debug for project PWM ****
+make all 
+Building file: ../src/cr_startup_lpc176x.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2_LPC17xx -I"C:\Marcos\POLI\PMR2440\PI7 2013\workspace\CMSISv2_LPC17xx\inc" -O0 -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/cr_startup_lpc176x.d" -MT"src/cr_startup_lpc176x.d" -o "src/cr_startup_lpc176x.o" "../src/cr_startup_lpc176x.c"
+Finished building: ../src/cr_startup_lpc176x.c
+ 
+Building file: ../src/pwm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2_LPC17xx -I"C:\Marcos\POLI\PMR2440\PI7 2013\workspace\CMSISv2_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/pwm.d" -MT"src/pwm.d" -o "src/pwm.o" "../src/pwm.c"
+Finished building: ../src/pwm.c
+ 
+Building file: ../src/pwmtest.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2_LPC17xx -I"C:\Marcos\POLI\PMR2440\PI7 2013\workspace\CMSISv2_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/pwmtest.d" -MT"src/pwmtest.d" -o "src/pwmtest.o" "../src/pwmtest.c"
+Finished building: ../src/pwmtest.c
+ 
+Building target: PWM.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Marcos\POLI\PMR2440\PI7 2013\workspace\CMSISv2_LPC17xx\Debug" -Xlinker -Map=PWM.map -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "PWM_Debug.ld" -o "PWM.axf"  ./src/cr_startup_lpc176x.o ./src/pwm.o ./src/pwmtest.o   -lCMSISv2_LPC17xx
+Finished building target: PWM.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size PWM.axf; # arm-none-eabi-objcopy -O binary PWM.axf PWM.bin ; checksum -p LPC1769 -d PWM.bin;
+   text	   data	    bss	    dec	    hex	filename
+   4440	      4	    344	   4788	   12b4	PWM.axf
+ 
+
+16:30:32 Build Finished (took 1s.439ms)
+

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;teste/src/pwd&apos; to &apos;pwm&apos;" description="Rename resource &apos;pwd&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/pwd" name="pwm" stamp="1369251203049" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;pi7/src/pi7/gerador_trajetoria&apos; to &apos;controlador_trajetoria&apos;" description="Rename resource &apos;gerador_trajetoria&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/pi7/gerador_trajetoria" name="controlador_trajetoria" stamp="1369425041504" updateReferences="true"/>
+</session>

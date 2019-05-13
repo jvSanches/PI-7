@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;CMSISv2p10_DSPLIB_CM0&apos;" deleteContents="false" description="Delete resource &apos;CMSISv2p10_DSPLIB_CM0&apos;" element1="/CMSISv2p10_DSPLIB_CM0" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1366324011890"/>&#x0A;<refactoring comment="Delete 4 resources" deleteContents="false" description="Delete 4 resources" element1="/CMSISv2p10_DSPLIB_CM3" element2="/CMSISv2p10_DSPLIB_CM4" element3="/CMSISv2p10_DSPLIB_CM4_NoFP" element4="/CMSISv2p10_DSPLIB_SRC" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="4" stamp="1366324026372"/>
+</session>
