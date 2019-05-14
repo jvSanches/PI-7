@@ -1,11 +1,11 @@
 /*
  * GENERATED FILE - DO NOT EDIT
  * (c) Code Red Technologies Ltd, 2008-2013
- * (c) NXP Semiconductors 2013-2018
+ * (c) NXP Semiconductors 2013-2019
  * Generated linker script file for LPC1769
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 10/04/2018 12:10:34
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on May 14, 2019 3:39:58 PM
  */
 
 INCLUDE "pi7_Debug_library.ld"

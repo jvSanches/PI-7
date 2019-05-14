@@ -91,8 +91,9 @@ void taskCommPIC(void *pvParameters) {
 
 void taskBlinkLed(void *lpParameters) {
 	while(1) {
+		//led2_off();
 		led2_invert();
-		vTaskDelay(DELAY_1SEC);
+		vTaskDelay(DELAY_200MS);
 	} // task loop
 } //taskBlinkLed
 
@@ -150,9 +151,9 @@ int main(void) {
 	 * Start the tasks defined within this file/specific to this demo. 
 	 */
 	xTaskCreate( taskBlinkLed, ( signed portCHAR * ) "BlinkLed", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	xTaskCreate( taskController, ( signed portCHAR * ) "Controller", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	//xTaskCreate( taskController, ( signed portCHAR * ) "Controller", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	//xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	//xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 
 	//*************** DEBUG FOR ReadRegister
 	// insert ReadRegister msg on qCommDev for debug

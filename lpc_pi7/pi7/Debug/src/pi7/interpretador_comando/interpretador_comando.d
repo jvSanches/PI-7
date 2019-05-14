@@ -8,8 +8,8 @@ src/pi7/interpretador_comando/interpretador_comando.o \
  ../OtherIncludes/core_cm3.h ../OtherIncludes/system_LPC17xx.h \
  ../OtherIncludes/type.h ../OtherIncludes/type.h \
  ../src/pi7/interpretador_comando/interpretador_comando.h \
- ../src/pi7/interpretador_comando/../estado_trajetoria/estado_trajetoria.h \
- ../src/pi7/interpretador_comando/../controlador_trajetoria/controlador_trajetoria.h
+ d:\poli\pi-7\lpc_pi7\pi7\src\pi7\estado_trajetoria\estado_trajetoria.h \
+ d:\poli\pi-7\lpc_pi7\pi7\src\pi7\controlador_trajetoria\controlador_trajetoria.h
 
 ../FreeRTOS_include/FreeRTOS.h:
 
@@ -37,6 +37,6 @@ src/pi7/interpretador_comando/interpretador_comando.o \
 
 ../src/pi7/interpretador_comando/interpretador_comando.h:
 
-../src/pi7/interpretador_comando/../estado_trajetoria/estado_trajetoria.h:
+d:\poli\pi-7\lpc_pi7\pi7\src\pi7\estado_trajetoria\estado_trajetoria.h:
 
-../src/pi7/interpretador_comando/../controlador_trajetoria/controlador_trajetoria.h:
+d:\poli\pi-7\lpc_pi7\pi7\src\pi7\controlador_trajetoria\controlador_trajetoria.h:

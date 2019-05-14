@@ -6,9 +6,9 @@ src/pi7/controlador_trajetoria/controlador_trajetoria.o \
  ../FreeRTOS_portable/portmacro.h ../FreeRTOS_include/mpu_wrappers.h \
  ../FreeRTOS_include/queue.h \
  ../src/pi7/controlador_trajetoria/controlador_trajetoria.h \
- ../src/pi7/controlador_trajetoria/../programa_trajetoria/programa_trajetoria.h \
- ../src/pi7/controlador_trajetoria/../estado_trajetoria/estado_trajetoria.h \
- ../src/pi7/controlador_trajetoria/../comunicacao_pic/comunicacao_pic.h
+ d:\poli\pi-7\lpc_pi7\pi7\src\pi7\programa_trajetoria\programa_trajetoria.h \
+ d:\poli\pi-7\lpc_pi7\pi7\src\pi7\estado_trajetoria\estado_trajetoria.h \
+ d:\poli\pi-7\lpc_pi7\pi7\src\pi7\comunicacao_pic\comunicacao_pic.h
 
 ../FreeRTOS_include/FreeRTOS.h:
 
@@ -26,8 +26,8 @@ src/pi7/controlador_trajetoria/controlador_trajetoria.o \
 
 ../src/pi7/controlador_trajetoria/controlador_trajetoria.h:
 
-../src/pi7/controlador_trajetoria/../programa_trajetoria/programa_trajetoria.h:
+d:\poli\pi-7\lpc_pi7\pi7\src\pi7\programa_trajetoria\programa_trajetoria.h:
 
-../src/pi7/controlador_trajetoria/../estado_trajetoria/estado_trajetoria.h:
+d:\poli\pi-7\lpc_pi7\pi7\src\pi7\estado_trajetoria\estado_trajetoria.h:
 
-../src/pi7/controlador_trajetoria/../comunicacao_pic/comunicacao_pic.h:
+d:\poli\pi-7\lpc_pi7\pi7\src\pi7\comunicacao_pic\comunicacao_pic.h:
