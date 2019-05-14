@@ -1,12 +1,11 @@
 /*
  * GENERATED FILE - DO NOT EDIT
- * Copyright (c) 2008 - 2013 Code Red Technologies Ltd, 
- * Copyright 2015, 2018 NXP
- * (c) NXP Semiconductors 2013-2019
+ * (c) Code Red Technologies Ltd, 2008-2013
+ * (c) NXP Semiconductors 2013-2018
  * Generated linker script file for LPC1769
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * MCUXpresso IDE v10.3.1 [Build 2233] [2019-02-20] on May 13, 2019 5:35:02 PM
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 10/04/2018 12:10:34
  */
 
 INCLUDE "pi7_Debug_library.ld"
@@ -23,7 +22,7 @@ SECTIONS
         __vectors_start__ = ABSOLUTE(.) ;
         KEEP(*(.isr_vector))
         /* Global Section Table */
-        . = ALIGN(4) ;
+        . = ALIGN(4) ; 
         __section_table_start = .;
         __data_section_table = .;
         LONG(LOADADDR(.data));
@@ -40,17 +39,17 @@ SECTIONS
         LONG(  SIZEOF(.bss_RAM2));
         __bss_section_table_end = .;
         __section_table_end = . ;
-        /* End of Global Section Table */
+	    /* End of Global Section Table */
 
         *(.after_vectors*)
 
-    } > MFlash512
+    } >MFlash512
 
-    .text : ALIGN(4)
+    .text : ALIGN(4)    
     {
-       *(.text*)
-       *(.rodata .rodata.* .constdata .constdata.*)
-       . = ALIGN(4);
+        *(.text*)
+        *(.rodata .rodata.* .constdata .constdata.*)
+        . = ALIGN(4);
     } > MFlash512
     /*
      * for exception handling/unwind - some Newlib functions (in common
@@ -60,7 +59,6 @@ SECTIONS
     {
         *(.ARM.extab* .gnu.linkonce.armextab.*)
     } > MFlash512
-
     __exidx_start = .;
 
     .ARM.exidx : ALIGN(4)
@@ -68,11 +66,10 @@ SECTIONS
         *(.ARM.exidx* .gnu.linkonce.armexidx.*)
     } > MFlash512
     __exidx_end = .;
- 
+
     _etext = .;
         
     /* DATA section for RamAHB32 */
-
     .data_RAM2 : ALIGN(4)
     {
         FILL(0xff)
@@ -84,6 +81,7 @@ SECTIONS
         . = ALIGN(4) ;
         PROVIDE(__end_data_RAM2 = .) ;
      } > RamAHB32 AT>MFlash512
+
     /* MAIN DATA SECTION */
     .uninit_RESERVED : ALIGN(4)
     {
@@ -91,7 +89,6 @@ SECTIONS
         . = ALIGN(4) ;
         _end_uninit_RESERVED = .;
     } > RamLoc32
-
     /* Main DATA section (RamLoc32) */
     .data : ALIGN(4)
     {
@@ -103,7 +100,6 @@ SECTIONS
        . = ALIGN(4) ;
        _edata = . ;
     } > RamLoc32 AT>MFlash512
-
     /* BSS section for RamAHB32 */
     .bss_RAM2 : ALIGN(4)
     {
@@ -113,7 +109,6 @@ SECTIONS
        . = ALIGN (. != 0 ? 4 : 1) ; /* avoid empty segment */
        PROVIDE(__end_bss_RAM2 = .) ;
     } > RamAHB32 
-
     /* MAIN BSS SECTION */
     .bss : ALIGN(4)
     {
@@ -124,7 +119,6 @@ SECTIONS
         _ebss = .;
         PROVIDE(end = .);
     } > RamLoc32
-
     /* NOINIT section for RamAHB32 */
     .noinit_RAM2 (NOLOAD) : ALIGN(4)
     {
@@ -132,7 +126,6 @@ SECTIONS
        *(.noinit.$RamAHB32*)
        . = ALIGN(4) ;
     } > RamAHB32 
-
     /* DEFAULT NOINIT SECTION */
     .noinit (NOLOAD): ALIGN(4)
     {
@@ -141,6 +134,7 @@ SECTIONS
          . = ALIGN(4) ;
         _end_noinit = .;
     } > RamLoc32
+
     PROVIDE(_pvHeapStart = DEFINED(__user_heap_base) ? __user_heap_base : .);
     PROVIDE(_vStackTop = DEFINED(__user_stack_top) ? __user_stack_top : __top_RamLoc32 - 0);
 
@@ -154,13 +148,4 @@ SECTIONS
                                          + (( DEFINED(BusFault_Handler) ? BusFault_Handler : 0 ) + 1)     /* BusFault_Handler may not be defined */
                                          + (( DEFINED(UsageFault_Handler) ? UsageFault_Handler : 0 ) + 1) /* UsageFault_Handler may not be defined */
                                          ) );
-
-    /* Provide basic symbols giving location and size of main text
-     * block, including initial values of RW data sections. Note that
-     * these will need extending to give a complete picture with
-     * complex images (e.g multiple Flash banks).
-     */
-    _image_start = LOADADDR(.text);
-    _image_end = LOADADDR(.data) + SIZEOF(.data);
-    _image_size = _image_end - _image_start;
 }

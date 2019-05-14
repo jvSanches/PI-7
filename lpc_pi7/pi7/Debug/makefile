@@ -57,6 +57,7 @@ post-build:
 	-arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
 	-@echo ' '
 
-.PHONY: all clean dependents post-build
+.PHONY: all clean dependents
+.SECONDARY: post-build
 
 -include ../makefile.targets

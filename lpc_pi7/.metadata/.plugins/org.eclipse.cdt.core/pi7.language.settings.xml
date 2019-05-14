@@ -4,6 +4,27 @@
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider id="com.crt.advproject.GCCBuildCommandParser">
 				<language id="org.eclipse.cdt.core.gcc">
+					<resource project-relative-path="src/pi7/controlador_trajetoria/controlador_trajetoria.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
 					<resource project-relative-path="src/drivers/ledonboard/leds.c">
 						<entry kind="includePath" name="/${ProjName}/src">
 							<flag value="VALUE_WORKSPACE_PATH"/>
@@ -193,6 +214,27 @@
 						<entry kind="macro" name="__NEWLIB__" value=""/>
 						<entry kind="macro" name="__USE_CMSIS" value=""/>
 					</resource>
+					<resource project-relative-path="FreeRTOS_portable/MemMang/heap_2.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
 					<resource project-relative-path="src/pi7/programa_trajetoria/programa_trajetoria.c">
 						<entry kind="includePath" name="/${ProjName}/src">
 							<flag value="VALUE_WORKSPACE_PATH"/>
@@ -319,7 +361,70 @@
 						<entry kind="macro" name="__NEWLIB__" value=""/>
 						<entry kind="macro" name="__USE_CMSIS" value=""/>
 					</resource>
+					<resource project-relative-path="src/drivers/console/alloc.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="FreeRTOS_portable/port.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
 					<resource project-relative-path="src/drivers/console/basic_io.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_include">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/FreeRTOS_portable">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/OtherIncludes">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="GCC_ARMCM3" value=""/>
+						<entry kind="macro" name="MALLOC_PROVIDED" value=""/>
+						<entry kind="macro" name="PACK_STRUCT_END" value="__attribute\(\(packed\)\)"/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__NEWLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value=""/>
+					</resource>
+					<resource project-relative-path="FreeRTOS_src/timers.c">
 						<entry kind="includePath" name="/${ProjName}/src">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>

@@ -1,12 +1,11 @@
 /*
  * GENERATED FILE - DO NOT EDIT
- * Copyright (c) 2008 - 2013 Code Red Technologies Ltd, 
- * Copyright 2015, 2018 NXP
- * (c) NXP Semiconductors 2013-2019
+ * (c) Code Red Technologies Ltd, 2008-2013
+ * (c) NXP Semiconductors 2013-2018
  * Generated linker script file for LPC1769
  * Created from memory.ldt by FMCreateLinkMemory
  * Using Freemarker v2.3.23
- * MCUXpresso IDE v10.3.1 [Build 2233] [2019-02-20] on May 13, 2019 5:35:01 PM
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 10/04/2018 12:10:34
  */
 
 MEMORY

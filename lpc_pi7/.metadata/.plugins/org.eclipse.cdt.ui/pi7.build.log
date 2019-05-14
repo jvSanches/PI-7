@@ -1,168 +1,41 @@
-17:35:02 **** Build of configuration Debug for project pi7 ****
-make -r -j8 all 
-Building file: ../src/pi7/programa_trajetoria/programa_trajetoria.c
-Building file: ../src/pi7/interpretador_comando/interpretador_comando.c
-Building file: ../src/pi7/estado_trajetoria/estado_trajetoria.c
-Building file: ../src/pi7/controlador_trajetoria/controlador_trajetoria.c
-Building file: ../src/pi7/comunicacao_pic/comunicacao_pic.c
+12:10:34 **** Incremental Build of configuration Debug for project pi7 ****
+make -r all 
 Building file: ../src/pi7/comunicacao_pc/modbus.c
 Invoking: MCU C Compiler
-Building file: ../src/drivers/uart/uart.c
-Building file: ../src/drivers/pwm/pwm.c
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/programa_trajetoria/programa_trajetoria.d" -MT"src/pi7/programa_trajetoria/programa_trajetoria.o" -MT"src/pi7/programa_trajetoria/programa_trajetoria.d" -o "src/pi7/programa_trajetoria/programa_trajetoria.o" "../src/pi7/programa_trajetoria/programa_trajetoria.c"
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/interpretador_comando/interpretador_comando.d" -MT"src/pi7/interpretador_comando/interpretador_comando.o" -MT"src/pi7/interpretador_comando/interpretador_comando.d" -o "src/pi7/interpretador_comando/interpretador_comando.o" "../src/pi7/interpretador_comando/interpretador_comando.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/estado_trajetoria/estado_trajetoria.d" -MT"src/pi7/estado_trajetoria/estado_trajetoria.o" -MT"src/pi7/estado_trajetoria/estado_trajetoria.d" -o "src/pi7/estado_trajetoria/estado_trajetoria.o" "../src/pi7/estado_trajetoria/estado_trajetoria.c"
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/controlador_trajetoria/controlador_trajetoria.d" -MT"src/pi7/controlador_trajetoria/controlador_trajetoria.o" -MT"src/pi7/controlador_trajetorInvoking: MCU C Compiler
-ia/controlador_trajetoria.d" -o "src/pi7/controlador_trajetoria/controlador_trajetoria.o" "../src/pi7/controlador_trajetoria/controlador_trajetoria.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/comunicacao_pic/comunicacao_pic.d" -MT"src/pi7/comunicacao_pic/comunicacao_pic.o" -MT"src/pi7/comunicacao_pic/comunicacao_pic.d" -o "src/pi7/comunicacao_pic/comunicacao_pic.o" "../src/pi7/comunicacao_pic/comunicacao_pic.c"
 arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/comunicacao_pc/modbus.d" -MT"src/pi7/comunicacao_pc/modbus.o" -MT"src/pi7/comunicacao_pc/modbus.d" -o "src/pi7/comunicacao_pc/modbus.o" "../src/pi7/comunicacao_pc/modbus.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/uart/uart.d" -MT"src/drivers/uart/uart.o" -MT"src/drivers/uart/uart.d" -o "src/drivers/uart/uart.o" "../src/drivers/uart/uart.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/pwm/pwm.d" -MT"src/drivers/pwm/pwm.o" -MT"src/drivers/pwm/pwm.d" -o "src/drivers/pwm/pwm.o" "../src/drivers/pwm/pwm.c"
-../src/pi7/comunicacao_pic/comunicacao_pic.c: In function 'pic_sendToPIC':
-../src/pi7/comunicacao_pic/comunicacao_pic.c:26:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
-  printf("X=%d Y=%d Z=%d\n", data.setPoint1, data.setPoint2, data.setPoint3);
-            ~^               ~~~~~~~~~~~~~~
-            %f
-../src/pi7/comunicacao_pic/comunicacao_pic.c:26:18: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
-  printf("X=%d Y=%d Z=%d\n", data.setPoint1, data.setPoint2, data.setPoint3);
-                 ~^                          ~~~~~~~~~~~~~~
-                 %f
 ../src/pi7/comunicacao_pc/modbus.c: In function 'putCharToSerial':
-../src/pi7/comunicacao_pic/comunicacao_pic.c:26:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'double' [-Wformat=]
-  printf("X=%d Y=%d Z=%d\n", data.setPoint1, data.setPoint2, data.setPoint3);
-                      ~^                                     ~~~~~~~~~~~~~~
-                      %f
 ../src/pi7/comunicacao_pc/modbus.c:120:19: warning: pointer targets in passing argument 1 of 'vPrintString' differ in signedness [-Wpointer-sign]
       vPrintString(txBuffer);
-                   ^~~~~~~~
+                   ^
 In file included from ../src/pi7/comunicacao_pc/modbus.c:20:0:
 ../src/drivers/console/basic_io.h:36:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
  void vPrintString( const portCHAR *pcString );
-      ^~~~~~~~~~~~
-Finished building: ../src/drivers/pwm/pwm.c
-Finished building: ../src/pi7/programa_trajetoria/programa_trajetoria.c
-Finished building: ../src/pi7/estado_trajetoria/estado_trajetoria.c
-Finished building: ../src/pi7/controlador_trajetoria/controlador_trajetoria.c
-Finished building: ../src/pi7/interpretador_comando/interpretador_comando.c
-Finished building: ../src/pi7/comunicacao_pic/comunicacao_pic.c
+      ^
 Finished building: ../src/pi7/comunicacao_pc/modbus.c
-Finished building: ../src/drivers/uart/uart.c
  
- 
- 
- 
- 
- 
- 
- 
-Building file: ../src/drivers/ledonboard/leds.c
-Building file: ../src/drivers/console/alloc.c
-Building file: ../src/drivers/console/basic_io.c
-Building file: ../src/drivers/console/consoleprint.c
-Building file: ../src/cr_startup_lpc17.c
 Building file: ../src/main.c
 Invoking: MCU C Compiler
-Building file: ../FreeRTOS_src/croutine.c
-Invoking: MCU C Compiler
-Building file: ../FreeRTOS_src/list.c
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/ledonboard/leds.d" -MT"src/drivers/ledonboard/leds.o" -MT"src/drivers/ledonboard/leds.d" -o "src/drivers/ledonboard/leds.o" "../src/drivers/ledonboard/leds.c"
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/console/alloc.d" -MT"src/drivers/console/alloc.o" -MT"src/drivers/console/alloc.d" -o "src/drivers/console/alloc.o" "../src/drivers/consolInvoking: MCU C Compiler
-e/alloc.c"
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/console/consoleprint.d" -MT"src/drivers/console/consoleprint.o" -MT"src/drivers/console/consoleprint.d" -o "src/drivers/console/consoleprint.o" "../src/drivers/console/consoleprint.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/cr_startup_lpc17.d" -MT"src/cr_startup_lpc17.o" -MT"src/cr_startup_lpc17.d" -o "src/cr_startup_lpc17.o" "../src/cr_startup_lpc17.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/console/basic_io.d" -MT"src/drivers/console/basic_io.o" -MT"src/drivers/console/basic_io.d" -o "src/drivers/console/basic_io.o" "../src/drivers/console/basic_io.c"
 arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"FreeRTOS_src/croutine.d" -MT"FreeRTOS_src/croutine.o" -MT"FreeRTOS_src/croutine.d" -o "FreeRTOS_src/croutine.o" "../FreeRTOS_src/croutine.c"
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"FreeRTOS_src/list.d" -MT"FreeRTOS_src/list.o" -MT"FreeRTOS_src/list.d" -o "FreeRTOS_src/list.o" "../FreeRTOS_src/list.c"
 ../src/main.c: In function 'main':
 ../src/main.c:138:7: warning: unused variable 'ch' [-Wunused-variable]
   char ch;
-       ^~
+       ^
 ../src/main.c:137:6: warning: unused variable 'i' [-Wunused-variable]
   int i;
       ^
-../src/drivers/console/alloc.c:25:1: error: unknown type name '_PTR'
- _PTR _realloc_r(struct _reent *re, _PTR oldAddr, size_t newSize) {
- ^~~~
-../src/drivers/console/alloc.c:25:36: error: unknown type name '_PTR'
- _PTR _realloc_r(struct _reent *re, _PTR oldAddr, size_t newSize) {
-                                    ^~~~
-../src/drivers/console/alloc.c:50:1: error: unknown type name '_PTR'
- _PTR _calloc_r(struct _reent *re, size_t num, size_t size) {
- ^~~~
-../src/drivers/console/alloc.c:50:6: error: conflicting types for '_calloc_r'
- _PTR _calloc_r(struct _reent *re, size_t num, size_t size) {
-      ^~~~~~~~~
-In file included from ../src/drivers/console/alloc.c:12:0:
-d:\nxp\mcuxpressoide_10.3.1_2233\ide\plugins\com.nxp.mcuxpresso.tools.win32_10.3.0.201811011841\tools\arm-none-eabi\include\stdlib.h:291:8: note: previous declaration of '_calloc_r' was here
-Finished building: ../src/drivers/ledonboard/leds.c
- void * _calloc_r (struct _reent *, size_t, size_t) _NOTHROW;
- 
-        ^~~~~~~~~
-Finished building: ../src/cr_startup_lpc17.c
-../src/drivers/console/alloc.c: In function '_calloc_r':
-../src/drivers/console/alloc.c:51:9: warning: return makes integer from pointer without a cast [-Wint-conversion]
-  return pvPortMalloc(num*size);
-         ^~~~~~~~~~~~~~~~~~~~~~
-../src/drivers/console/alloc.c: At top level:
-../src/drivers/console/alloc.c:54:1: error: unknown type name '_PTR'
- _PTR _malloc_r(struct _reent *re, size_t size) {
- ^~~~
-../src/drivers/console/alloc.c:54:6: error: conflicting types for '_malloc_r'
- _PTR _malloc_r(struct _reent *re, size_t size) {
-      ^~~~~~~~~
-In file included from ../src/drivers/console/alloc.c:12:0:
-d:\nxp\mcuxpressoide_10.3.1_2233\ide\plugins\com.nxp.mcuxpresso.tools.win32_10.3.0.201811011841\tools\arm-none-eabi\include\stdlib.h:290:8: note: previous declaration of '_malloc_r' was here
- void * _malloc_r (struct _reent *, size_t) _NOTHROW;
-        ^~~~~~~~~
-../src/drivers/console/alloc.c: In function '_malloc_r':
-../src/drivers/console/alloc.c:55:9: warning: return makes integer from pointer without a cast [-Wint-conversion]
-  return pvPortMalloc(size);
-         ^~~~~~~~~~~~~~~~~~
-../src/drivers/console/alloc.c: At top level:
-../src/drivers/console/alloc.c:58:1: error: unknown type name '_VOID'
- 
- _VOID _free_r(struct _reent *re, _PTR ptr) {
- ^~~~~
-../src/drivers/console/alloc.c:58:34: error: unknown type name '_PTR'
- _VOID _free_r(struct _reent *re, _PTR ptr) {
-                                  ^~~~
-../src/drivers/console/alloc.c:23:30: warning: 'heapSTRUCT_SIZE' defined but not used [-Wunused-const-variable=]
- static const unsigned short  heapSTRUCT_SIZE = ( sizeof( xBlockLink ) + portBYTE_ALIGNMENT - ( sizeof( xBlockLink ) % portBYTE_ALIGNMENT ) );
-                              ^~~~~~~~~~~~~~~
-Building file: ../FreeRTOS_src/queue.c
-Finished building: ../src/drivers/console/basic_io.c
-Building file: ../FreeRTOS_src/tasks.c
-Invoking: MCU C Compiler
-Finished building: ../FreeRTOS_src/croutine.c
-make: *** [src/drivers/console/subdir.mk:27: src/drivers/console/alloc.o] Error 1
-make: *** Waiting for unfinished jobs....
-Finished building: ../FreeRTOS_src/list.c
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"FreeRTOS_src/queue.d" -MT"FreeRTOS_src/queue.o" -MT"FreeRTOS_src/queue.d" -o "FreeRTOS_src/queue.o" "../FreeRTOS_src/queue.c"
-Finished building: ../src/drivers/console/consoleprint.c
- 
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"FreeRTOS_src/tasks.d" -MT"FreeRTOS_src/tasks.o" -MT"FreeRTOS_src/tasks.d" -o "FreeRTOS_src/tasks.o" "../FreeRTOS_src/tasks.c"
- 
- 
 Finished building: ../src/main.c
  
+Building target: pi7.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L../Libraries -msoft-float -DMALLOC_PROVIDED -Xlinker -Map="pi7.map" -mcpu=cortex-m3 -mthumb -T "pi7_Debug.ld" -o "pi7.axf"  ./src/pi7/programa_trajetoria/programa_trajetoria.o  ./src/pi7/interpretador_comando/interpretador_comando.o  ./src/pi7/estado_trajetoria/estado_trajetoria.o  ./src/pi7/controlador_trajetoria/controlador_trajetoria.o  ./src/pi7/comunicacao_pic/comunicacao_pic.o  ./src/pi7/comunicacao_pc/modbus.o  ./src/drivers/uart/uart.o  ./src/drivers/pwm/pwm.o  ./src/drivers/ledonboard/leds.o  ./src/drivers/console/alloc.o ./src/drivers/console/basic_io.o ./src/drivers/console/consoleprint.o  ./src/cr_startup_lpc17.o ./src/main.o  ./FreeRTOS_src/croutine.o ./FreeRTOS_src/list.o ./FreeRTOS_src/queue.o ./FreeRTOS_src/tasks.o ./FreeRTOS_src/timers.o  ./FreeRTOS_portable/MemMang/heap_2.o  ./FreeRTOS_portable/port.o   -lCMSISv2_LPC17xx
+Finished building target: pi7.axf
  
-Finished building: ../FreeRTOS_src/queue.c
- 
-Finished building: ../FreeRTOS_src/tasks.c
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
+   text	   data	    bss	    dec	    hex	filename
+  46720	   1252	  22972	  70944	  11520	pi7.axf
  
 
-17:35:08 Build Finished (took 6s.342ms)
+12:11:24 Build Finished (took 49s.961ms)
 
