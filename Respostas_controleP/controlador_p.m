@@ -16,12 +16,15 @@ for Kp = data_start:1:data_end
         pos(i) = pos(i-1) + delta_pos(i+1);
     end
 
-    plot(t,pos);
+    plot(t,pos,'LineWidth',1);
     ylim([0 1200]);
     refline(0,1000);
     L = [L,string(Kp)];
     legend(L);
     hold on;
 end
-title("PWM boost  -  Amplitude: 1000 ticks");
+title("Amplitude: 1000 ticks  - Correção de PWM");
+%suptitle("Resposta ao degrau ");
 suptitle("Resposta ao degrau para ganhos variados");
+xlabel("Tempo [s]");
+ylabel("Posição [ticks]");
