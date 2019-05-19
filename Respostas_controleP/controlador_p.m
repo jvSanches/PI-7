@@ -1,10 +1,10 @@
 L ='ref';
-data = boost_data;
-data_start = boost_data(1,1);
+data = no_boost_data;
+data_start = data(1,1);
 [len, wid] = size(data);
-data_end = boost_data(len,1);
+data_end = data(len,1);
 
-for Kp = data_start:data_end
+for Kp = data_start:1:data_end
     delta_pos = data(Kp - (data_start-1), :);
     samples = length(delta_pos)-1;
 
