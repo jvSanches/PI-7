@@ -1,6 +1,6 @@
-15:39:58 **** Incremental Build of configuration Debug for project pi7 ****
+22:53:29 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
 make: Nothing to be done for `all'.
 
-15:39:58 Build Finished (took 219ms)
+22:53:29 Build Finished (took 158ms)
 

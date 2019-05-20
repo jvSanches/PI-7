@@ -51,9 +51,12 @@ xQueueHandle qControlCommands;
 xQueueHandle qCommPIC;
 xQueueHandle qCommDev;
 
+portTickType lastWakeTime;
+
 void taskController(void *pvParameters) {
    while(1) {
       com_executeCommunication(); //internally, it calls Controller to process events
+      vTaskDelayUntil(&lastWakeTime, DELAY_200MS);
    } //task loop
 } // taskController
 
@@ -63,7 +66,7 @@ void taskController(void *pvParameters) {
  * Runs every 200ms (may generate up to 5 new setpoints per second to interpolate trajectory)
  * Note the use of vTaskDelayUntil instead of vTaskDelay; this will cause system to run every 200ms.
  */
-portTickType lastWakeTime;
+
 void taskNCProcessing(void *pvParameters) {
 	   trj_Data data;
        lastWakeTime = xTaskGetTickCount();
@@ -93,7 +96,11 @@ void taskBlinkLed(void *lpParameters) {
 	while(1) {
 		//led2_off();
 		led2_invert();
-		vTaskDelay(DELAY_200MS);
+		vTaskDelay(DELAY_1SEC);
+//		char sVar[10];
+//		sprintf(sVar, "Blink ");
+//		UARTSendNullTerminated(0, sVar);
+
 	} // task loop
 } //taskBlinkLed
 
@@ -150,8 +157,8 @@ int main(void) {
 	/* 
 	 * Start the tasks defined within this file/specific to this demo. 
 	 */
+	xTaskCreate( taskController, ( signed portCHAR * ) "Controller", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskBlinkLed, ( signed portCHAR * ) "BlinkLed", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	//xTaskCreate( taskController, ( signed portCHAR * ) "Controller", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	//xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	//xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 

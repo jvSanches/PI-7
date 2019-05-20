@@ -19,6 +19,7 @@ for Kp = data_start:1:data_end
     plot(t,pos,'LineWidth',1);
     ylim([0 1200]);
     refline(0,1000);
+    text(0.7+((Kp-data_start)/50), pos(100)+15, "Kp = " + string(Kp));
     L = [L,string(Kp)];
     legend(L);
     hold on;
