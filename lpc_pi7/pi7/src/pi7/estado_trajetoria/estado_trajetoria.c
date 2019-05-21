@@ -7,9 +7,9 @@
 #include <stdio.h>
 
 int stt_line;
-float stt_x;
-float stt_y;
-float stt_z;
+float stt_x = 66;
+float stt_y = 67;
+float stt_z = 68;
 
 int stt_getCurrentLine() {
 	return stt_line;

@@ -172,6 +172,18 @@ byte calculateLRC(byte* frame, int start, int end) {
   return accum;
 } // calculateLRC
 
+
+byte myLRC (byte *nData, int start, int end)
+{
+byte nLRC = 0 ; // LRC char initialized
+
+for (int i= start; i < end; i++)
+nLRC += nData[i];
+
+return (byte)(-nLRC);
+
+} // End: LRC
+
 int checkLRC() {
   int retval;
   byte receivedLRC;
@@ -184,9 +196,9 @@ int checkLRC() {
   }
   retval = FALSE;
   receivedLRC = decode(rxBuffer[idxRxBuffer-3], rxBuffer[idxRxBuffer-2]);
-  calculatedLRC = calculateLRC(rxBuffer, 1, idxRxBuffer - 3);
+  calculatedLRC = myLRC(rxBuffer, 1, idxRxBuffer - 3);//calculateLRC(rxBuffer, 1, idxRxBuffer - 3);
   printf("LCR rx=%x calc=%x \n", receivedLRC, calculatedLRC);
-  return TRUE; ///////////Gambiarra
+  //return TRUE; ///////////Gambiarra
   if ( receivedLRC == calculatedLRC) {
      retval = TRUE;
   }
@@ -222,7 +234,7 @@ void processReadRegister() {
    txBuffer[6] = encodeLow(1);  // byte count field (low part)
    txBuffer[7] = encodeHigh(registerValue);
    txBuffer[8] = encodeLow(registerValue);
-   lrc = calculateLRC(txBuffer, 1, 8);
+   lrc = myLRC(txBuffer, 1, 9);
    txBuffer[9] = encodeHigh(lrc);
    txBuffer[10] = encodeLow(lrc);
    txBuffer[11] = 0x0d;
@@ -255,7 +267,7 @@ void processWriteRegister() {
 	   txBuffer[8] = encodeLow(registerToWrite);
 	   txBuffer[9] = encodeHigh(registerValue);
 	   txBuffer[10] = encodeLow(registerValue);
-	   lrc = calculateLRC(txBuffer, 1, 10);
+	   lrc = myLRC(txBuffer, 1, 11);
 	   txBuffer[11] = encodeHigh(lrc);
 	   txBuffer[12] = encodeLow(lrc);
 	   txBuffer[13] = 0x0d;
