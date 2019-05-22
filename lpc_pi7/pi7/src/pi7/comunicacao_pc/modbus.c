@@ -116,10 +116,12 @@ byte encodeHigh(byte value) {
     nenhum
 *************************************************************************/
 void putCharToSerial() {
+
   if (_mode == DEVELOPMENT_MODE ) {
      vPrintString(txBuffer);
      vPrintString("\r");
   } else {
+
      UARTSendNullTerminated(0, txBuffer);
   }
 } // putCharToSerial
@@ -230,16 +232,21 @@ void processReadRegister() {
    txBuffer[2] = encodeLow(MY_ADDRESS);
    txBuffer[3] = encodeHigh(READ_REGISTER);
    txBuffer[4] = encodeLow(READ_REGISTER);
-   txBuffer[5] = encodeHigh(1); // byte count field  (high part)
-   txBuffer[6] = encodeLow(1);  // byte count field (low part)
-   txBuffer[7] = encodeHigh(registerValue);
-   txBuffer[8] = encodeLow(registerValue);
-   lrc = myLRC(txBuffer, 1, 9);
-   txBuffer[9] = encodeHigh(lrc);
-   txBuffer[10] = encodeLow(lrc);
-   txBuffer[11] = 0x0d;
-   txBuffer[12] = 0x0a;
-   txBuffer[13] = 0; // null to end as string
+   txBuffer[5] = encodeHigh(0);
+   txBuffer[6] = encodeLow(0);
+   txBuffer[7] = encodeHigh(1); // byte count field  (high part)
+   txBuffer[8] = encodeLow(1);  // byte count field (low part)
+   txBuffer[9] = encodeHigh(0);
+   txBuffer[10] = encodeLow(0);
+   txBuffer[11] = encodeHigh(registerValue);
+   txBuffer[12] = encodeLow(registerValue);
+   lrc = myLRC(txBuffer, 1, 13);
+   txBuffer[13] = encodeHigh(lrc);
+   txBuffer[14] = encodeLow(lrc);
+   txBuffer[15] = 0x0d;
+   txBuffer[16] = 0x0a;
+   txBuffer[17] = 0; // null to end as string
+
    putCharToSerial();
 } // processReadRegister
 
@@ -249,31 +256,34 @@ void processWriteRegister() {
 	   byte lrc;
 
 	   registerToWrite = decode ( rxBuffer[7], rxBuffer[8]);
-	   registerValue = decode(rxBuffer[9], rxBuffer[10]);
+	   registerValue = decode(rxBuffer[11], rxBuffer[12]);
 
 	   // Aciona controller porque a arquitetura MVC
 	   // exige que todas as interacoes se deem atraves do controller.
-	   registerValue = ctl_WriteRegister(registerToWrite, registerValue);
+	   if (ctl_WriteRegister(registerToWrite, registerValue)){
 
-	   // Monta frame de resposta e a envia
-	   txBuffer[0] = ':';
-	   txBuffer[1] = encodeHigh(MY_ADDRESS);
-	   txBuffer[2] = encodeLow(MY_ADDRESS);
-	   txBuffer[3] = encodeHigh(WRITE_REGISTER);
-	   txBuffer[4] = encodeLow(WRITE_REGISTER);
-	   txBuffer[5] = encodeHigh(1); // byte count field  (high part)
-	   txBuffer[6] = encodeLow(1);  // byte count field (low part)
-	   txBuffer[7] = encodeHigh(registerToWrite);
-	   txBuffer[8] = encodeLow(registerToWrite);
-	   txBuffer[9] = encodeHigh(registerValue);
-	   txBuffer[10] = encodeLow(registerValue);
-	   lrc = myLRC(txBuffer, 1, 11);
-	   txBuffer[11] = encodeHigh(lrc);
-	   txBuffer[12] = encodeLow(lrc);
-	   txBuffer[13] = 0x0d;
-	   txBuffer[14] = 0x0a;
-	   txBuffer[15] = 0; // null to end as string
-	   putCharToSerial();
+		   // Monta frame de resposta e a envia
+		   txBuffer[0] = ':';
+		   txBuffer[1] = encodeHigh(MY_ADDRESS);
+		   txBuffer[2] = encodeLow(MY_ADDRESS);
+		   txBuffer[3] = encodeHigh(WRITE_REGISTER);
+		   txBuffer[4] = encodeLow(WRITE_REGISTER);
+		   txBuffer[5] = encodeHigh(0);
+		   txBuffer[6] = encodeLow(0);
+		   txBuffer[7] = encodeHigh(registerToWrite);
+		   txBuffer[8] = encodeLow(registerToWrite);
+		   txBuffer[9] = encodeHigh(0);
+		   txBuffer[10] = encodeLow(0);
+		   txBuffer[11] = encodeHigh(registerValue);
+		   txBuffer[12] = encodeLow(registerValue);
+		   lrc = myLRC(txBuffer, 1, 13);
+		   txBuffer[13] = encodeHigh(lrc);
+		   txBuffer[14] = encodeLow(lrc);
+		   txBuffer[15] = 0x0d;
+		   txBuffer[16] = 0x0a;
+		   txBuffer[17] = 0; // null to end as string
+		   putCharToSerial();
+	   }
 } // processWriteRegister
 
 void processWriteFile() {

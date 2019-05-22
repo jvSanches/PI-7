@@ -38,6 +38,8 @@
 const portTickType DELAY_1SEC = 1000 / portTICK_RATE_MS;
 const portTickType DELAY_500MS = 500 / portTICK_RATE_MS;
 const portTickType DELAY_200MS = 200 / portTICK_RATE_MS;
+const portTickType DELAY_1MS = 1 / portTICK_RATE_MS;
+
 
 #define USERTASK_STACK_SIZE configMINIMAL_STACK_SIZE
 
@@ -53,10 +55,11 @@ xQueueHandle qCommDev;
 
 portTickType lastWakeTime;
 
+
 void taskController(void *pvParameters) {
    while(1) {
       com_executeCommunication(); //internally, it calls Controller to process events
-      vTaskDelayUntil(&lastWakeTime, DELAY_200MS);
+      vTaskDelayUntil(&lastWakeTime, DELAY_1MS);
    } //task loop
 } // taskController
 
@@ -142,11 +145,12 @@ uint8_t msgReadRegister[] = {0x3a, 0x00, 0x00, 0x30, 0x33, 0x00, 0x00, 0x30, 0x3
 uint8_t msgWriteRegister[] = {0x3a, 0x30, 0x31, 0x30, 0x36, 0x30, 0x30, 0x30, 0x30, 0x30, 0x31, 0x30, 0x30, 0x0d, 0x0a};
 
 int main(void) {
+
 	int i;
 	char ch;
 
 	//MB+ init Console(debug)
-	printf("nao apague esta linha\n");
+	printf("Nao apague esta linha\n");
 
 	// init hardware
 	setupHardware();

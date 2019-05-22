@@ -9,6 +9,7 @@
 
 // identification of register to write
 #define REG_START 0
+#define REG_AUX 1
 
 // error
 #define CTL_ERR -1

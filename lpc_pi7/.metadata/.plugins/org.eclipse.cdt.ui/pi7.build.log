@@ -1,21 +1,6 @@
-10:39:09 **** Incremental Build of configuration Debug for project pi7 ****
+22:18:49 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-Building file: ../src/pi7/estado_trajetoria/estado_trajetoria.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/estado_trajetoria/estado_trajetoria.d" -MT"src/pi7/estado_trajetoria/estado_trajetoria.o" -MT"src/pi7/estado_trajetoria/estado_trajetoria.d" -o "src/pi7/estado_trajetoria/estado_trajetoria.o" "../src/pi7/estado_trajetoria/estado_trajetoria.c"
-Finished building: ../src/pi7/estado_trajetoria/estado_trajetoria.c
- 
-Building target: pi7.axf
-Invoking: MCU Linker
-arm-none-eabi-gcc -nostdlib -L../Libraries -msoft-float -DMALLOC_PROVIDED -Xlinker -Map="pi7.map" -mcpu=cortex-m3 -mthumb -T "pi7_Debug.ld" -o "pi7.axf"  ./src/pi7/programa_trajetoria/programa_trajetoria.o  ./src/pi7/interpretador_comando/interpretador_comando.o  ./src/pi7/estado_trajetoria/estado_trajetoria.o  ./src/pi7/controlador_trajetoria/controlador_trajetoria.o  ./src/pi7/comunicacao_pic/comunicacao_pic.o  ./src/pi7/comunicacao_pc/modbus.o  ./src/drivers/uart/uart.o  ./src/drivers/pwm/pwm.o  ./src/drivers/ledonboard/leds.o  ./src/drivers/console/alloc.o ./src/drivers/console/basic_io.o ./src/drivers/console/consoleprint.o  ./src/cr_startup_lpc17.o ./src/main.o  ./FreeRTOS_src/croutine.o ./FreeRTOS_src/list.o ./FreeRTOS_src/queue.o ./FreeRTOS_src/tasks.o ./FreeRTOS_src/timers.o  ./FreeRTOS_portable/MemMang/heap_2.o  ./FreeRTOS_portable/port.o   -lCMSISv2_LPC17xx
-Finished building target: pi7.axf
- 
-/usr/bin/make --no-print-directory post-build
-Performing post-build steps
-arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
-   text	   data	    bss	    dec	    hex	filename
-  46680	   1260	  22960	  70900	  114f4	pi7.axf
- 
+make: Nothing to be done for `all'.
 
-10:39:10 Build Finished (took 797ms)
+22:18:49 Build Finished (took 502ms)
 

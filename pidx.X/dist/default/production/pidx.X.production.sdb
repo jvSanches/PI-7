@@ -1,0 +1,655 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F886 ]
+[d frameptr 6 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"417 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+[v _fround fround `(d  1 s 4 fround ]
+"433
+[v _scale scale `(d  1 s 4 scale ]
+"500
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"60 D:\Microchip\xc8\v2.05\pic\sources\c90\common\fldivl.c
+[v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
+"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"15 D:\Microchip\xc8\v2.05\pic\sources\c90\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+"43 D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"60 D:\Microchip\xc8\v2.05\pic\sources\c90\common\ftdivl.c
+[v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"242
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"8 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 D:\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"39 D:\Poli\PI-7\pidx.X\delay.c
+[v _DelayMs DelayMs `(v  1 e 1 0 ]
+"9 D:\Poli\PI-7\pidx.X\motor.c
+[v _mot_setExcitation mot_setExcitation `(v  1 e 1 0 ]
+"34
+[v _mot_init mot_init `(v  1 e 1 0 ]
+"26 D:\Poli\PI-7\pidx.X\multitasking_implementation.h
+[v _createTask createTask `(v  1 e 1 0 ]
+"32
+[v _executeTasks executeTasks `(v  1 e 1 0 ]
+"24 D:\Poli\PI-7\pidx.X\pid.c
+[v _pid_scaleExcitation pid_scaleExcitation `(i  1 e 2 0 ]
+"43
+[v _pid_pid pid_pid `(v  1 e 1 0 ]
+"66
+[v _pid_setPoint pid_setPoint `(v  1 e 1 0 ]
+"70
+[v _pid_setDerivativeGain pid_setDerivativeGain `(v  1 e 1 0 ]
+"74
+[v _pid_setIntegralGain pid_setIntegralGain `(v  1 e 1 0 ]
+"78
+[v _pid_setProportionalGain pid_setProportionalGain `(v  1 e 1 0 ]
+"82
+[v _pid_clearError pid_clearError `(v  1 e 1 0 ]
+"87
+[v _pid_init pid_init `(v  1 e 1 0 ]
+"64 D:\Poli\PI-7\pidx.X\position_controller_main.c
+[v _initPic initPic `(v  1 e 1 0 ]
+"89
+[v _isr isr `II(v  1 e 1 0 ]
+"124
+[v _initSys initSys `(v  1 e 1 0 ]
+"133
+[v _main main `(v  1 e 1 0 ]
+"20 D:\Poli\PI-7\pidx.X\position_sensor_implementation.h
+[v _pos_getCurrentPosition pos_getCurrentPosition `(i  1 e 2 0 ]
+"24
+[v _pos_setCurrentPosition pos_setCurrentPosition `(v  1 e 1 0 ]
+"28
+[v _pos_init pos_init `(v  1 e 1 0 ]
+"38 D:\Poli\PI-7\pidx.X\protocol.c
+[v _cleanupBuffer cleanupBuffer `(v  1 e 1 0 ]
+"47
+[v _framingError framingError `(v  1 e 1 0 ]
+"53
+[v _isValidCmd isValidCmd `(i  1 e 2 0 ]
+"63
+[v _addToIncomingBuffer addToIncomingBuffer `(v  1 e 1 0 ]
+"68
+[v _toMsgType toMsgType `(us  1 e 2 0 ]
+"83
+[v _isValid isValid `(i  1 e 2 0 ]
+"41 D:\Poli\PI-7\pidx.X\protocol.h
+[s S149 . 8 `uc 1 messageType 1 0 `[7]uc 1 value 7 1 ]
+"96 D:\Poli\PI-7\pidx.X\protocol.c
+[v _pro_getMessage pro_getMessage `(S149  1 e 8 0 ]
+"162
+[v _pro_init pro_init `(v  1 e 1 0 ]
+"173
+[v _pro_setMyId pro_setMyId `(v  1 e 1 0 ]
+"28 D:\Poli\PI-7\pidx.X\serial.c
+[v _serial_setup serial_setup `(v  1 e 1 0 ]
+"97
+[v _putch putch `(v  1 e 1 0 ]
+"144
+[v _chkchr chkchr `(uc  1 e 1 0 ]
+"151
+[v _clear_usart_errors clear_usart_errors `(v  1 e 1 0 ]
+"163
+[v _putchhex putchhex `(v  1 e 1 0 ]
+"226
+[v _putst putst `(v  1 e 1 0 ]
+"34 D:\Poli\PI-7\pidx.X\tasks.c
+[v _pid_task pid_task `(v  1 e 1 0 ]
+"44
+[v _protocol_task protocol_task `(v  1 e 1 0 ]
+"77
+[v _led_task led_task `(v  1 e 1 0 ]
+"91
+[v _initTasks initTasks `(v  1 e 1 0 ]
+"17 D:\Poli\PI-7\pidx.X\utils.c
+[v _convertToReal convertToReal `(f  1 e 4 0 ]
+"59 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"693
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"848
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
+"862
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
+"1054
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1061
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1075
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @27 ]
+"1089
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @29 ]
+"1267
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1399
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1461
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1883
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2484
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"3510
+[v _BRGH BRGH `VEb  1 e 0 @1218 ]
+"3603
+[v _CCP1X CCP1X `VEb  1 e 0 @189 ]
+"3606
+[v _CCP1Y CCP1Y `VEb  1 e 0 @188 ]
+"3627
+[v _CCP2X CCP2X `VEb  1 e 0 @237 ]
+"3630
+[v _CCP2Y CCP2Y `VEb  1 e 0 @236 ]
+"3651
+[v _CREN CREN `VEb  1 e 0 @196 ]
+"3702
+[v _FERR FERR `VEb  1 e 0 @194 ]
+"3711
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"3816
+[v _OERR OERR `VEb  1 e 0 @193 ]
+"3933
+[v _RB5 RB5 `VEb  1 e 0 @53 ]
+"3957
+[v _RC3 RC3 `VEb  1 e 0 @59 ]
+"3960
+[v _RC4 RC4 `VEb  1 e 0 @60 ]
+"3963
+[v _RC5 RC5 `VEb  1 e 0 @61 ]
+"3987
+[v _RCIE RCIE `VEb  1 e 0 @1125 ]
+"3990
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
+"4011
+[v _RX9 RX9 `VEb  1 e 0 @198 ]
+"4041
+[v _SPEN SPEN `VEb  1 e 0 @199 ]
+"4050
+[v _SREN SREN `VEb  1 e 0 @197 ]
+"4095
+[v _SYNC SYNC `VEb  1 e 0 @1220 ]
+"4101
+[v _T0IE T0IE `VEb  1 e 0 @93 ]
+"4104
+[v _T0IF T0IF `VEb  1 e 0 @90 ]
+"4236
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
+"4278
+[v _TX9 TX9 `VEb  1 e 0 @1222 ]
+"4287
+[v _TXEN TXEN `VEb  1 e 0 @1221 ]
+"4290
+[v _TXIE TXIE `VEb  1 e 0 @1124 ]
+"4293
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"358 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+[v _dpowers dpowers `DC[10]ul  1 s 40 dpowers ]
+"7 D:\Microchip\xc8\v2.05\pic\sources\c90\common\powers.c
+[v __powers_ _powers_ `DC[13]d  1 e 52 0 ]
+"39
+[v __npowers_ _npowers_ `DC[13]d  1 e 52 0 ]
+"21 D:\Poli\PI-7\pidx.X\delay.c
+[v _delayus_variable delayus_variable `uc  1 e 1 0 ]
+"13 D:\Poli\PI-7\pidx.X\multitasking_implementation.h
+[v _tsk_timeStamp tsk_timeStamp `VEi  1 s 2 tsk_timeStamp ]
+[s S87 . 5 `*.27(v 1 taskFunction 1 0 `i 1 scheduleInterval 2 1 `i 1 lastActivation 2 3 ]
+"22
+[v _tsk_tasks tsk_tasks `[3]S87  1 s 15 tsk_tasks ]
+"23
+[v _tsk_task tsk_task `*.27(v  1 s 1 tsk_task ]
+"24
+[v _tsk_elapsedTime tsk_elapsedTime `i  1 s 2 tsk_elapsedTime ]
+"14 D:\Poli\PI-7\pidx.X\pid.c
+[v _excitation excitation `i  1 s 2 excitation ]
+"16
+[v _currentPosition currentPosition `f  1 s 4 currentPosition ]
+"17
+[v _setPoint setPoint `f  1 s 4 setPoint ]
+"18
+[v _integralError integralError `f  1 s 4 integralError ]
+"19
+[v _previousError previousError `f  1 s 4 previousError ]
+"20
+[v _kProportional kProportional `f  1 s 4 kProportional ]
+"21
+[v _kIntegral kIntegral `f  1 s 4 kIntegral ]
+"22
+[v _kDerivative kDerivative `f  1 s 4 kDerivative ]
+"39
+[v _activation activation `f  1 s 4 activation ]
+"40
+[v _error error `f  1 s 4 error ]
+"84 D:\Poli\PI-7\pidx.X\position_controller_main.c
+[v _interruptCounter interruptCounter `VEuc  1 s 1 interruptCounter ]
+"11 D:\Poli\PI-7\pidx.X\position_sensor_implementation.h
+[v _pos_currentPosition pos_currentPosition `VEi  1 s 2 pos_currentPosition ]
+"12
+[v _pos_previousEncoder pos_previousEncoder `VEuc  1 s 1 pos_previousEncoder ]
+"13
+[v _pos_currentEncoder pos_currentEncoder `VEuc  1 s 1 pos_currentEncoder ]
+"14
+[v _pos_inA pos_inA `VEuc  1 s 1 pos_inA ]
+"15
+[v _pos_inB pos_inB `VEuc  1 s 1 pos_inB ]
+"17
+[v _encoderStates encoderStates `VE[4][4]c  1 s 16 encoderStates ]
+"18
+[v _menos1 menos1 `VEi  1 s 2 menos1 ]
+"22 D:\Poli\PI-7\pidx.X\protocol.c
+[v _pro_myAddress pro_myAddress `uc  1 e 1 0 ]
+"23
+[v _pro_incoming pro_incoming `[9]uc  1 e 9 0 ]
+"24
+[v _pro_status pro_status `uc  1 e 1 0 ]
+"25
+[v _pro_ptr pro_ptr `uc  1 e 1 0 ]
+"26
+[v _aChar aChar `uc  1 e 1 0 ]
+[s S149 . 8 `uc 1 messageType 1 0 `[7]uc 1 value 7 1 ]
+"28
+[v _completeMessage completeMessage `S149  1 e 8 0 ]
+"79 D:\Poli\PI-7\pidx.X\serial.c
+[v _dummy dummy `uc  1 e 1 0 ]
+"42 D:\Poli\PI-7\pidx.X\tasks.c
+[v _value value `f  1 s 4 value ]
+"43
+[v _message message `S149  1 s 8 message ]
+"76
+[v _led_status led_status `uc  1 s 1 led_status ]
+"15 D:\Poli\PI-7\pidx.X\utils.c
+[v _buffer buffer `[20]uc  1 e 20 0 ]
+"133 D:\Poli\PI-7\pidx.X\position_controller_main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"140
+} 0
+"124
+[v _initSys initSys `(v  1 e 1 0 ]
+{
+"127
+} 0
+"91 D:\Poli\PI-7\pidx.X\tasks.c
+[v _initTasks initTasks `(v  1 e 1 0 ]
+{
+"103
+} 0
+"173 D:\Poli\PI-7\pidx.X\protocol.c
+[v _pro_setMyId pro_setMyId `(v  1 e 1 0 ]
+{
+[v pro_setMyId@id id `uc  1 a 1 wreg ]
+[v pro_setMyId@id id `uc  1 a 1 wreg ]
+[v pro_setMyId@id id `uc  1 a 1 1 ]
+"175
+} 0
+"162
+[v _pro_init pro_init `(v  1 e 1 0 ]
+{
+"168
+} 0
+"28 D:\Poli\PI-7\pidx.X\serial.c
+[v _serial_setup serial_setup `(v  1 e 1 0 ]
+{
+"77
+} 0
+"28 D:\Poli\PI-7\pidx.X\position_sensor_implementation.h
+[v _pos_init pos_init `(v  1 e 1 0 ]
+{
+"29
+[v pos_init@j j `uc  1 a 1 4 ]
+[v pos_init@i i `uc  1 a 1 3 ]
+"48
+} 0
+"87 D:\Poli\PI-7\pidx.X\pid.c
+[v _pid_init pid_init `(v  1 e 1 0 ]
+{
+"94
+} 0
+"34 D:\Poli\PI-7\pidx.X\motor.c
+[v _mot_init mot_init `(v  1 e 1 0 ]
+{
+"42
+} 0
+"26 D:\Poli\PI-7\pidx.X\multitasking_implementation.h
+[v _createTask createTask `(v  1 e 1 0 ]
+{
+[v createTask@taskID taskID `i  1 p 2 4 ]
+[v createTask@t t `*.27(v  1 p 1 6 ]
+[v createTask@scheduleInterval scheduleInterval `i  1 p 2 7 ]
+"30
+} 0
+"64 D:\Poli\PI-7\pidx.X\position_controller_main.c
+[v _initPic initPic `(v  1 e 1 0 ]
+{
+"78
+} 0
+"32 D:\Poli\PI-7\pidx.X\multitasking_implementation.h
+[v _executeTasks executeTasks `(v  1 e 1 0 ]
+{
+"33
+[v executeTasks@i i `uc  1 a 1 72 ]
+"43
+} 0
+"77 D:\Poli\PI-7\pidx.X\tasks.c
+[v _led_task led_task `(v  1 e 1 0 ]
+{
+"85
+} 0
+"34
+[v _pid_task pid_task `(v  1 e 1 0 ]
+{
+"36
+} 0
+"44
+[v _protocol_task protocol_task `(v  1 e 1 0 ]
+{
+"71
+} 0
+"41 D:\Poli\PI-7\pidx.X\protocol.h
+[s S149 . 8 `uc 1 messageType 1 0 `[7]uc 1 value 7 1 ]
+"96 D:\Poli\PI-7\pidx.X\protocol.c
+[v _pro_getMessage pro_getMessage `(S149  1 e 8 0 ]
+{
+"97
+[v pro_getMessage@i i `uc  1 a 1 16 ]
+"157
+} 0
+"68
+[v _toMsgType toMsgType `(us  1 e 2 0 ]
+{
+[v toMsgType@aChar aChar `uc  1 a 1 wreg ]
+[v toMsgType@aChar aChar `uc  1 a 1 wreg ]
+[v toMsgType@aChar aChar `uc  1 a 1 3 ]
+"80
+} 0
+"97 D:\Poli\PI-7\pidx.X\serial.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@c c `uc  1 a 1 wreg ]
+[v putch@c c `uc  1 a 1 wreg ]
+[v putch@c c `uc  1 a 1 1 ]
+"106
+} 0
+"53 D:\Poli\PI-7\pidx.X\protocol.c
+[v _isValidCmd isValidCmd `(i  1 e 2 0 ]
+{
+[v isValidCmd@aChar aChar `uc  1 a 1 wreg ]
+[v isValidCmd@aChar aChar `uc  1 a 1 wreg ]
+"58
+[v isValidCmd@aChar aChar `uc  1 a 1 3 ]
+"61
+} 0
+"83
+[v _isValid isValid `(i  1 e 2 0 ]
+{
+[v isValid@aChar aChar `uc  1 a 1 wreg ]
+[v isValid@aChar aChar `uc  1 a 1 wreg ]
+[v isValid@aChar aChar `uc  1 a 1 3 ]
+"92
+} 0
+"47
+[v _framingError framingError `(v  1 e 1 0 ]
+{
+"51
+} 0
+"38
+[v _cleanupBuffer cleanupBuffer `(v  1 e 1 0 ]
+{
+"39
+[v cleanupBuffer@i i `uc  1 a 1 1 ]
+"44
+} 0
+"151 D:\Poli\PI-7\pidx.X\serial.c
+[v _clear_usart_errors clear_usart_errors `(v  1 e 1 0 ]
+{
+"154
+} 0
+"144
+[v _chkchr chkchr `(uc  1 e 1 0 ]
+{
+"149
+} 0
+"63 D:\Poli\PI-7\pidx.X\protocol.c
+[v _addToIncomingBuffer addToIncomingBuffer `(v  1 e 1 0 ]
+{
+[v addToIncomingBuffer@aChar aChar `uc  1 a 1 wreg ]
+[v addToIncomingBuffer@aChar aChar `uc  1 a 1 wreg ]
+[v addToIncomingBuffer@aChar aChar `uc  1 a 1 1 ]
+"66
+} 0
+"24 D:\Poli\PI-7\pidx.X\position_sensor_implementation.h
+[v _pos_setCurrentPosition pos_setCurrentPosition `(v  1 e 1 0 ]
+{
+[v pos_setCurrentPosition@pos pos `i  1 p 2 0 ]
+"26
+} 0
+"78 D:\Poli\PI-7\pidx.X\pid.c
+[v _pid_setProportionalGain pid_setProportionalGain `(v  1 e 1 0 ]
+{
+[v pid_setProportionalGain@gain gain `f  1 p 4 0 ]
+"80
+} 0
+"66
+[v _pid_setPoint pid_setPoint `(v  1 e 1 0 ]
+{
+[v pid_setPoint@position position `f  1 p 4 0 ]
+"68
+} 0
+"74
+[v _pid_setIntegralGain pid_setIntegralGain `(v  1 e 1 0 ]
+{
+[v pid_setIntegralGain@gain gain `f  1 p 4 0 ]
+"76
+} 0
+"70
+[v _pid_setDerivativeGain pid_setDerivativeGain `(v  1 e 1 0 ]
+{
+[v pid_setDerivativeGain@gain gain `f  1 p 4 0 ]
+"72
+} 0
+"82
+[v _pid_clearError pid_clearError `(v  1 e 1 0 ]
+{
+"85
+} 0
+"17 D:\Poli\PI-7\pidx.X\utils.c
+[v _convertToReal convertToReal `(f  1 e 4 0 ]
+{
+[v convertToReal@chars chars `*.5uc  1 a 1 wreg ]
+"18
+[v convertToReal@value value `f  1 a 4 13 ]
+"20
+[v convertToReal@potDez potDez `f  1 a 4 9 ]
+"19
+[v convertToReal@temp temp `f  1 a 4 5 ]
+"21
+[v convertToReal@signal signal `f  1 a 4 0 ]
+"23
+[v convertToReal@i i `uc  1 a 1 18 ]
+"22
+[v convertToReal@decimal decimal `uc  1 a 1 4 ]
+"17
+[v convertToReal@chars chars `*.5uc  1 a 1 wreg ]
+[v convertToReal@chars chars `*.5uc  1 a 1 17 ]
+"53
+} 0
+"43 D:\Poli\PI-7\pidx.X\pid.c
+[v _pid_pid pid_pid `(v  1 e 1 0 ]
+{
+"64
+} 0
+"20 D:\Poli\PI-7\pidx.X\position_sensor_implementation.h
+[v _pos_getCurrentPosition pos_getCurrentPosition `(i  1 e 2 0 ]
+{
+"22
+} 0
+"24 D:\Poli\PI-7\pidx.X\pid.c
+[v _pid_scaleExcitation pid_scaleExcitation `(i  1 e 2 0 ]
+{
+[v pid_scaleExcitation@activation activation `f  1 p 4 11 ]
+"36
+} 0
+"43 D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 10 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 9 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 0 ]
+"70
+} 0
+"9 D:\Poli\PI-7\pidx.X\motor.c
+[v _mot_setExcitation mot_setExcitation `(v  1 e 1 0 ]
+{
+"10
+[v mot_setExcitation@value value `i  1 a 2 4 ]
+"9
+[v mot_setExcitation@excitation excitation `i  1 p 2 0 ]
+"32
+} 0
+"10 D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 12 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 11 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 2 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 10 ]
+"44
+} 0
+"242 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+{
+[v ___flsub@a a `d  1 p 4 55 ]
+[v ___flsub@b b `d  1 p 4 59 ]
+"250
+} 0
+"10
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 54 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 53 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 52 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 51 ]
+"10
+[v ___fladd@b b `d  1 p 4 35 ]
+[v ___fladd@a a `d  1 p 4 39 ]
+"237
+} 0
+"8 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S668 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S673 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S676 . 4 `l 1 i 4 0 `d 1 f 4 0 `S668 1 fAsBytes 4 0 `S673 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S676  1 a 4 29 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 23 ]
+[s S745 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S748 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S745 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S748  1 a 2 33 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 28 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 27 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 22 ]
+"8
+[v ___flmul@b b `d  1 p 4 9 ]
+[v ___flmul@a a `d  1 p 4 13 ]
+"205
+} 0
+"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+"5
+[v __Umul8_16@product product `ui  1 a 2 4 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"8 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 20 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 13 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 18 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 25 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 24 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 17 ]
+"8
+[v ___fldiv@a a `d  1 p 4 0 ]
+[v ___fldiv@b b `d  1 p 4 4 ]
+"185
+} 0
+"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 2 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 3 ]
+"51
+} 0
+"89 D:\Poli\PI-7\pidx.X\position_controller_main.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"116
+} 0

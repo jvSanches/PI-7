@@ -25,6 +25,17 @@
 // communication with TrajectoryController
 extern xQueueHandle qControlCommands;
 
+//Defines Aux register for testing
+#define REG_AUX_RD 9
+int ctl_AUX = 0;
+//Write Aux register
+void setAUX(int nValue){
+	ctl_AUX = nValue;
+}
+//Reads Aux Register
+int getAUX(){
+	return ctl_AUX;
+}
 /************************************************************************
  ctl_ReadRegister
  Le o valor de um registrador
@@ -43,6 +54,8 @@ int ctl_ReadRegister(int registerToRead) {
          return (int)stt_getZ();
       case REG_LINHA:
          return stt_getCurrentLine();
+      case REG_AUX_RD:
+    	 return getAUX();
    } // switch
    return CTL_ERR;
 } // ctl_ReadRegister
@@ -67,6 +80,10 @@ int ctl_WriteRegister(int registerToWrite, int value) {
 	  printf("start program\n");
 	  command.command = CMD_START;
 	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+	  break;
+  case REG_AUX_RD:
+	  printf("Aux register\n");
+	  setAUX(value);
 	  break;
   default:
 	  printf("unknown register to write\n");
