@@ -47,5 +47,6 @@ void led2_init (void);
 void led2_on (void);
 void led2_off (void);
 void led2_invert (void);
+void led2_from_button(int ButtPin);
 
 #endif /*LEDS_H_*/

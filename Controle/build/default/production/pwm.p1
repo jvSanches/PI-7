@@ -1640,39 +1640,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 "76
 [e $ ! && >= _duty_cycle -> -> 0 `i `l <= _duty_cycle -> -> 255 `i `l 145  ]
 {
+[; ;pwm.c: 77: if (duty_cycle !=0){
+"77
+[e $ ! != _duty_cycle -> -> 0 `i `l 146  ]
+{
+[; ;pwm.c: 78: duty_cycle = 32 + ((223 * duty_cycle/255));
+"78
+[e = _duty_cycle + -> -> 32 `i `l / * -> -> 223 `i `l _duty_cycle -> -> 255 `i `l ]
+"79
+}
+[e :U 146 ]
+[; ;pwm.c: 79: }
 [; ;pwm.c: 80: switch (channel){
 "80
-[e $U 147  ]
+[e $U 148  ]
 {
 [; ;pwm.c: 81: case 1:
 "81
-[e :U 148 ]
+[e :U 149 ]
 [; ;pwm.c: 82: CCPR1L = duty_cycle;
 "82
 [e = _CCPR1L -> _duty_cycle `uc ]
 [; ;pwm.c: 83: break;
 "83
-[e $U 146  ]
+[e $U 147  ]
 [; ;pwm.c: 84: case 2:
 "84
-[e :U 149 ]
+[e :U 150 ]
 [; ;pwm.c: 85: CCPR2L = duty_cycle;
 "85
 [e = _CCPR2L -> _duty_cycle `uc ]
 [; ;pwm.c: 86: break;
 "86
-[e $U 146  ]
+[e $U 147  ]
 "88
 }
 [; ;pwm.c: 88: }
-[e $U 146  ]
+[e $U 147  ]
 "80
-[e :U 147 ]
-[e [\ _channel , $ -> 1 `i 148
- , $ -> 2 `i 149
- 146 ]
+[e :U 148 ]
+[e [\ _channel , $ -> 1 `i 149
+ , $ -> 2 `i 150
+ 147 ]
 "88
-[e :U 146 ]
+[e :U 147 ]
 "89
 }
 [e :U 145 ]
@@ -1690,11 +1701,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;pwm.c: 101: switch (dir) {
 "101
-[e $U 152  ]
+[e $U 153  ]
 {
 [; ;pwm.c: 102: case 1:
 "102
-[e :U 153 ]
+[e :U 154 ]
 [; ;pwm.c: 103: RA5 = 1;
 "103
 [e = _RA5 -> -> 1 `i `b ]
@@ -1703,10 +1714,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RA6 -> -> 1 `i `b ]
 [; ;pwm.c: 105: break;
 "105
-[e $U 151  ]
+[e $U 152  ]
 [; ;pwm.c: 106: case 2:
 "106
-[e :U 154 ]
+[e :U 155 ]
 [; ;pwm.c: 107: RA5 = 1;
 "107
 [e = _RA5 -> -> 1 `i `b ]
@@ -1715,10 +1726,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RA6 -> -> 0 `i `b ]
 [; ;pwm.c: 109: break;
 "109
-[e $U 151  ]
+[e $U 152  ]
 [; ;pwm.c: 110: case 3:
 "110
-[e :U 155 ]
+[e :U 156 ]
 [; ;pwm.c: 111: RA5 = 0;
 "111
 [e = _RA5 -> -> 0 `i `b ]
@@ -1727,10 +1738,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RA6 -> -> 1 `i `b ]
 [; ;pwm.c: 113: break;
 "113
-[e $U 151  ]
+[e $U 152  ]
 [; ;pwm.c: 114: default:
 "114
-[e :U 156 ]
+[e :U 157 ]
 [; ;pwm.c: 115: RA5 = 0;
 "115
 [e = _RA5 -> -> 0 `i `b ]
@@ -1740,16 +1751,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "117
 }
 [; ;pwm.c: 117: }
-[e $U 151  ]
+[e $U 152  ]
 "101
-[e :U 152 ]
-[e [\ _dir , $ -> 1 `i 153
- , $ -> 2 `i 154
- , $ -> 3 `i 155
- 156 ]
+[e :U 153 ]
+[e [\ _dir , $ -> 1 `i 154
+ , $ -> 2 `i 155
+ , $ -> 3 `i 156
+ 157 ]
 "117
-[e :U 151 ]
+[e :U 152 ]
 [; ;pwm.c: 118: }
 "118
-[e :UE 150 ]
+[e :UE 151 ]
 }

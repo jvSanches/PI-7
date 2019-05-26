@@ -78,7 +78,7 @@
 #define LER6_EN			(1 << 6)
 
 extern uint32_t PWM_Init( uint32_t channelNum, uint32_t cycle );
-extern void PWM_Set( uint32_t channelNum, uint32_t cycle, uint32_t offset );
+extern void PWM_Set( uint32_t channelNum, uint32_t cycle);
 extern void PWM_Start( uint32_t channelNum );
 extern void PWM_Stop( uint32_t channelNum );
 

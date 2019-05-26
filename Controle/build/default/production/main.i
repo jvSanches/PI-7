@@ -2545,10 +2545,7 @@ void putchhex(unsigned char c);
 
 void putinthex(unsigned int c);
 
-# 51 "main.c"
-int Kp = 26;
-
-# 57
+# 64 "main.c"
 volatile long encoder1_counter;
 volatile char state1;
 volatile char ab1;
@@ -2576,8 +2573,22 @@ return(value);
 
 
 void SetMotor(){
+static long integral;
+static long derivative;
+static long last_err;
+
 long err = set_point - motor_pos;
-long resp = (err * Kp)/306;
+
+
+derivative = (err - last_err);
+
+if (err = 0){
+integral = 0;
+}else{
+integral = integral + err;
+}
+
+long resp = 2.0 * err + 1.0 * derivative + 0.0 * integral;
 
 constrain(resp, -255,255 );
 if (resp > 0){
@@ -2694,7 +2705,7 @@ void main (void) {
 
 char serialIn = 255;
 
-# 206
+# 227
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2728,11 +2739,11 @@ serial_init();
 
 pwm_init();
 
-# 244
+# 265
 encoders_init();
 int enc1 = -1;
 
-# 252
+# 273
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
@@ -2746,8 +2757,7 @@ resetCounter();
 last_pos = 0;
 samples = 0;
 sampling = 1;
-Kp++;
-SetPoint(1000);
+SetPoint(100);
 RB5=0;
 while (samples < 140){
 
@@ -2757,7 +2767,7 @@ RB5=1;
 
 char sVar[10];
 samples = 0;
-sprintf(sVar, "Kp: %d -> ", Kp);
+sprintf(sVar, "Kp: %d -> ", 2.0);
 putst(sVar);
 while (samples <= 140 /2){
 sprintf(sVar, "%d ", pos_log1[samples]);

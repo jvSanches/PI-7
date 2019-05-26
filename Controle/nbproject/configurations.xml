@@ -8,6 +8,7 @@
       <itemPath>delay.h</itemPath>
       <itemPath>serial.h</itemPath>
       <itemPath>pwm.h</itemPath>
+      <itemPath>spi.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +22,7 @@
       <itemPath>pwm.c</itemPath>
       <itemPath>main-1.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>spi.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -588,6 +590,12 @@
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
       <item path="main-1.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
       </item>
     </conf>
   </confs>

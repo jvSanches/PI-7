@@ -1,5 +1,5 @@
 L ='ref';
-data = no_boost_data;
+data = boost_no_mecanismo;
 data_start = data(1,1);
 [len, wid] = size(data);
 data_end = data(len,1);

@@ -66,7 +66,7 @@ uint32_t PWM_Init( uint32_t ChannelNum, uint32_t cycle )
 	LPC_PINCON->PINSEL4 = 0x00001555;	/* set GPIOs for all PWM pins on PWM */
 
 	LPC_PWM1->TCR = TCR_RESET;	/* Counter Reset */ 
-	LPC_PWM1->PR = 0x00;		/* count frequency:Fpclk */
+	LPC_PWM1->PR = 20*899;		/* count frequency:Fpclk */
 	LPC_PWM1->MCR = PWMMR0I;	/* interrupt on PWMMR0, reset on PWMMR0, reset 
 								TC if PWM matches */				
 	LPC_PWM1->MR0 = cycle;		/* set PWM cycle */
@@ -98,17 +98,17 @@ uint32_t PWM_Init( uint32_t ChannelNum, uint32_t cycle )
 ** Returned value:		None
 ** 
 ******************************************************************************/
-void PWM_Set( uint32_t ChannelNum, uint32_t cycle, uint32_t offset )
+void PWM_Set( uint32_t ChannelNum, uint32_t cycle )
 {			
   if ( ChannelNum == 1 )
   {
-	LPC_PWM1->MR0 = cycle;		/* set PWM cycle */
-	LPC_PWM1->MR1 = cycle * 5/6 + offset;
-	LPC_PWM1->MR2 = cycle * 2/3 + offset;
-	LPC_PWM1->MR3 = cycle * 1/2 + offset;
-	LPC_PWM1->MR4 = cycle * 1/3 + offset;
-	LPC_PWM1->MR5 = cycle * 1/6 + offset;
-	LPC_PWM1->MR6 = offset;
+
+	LPC_PWM1->MR1 = cycle;
+	LPC_PWM1->MR2 = cycle;
+	LPC_PWM1->MR3 = cycle;
+	LPC_PWM1->MR4 = cycle;
+	LPC_PWM1->MR5 = cycle;
+	LPC_PWM1->MR6 = cycle;
 
 	/* The LER will be cleared when the Match 0 takes place, in order to
 	load and execute the new value of match registers, all the PWMLERs need to

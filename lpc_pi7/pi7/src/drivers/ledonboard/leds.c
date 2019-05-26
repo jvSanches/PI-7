@@ -66,3 +66,13 @@ void led2_invert (void)
 	LPC_GPIO0->FIOSET = ((~ledstate) & (1 << 22));
 }
 
+
+// Sets led 2 according to button reading
+void led2_from_button(int ButtPin){
+	int buttPressed = (LPC_GPIO0->FIOPIN);
+	if (buttPressed & (1 << ButtPin)){
+		led2_off();
+	}else{
+		led2_on();
+	}
+}

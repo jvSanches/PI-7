@@ -2534,9 +2534,9 @@ void pwm_set(int channel, long duty_cycle){
 
 
 if ((duty_cycle >= 0)&&(duty_cycle <=255)){
-
-
-
+if (duty_cycle !=0){
+duty_cycle = 32 + ((223 * duty_cycle/255));
+}
 switch (channel){
 case 1:
 CCPR1L = duty_cycle;

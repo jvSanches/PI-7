@@ -48,7 +48,14 @@
 
 //Controlador 
 //#define Kp  34//pwm 8 bits 26.44
-int Kp = 26;
+//int Kp = 1000;
+
+/* Valores teróricos calculados para rad/s. Para converter, dividir aqui por 306*/
+#define KP 0.55 
+#define KD 1.0
+#define KI 0.0
+#define N 1
+
 //Logger
 #define MAX_SAMPLES 140
 
@@ -81,8 +88,22 @@ long constrain(long value, long lLimit, long uLimit){
 //SetMotor
 //Define saida do motor segundo o erro]
 void SetMotor(){
+    static long integral;
+    static long derivative;
+    static long last_err;
+    
     long err = set_point - motor_pos;      //calcula o erro
-    long resp = (err * Kp)/306;            //Controle proporcional
+    //long resp = (err * Kp)/306;            //Controle proporcional
+    
+    derivative = (err - last_err);  //Calcula 1/100 da derivada
+    
+    if (err = 0){
+        integral = 0;
+    }else{
+        integral = integral + err;
+    }
+            
+    long resp  = KP * err + KD * derivative + KI * integral;
     
     constrain(resp, -255,255 );            //Restringe o duty_cycle
     if (resp > 0){
@@ -262,8 +283,7 @@ void main (void) {
           last_pos = 0;
           samples = 0;
           sampling = 1;
-          Kp++;
-          SetPoint(1000);
+          SetPoint(100);
           LED=0;
           while (samples < MAX_SAMPLES){
               //Espera a realizacao de leituras
@@ -273,7 +293,7 @@ void main (void) {
           //Transmissao do log no serial
           char sVar[10];
           samples = 0;
-          sprintf(sVar, "Kp: %d -> ", Kp);
+          sprintf(sVar, "Kp: %d -> ", KP);
           putst(sVar);
           while (samples <= MAX_SAMPLES /2){
               sprintf(sVar, "%d ", pos_log1[samples]);
