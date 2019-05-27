@@ -1,5 +1,5 @@
 
-# 1 "../Lab6_/lcd8x2.c"
+# 1 "spi.c"
 
 # 18 "D:\Microchip\xc8\v2.05\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2455,30 +2455,22 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 16 "../Lab6_/lcd8x2.h"
-extern void lcd_init(void);
+# 15 "spi.h"
+void spi_init();
 
-extern void lcd_clear(void);
+void spi_slave_init();
 
-extern void lcd_puts(const char * s);
+uint8_t spi_exchange(uint8_t data);
 
-extern void lcd_goto(uint8_t pos);
+uint8_t spi_read();
 
-extern void lcd_show_cursor(int on);
+int spi_ready();
 
-extern void lcd_putchar(char c);
+uint8_t spi_slave_exchange(uint8_t data);
 
-extern void lcd_set_display_movement(uint8_t dir);
+void spi_write(uint8_t data);
 
-extern uint8_t lcd_get_cursor_position();
-
-extern void lcd_set_cursor_movement(uint8_t dir);
-
-extern void lcd_passthrough_command(uint8_t command);
-
-extern void lcd_passthrough_data(uint8_t data);
-
-# 177 "../Lab6_/always.h"
+# 177 "always.h"
 struct sixteen_bits {
 unsigned char bit0 :1;
 unsigned char bit1 :1;
@@ -2525,103 +2517,83 @@ unsigned char byte;
 struct eight_bits part;
 };
 
-# 15 "../Lab6_/spi.h"
-void spi_init();
-
-uint8_t spi_exchange(uint8_t data);
-
-uint8_t spi_read();
-
-void spi_write(uint8_t data);
-
-# 41 "../Lab6_/delay.h"
-extern unsigned char delayus_variable;
-
-# 170
-void delay_big_us(unsigned int cnt);
-void delay_ms(unsigned char cnt);
-void delay_ms_interrupt(unsigned char cnt);
-void delay_big_ms(unsigned int cnt);
-void delay_s(unsigned char cnt);
-
-# 24 "../Lab6_/lcd8x2.c"
-void lcd_init(void) {
-TRISB0 = 1;
+# 23 "spi.c"
+void spi_init(){
 ANS12 = 0;
-
+TRISB0 = 1;
+TRISC0 = 0;
+TRISC3 = 0;
+TRISC4 = 1;
+TRISC5 = 0;
+RC0 = 1;
+SSPEN = 0;
+CKP = 0;
+CKE = 0;
+SMP = 0;
+SSPCONbits.SSPM = 1;
+SSPEN = 1;
 }
 
-# 36
-void spi_send_command(uint8_t command) {
-uint8_t command_byte;
-command_byte = 2 << 5;
-command_byte |= command;
-spi_exchange(command_byte);
+void spi_slave_init(){
+ANS12 = 0;
+TRISB0 = 1;
+TRISC0 = 1;
+TRISC3 = 1;
+TRISC4 = 1;
+TRISC5 = 0;
+SSPEN = 0;
+CKP = 0;
+CKE = 0;
+SMP = 0;
+SSPCONbits.SSPM = 4;
+
+SSPEN = 1;
 }
 
-# 47
-void spi_send_data(uint8_t data) {
-spi_exchange(data);
-}
+void spi_interrupt_handler(){
 
-
-
-
-void lcd_clear(void) {
-spi_send_command(2);
+SSPIF=0;
 }
 
 # 65
-void lcd_goto(uint8_t pos) {
-spi_send_command(17);
-spi_send_data(pos);
+uint8_t spi_exchange(uint8_t data){
+WCOL = 0;
+RC0 = 0;
+SSPBUF = data;
+while(SSPSTATbits.BF == 0);
+RC0 = 1;
+return SSPBUF;
 }
 
-# 74
-void lcd_show_cursor(int on) {
-if (on) {
-spi_send_command(5);
-} else {
-spi_send_command(6);
+
+
+uint8_t spi_slave_exchange(uint8_t data){
+char incoming_data = 0;
+if(SSPSTATbits.BF){
+incoming_data = SSPBUF;
+SSPBUF = data;
 }
+return incoming_data;
 }
 
-# 86
-void lcd_putchar(char c) {
-spi_send_command(18);
-spi_send_data(c);
+
+int spi_ready(){
+if(SSPSTATbits.BF){
+return 1;
+}
+return 0;
 }
 
-# 95
-void lcd_puts(const char * s) {
-while(*s)
-lcd_putchar(*s++);
-}
+# 97
+uint8_t spi_read(){
 
-# 105
-void lcd_set_display_movement(uint8_t dir) {
-if (dir) {
-spi_send_command(14);
-} else {
-spi_send_command(13);
-}
-}
-
-# 118
-void lcd_set_cursor_movement(uint8_t dir) {
-if (dir) {
-spi_send_command(11);
-} else {
-spi_send_command(12);
-}
-}
-
-# 130
-uint8_t lcd_get_cursor_position() {
-uint8_t pos;
-spi_send_command(15);
 while (!RB0);
-pos = spi_exchange(0x00);
-return pos;
+
+return spi_exchange(0);
+}
+
+# 109
+void spi_write(uint8_t data){
+spi_exchange(data);
 }
 

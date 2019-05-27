@@ -1,139 +1,71 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"4233 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
-[v _TRISC1 `Vb ~T0 @X0 0 e@1081 ]
-"4236
-[v _TRISC2 `Vb ~T0 @X0 0 e@1082 ]
-"1883
-[v _PR2 `Vuc ~T0 @X0 0 e@146 ]
-"868
-[s S37 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S37 . CCP1M DC1B P1M ]
-"873
-[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S38 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 DC1B0 DC1B1 P1M0 P1M1 ]
-"883
-[s S39 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S39 . . CCP1Y CCP1X ]
-"867
-[u S36 `S37 1 `S38 1 `S39 1 ]
-[n S36 . . . . ]
-"889
-[v _CCP1CONbits `VS36 ~T0 @X0 0 e@23 ]
-"1095
-[s S46 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S46 . CCP2M DC2B0 DC2B1 ]
-"1100
-[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . CCP2M0 CCP2M1 CCP2M2 CCP2M3 CCP2Y CCP2X ]
-"1094
-[u S45 `S46 1 `S47 1 ]
-[n S45 . . . ]
-"1109
-[v _CCP2CONbits `VS45 ~T0 @X0 0 e@29 ]
-"848
-[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
-"1075
-[v _CCPR2L `Vuc ~T0 @X0 0 e@27 ]
-"464
-[s S23 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S23 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"463
-[u S22 `S23 1 ]
-[n S22 . . ]
-"474
-[v _PIR1bits `VS22 ~T0 @X0 0 e@12 ]
-"699
-[s S31 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S31 . T2CKPS TMR2ON TOUTPS ]
-"704
-[s S32 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S32 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
-"698
-[u S30 `S31 1 `S32 1 ]
-[n S30 . . . ]
-"714
-[v _T2CONbits `VS30 ~T0 @X0 0 e@18 ]
-"3441
-[v _ANS4 `Vb ~T0 @X0 0 e@3140 ]
-"4197
-[v _TRISA5 `Vb ~T0 @X0 0 e@1069 ]
-"4200
-[v _TRISA6 `Vb ~T0 @X0 0 e@1070 ]
-"3909
-[v _RA5 `Vb ~T0 @X0 0 e@45 ]
-"3912
-[v _RA6 `Vb ~T0 @X0 0 e@46 ]
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;always.h: 177: struct sixteen_bits {
-[; ;always.h: 178: unsigned char bit0 :1;
-[; ;always.h: 179: unsigned char bit1 :1;
-[; ;always.h: 180: unsigned char bit2 :1;
-[; ;always.h: 181: unsigned char bit3 :1;
-[; ;always.h: 182: unsigned char bit4 :1;
-[; ;always.h: 183: unsigned char bit5 :1;
-[; ;always.h: 184: unsigned char bit6 :1;
-[; ;always.h: 185: unsigned char bit7 :1;
-[; ;always.h: 186: unsigned char bit8 :1;
-[; ;always.h: 187: unsigned char bit9 :1;
-[; ;always.h: 188: unsigned char bit10 :1;
-[; ;always.h: 189: unsigned char bit11 :1;
-[; ;always.h: 190: unsigned char bit12 :1;
-[; ;always.h: 191: unsigned char bit13 :1;
-[; ;always.h: 192: unsigned char bit14 :1;
-[; ;always.h: 193: unsigned char bit15 :1;
-[; ;always.h: 194: };
-[; ;always.h: 196: struct eight_bits {
-[; ;always.h: 197: unsigned char bit0 :1;
-[; ;always.h: 198: unsigned char bit1 :1;
-[; ;always.h: 199: unsigned char bit2 :1;
-[; ;always.h: 200: unsigned char bit3 :1;
-[; ;always.h: 201: unsigned char bit4 :1;
-[; ;always.h: 202: unsigned char bit5 :1;
-[; ;always.h: 203: unsigned char bit6 :1;
-[; ;always.h: 204: unsigned char bit7 :1;
-[; ;always.h: 205: };
-[; ;always.h: 207: struct two_bytes {
-[; ;always.h: 208: unsigned char low;
-[; ;always.h: 209: unsigned char high;
-[; ;always.h: 210: };
-[; ;always.h: 212: union wordtype {
-[; ;always.h: 213: unsigned int word;
-[; ;always.h: 214: struct two_bytes byte;
-[; ;always.h: 215: struct sixteen_bits part;
-[; ;always.h: 216: };
-[; ;always.h: 218: union chartype {
-[; ;always.h: 219: unsigned char byte;
-[; ;always.h: 220: struct eight_bits part;
-[; ;always.h: 221: };
+"3429 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
+[v _ANS12 `Vb ~T0 @X0 0 e@3148 ]
+"4206
+[v _TRISB0 `Vb ~T0 @X0 0 e@1072 ]
+"4230
+[v _TRISC0 `Vb ~T0 @X0 0 e@1080 ]
+"4239
+[v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
+"4242
+[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
+"4245
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"3948
+[v _RC0 `Vb ~T0 @X0 0 e@56 ]
+"4053
+[v _SSPEN `Vb ~T0 @X0 0 e@165 ]
+"3648
+[v _CKP `Vb ~T0 @X0 0 e@164 ]
+"3645
+[v _CKE `Vb ~T0 @X0 0 e@1190 ]
+"4038
+[v _SMP `Vb ~T0 @X0 0 e@1191 ]
+"777
+[s S28 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S28 . SSPM CKP SSPEN SSPOV WCOL ]
+"784
+[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S29 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"776
+[u S27 `S28 1 `S29 1 ]
+[n S27 . . . ]
+"791
+[v _SSPCONbits `VS27 ~T0 @X0 0 e@20 ]
+"4059
+[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
+"4338
+[v _WCOL `Vb ~T0 @X0 0 e@167 ]
+"764
+[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"2025
+[s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S78 . BF UA R_nW S P D_nA CKE SMP ]
+"2035
+[s S79 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S79 . . R . D ]
+"2041
+[s S80 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S80 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
+"2048
+[s S81 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S81 . . nW . nA ]
+"2054
+[s S82 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S82 . . nWRITE . nADDRESS ]
+"2060
+[s S83 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S83 . . R_W . D_A ]
+"2066
+[s S84 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S84 . . READ_WRITE . DATA_ADDRESS ]
+"2024
+[u S77 `S78 1 `S79 1 `S80 1 `S81 1 `S82 1 `S83 1 `S84 1 ]
+[n S77 . . . . . . . . ]
+"2073
+[v _SSPSTATbits `VS77 ~T0 @X0 0 e@148 ]
+"3918
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1552,210 +1484,315 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 137: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 138: extern __bank0 __bit __powerdown;
 [; ;pic.h: 139: extern __bank0 __bit __timeout;
-[; ;pwm.h: 17: void pwm_init();
-[; ;pwm.h: 19: void pwm_set(int channel, int duty_cycle);
-[; ;pwm.h: 21: void pwm_direction(int dir);
-"20 ../Lab6_/pwm.c
-[v _pwm_init `(v ~T0 @X0 1 ef ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef __int24 int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 52: typedef unsigned char uint8_t;
+[; ;stdint.h: 58: typedef unsigned int uint16_t;
+[; ;stdint.h: 65: typedef __uint24 uint24_t;
+[; ;stdint.h: 72: typedef unsigned long int uint32_t;
+[; ;stdint.h: 88: typedef signed char int_least8_t;
+[; ;stdint.h: 96: typedef signed int int_least16_t;
+[; ;stdint.h: 109: typedef __int24 int_least24_t;
+[; ;stdint.h: 118: typedef signed long int int_least32_t;
+[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
+[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 181: typedef signed char int_fast8_t;
+[; ;stdint.h: 188: typedef signed int int_fast16_t;
+[; ;stdint.h: 200: typedef __int24 int_fast24_t;
+[; ;stdint.h: 208: typedef signed long int int_fast32_t;
+[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
+[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 268: typedef int32_t intmax_t;
+[; ;stdint.h: 282: typedef uint32_t uintmax_t;
+[; ;stdint.h: 289: typedef int16_t intptr_t;
+[; ;stdint.h: 294: typedef uint16_t uintptr_t;
+[; ;spi.h: 15: void spi_init();
+[; ;spi.h: 17: void spi_slave_init();
+[; ;spi.h: 19: uint8_t spi_exchange(uint8_t data);
+[; ;spi.h: 21: uint8_t spi_read();
+[; ;spi.h: 23: int spi_ready();
+[; ;spi.h: 25: uint8_t spi_slave_exchange(uint8_t data);
+[; ;spi.h: 27: void spi_write(uint8_t data);
+[; ;always.h: 177: struct sixteen_bits {
+[; ;always.h: 178: unsigned char bit0 :1;
+[; ;always.h: 179: unsigned char bit1 :1;
+[; ;always.h: 180: unsigned char bit2 :1;
+[; ;always.h: 181: unsigned char bit3 :1;
+[; ;always.h: 182: unsigned char bit4 :1;
+[; ;always.h: 183: unsigned char bit5 :1;
+[; ;always.h: 184: unsigned char bit6 :1;
+[; ;always.h: 185: unsigned char bit7 :1;
+[; ;always.h: 186: unsigned char bit8 :1;
+[; ;always.h: 187: unsigned char bit9 :1;
+[; ;always.h: 188: unsigned char bit10 :1;
+[; ;always.h: 189: unsigned char bit11 :1;
+[; ;always.h: 190: unsigned char bit12 :1;
+[; ;always.h: 191: unsigned char bit13 :1;
+[; ;always.h: 192: unsigned char bit14 :1;
+[; ;always.h: 193: unsigned char bit15 :1;
+[; ;always.h: 194: };
+[; ;always.h: 196: struct eight_bits {
+[; ;always.h: 197: unsigned char bit0 :1;
+[; ;always.h: 198: unsigned char bit1 :1;
+[; ;always.h: 199: unsigned char bit2 :1;
+[; ;always.h: 200: unsigned char bit3 :1;
+[; ;always.h: 201: unsigned char bit4 :1;
+[; ;always.h: 202: unsigned char bit5 :1;
+[; ;always.h: 203: unsigned char bit6 :1;
+[; ;always.h: 204: unsigned char bit7 :1;
+[; ;always.h: 205: };
+[; ;always.h: 207: struct two_bytes {
+[; ;always.h: 208: unsigned char low;
+[; ;always.h: 209: unsigned char high;
+[; ;always.h: 210: };
+[; ;always.h: 212: union wordtype {
+[; ;always.h: 213: unsigned int word;
+[; ;always.h: 214: struct two_bytes byte;
+[; ;always.h: 215: struct sixteen_bits part;
+[; ;always.h: 216: };
+[; ;always.h: 218: union chartype {
+[; ;always.h: 219: unsigned char byte;
+[; ;always.h: 220: struct eight_bits part;
+[; ;always.h: 221: };
+"23 spi.c
+[v _spi_init `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 20: void pwm_init(){
-[e :U _pwm_init ]
+[; ;spi.c: 23: void spi_init(){
+[e :U _spi_init ]
 [f ]
-[; ;pwm.c: 23: TRISC1 = 1;
-"23
-[e = _TRISC1 -> -> 1 `i `b ]
-[; ;pwm.c: 24: TRISC2 = 1;
+[; ;spi.c: 24: ANS12 = 0;
 "24
-[e = _TRISC2 -> -> 1 `i `b ]
-[; ;pwm.c: 27: PR2 = 0xFF;
+[e = _ANS12 -> -> 0 `i `b ]
+[; ;spi.c: 25: TRISB0 = 1;
+"25
+[e = _TRISB0 -> -> 1 `i `b ]
+[; ;spi.c: 26: TRISC0 = 0;
+"26
+[e = _TRISC0 -> -> 0 `i `b ]
+[; ;spi.c: 27: TRISC3 = 0;
 "27
-[e = _PR2 -> -> 255 `i `uc ]
-[; ;pwm.c: 30: CCP1CONbits.CCP1M= 12;
+[e = _TRISC3 -> -> 0 `i `b ]
+[; ;spi.c: 28: TRISC4 = 1;
+"28
+[e = _TRISC4 -> -> 1 `i `b ]
+[; ;spi.c: 29: TRISC5 = 0;
+"29
+[e = _TRISC5 -> -> 0 `i `b ]
+[; ;spi.c: 30: RC0 = 1;
 "30
-[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-[; ;pwm.c: 31: CCP2CONbits.CCP2M= 12;
+[e = _RC0 -> -> 1 `i `b ]
+[; ;spi.c: 31: SSPEN = 0;
 "31
-[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
-[; ;pwm.c: 34: CCPR1L = 0;
+[e = _SSPEN -> -> 0 `i `b ]
+[; ;spi.c: 32: CKP = 0;
+"32
+[e = _CKP -> -> 0 `i `b ]
+[; ;spi.c: 33: CKE = 0;
+"33
+[e = _CKE -> -> 0 `i `b ]
+[; ;spi.c: 34: SMP = 0;
 "34
-[e = _CCPR1L -> -> 0 `i `uc ]
-[; ;pwm.c: 35: CCP1CONbits.DC1B=0;
+[e = _SMP -> -> 0 `i `b ]
+[; ;spi.c: 35: SSPCONbits.SSPM = 1;
 "35
-[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
-[; ;pwm.c: 36: CCPR2L = 0;
+[e = . . _SSPCONbits 0 0 -> -> 1 `i `uc ]
+[; ;spi.c: 36: SSPEN = 1;
 "36
-[e = _CCPR2L -> -> 0 `i `uc ]
-[; ;pwm.c: 40: PIR1bits.TMR2IF = 0;
-"40
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;pwm.c: 42: T2CONbits.T2CKPS = 0;
-"42
-[e = . . _T2CONbits 0 0 -> -> 0 `i `uc ]
-[; ;pwm.c: 44: T2CONbits.TMR2ON = 1;
-"44
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;pwm.c: 46: while (!PIR1bits.TMR2IF){}
-"46
-[e $U 141  ]
-[e :U 142 ]
-{
+[e = _SSPEN -> -> 1 `i `b ]
+[; ;spi.c: 37: }
+"37
+[e :UE 139 ]
 }
-[e :U 141 ]
-[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 142  ]
-[e :U 143 ]
-[; ;pwm.c: 48: TRISC1 = 0;
+"39
+[v _spi_slave_init `(v ~T0 @X0 1 ef ]
+{
+[; ;spi.c: 39: void spi_slave_init(){
+[e :U _spi_slave_init ]
+[f ]
+[; ;spi.c: 40: ANS12 = 0;
+"40
+[e = _ANS12 -> -> 0 `i `b ]
+[; ;spi.c: 41: TRISB0 = 1;
+"41
+[e = _TRISB0 -> -> 1 `i `b ]
+[; ;spi.c: 42: TRISC0 = 1;
+"42
+[e = _TRISC0 -> -> 1 `i `b ]
+[; ;spi.c: 43: TRISC3 = 1;
+"43
+[e = _TRISC3 -> -> 1 `i `b ]
+[; ;spi.c: 44: TRISC4 = 1;
+"44
+[e = _TRISC4 -> -> 1 `i `b ]
+[; ;spi.c: 45: TRISC5 = 0;
+"45
+[e = _TRISC5 -> -> 0 `i `b ]
+[; ;spi.c: 46: SSPEN = 0;
+"46
+[e = _SSPEN -> -> 0 `i `b ]
+[; ;spi.c: 47: CKP = 0;
+"47
+[e = _CKP -> -> 0 `i `b ]
+[; ;spi.c: 48: CKE = 0;
 "48
-[e = _TRISC1 -> -> 0 `i `b ]
-[; ;pwm.c: 49: TRISC2 = 0;
+[e = _CKE -> -> 0 `i `b ]
+[; ;spi.c: 49: SMP = 0;
 "49
-[e = _TRISC2 -> -> 0 `i `b ]
-[; ;pwm.c: 54: ANS4 = 0;
-"54
-[e = _ANS4 -> -> 0 `i `b ]
-[; ;pwm.c: 55: TRISA5 = 0;
-"55
-[e = _TRISA5 -> -> 0 `i `b ]
-[; ;pwm.c: 56: TRISA6 = 0;
-"56
-[e = _TRISA6 -> -> 0 `i `b ]
-[; ;pwm.c: 57: RA5 = 0;
-"57
-[e = _RA5 -> -> 0 `i `b ]
-[; ;pwm.c: 58: RA6 = 0;
-"58
-[e = _RA6 -> -> 0 `i `b ]
-[; ;pwm.c: 59: }
-"59
+[e = _SMP -> -> 0 `i `b ]
+[; ;spi.c: 50: SSPCONbits.SSPM = 4;
+"50
+[e = . . _SSPCONbits 0 0 -> -> 4 `i `uc ]
+[; ;spi.c: 52: SSPEN = 1;
+"52
+[e = _SSPEN -> -> 1 `i `b ]
+[; ;spi.c: 53: }
+"53
 [e :UE 140 ]
 }
+"55
+[v _spi_interrupt_handler `(v ~T0 @X0 1 ef ]
+{
+[; ;spi.c: 55: void spi_interrupt_handler(){
+[e :U _spi_interrupt_handler ]
+[f ]
+[; ;spi.c: 57: SSPIF=0;
+"57
+[e = _SSPIF -> -> 0 `i `b ]
+[; ;spi.c: 58: }
+"58
+[e :UE 141 ]
+}
+"65
+[v _spi_exchange `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;spi.c: 65: uint8_t spi_exchange(uint8_t data){
+[e :U _spi_exchange ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;spi.c: 66: WCOL = 0;
 "66
-[v _pwm_set `(v ~T0 @X0 1 ef2`i`i ]
-{
-[; ;pwm.c: 66: void pwm_set(int channel, int duty_cycle){
-[e :U _pwm_set ]
-[v _channel `i ~T0 @X0 1 r1 ]
-[v _duty_cycle `i ~T0 @X0 1 r2 ]
-[f ]
-[; ;pwm.c: 69: if ((duty_cycle>=0) && (duty_cycle <=1000)){
+[e = _WCOL -> -> 0 `i `b ]
+[; ;spi.c: 67: RC0 = 0;
+"67
+[e = _RC0 -> -> 0 `i `b ]
+[; ;spi.c: 68: SSPBUF = data;
+"68
+[e = _SSPBUF _data ]
+[; ;spi.c: 69: while(SSPSTATbits.BF == 0);
 "69
-[e $ ! && >= _duty_cycle -> 0 `i <= _duty_cycle -> 1000 `i 145  ]
-{
-[; ;pwm.c: 70: switch (channel){
-"70
-[e $U 147  ]
-{
-[; ;pwm.c: 71: case 1:
-"71
-[e :U 148 ]
-[; ;pwm.c: 72: CCPR1L = duty_cycle / 4;
-"72
-[e = _CCPR1L -> / _duty_cycle -> 4 `i `uc ]
-[; ;pwm.c: 73: break;
-"73
-[e $U 146  ]
-[; ;pwm.c: 74: case 2:
-"74
-[e :U 149 ]
-[; ;pwm.c: 75: CCPR2L = duty_cycle /4 ;
-"75
-[e = _CCPR2L -> / _duty_cycle -> 4 `i `uc ]
-[; ;pwm.c: 76: break;
-"76
-[e $U 146  ]
-[; ;pwm.c: 77: default:
-"77
-[e :U 150 ]
-[; ;pwm.c: 78: break;
-"78
-[e $U 146  ]
-"79
-}
-[; ;pwm.c: 79: }
-[e $U 146  ]
-"70
-[e :U 147 ]
-[e [\ _channel , $ -> 1 `i 148
- , $ -> 2 `i 149
- 150 ]
-"79
-[e :U 146 ]
-"80
-}
+[e $U 143  ]
+[e :U 144 ]
+[e :U 143 ]
+[e $ == -> . . _SSPSTATbits 0 0 `i -> 0 `i 144  ]
 [e :U 145 ]
-[; ;pwm.c: 80: }
-[; ;pwm.c: 81: }
-"81
-[e :UE 144 ]
+[; ;spi.c: 70: RC0 = 1;
+"70
+[e = _RC0 -> -> 1 `i `b ]
+[; ;spi.c: 71: return SSPBUF;
+"71
+[e ) _SSPBUF ]
+[e $UE 142  ]
+[; ;spi.c: 72: }
+"72
+[e :UE 142 ]
 }
-"91
-[v _pwm_direction `(v ~T0 @X0 1 ef1`i ]
+"76
+[v _spi_slave_exchange `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;pwm.c: 91: void pwm_direction(int dir) {
-[e :U _pwm_direction ]
-[v _dir `i ~T0 @X0 1 r1 ]
+[; ;spi.c: 76: uint8_t spi_slave_exchange(uint8_t data){
+[e :U _spi_slave_exchange ]
+[v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;pwm.c: 92: switch (dir) {
-"92
-[e $U 153  ]
+"77
+[v _incoming_data `uc ~T0 @X0 1 a ]
+[; ;spi.c: 77: char incoming_data = 0;
+[e = _incoming_data -> -> 0 `i `uc ]
+[; ;spi.c: 78: if(SSPSTATbits.BF){
+"78
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 147  ]
 {
-[; ;pwm.c: 93: case 1:
-"93
-[e :U 154 ]
-[; ;pwm.c: 94: RA5 = 1;
-"94
-[e = _RA5 -> -> 1 `i `b ]
-[; ;pwm.c: 95: RA6 = 1;
-"95
-[e = _RA6 -> -> 1 `i `b ]
-[; ;pwm.c: 96: break;
-"96
-[e $U 152  ]
-[; ;pwm.c: 97: case 2:
-"97
-[e :U 155 ]
-[; ;pwm.c: 98: RA5 = 1;
-"98
-[e = _RA5 -> -> 1 `i `b ]
-[; ;pwm.c: 99: RA6 = 0;
-"99
-[e = _RA6 -> -> 0 `i `b ]
-[; ;pwm.c: 100: break;
-"100
-[e $U 152  ]
-[; ;pwm.c: 101: case 3:
-"101
-[e :U 156 ]
-[; ;pwm.c: 102: RA5 = 0;
-"102
-[e = _RA5 -> -> 0 `i `b ]
-[; ;pwm.c: 103: RA6 = 1;
-"103
-[e = _RA6 -> -> 1 `i `b ]
-[; ;pwm.c: 104: break;
-"104
-[e $U 152  ]
-[; ;pwm.c: 105: default:
-"105
-[e :U 157 ]
-[; ;pwm.c: 106: RA5 = 0;
-"106
-[e = _RA5 -> -> 0 `i `b ]
-[; ;pwm.c: 107: RA6 = 0;
-"107
-[e = _RA6 -> -> 0 `i `b ]
-"108
+[; ;spi.c: 79: incoming_data = SSPBUF;
+"79
+[e = _incoming_data _SSPBUF ]
+[; ;spi.c: 80: SSPBUF = data;
+"80
+[e = _SSPBUF _data ]
+"81
 }
-[; ;pwm.c: 108: }
-[e $U 152  ]
-"92
-[e :U 153 ]
-[e [\ _dir , $ -> 1 `i 154
- , $ -> 2 `i 155
- , $ -> 3 `i 156
- 157 ]
-"108
+[e :U 147 ]
+[; ;spi.c: 81: }
+[; ;spi.c: 82: return incoming_data;
+"82
+[e ) _incoming_data ]
+[e $UE 146  ]
+[; ;spi.c: 83: }
+"83
+[e :UE 146 ]
+}
+"86
+[v _spi_ready `(i ~T0 @X0 1 ef ]
+{
+[; ;spi.c: 86: int spi_ready(){
+[e :U _spi_ready ]
+[f ]
+[; ;spi.c: 87: if(SSPSTATbits.BF){
+"87
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 149  ]
+{
+[; ;spi.c: 88: return 1;
+"88
+[e ) -> 1 `i ]
+[e $UE 148  ]
+"89
+}
+[e :U 149 ]
+[; ;spi.c: 89: }
+[; ;spi.c: 90: return 0;
+"90
+[e ) -> 0 `i ]
+[e $UE 148  ]
+[; ;spi.c: 91: }
+"91
+[e :UE 148 ]
+}
+"97
+[v _spi_read `(uc ~T0 @X0 1 ef ]
+{
+[; ;spi.c: 97: uint8_t spi_read(){
+[e :U _spi_read ]
+[f ]
+[; ;spi.c: 99: while (!RB0);
+"99
+[e $U 151  ]
 [e :U 152 ]
-[; ;pwm.c: 109: }
+[e :U 151 ]
+[e $ ! _RB0 152  ]
+[e :U 153 ]
+[; ;spi.c: 101: return spi_exchange(0);
+"101
+[e ) ( _spi_exchange (1 -> -> 0 `i `uc ]
+[e $UE 150  ]
+[; ;spi.c: 102: }
+"102
+[e :UE 150 ]
+}
 "109
-[e :UE 151 ]
+[v _spi_write `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;spi.c: 109: void spi_write(uint8_t data){
+[e :U _spi_write ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;spi.c: 110: spi_exchange(data);
+"110
+[e ( _spi_exchange (1 _data ]
+[; ;spi.c: 111: }
+"111
+[e :UE 154 ]
 }

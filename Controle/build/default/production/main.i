@@ -2545,19 +2545,123 @@ void putchhex(unsigned char c);
 
 void putinthex(unsigned int c);
 
-# 64 "main.c"
+# 13 "D:\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef __int24 int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 52
+typedef unsigned char uint8_t;
+
+# 58
+typedef unsigned int uint16_t;
+
+# 65
+typedef __uint24 uint24_t;
+
+# 72
+typedef unsigned long int uint32_t;
+
+# 88
+typedef signed char int_least8_t;
+
+# 96
+typedef signed int int_least16_t;
+
+# 109
+typedef __int24 int_least24_t;
+
+# 118
+typedef signed long int int_least32_t;
+
+# 136
+typedef unsigned char uint_least8_t;
+
+# 143
+typedef unsigned int uint_least16_t;
+
+# 154
+typedef __uint24 uint_least24_t;
+
+# 162
+typedef unsigned long int uint_least32_t;
+
+# 181
+typedef signed char int_fast8_t;
+
+# 188
+typedef signed int int_fast16_t;
+
+# 200
+typedef __int24 int_fast24_t;
+
+# 208
+typedef signed long int int_fast32_t;
+
+# 224
+typedef unsigned char uint_fast8_t;
+
+# 230
+typedef unsigned int uint_fast16_t;
+
+# 240
+typedef __uint24 uint_fast24_t;
+
+# 247
+typedef unsigned long int uint_fast32_t;
+
+# 268
+typedef int32_t intmax_t;
+
+# 282
+typedef uint32_t uintmax_t;
+
+# 289
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 15 "spi.h"
+void spi_init();
+
+void spi_slave_init();
+
+uint8_t spi_exchange(uint8_t data);
+
+uint8_t spi_read();
+
+int spi_ready();
+
+uint8_t spi_slave_exchange(uint8_t data);
+
+void spi_write(uint8_t data);
+
+# 77 "main.c"
 volatile long encoder1_counter;
 volatile char state1;
 volatile char ab1;
 volatile long motor_pos =0;
 volatile long set_point =0;
 
-volatile signed char pos_log1[140/2 + 1];
-volatile signed char pos_log2[140/2 + 1];
+volatile signed char pos_log1[100/2 + 1];
+volatile signed char pos_log2[100/2 + 1];
 
 volatile int samples =0;
 volatile char sampling = 0;
 volatile long last_pos;
+
+volatile unsigned int com_time;
+
 
 
 long constrain(long value, long lLimit, long uLimit){
@@ -2577,7 +2681,9 @@ static long integral;
 static long derivative;
 static long last_err;
 
-long err = set_point - motor_pos;
+
+
+int err = set_point - motor_pos;
 
 
 derivative = (err - last_err);
@@ -2588,7 +2694,10 @@ integral = 0;
 integral = integral + err;
 }
 
-long resp = 2.0 * err + 1.0 * derivative + 0.0 * integral;
+int P_Response = 1.1 * err;
+int D_Response = 2.0 * derivative;
+int I_Response = 0.5 * integral;
+int resp = P_Response + D_Response + I_Response;
 
 constrain(resp, -255,255 );
 if (resp > 0){
@@ -2612,6 +2721,12 @@ encoder1_counter = 0;
 motor_pos = 0;
 }
 
+void motor_reset(){
+pwm_set(1, 0);
+pwm_set(2, 0);
+resetCounter();
+SetPoint(0);
+}
 
 
 void interrupt isr(void) {
@@ -2623,14 +2738,16 @@ if (T0IE && T0IF) {
 
 SetMotor();
 if (sampling){
-if (samples < 140/2){
+if (samples < 100/2){
 pos_log1[samples] = motor_pos-last_pos;
 }else{
-pos_log2[samples-(140/2)] = motor_pos-last_pos;
+pos_log2[samples-(100/2)] = motor_pos-last_pos;
 }
 last_pos = motor_pos;
 samples++;
 }
+
+com_time++;
 
 TMR0 = (0xff - 195);
 T0IF = 0;
@@ -2700,12 +2817,13 @@ encoder1_counter = 0;
 
 }
 
+# 283
 void main (void) {
 
 
 char serialIn = 255;
 
-# 227
+# 292
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2735,15 +2853,16 @@ RBIE = 1;
 
 
 serial_init();
+spi_slave_init();
 
 
 pwm_init();
 
-# 265
+# 331
 encoders_init();
 int enc1 = -1;
 
-# 273
+# 339
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
@@ -2759,7 +2878,7 @@ samples = 0;
 sampling = 1;
 SetPoint(100);
 RB5=0;
-while (samples < 140){
+while (samples < 100){
 
 }
 sampling = 0;
@@ -2767,15 +2886,15 @@ RB5=1;
 
 char sVar[10];
 samples = 0;
-sprintf(sVar, "Kp: %d -> ", 2.0);
+sprintf(sVar, "Kp: %d -> ", 0.55);
 putst(sVar);
-while (samples <= 140 /2){
+while (samples <= 100 /2){
 sprintf(sVar, "%d ", pos_log1[samples]);
 putst(sVar);
 samples++;
 }
-while (samples < 140){
-sprintf(sVar, "%d ", pos_log2[samples - 140 / 2]);
+while (samples < 100){
+sprintf(sVar, "%d ", pos_log2[samples - 100 / 2]);
 putst(sVar);
 samples++;
 }

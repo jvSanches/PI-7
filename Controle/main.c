@@ -36,6 +36,7 @@
 #include "delay.h"
 #include "pwm.h"
 #include "serial.h"
+#include "spi.h"
 // Definições
 
 // Timer 0
@@ -50,14 +51,26 @@
 //#define Kp  34//pwm 8 bits 26.44
 //int Kp = 1000;
 
-/* Valores teróricos calculados para rad/s. Para converter, dividir aqui por 306*/
+/* Valores teróricos calculados para rad/s. Para converter, dividir aqui por 306
+Para o KI, multiplicar por 0.01 (tempo do passo de integração)*/
+
 #define KP 0.55 
 #define KD 1.0
 #define KI 0.0
 #define N 1
 
 //Logger
-#define MAX_SAMPLES 140
+#define MAX_SAMPLES 100
+
+//SPI controll
+
+#define CMD_RESET 0
+#define SET_POINT 1
+#define COM_END 3
+#define COM_SP_HI 1
+#define COM_SP_LO 2
+#define COM_TIMEOUT 3
+
 
 
 // variáveis globais vão aqui se existirem
@@ -73,6 +86,9 @@ volatile signed char pos_log2[MAX_SAMPLES/2 + 1];
 volatile int samples =0;
 volatile char sampling = 0;
 volatile long last_pos;
+
+volatile unsigned int com_time;
+
 //long constrain
 //Restringe um valor entre dois limites
 long constrain(long value, long lLimit, long uLimit){
@@ -92,7 +108,9 @@ void SetMotor(){
     static long derivative;
     static long last_err;
     
-    long err = set_point - motor_pos;      //calcula o erro
+    
+    
+    int err = set_point - motor_pos;      //calcula o erro
     //long resp = (err * Kp)/306;            //Controle proporcional
     
     derivative = (err - last_err);  //Calcula 1/100 da derivada
@@ -103,7 +121,10 @@ void SetMotor(){
         integral = integral + err;
     }
             
-    long resp  = KP * err + KD * derivative + KI * integral;
+    int P_Response  = 1.1 * err;
+    int D_Response = 2.0 * derivative;
+    int I_Response = 0.5 * integral;
+    int resp = P_Response + D_Response + I_Response;
     
     constrain(resp, -255,255 );            //Restringe o duty_cycle
     if (resp > 0){
@@ -127,6 +148,12 @@ void resetCounter(){                 //Reinicia o contador do encoder
     motor_pos = 0;
 }
 
+void motor_reset(){
+    pwm_set(1, 0);
+    pwm_set(2, 0);
+    resetCounter();
+    SetPoint(0);
+}
 
 
 void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
@@ -146,6 +173,8 @@ void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
           last_pos = motor_pos;
         samples++;
       }
+      
+      com_time++;
       
      TMR0 = TMR0_SETTING;       // recarrega contagem no Timer 0
      T0IF = 0;                  // limpa interrupção
@@ -214,6 +243,42 @@ void encoders_init(){
     encoder1_counter = 0;
  
 }
+
+/*
+//Read commands from spi
+void read_command(){
+    char command;
+    char com_state = 0;
+    char set_point_hi;
+    char set_point_lo;
+    if (spi_ready()){
+        command = spi_slave_exchange(0);
+        switch (command){
+            case CMD_RESET:
+                motor_reset();
+                break;
+            case SET_POINT:
+                com_time = 0;
+                com_state = COM_SP_HI;
+                while(com_state != COM_END){
+                    if (com_time > COM_TIMEOUT ){
+                        com_state = COM_END;
+                    }else if(spi_ready && (com_state == COM_SP_HI)){
+                        set_point_hi = spi_slave_exchange(0);
+                        com_state = COM_SP_LO;
+                    }else if (spi_ready && (com_state == COM_SP_LO)){
+                        set_point_lo = spi_slave_exchange(0);
+                        com_state = COM_END;
+                        SetPoint((set_point_hi<<8) | (set_point_lo));
+                    }                    
+                }
+                break;                            
+        }
+    }    
+}
+*/
+
+
 /// Programa Principal
 void main (void) {
   
@@ -253,6 +318,7 @@ void main (void) {
   //
   // Inicializações
   serial_init();
+  spi_slave_init();
  
   // Inicializações da placa local
   pwm_init();     // inicializa PWM

@@ -14,6 +14,8 @@
 
 void spi_init(); ///< inicializa o spi no modo 0,0 master
 
+void spi_slave_init();
+
 uint8_t spi_exchange(uint8_t data); ///< transmite e recebe por spi
 
 uint8_t spi_read(); ///< lê byte pelo SPI
