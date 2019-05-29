@@ -35,6 +35,8 @@ void trj_generateSetpoint() {
    currLine = stt_getCurrentLine();
    printf("CurrLine %d\n", currLine);
    line = ptj_getLine(currLine);
+
+   //Fazer aqui a conversão para q1, q2 e q3
    toPic.setPoint1 = line.x;
    toPic.setPoint2 = line.y;
    toPic.setPoint3 = line.z;

@@ -1,9 +1,10 @@
-/* 
- * File:     spi.h 
- * Author:   Bruno Alan Miyamoto
- * Date:     7/02/2016
- * Comments: Controla interface SPI
- * Revision history: 
+ /*
+ * File            : spi.h
+ * Author          : Ligo George
+ * Company         : electroSome
+ * Project         : SPI Library for MPLAB XC8
+ * Microcontroller : PIC 16F877A
+ * Created on April 15, 2017, 5:59 PM
  */
 
 #ifndef SPI_H
@@ -12,18 +13,39 @@
 #include <xc.h> 
 #include <stdint.h>
 
-void spi_init(); ///< inicializa o spi no modo 0,0 master
+typedef enum 
+{
+    SPI_MASTER_OSC_DIV4  = 0b00100000,
+    SPI_MASTER_OSC_DIV16 = 0b00100001,
+    SPI_MASTER_OSC_DIV64 = 0b00100010,
+    SPI_MASTER_TMR2      = 0b00100011,
+    SPI_SLAVE_SS_EN      = 0b00100100,
+    SPI_SLAVE_SS_DIS     = 0b00100101
+}Spi_Type;
 
-void spi_slave_init();
+typedef enum
+{
+    SPI_DATA_SAMPLE_MIDDLE   = 0b00000000,
+    SPI_DATA_SAMPLE_END      = 0b10000000
+}Spi_Data_Sample;
 
-uint8_t spi_exchange(uint8_t data); ///< transmite e recebe por spi
+typedef enum
+{
+    SPI_CLOCK_IDLE_HIGH  = 0b00010000,
+    SPI_CLOCK_IDLE_LOW   = 0b00000000        
+}Spi_Clock_Idle;
 
-uint8_t spi_read(); ///< lê byte pelo SPI
+typedef enum
+{
+    SPI_IDLE_2_ACTIVE    = 0b00000000,
+    SPI_ACTIVE_2_IDLE    = 0b01000000
+}Spi_Transmit_Edge;
 
-int spi_ready();// Usado para verificação de dados para serem lidos
 
-uint8_t spi_slave_exchange(uint8_t data);//Recebe e transmite como slave
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+void spiWrite(uint8_t);
+unsigned spiDataReady();
+uint8_t spiRead();
 
-void spi_write(uint8_t data); ///< escreve byte pelo SPI
+#endif	/* SPI_H */
 
-#endif

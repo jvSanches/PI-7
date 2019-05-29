@@ -27,6 +27,7 @@
 #include "drivers/console/basic_io.h"
 #include "drivers/ledonboard/leds.h"
 #include "drivers/pwm/pwm.h"
+#include "drivers/spi/spi.h"
 
 // Header files for PI7
 #include "pi7/controlador_trajetoria/controlador_trajetoria.h"
@@ -91,28 +92,42 @@ void taskNCProcessing(void *pvParameters) {
 void taskCommPIC(void *pvParameters) {
 	pic_Data setpoints;
 	while(1) {
+
 		 xQueueReceive(qCommPIC, &setpoints, portMAX_DELAY);
+
 		 pic_sendToPIC(setpoints);
+
     } //task loop
 } // taskCommPIC
+
+void taskEmergencyController(void *pvParameters){
+	while(1){
+		if (readEndStops()){
+			pic_StopMotors();
+			xQueueReset(qCommPIC);
+		}
+	}
+}
 
 
 unsigned int ki = 0;
 void taskBlinkLed(void *lpParameters) {
 	while(1) {
-		ki++;
-		if (ki == 20){
-			ki=0;
-		}
 
-		PWM_Set(1, ki);
+		if (ki >255){
+			ki = 0;
+		}
 		led2_invert();
-		//led2_from_button(21);
+		unsigned char dados= ki;
+		unsigned char rxd;
+		rxd = spi_txrx2(dados);
+		printf("spirx %x\n", (char)rxd);
+		ki++;
 
 //		char sVar[10];
 //		sprintf(sVar, "%d \n", ki);
 //		UARTSendNullTerminated(0, sVar);
-		vTaskDelay(DELAY_200MS);
+		vTaskDelay(DELAY_500MS);
 
 	} // task loop
 } //taskBlinkLed

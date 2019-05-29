@@ -32,6 +32,7 @@
 
 // Includes do projeto
 #include <stdio.h>
+#include <stdint.h>
 #include "always.h"
 #include "delay.h"
 #include "pwm.h"
@@ -54,13 +55,13 @@
 /* Valores teróricos calculados para rad/s. Para converter, dividir aqui por 306
 Para o KI, multiplicar por 0.01 (tempo do passo de integração)*/
 
-#define KP 0.55 
-#define KD 1.0
-#define KI 0.0
-#define N 1
+#define KP 4
+#define KD 13
+#define KI 0
+
 
 //Logger
-#define MAX_SAMPLES 100
+#define MAX_SAMPLES 90
 
 //SPI controll
 
@@ -89,6 +90,8 @@ volatile long last_pos;
 
 volatile unsigned int com_time;
 
+int onlyK = 0;
+
 //long constrain
 //Restringe um valor entre dois limites
 long constrain(long value, long lLimit, long uLimit){
@@ -105,28 +108,31 @@ long constrain(long value, long lLimit, long uLimit){
 //Define saida do motor segundo o erro]
 void SetMotor(){
     static long integral;
-    static long derivative;
-    static long last_err;
-    
-    
-    
+    static int derivative;
+    static int last_err;
+    long resp;
     int err = set_point - motor_pos;      //calcula o erro
-    //long resp = (err * Kp)/306;            //Controle proporcional
+    
+    if (onlyK){
+        resp = (err)/5;            //Controle proporcional
+    }else{
     
     derivative = (err - last_err);  //Calcula 1/100 da derivada
-    
-    if (err = 0){
+    last_err = err;
+    if (err == 0){
         integral = 0;
     }else{
         integral = integral + err;
     }
             
-    int P_Response  = 1.1 * err;
-    int D_Response = 2.0 * derivative;
-    int I_Response = 0.5 * integral;
-    int resp = P_Response + D_Response + I_Response;
+    int P_Response  = KP * err;    
+    int D_Response = (KD * derivative);
+    //D_Response = constrain(D_Response, -300,300);
+    int I_Response = 0 * integral;
+    resp = P_Response + D_Response + I_Response;
+    }
     
-    constrain(resp, -255,255 );            //Restringe o duty_cycle
+    resp = constrain(resp, -255,255 );            //Restringe o duty_cycle
     if (resp > 0){
         pwm_set(1, resp );
         pwm_set(2, 0 );
@@ -155,6 +161,8 @@ void motor_reset(){
     SetPoint(0);
 }
 
+uint8_t SPIData; 
+int nSPIData;
 
 void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
   static int tick;              // contador de vezes que o Timer 0 interrompe
@@ -318,7 +326,8 @@ void main (void) {
   //
   // Inicializações
   serial_init();
-  spi_slave_init();
+  //spi_slave_init();
+  spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
  
   // Inicializações da placa local
   pwm_init();     // inicializa PWM
@@ -342,8 +351,30 @@ void main (void) {
   
   while (1) {  // para sempre
     //Produz entrada em degrau
+//      if (spi_ready()){
+//        char command = spi_slave_exchange(3);
+//        char sVar[10];
+//        sprintf(sVar, "SPIRx: %d \r\n", command);
+//        putst(sVar);
+//      }
+      if(spiDataReady()) 
+      {
+        LED = !LED;
+        SPIData = spiRead() >> 1; // Read The Buffer
+        spiWrite(240);
+        nSPIData = 1;
+      }
+      if (nSPIData){
+        char sVar[10];
+        sprintf(sVar, "SPIRx: %d \r\n", SPIData);
+        putst(sVar);
+        nSPIData = 0;
+      }
+      
+      continue;
+      
       char serialIn = chkchr();
-      if (serialIn == 'a'){
+      if (serialIn == 'u'){
           resetCounter();
           
           last_pos = 0;
@@ -373,6 +404,23 @@ void main (void) {
           }
           sprintf(sVar, "Fim do teste ");
           putst(sVar);
-       }
+      }else if (serialIn == 'w' ){
+          SetPoint(set_point + 100);
+      }else if (serialIn == 's'){
+          SetPoint(set_point - 100);
+      }else if (serialIn == ' '){
+          motor_reset();
+      }else if (serialIn == 'e' ){
+          SetPoint(set_point + 50);
+      }else if (serialIn == 'd'){
+          SetPoint(set_point - 50);
+      }else if (serialIn == '0'){
+          SetPoint(0);
+      }else if (serialIn == 'k'){
+          onlyK = 1;
+      }else if (serialIn == 'l'){
+          onlyK = 0;
+      }
+      
     } // fim - loop principal
 } // fim - main

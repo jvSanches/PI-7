@@ -1,43 +1,21 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"3429 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
-[v _ANS12 `Vb ~T0 @X0 0 e@3148 ]
-"4206
-[v _TRISB0 `Vb ~T0 @X0 0 e@1072 ]
-"4230
-[v _TRISC0 `Vb ~T0 @X0 0 e@1080 ]
+"13 spi.c
+[c E1233 32 33 34 35 36 37 .. ]
+[n E1233 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
+[c E1241 0 128 .. ]
+[n E1241 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
+[c E1245 16 0 .. ]
+[n E1245 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
+[c E1249 0 64 .. ]
+[n E1249 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
+"4245 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"2019
+[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
 "4239
 [v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
-"4242
-[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
-"4245
-[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
-"3948
-[v _RC0 `Vb ~T0 @X0 0 e@56 ]
-"4053
-[v _SSPEN `Vb ~T0 @X0 0 e@165 ]
-"3648
-[v _CKP `Vb ~T0 @X0 0 e@164 ]
-"3645
-[v _CKE `Vb ~T0 @X0 0 e@1190 ]
-"4038
-[v _SMP `Vb ~T0 @X0 0 e@1191 ]
-"777
-[s S28 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S28 . SSPM CKP SSPEN SSPOV WCOL ]
-"784
-[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S29 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"776
-[u S27 `S28 1 `S29 1 ]
-[n S27 . . . ]
-"791
-[v _SSPCONbits `VS27 ~T0 @X0 0 e@20 ]
-"4059
-[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"4338
-[v _WCOL `Vb ~T0 @X0 0 e@167 ]
-"764
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"771
+[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
 "2025
 [s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S78 . BF UA R_nW S P D_nA CKE SMP ]
@@ -64,8 +42,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S77 . . . . . . . . ]
 "2073
 [v _SSPSTATbits `VS77 ~T0 @X0 0 e@148 ]
-"3918
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
+"764
+[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1512,287 +1490,171 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 282: typedef uint32_t uintmax_t;
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
-[; ;spi.h: 15: void spi_init();
-[; ;spi.h: 17: void spi_slave_init();
-[; ;spi.h: 19: uint8_t spi_exchange(uint8_t data);
-[; ;spi.h: 21: uint8_t spi_read();
-[; ;spi.h: 23: int spi_ready();
-[; ;spi.h: 25: uint8_t spi_slave_exchange(uint8_t data);
-[; ;spi.h: 27: void spi_write(uint8_t data);
-[; ;always.h: 177: struct sixteen_bits {
-[; ;always.h: 178: unsigned char bit0 :1;
-[; ;always.h: 179: unsigned char bit1 :1;
-[; ;always.h: 180: unsigned char bit2 :1;
-[; ;always.h: 181: unsigned char bit3 :1;
-[; ;always.h: 182: unsigned char bit4 :1;
-[; ;always.h: 183: unsigned char bit5 :1;
-[; ;always.h: 184: unsigned char bit6 :1;
-[; ;always.h: 185: unsigned char bit7 :1;
-[; ;always.h: 186: unsigned char bit8 :1;
-[; ;always.h: 187: unsigned char bit9 :1;
-[; ;always.h: 188: unsigned char bit10 :1;
-[; ;always.h: 189: unsigned char bit11 :1;
-[; ;always.h: 190: unsigned char bit12 :1;
-[; ;always.h: 191: unsigned char bit13 :1;
-[; ;always.h: 192: unsigned char bit14 :1;
-[; ;always.h: 193: unsigned char bit15 :1;
-[; ;always.h: 194: };
-[; ;always.h: 196: struct eight_bits {
-[; ;always.h: 197: unsigned char bit0 :1;
-[; ;always.h: 198: unsigned char bit1 :1;
-[; ;always.h: 199: unsigned char bit2 :1;
-[; ;always.h: 200: unsigned char bit3 :1;
-[; ;always.h: 201: unsigned char bit4 :1;
-[; ;always.h: 202: unsigned char bit5 :1;
-[; ;always.h: 203: unsigned char bit6 :1;
-[; ;always.h: 204: unsigned char bit7 :1;
-[; ;always.h: 205: };
-[; ;always.h: 207: struct two_bytes {
-[; ;always.h: 208: unsigned char low;
-[; ;always.h: 209: unsigned char high;
-[; ;always.h: 210: };
-[; ;always.h: 212: union wordtype {
-[; ;always.h: 213: unsigned int word;
-[; ;always.h: 214: struct two_bytes byte;
-[; ;always.h: 215: struct sixteen_bits part;
-[; ;always.h: 216: };
-[; ;always.h: 218: union chartype {
-[; ;always.h: 219: unsigned char byte;
-[; ;always.h: 220: struct eight_bits part;
-[; ;always.h: 221: };
-"23 spi.c
-[v _spi_init `(v ~T0 @X0 1 ef ]
+[; ;spi.h: 16: typedef enum
+[; ;spi.h: 17: {
+[; ;spi.h: 18: SPI_MASTER_OSC_DIV4 = 0b00100000,
+[; ;spi.h: 19: SPI_MASTER_OSC_DIV16 = 0b00100001,
+[; ;spi.h: 20: SPI_MASTER_OSC_DIV64 = 0b00100010,
+[; ;spi.h: 21: SPI_MASTER_TMR2 = 0b00100011,
+[; ;spi.h: 22: SPI_SLAVE_SS_EN = 0b00100100,
+[; ;spi.h: 23: SPI_SLAVE_SS_DIS = 0b00100101
+[; ;spi.h: 24: }Spi_Type;
+[; ;spi.h: 26: typedef enum
+[; ;spi.h: 27: {
+[; ;spi.h: 28: SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+[; ;spi.h: 29: SPI_DATA_SAMPLE_END = 0b10000000
+[; ;spi.h: 30: }Spi_Data_Sample;
+[; ;spi.h: 32: typedef enum
+[; ;spi.h: 33: {
+[; ;spi.h: 34: SPI_CLOCK_IDLE_HIGH = 0b00010000,
+[; ;spi.h: 35: SPI_CLOCK_IDLE_LOW = 0b00000000
+[; ;spi.h: 36: }Spi_Clock_Idle;
+[; ;spi.h: 38: typedef enum
+[; ;spi.h: 39: {
+[; ;spi.h: 40: SPI_IDLE_2_ACTIVE = 0b00000000,
+[; ;spi.h: 41: SPI_ACTIVE_2_IDLE = 0b01000000
+[; ;spi.h: 42: }Spi_Transmit_Edge;
+[; ;spi.h: 45: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+[; ;spi.h: 46: void spiWrite(uint8_t);
+[; ;spi.h: 47: unsigned spiDataReady();
+[; ;spi.h: 48: uint8_t spiRead();
+"12 spi.c
+[v _spiInit `(v ~T0 @X0 1 ef4`E1233`E1241`E1245`E1249 ]
+"13
 {
-[; ;spi.c: 23: void spi_init(){
-[e :U _spi_init ]
+[; ;spi.c: 12: void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+[; ;spi.c: 13: {
+[e :U _spiInit ]
+"12
+[v _sType `E1233 ~T0 @X0 1 r1 ]
+[v _sDataSample `E1241 ~T0 @X0 1 r2 ]
+[v _sClockIdle `E1245 ~T0 @X0 1 r3 ]
+[v _sTransmitEdge `E1249 ~T0 @X0 1 r4 ]
+"13
 [f ]
-[; ;spi.c: 24: ANS12 = 0;
-"24
-[e = _ANS12 -> -> 0 `i `b ]
-[; ;spi.c: 25: TRISB0 = 1;
-"25
-[e = _TRISB0 -> -> 1 `i `b ]
-[; ;spi.c: 26: TRISC0 = 0;
-"26
-[e = _TRISC0 -> -> 0 `i `b ]
-[; ;spi.c: 27: TRISC3 = 0;
-"27
-[e = _TRISC3 -> -> 0 `i `b ]
-[; ;spi.c: 28: TRISC4 = 1;
-"28
-[e = _TRISC4 -> -> 1 `i `b ]
-[; ;spi.c: 29: TRISC5 = 0;
-"29
+[; ;spi.c: 14: TRISC5 = 0;
+"14
 [e = _TRISC5 -> -> 0 `i `b ]
-[; ;spi.c: 30: RC0 = 1;
+[; ;spi.c: 15: if(sType & 0b00000100)
+"15
+[e $ ! != & -> _sType `i -> 4 `i -> 0 `i 135  ]
+[; ;spi.c: 16: {
+"16
+{
+[; ;spi.c: 17: SSPSTAT = sTransmitEdge;
+"17
+[e = _SSPSTAT -> _sTransmitEdge `uc ]
+[; ;spi.c: 18: TRISC3 = 1;
+"18
+[e = _TRISC3 -> -> 1 `i `b ]
+"19
+}
+[; ;spi.c: 19: }
+[e $U 136  ]
+"20
+[e :U 135 ]
+[; ;spi.c: 20: else
+[; ;spi.c: 21: {
+"21
+{
+[; ;spi.c: 22: SSPSTAT = sDataSample | sTransmitEdge;
+"22
+[e = _SSPSTAT -> | -> _sDataSample `i -> _sTransmitEdge `i `uc ]
+[; ;spi.c: 23: TRISC3 = 0;
+"23
+[e = _TRISC3 -> -> 0 `i `b ]
+"24
+}
+[e :U 136 ]
+[; ;spi.c: 24: }
+[; ;spi.c: 26: SSPCON = sType | sClockIdle;
+"26
+[e = _SSPCON -> | -> _sType `i -> _sClockIdle `i `uc ]
+[; ;spi.c: 27: }
+"27
+[e :UE 134 ]
+}
+"29
+[v _spiReceiveWait `(v ~T0 @X0 1 sf ]
 "30
-[e = _RC0 -> -> 1 `i `b ]
-[; ;spi.c: 31: SSPEN = 0;
+{
+[; ;spi.c: 29: static void spiReceiveWait()
+[; ;spi.c: 30: {
+[e :U _spiReceiveWait ]
+[f ]
+[; ;spi.c: 31: while ( !SSPSTATbits.BF );
 "31
-[e = _SSPEN -> -> 0 `i `b ]
-[; ;spi.c: 32: CKP = 0;
+[e $U 138  ]
+[e :U 139 ]
+[e :U 138 ]
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 139  ]
+[e :U 140 ]
+[; ;spi.c: 32: }
 "32
-[e = _CKP -> -> 0 `i `b ]
-[; ;spi.c: 33: CKE = 0;
-"33
-[e = _CKE -> -> 0 `i `b ]
-[; ;spi.c: 34: SMP = 0;
+[e :UE 137 ]
+}
 "34
-[e = _SMP -> -> 0 `i `b ]
-[; ;spi.c: 35: SSPCONbits.SSPM = 1;
+[v _spiWrite `(v ~T0 @X0 1 ef1`uc ]
 "35
-[e = . . _SSPCONbits 0 0 -> -> 1 `i `uc ]
-[; ;spi.c: 36: SSPEN = 1;
+{
+[; ;spi.c: 34: void spiWrite(uint8_t dat)
+[; ;spi.c: 35: {
+[e :U _spiWrite ]
+"34
+[v _dat `uc ~T0 @X0 1 r1 ]
+"35
+[f ]
+[; ;spi.c: 36: SSPBUF = dat;
 "36
-[e = _SSPEN -> -> 1 `i `b ]
+[e = _SSPBUF _dat ]
 [; ;spi.c: 37: }
 "37
-[e :UE 139 ]
-}
-"39
-[v _spi_slave_init `(v ~T0 @X0 1 ef ]
-{
-[; ;spi.c: 39: void spi_slave_init(){
-[e :U _spi_slave_init ]
-[f ]
-[; ;spi.c: 40: ANS12 = 0;
-"40
-[e = _ANS12 -> -> 0 `i `b ]
-[; ;spi.c: 41: TRISB0 = 1;
-"41
-[e = _TRISB0 -> -> 1 `i `b ]
-[; ;spi.c: 42: TRISC0 = 1;
-"42
-[e = _TRISC0 -> -> 1 `i `b ]
-[; ;spi.c: 43: TRISC3 = 1;
-"43
-[e = _TRISC3 -> -> 1 `i `b ]
-[; ;spi.c: 44: TRISC4 = 1;
-"44
-[e = _TRISC4 -> -> 1 `i `b ]
-[; ;spi.c: 45: TRISC5 = 0;
-"45
-[e = _TRISC5 -> -> 0 `i `b ]
-[; ;spi.c: 46: SSPEN = 0;
-"46
-[e = _SSPEN -> -> 0 `i `b ]
-[; ;spi.c: 47: CKP = 0;
-"47
-[e = _CKP -> -> 0 `i `b ]
-[; ;spi.c: 48: CKE = 0;
-"48
-[e = _CKE -> -> 0 `i `b ]
-[; ;spi.c: 49: SMP = 0;
-"49
-[e = _SMP -> -> 0 `i `b ]
-[; ;spi.c: 50: SSPCONbits.SSPM = 4;
-"50
-[e = . . _SSPCONbits 0 0 -> -> 4 `i `uc ]
-[; ;spi.c: 52: SSPEN = 1;
-"52
-[e = _SSPEN -> -> 1 `i `b ]
-[; ;spi.c: 53: }
-"53
-[e :UE 140 ]
-}
-"55
-[v _spi_interrupt_handler `(v ~T0 @X0 1 ef ]
-{
-[; ;spi.c: 55: void spi_interrupt_handler(){
-[e :U _spi_interrupt_handler ]
-[f ]
-[; ;spi.c: 57: SSPIF=0;
-"57
-[e = _SSPIF -> -> 0 `i `b ]
-[; ;spi.c: 58: }
-"58
 [e :UE 141 ]
 }
-"65
-[v _spi_exchange `(uc ~T0 @X0 1 ef1`uc ]
+"39
+[v _spiDataReady `(ui ~T0 @X0 1 ef ]
+"40
 {
-[; ;spi.c: 65: uint8_t spi_exchange(uint8_t data){
-[e :U _spi_exchange ]
-[v _data `uc ~T0 @X0 1 r1 ]
+[; ;spi.c: 39: unsigned spiDataReady()
+[; ;spi.c: 40: {
+[e :U _spiDataReady ]
 [f ]
-[; ;spi.c: 66: WCOL = 0;
-"66
-[e = _WCOL -> -> 0 `i `b ]
-[; ;spi.c: 67: RC0 = 0;
-"67
-[e = _RC0 -> -> 0 `i `b ]
-[; ;spi.c: 68: SSPBUF = data;
-"68
-[e = _SSPBUF _data ]
-[; ;spi.c: 69: while(SSPSTATbits.BF == 0);
-"69
-[e $U 143  ]
-[e :U 144 ]
-[e :U 143 ]
-[e $ == -> . . _SSPSTATbits 0 0 `i -> 0 `i 144  ]
-[e :U 145 ]
-[; ;spi.c: 70: RC0 = 1;
-"70
-[e = _RC0 -> -> 1 `i `b ]
-[; ;spi.c: 71: return SSPBUF;
-"71
-[e ) _SSPBUF ]
+[; ;spi.c: 41: if(SSPSTATbits.BF)
+"41
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 143  ]
+[; ;spi.c: 42: return 1;
+"42
+[e ) -> -> 1 `i `ui ]
 [e $UE 142  ]
-[; ;spi.c: 72: }
-"72
+[e $U 144  ]
+"43
+[e :U 143 ]
+[; ;spi.c: 43: else
+[; ;spi.c: 44: return 0;
+"44
+[e ) -> -> 0 `i `ui ]
+[e $UE 142  ]
+[e :U 144 ]
+[; ;spi.c: 45: }
+"45
 [e :UE 142 ]
 }
-"76
-[v _spi_slave_exchange `(uc ~T0 @X0 1 ef1`uc ]
+"47
+[v _spiRead `(uc ~T0 @X0 1 ef ]
+"48
 {
-[; ;spi.c: 76: uint8_t spi_slave_exchange(uint8_t data){
-[e :U _spi_slave_exchange ]
-[v _data `uc ~T0 @X0 1 r1 ]
+[; ;spi.c: 47: uint8_t spiRead()
+[; ;spi.c: 48: {
+[e :U _spiRead ]
 [f ]
-"77
-[v _incoming_data `uc ~T0 @X0 1 a ]
-[; ;spi.c: 77: char incoming_data = 0;
-[e = _incoming_data -> -> 0 `i `uc ]
-[; ;spi.c: 78: if(SSPSTATbits.BF){
-"78
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 147  ]
-{
-[; ;spi.c: 79: incoming_data = SSPBUF;
-"79
-[e = _incoming_data _SSPBUF ]
-[; ;spi.c: 80: SSPBUF = data;
-"80
-[e = _SSPBUF _data ]
-"81
-}
-[e :U 147 ]
-[; ;spi.c: 81: }
-[; ;spi.c: 82: return incoming_data;
-"82
-[e ) _incoming_data ]
-[e $UE 146  ]
-[; ;spi.c: 83: }
-"83
-[e :UE 146 ]
-}
-"86
-[v _spi_ready `(i ~T0 @X0 1 ef ]
-{
-[; ;spi.c: 86: int spi_ready(){
-[e :U _spi_ready ]
-[f ]
-[; ;spi.c: 87: if(SSPSTATbits.BF){
-"87
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 149  ]
-{
-[; ;spi.c: 88: return 1;
-"88
-[e ) -> 1 `i ]
-[e $UE 148  ]
-"89
-}
-[e :U 149 ]
-[; ;spi.c: 89: }
-[; ;spi.c: 90: return 0;
-"90
-[e ) -> 0 `i ]
-[e $UE 148  ]
-[; ;spi.c: 91: }
-"91
-[e :UE 148 ]
-}
-"97
-[v _spi_read `(uc ~T0 @X0 1 ef ]
-{
-[; ;spi.c: 97: uint8_t spi_read(){
-[e :U _spi_read ]
-[f ]
-[; ;spi.c: 99: while (!RB0);
-"99
-[e $U 151  ]
-[e :U 152 ]
-[e :U 151 ]
-[e $ ! _RB0 152  ]
-[e :U 153 ]
-[; ;spi.c: 101: return spi_exchange(0);
-"101
-[e ) ( _spi_exchange (1 -> -> 0 `i `uc ]
-[e $UE 150  ]
-[; ;spi.c: 102: }
-"102
-[e :UE 150 ]
-}
-"109
-[v _spi_write `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;spi.c: 109: void spi_write(uint8_t data){
-[e :U _spi_write ]
-[v _data `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;spi.c: 110: spi_exchange(data);
-"110
-[e ( _spi_exchange (1 _data ]
-[; ;spi.c: 111: }
-"111
-[e :UE 154 ]
+[; ;spi.c: 49: spiReceiveWait();
+"49
+[e ( _spiReceiveWait ..  ]
+[; ;spi.c: 50: return(SSPBUF);
+"50
+[e ) _SSPBUF ]
+[e $UE 145  ]
+[; ;spi.c: 51: }
+"51
+[e :UE 145 ]
 }

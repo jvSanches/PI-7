@@ -21,6 +21,7 @@ src \
 src/drivers/console \
 src/drivers/ledonboard \
 src/drivers/pwm \
+src/drivers/spi \
 src/drivers/uart \
 src/pi7/comunicacao_pc \
 src/pi7/comunicacao_pic \

@@ -2449,6 +2449,92 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
+# 13 "D:\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef __int24 int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 52
+typedef unsigned char uint8_t;
+
+# 58
+typedef unsigned int uint16_t;
+
+# 65
+typedef __uint24 uint24_t;
+
+# 72
+typedef unsigned long int uint32_t;
+
+# 88
+typedef signed char int_least8_t;
+
+# 96
+typedef signed int int_least16_t;
+
+# 109
+typedef __int24 int_least24_t;
+
+# 118
+typedef signed long int int_least32_t;
+
+# 136
+typedef unsigned char uint_least8_t;
+
+# 143
+typedef unsigned int uint_least16_t;
+
+# 154
+typedef __uint24 uint_least24_t;
+
+# 162
+typedef unsigned long int uint_least32_t;
+
+# 181
+typedef signed char int_fast8_t;
+
+# 188
+typedef signed int int_fast16_t;
+
+# 200
+typedef __int24 int_fast24_t;
+
+# 208
+typedef signed long int int_fast32_t;
+
+# 224
+typedef unsigned char uint_fast8_t;
+
+# 230
+typedef unsigned int uint_fast16_t;
+
+# 240
+typedef __uint24 uint_fast24_t;
+
+# 247
+typedef unsigned long int uint_fast32_t;
+
+# 268
+typedef int32_t intmax_t;
+
+# 282
+typedef uint32_t uintmax_t;
+
+# 289
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
 # 177 "always.h"
 struct sixteen_bits {
 unsigned char bit0 :1;
@@ -2545,122 +2631,58 @@ void putchhex(unsigned char c);
 
 void putinthex(unsigned int c);
 
-# 13 "D:\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
-typedef signed char int8_t;
+# 16 "spi.h"
+typedef enum
+{
+SPI_MASTER_OSC_DIV4 = 0b00100000,
+SPI_MASTER_OSC_DIV16 = 0b00100001,
+SPI_MASTER_OSC_DIV64 = 0b00100010,
+SPI_MASTER_TMR2 = 0b00100011,
+SPI_SLAVE_SS_EN = 0b00100100,
+SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
 
-# 20
-typedef signed int int16_t;
+typedef enum
+{
+SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
 
-# 28
-typedef __int24 int24_t;
+typedef enum
+{
+SPI_CLOCK_IDLE_HIGH = 0b00010000,
+SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
 
-# 36
-typedef signed long int int32_t;
-
-# 52
-typedef unsigned char uint8_t;
-
-# 58
-typedef unsigned int uint16_t;
-
-# 65
-typedef __uint24 uint24_t;
-
-# 72
-typedef unsigned long int uint32_t;
-
-# 88
-typedef signed char int_least8_t;
-
-# 96
-typedef signed int int_least16_t;
-
-# 109
-typedef __int24 int_least24_t;
-
-# 118
-typedef signed long int int_least32_t;
-
-# 136
-typedef unsigned char uint_least8_t;
-
-# 143
-typedef unsigned int uint_least16_t;
-
-# 154
-typedef __uint24 uint_least24_t;
-
-# 162
-typedef unsigned long int uint_least32_t;
-
-# 181
-typedef signed char int_fast8_t;
-
-# 188
-typedef signed int int_fast16_t;
-
-# 200
-typedef __int24 int_fast24_t;
-
-# 208
-typedef signed long int int_fast32_t;
-
-# 224
-typedef unsigned char uint_fast8_t;
-
-# 230
-typedef unsigned int uint_fast16_t;
-
-# 240
-typedef __uint24 uint_fast24_t;
-
-# 247
-typedef unsigned long int uint_fast32_t;
-
-# 268
-typedef int32_t intmax_t;
-
-# 282
-typedef uint32_t uintmax_t;
-
-# 289
-typedef int16_t intptr_t;
+typedef enum
+{
+SPI_IDLE_2_ACTIVE = 0b00000000,
+SPI_ACTIVE_2_IDLE = 0b01000000
+}Spi_Transmit_Edge;
 
 
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+void spiWrite(uint8_t);
+unsigned spiDataReady();
+uint8_t spiRead();
 
-
-typedef uint16_t uintptr_t;
-
-# 15 "spi.h"
-void spi_init();
-
-void spi_slave_init();
-
-uint8_t spi_exchange(uint8_t data);
-
-uint8_t spi_read();
-
-int spi_ready();
-
-uint8_t spi_slave_exchange(uint8_t data);
-
-void spi_write(uint8_t data);
-
-# 77 "main.c"
+# 78 "main.c"
 volatile long encoder1_counter;
 volatile char state1;
 volatile char ab1;
 volatile long motor_pos =0;
 volatile long set_point =0;
 
-volatile signed char pos_log1[100/2 + 1];
-volatile signed char pos_log2[100/2 + 1];
+volatile signed char pos_log1[90/2 + 1];
+volatile signed char pos_log2[90/2 + 1];
 
 volatile int samples =0;
 volatile char sampling = 0;
 volatile long last_pos;
 
 volatile unsigned int com_time;
+
+int onlyK = 0;
 
 
 
@@ -2678,28 +2700,31 @@ return(value);
 
 void SetMotor(){
 static long integral;
-static long derivative;
-static long last_err;
-
-
-
+static int derivative;
+static int last_err;
+long resp;
 int err = set_point - motor_pos;
 
+if (onlyK){
+resp = (err)/5;
+}else{
 
 derivative = (err - last_err);
-
-if (err = 0){
+last_err = err;
+if (err == 0){
 integral = 0;
 }else{
 integral = integral + err;
 }
 
-int P_Response = 1.1 * err;
-int D_Response = 2.0 * derivative;
-int I_Response = 0.5 * integral;
-int resp = P_Response + D_Response + I_Response;
+int P_Response = 4 * err;
+int D_Response = (13 * derivative);
 
-constrain(resp, -255,255 );
+int I_Response = 0 * integral;
+resp = P_Response + D_Response + I_Response;
+}
+
+resp = constrain(resp, -255,255 );
 if (resp > 0){
 pwm_set(1, resp );
 pwm_set(2, 0 );
@@ -2728,6 +2753,8 @@ resetCounter();
 SetPoint(0);
 }
 
+uint8_t SPIData;
+int nSPIData;
 
 void interrupt isr(void) {
 static int tick;
@@ -2738,10 +2765,10 @@ if (T0IE && T0IF) {
 
 SetMotor();
 if (sampling){
-if (samples < 100/2){
+if (samples < 90/2){
 pos_log1[samples] = motor_pos-last_pos;
 }else{
-pos_log2[samples-(100/2)] = motor_pos-last_pos;
+pos_log2[samples-(90/2)] = motor_pos-last_pos;
 }
 last_pos = motor_pos;
 samples++;
@@ -2817,13 +2844,13 @@ encoder1_counter = 0;
 
 }
 
-# 283
+# 291
 void main (void) {
 
 
 char serialIn = 255;
 
-# 292
+# 300
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2853,24 +2880,42 @@ RBIE = 1;
 
 
 serial_init();
-spi_slave_init();
+
+spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
 
 
 pwm_init();
 
-# 331
+# 340
 encoders_init();
 int enc1 = -1;
 
-# 339
+# 348
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
 
 while (1) {
 
+# 360
+if(spiDataReady())
+{
+RB5 = !RB5;
+SPIData = spiRead() >> 1;
+spiWrite(240);
+nSPIData = 1;
+}
+if (nSPIData){
+char sVar[10];
+sprintf(sVar, "SPIRx: %d \r\n", SPIData);
+putst(sVar);
+nSPIData = 0;
+}
+
+continue;
+
 char serialIn = chkchr();
-if (serialIn == 'a'){
+if (serialIn == 'u'){
 resetCounter();
 
 last_pos = 0;
@@ -2878,7 +2923,7 @@ samples = 0;
 sampling = 1;
 SetPoint(100);
 RB5=0;
-while (samples < 100){
+while (samples < 90){
 
 }
 sampling = 0;
@@ -2886,20 +2931,37 @@ RB5=1;
 
 char sVar[10];
 samples = 0;
-sprintf(sVar, "Kp: %d -> ", 0.55);
+sprintf(sVar, "Kp: %d -> ", 4);
 putst(sVar);
-while (samples <= 100 /2){
+while (samples <= 90 /2){
 sprintf(sVar, "%d ", pos_log1[samples]);
 putst(sVar);
 samples++;
 }
-while (samples < 100){
-sprintf(sVar, "%d ", pos_log2[samples - 100 / 2]);
+while (samples < 90){
+sprintf(sVar, "%d ", pos_log2[samples - 90 / 2]);
 putst(sVar);
 samples++;
 }
 sprintf(sVar, "Fim do teste ");
 putst(sVar);
+}else if (serialIn == 'w' ){
+SetPoint(set_point + 100);
+}else if (serialIn == 's'){
+SetPoint(set_point - 100);
+}else if (serialIn == ' '){
+motor_reset();
+}else if (serialIn == 'e' ){
+SetPoint(set_point + 50);
+}else if (serialIn == 'd'){
+SetPoint(set_point - 50);
+}else if (serialIn == '0'){
+SetPoint(0);
+}else if (serialIn == 'k'){
+onlyK = 1;
+}else if (serialIn == 'l'){
+onlyK = 0;
 }
+
 }
 }

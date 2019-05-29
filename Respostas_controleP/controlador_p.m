@@ -1,5 +1,5 @@
 L ='ref';
-data = boost_no_mecanismo;
+data = ndata; %boost_completo;
 data_start = data(1,1);
 [len, wid] = size(data);
 data_end = data(len,1);
@@ -17,9 +17,9 @@ for Kp = data_start:1:data_end
     end
 
     plot(t,pos,'LineWidth',1);
-    ylim([0 1200]);
-    refline(0,1000);
-    text(0.7+((Kp-data_start)/50), pos(100)+15, "Kp = " + string(Kp));
+    ylim([0 140]);
+    refline(0,100);
+    %text(0.7+((Kp-data_start)/50), pos(100)+15, "Kp = " + string(Kp));
     L = [L,string(Kp)];
     legend(L);
     hold on;

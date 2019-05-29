@@ -15,6 +15,7 @@ RM := rm -rf
 -include src/pi7/comunicacao_pic/subdir.mk
 -include src/pi7/comunicacao_pc/subdir.mk
 -include src/drivers/uart/subdir.mk
+-include src/drivers/spi/subdir.mk
 -include src/drivers/pwm/subdir.mk
 -include src/drivers/ledonboard/subdir.mk
 -include src/drivers/console/subdir.mk

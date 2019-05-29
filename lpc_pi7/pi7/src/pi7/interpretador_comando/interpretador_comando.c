@@ -81,6 +81,29 @@ int ctl_WriteRegister(int registerToWrite, int value) {
 	  command.command = CMD_START;
 	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
 	  break;
+  case REG_STOP:
+	  printf("Stop program\n");
+	  command.command = CMD_STOP;
+	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+	  break;
+  case REG_START:
+	  printf("Resume program\n");
+	  command.command = CMD_RESUME;
+	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+	  break;
+  case REG_START:
+	  printf("Suspend program\n");
+	  command.command = CMD_SUSPEND;
+	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+	  break;
+  case JOG_X_POSITIVE:
+	  break;
+  case JOG_X_NEGATIVE:
+	  break;
+  case JOG_y_POSITIVE:
+  	  break;
+  case JOG_Y_NEGATIVE:
+  	  break;
   case REG_AUX_RD:
 	  printf("Aux register\n");
 	  setAUX(value);

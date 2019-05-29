@@ -2455,145 +2455,79 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 15 "spi.h"
-void spi_init();
+# 16 "spi.h"
+typedef enum
+{
+SPI_MASTER_OSC_DIV4 = 0b00100000,
+SPI_MASTER_OSC_DIV16 = 0b00100001,
+SPI_MASTER_OSC_DIV64 = 0b00100010,
+SPI_MASTER_TMR2 = 0b00100011,
+SPI_SLAVE_SS_EN = 0b00100100,
+SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
 
-void spi_slave_init();
+typedef enum
+{
+SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
 
-uint8_t spi_exchange(uint8_t data);
+typedef enum
+{
+SPI_CLOCK_IDLE_HIGH = 0b00010000,
+SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
 
-uint8_t spi_read();
+typedef enum
+{
+SPI_IDLE_2_ACTIVE = 0b00000000,
+SPI_ACTIVE_2_IDLE = 0b01000000
+}Spi_Transmit_Edge;
 
-int spi_ready();
 
-uint8_t spi_slave_exchange(uint8_t data);
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+void spiWrite(uint8_t);
+unsigned spiDataReady();
+uint8_t spiRead();
 
-void spi_write(uint8_t data);
-
-# 177 "always.h"
-struct sixteen_bits {
-unsigned char bit0 :1;
-unsigned char bit1 :1;
-unsigned char bit2 :1;
-unsigned char bit3 :1;
-unsigned char bit4 :1;
-unsigned char bit5 :1;
-unsigned char bit6 :1;
-unsigned char bit7 :1;
-unsigned char bit8 :1;
-unsigned char bit9 :1;
-unsigned char bit10 :1;
-unsigned char bit11 :1;
-unsigned char bit12 :1;
-unsigned char bit13 :1;
-unsigned char bit14 :1;
-unsigned char bit15 :1;
-};
-
-struct eight_bits {
-unsigned char bit0 :1;
-unsigned char bit1 :1;
-unsigned char bit2 :1;
-unsigned char bit3 :1;
-unsigned char bit4 :1;
-unsigned char bit5 :1;
-unsigned char bit6 :1;
-unsigned char bit7 :1;
-};
-
-struct two_bytes {
-unsigned char low;
-unsigned char high;
-};
-
-union wordtype {
-unsigned int word;
-struct two_bytes byte;
-struct sixteen_bits part;
-};
-
-union chartype {
-unsigned char byte;
-struct eight_bits part;
-};
-
-# 23 "spi.c"
-void spi_init(){
-ANS12 = 0;
-TRISB0 = 1;
-TRISC0 = 0;
-TRISC3 = 0;
-TRISC4 = 1;
+# 12 "spi.c"
+void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+{
 TRISC5 = 0;
-RC0 = 1;
-SSPEN = 0;
-CKP = 0;
-CKE = 0;
-SMP = 0;
-SSPCONbits.SSPM = 1;
-SSPEN = 1;
-}
-
-void spi_slave_init(){
-ANS12 = 0;
-TRISB0 = 1;
-TRISC0 = 1;
+if(sType & 0b00000100)
+{
+SSPSTAT = sTransmitEdge;
 TRISC3 = 1;
-TRISC4 = 1;
-TRISC5 = 0;
-SSPEN = 0;
-CKP = 0;
-CKE = 0;
-SMP = 0;
-SSPCONbits.SSPM = 4;
-
-SSPEN = 1;
+}
+else
+{
+SSPSTAT = sDataSample | sTransmitEdge;
+TRISC3 = 0;
 }
 
-void spi_interrupt_handler(){
-
-SSPIF=0;
+SSPCON = sType | sClockIdle;
 }
 
-# 65
-uint8_t spi_exchange(uint8_t data){
-WCOL = 0;
-RC0 = 0;
-SSPBUF = data;
-while(SSPSTATbits.BF == 0);
-RC0 = 1;
-return SSPBUF;
+static void spiReceiveWait()
+{
+while ( !SSPSTATbits.BF );
 }
 
-
-
-uint8_t spi_slave_exchange(uint8_t data){
-char incoming_data = 0;
-if(SSPSTATbits.BF){
-incoming_data = SSPBUF;
-SSPBUF = data;
-}
-return incoming_data;
+void spiWrite(uint8_t dat)
+{
+SSPBUF = dat;
 }
 
-
-int spi_ready(){
-if(SSPSTATbits.BF){
+unsigned spiDataReady()
+{
+if(SSPSTATbits.BF)
 return 1;
-}
+else
 return 0;
 }
 
-# 97
-uint8_t spi_read(){
-
-while (!RB0);
-
-return spi_exchange(0);
+uint8_t spiRead()
+{
+spiReceiveWait();
+return(SSPBUF);
 }
-
-# 109
-void spi_write(uint8_t data){
-spi_exchange(data);
-}
-

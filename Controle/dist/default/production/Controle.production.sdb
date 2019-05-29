@@ -3,6 +3,48 @@
 [d edition pro ]
 [d chip 16F886 ]
 [d frameptr 6 ]
+"330 D:\Poli\PI-7\Controle\main.c
+[e E1366 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1374 . `uc
+SPI_DATA_SAMPLE_MIDDLE 0
+SPI_DATA_SAMPLE_END 128
+]
+[e E1378 . `uc
+SPI_CLOCK_IDLE_HIGH 16
+SPI_CLOCK_IDLE_LOW 0
+]
+[e E1382 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
+"13 D:\Poli\PI-7\Controle\spi.c
+[e E1233 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1241 . `uc
+SPI_DATA_SAMPLE_MIDDLE 0
+SPI_DATA_SAMPLE_END 128
+]
+[e E1245 . `uc
+SPI_CLOCK_IDLE_HIGH 16
+SPI_CLOCK_IDLE_LOW 0
+]
+[e E1249 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
 "5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 [v i1___aldiv __aldiv `(l  1 e 4 0 ]
@@ -10,16 +52,14 @@
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "500 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"43 D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
 "5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"8 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 [v i1___lmul __lmul `(ul  1 e 4 0 ]
@@ -27,27 +67,27 @@
 [v ___bmul __bmul `(uc  1 e 1 0 ]
 "4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"10 D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 D:\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "37 D:\Poli\PI-7\Controle\delay.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
-"94 D:\Poli\PI-7\Controle\main.c
+"97 D:\Poli\PI-7\Controle\main.c
 [v _constrain constrain `(l  1 e 4 0 ]
-"106
+"109
 [v _SetMotor SetMotor `(v  1 e 1 0 ]
-"142
+"148
 [v _SetPoint SetPoint `(v  1 e 1 0 ]
-"146
+"152
 [v _resetCounter resetCounter `(v  1 e 1 0 ]
-"159
+"157
+[v _motor_reset motor_reset `(v  1 e 1 0 ]
+"167
 [v _isr isr `II(v  1 e 1 0 ]
-"239
+"247
 [v _encoders_init encoders_init `(v  1 e 1 0 ]
-"283
+"291
 [v _main main `(v  1 e 1 0 ]
 "25 D:\Poli\PI-7\Controle\pwm.c
 [v _pwm_init pwm_init `(v  1 e 1 0 ]
@@ -64,10 +104,16 @@
 [v _putchhex putchhex `(v  1 e 1 0 ]
 "211
 [v _putst putst `(v  1 e 1 0 ]
-"39 D:\Poli\PI-7\Controle\spi.c
-[v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
-"65
-[v _spi_exchange spi_exchange `(uc  1 e 1 0 ]
+"12 D:\Poli\PI-7\Controle\spi.c
+[v _spiInit spiInit `(v  1 e 1 0 ]
+"29
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+"34
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+"39
+[v _spiDataReady spiDataReady `(ui  1 e 2 0 ]
+"47
+[v _spiRead spiRead `(uc  1 e 1 0 ]
 "59 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
 "228
@@ -100,20 +146,8 @@
 [v _T2CONbits T2CONbits `VES181  1 e 1 @18 ]
 "764
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
-[s S365 . 1 `uc 1 SSPM 1 0 :4:0 
-`uc 1 CKP 1 0 :1:4 
-`uc 1 SSPEN 1 0 :1:5 
-`uc 1 SSPOV 1 0 :1:6 
-`uc 1 WCOL 1 0 :1:7 
-]
-"791
-[s S371 . 1 `uc 1 SSPM0 1 0 :1:0 
-`uc 1 SSPM1 1 0 :1:1 
-`uc 1 SSPM2 1 0 :1:2 
-`uc 1 SSPM3 1 0 :1:3 
-]
-[u S376 . 1 `S365 1 . 1 0 `S371 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES376  1 e 1 @20 ]
+"771
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
 "848
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
 [s S83 . 1 `uc 1 CCP1M 1 0 :4:0 
@@ -172,7 +206,9 @@
 [v _OPTION_REGbits OPTION_REGbits `VES242  1 e 1 @129 ]
 "1883
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
-[s S394 . 1 `uc 1 BF 1 0 :1:0 
+"2019
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S413 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -182,39 +218,39 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "2073
-[s S403 . 1 `uc 1 . 1 0 :2:0 
+[s S422 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S408 . 1 `uc 1 . 1 0 :2:0 
+[s S427 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S414 . 1 `uc 1 . 1 0 :2:0 
+[s S433 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S419 . 1 `uc 1 . 1 0 :2:0 
+[s S438 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S424 . 1 `uc 1 . 1 0 :2:0 
+[s S443 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S429 . 1 `uc 1 . 1 0 :2:0 
+[s S448 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S434 . 1 `S394 1 . 1 0 `S403 1 . 1 0 `S408 1 . 1 0 `S414 1 . 1 0 `S419 1 . 1 0 `S424 1 . 1 0 `S429 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES434  1 e 1 @148 ]
+[u S453 . 1 `S413 1 . 1 0 `S422 1 . 1 0 `S427 1 . 1 0 `S433 1 . 1 0 `S438 1 . 1 0 `S443 1 . 1 0 `S448 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES453  1 e 1 @148 ]
 "2258
 [v _IOCB IOCB `VEuc  1 e 1 @150 ]
 "2484
@@ -223,8 +259,6 @@
 [v _ANS10 ANS10 `VEb  1 e 0 @3146 ]
 "3426
 [v _ANS11 ANS11 `VEb  1 e 0 @3147 ]
-"3429
-[v _ANS12 ANS12 `VEb  1 e 0 @3148 ]
 "3432
 [v _ANS13 ANS13 `VEb  1 e 0 @3149 ]
 "3441
@@ -235,10 +269,6 @@
 [v _ANS9 ANS9 `VEb  1 e 0 @3145 ]
 "3510
 [v _BRGH BRGH `VEb  1 e 0 @1218 ]
-"3645
-[v _CKE CKE `VEb  1 e 0 @1190 ]
-"3648
-[v _CKP CKP `VEb  1 e 0 @164 ]
 "3651
 [v _CREN CREN `VEb  1 e 0 @196 ]
 "3702
@@ -253,32 +283,22 @@
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "3912
 [v _RA6 RA6 `VEb  1 e 0 @46 ]
-"3918
-[v _RB0 RB0 `VEb  1 e 0 @48 ]
 "3933
 [v _RB5 RB5 `VEb  1 e 0 @53 ]
 "3942
 [v _RBIE RBIE `VEb  1 e 0 @91 ]
 "3945
 [v _RBIF RBIF `VEb  1 e 0 @88 ]
-"3948
-[v _RC0 RC0 `VEb  1 e 0 @56 ]
 "3987
 [v _RCIE RCIE `VEb  1 e 0 @1125 ]
 "3990
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
 "4011
 [v _RX9 RX9 `VEb  1 e 0 @198 ]
-"4038
-[v _SMP SMP `VEb  1 e 0 @1191 ]
 "4041
 [v _SPEN SPEN `VEb  1 e 0 @199 ]
 "4050
 [v _SREN SREN `VEb  1 e 0 @197 ]
-"4053
-[v _SSPEN SSPEN `VEb  1 e 0 @165 ]
-"4059
-[v _SSPIF SSPIF `VEb  1 e 0 @99 ]
 "4095
 [v _SYNC SYNC `VEb  1 e 0 @1220 ]
 "4101
@@ -291,8 +311,6 @@
 [v _TRISA5 TRISA5 `VEb  1 e 0 @1069 ]
 "4200
 [v _TRISA6 TRISA6 `VEb  1 e 0 @1070 ]
-"4206
-[v _TRISB0 TRISB0 `VEb  1 e 0 @1072 ]
 "4209
 [v _TRISB1 TRISB1 `VEb  1 e 0 @1073 ]
 "4212
@@ -305,16 +323,12 @@
 [v _TRISB5 TRISB5 `VEb  1 e 0 @1077 ]
 "4227
 [v _TRISB7 TRISB7 `VEb  1 e 0 @1079 ]
-"4230
-[v _TRISC0 TRISC0 `VEb  1 e 0 @1080 ]
 "4233
 [v _TRISC1 TRISC1 `VEb  1 e 0 @1081 ]
 "4236
 [v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
 "4239
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
-"4242
-[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "4245
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
 "4278
@@ -325,64 +339,68 @@
 [v _TXIE TXIE `VEb  1 e 0 @1124 ]
 "4293
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"4338
-[v _WCOL WCOL `VEb  1 e 0 @167 ]
 "358 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
 "21 D:\Poli\PI-7\Controle\delay.c
 [v _delayus_variable delayus_variable `uc  1 e 1 0 ]
-"77 D:\Poli\PI-7\Controle\main.c
+"78 D:\Poli\PI-7\Controle\main.c
 [v _encoder1_counter encoder1_counter `VEl  1 e 4 0 ]
-"78
-[v _state1 state1 `VEuc  1 e 1 0 ]
 "79
-[v _ab1 ab1 `VEuc  1 e 1 0 ]
+[v _state1 state1 `VEuc  1 e 1 0 ]
 "80
-[v _motor_pos motor_pos `VEl  1 e 4 0 ]
+[v _ab1 ab1 `VEuc  1 e 1 0 ]
 "81
+[v _motor_pos motor_pos `VEl  1 e 4 0 ]
+"82
 [v _set_point set_point `VEl  1 e 4 0 ]
-"83
-[v _pos_log1 pos_log1 `VE[51]c  1 e 51 0 ]
 "84
-[v _pos_log2 pos_log2 `VE[51]c  1 e 51 0 ]
-"86
-[v _samples samples `VEi  1 e 2 0 ]
+[v _pos_log1 pos_log1 `VE[46]c  1 e 46 0 ]
+"85
+[v _pos_log2 pos_log2 `VE[46]c  1 e 46 0 ]
 "87
-[v _sampling sampling `VEuc  1 e 1 0 ]
+[v _samples samples `VEi  1 e 2 0 ]
 "88
+[v _sampling sampling `VEuc  1 e 1 0 ]
+"89
 [v _last_pos last_pos `VEl  1 e 4 0 ]
-"90
+"91
 [v _com_time com_time `VEui  1 e 2 0 ]
+"93
+[v _onlyK onlyK `i  1 e 2 0 ]
+"164
+[v _SPIData SPIData `uc  1 e 1 0 ]
+"165
+[v _nSPIData nSPIData `i  1 e 2 0 ]
 "79 D:\Poli\PI-7\Controle\serial.c
 [v _dummy dummy `uc  1 e 1 0 ]
-"283 D:\Poli\PI-7\Controle\main.c
+"291 D:\Poli\PI-7\Controle\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"360
-[v main@sVar sVar `[10]uc  1 a 10 44 ]
-"343
-[v main@serialIn_346 serialIn `uc  1 a 1 54 ]
-"378
+"391
+[v main@sVar_387 sVar `[10]uc  1 a 10 56 ]
+"368
+[v main@sVar sVar `[10]uc  1 a 10 45 ]
+"426
 } 0
 "500 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 "540
-[v sprintf@val val `ui  1 a 2 25 ]
+[v sprintf@val val `ui  1 a 2 23 ]
 "507
-[v sprintf@c c `uc  1 a 1 28 ]
+[v sprintf@c c `uc  1 a 1 26 ]
 "516
-[v sprintf@prec prec `c  1 a 1 24 ]
+[v sprintf@prec prec `c  1 a 1 22 ]
 "520
-[v sprintf@flag flag `uc  1 a 1 23 ]
+[v sprintf@flag flag `uc  1 a 1 21 ]
 "502
-[v sprintf@ap ap `[1]*.4v  1 a 1 22 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 20 ]
 "500
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.24DCuc  1 p 1 14 ]
 "545
-[v sprintf@sp sp `*.4uc  1 a 1 27 ]
+[v sprintf@sp sp `*.4uc  1 a 1 25 ]
 "1560
 } 0
 "5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
@@ -407,20 +425,77 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"39 D:\Poli\PI-7\Controle\spi.c
-[v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
+"34 D:\Poli\PI-7\Controle\spi.c
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
 {
-"53
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+"36
+[v spiWrite@dat dat `uc  1 a 1 0 ]
+"37
+} 0
+"47
+[v _spiRead spiRead `(uc  1 e 1 0 ]
+{
+"51
+} 0
+"29
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+{
+"32
+} 0
+"12
+[v _spiInit spiInit `(v  1 e 1 0 ]
+{
+[v spiInit@sType sType `E1233  1 a 1 wreg ]
+[v spiInit@sType sType `E1233  1 a 1 wreg ]
+[v spiInit@sDataSample sDataSample `E1241  1 p 1 0 ]
+[v spiInit@sClockIdle sClockIdle `E1245  1 p 1 1 ]
+[v spiInit@sTransmitEdge sTransmitEdge `E1249  1 p 1 2 ]
+"14
+[v spiInit@sType sType `E1233  1 a 1 3 ]
+"27
+} 0
+"39
+[v _spiDataReady spiDataReady `(ui  1 e 2 0 ]
+{
+"45
 } 0
 "29 D:\Poli\PI-7\Controle\serial.c
 [v _serial_init serial_init `(v  1 e 1 0 ]
 {
 "77
 } 0
-"146 D:\Poli\PI-7\Controle\main.c
+"25 D:\Poli\PI-7\Controle\pwm.c
+[v _pwm_init pwm_init `(v  1 e 1 0 ]
+{
+"64
+} 0
+"211 D:\Poli\PI-7\Controle\serial.c
+[v _putst putst `(v  1 e 1 0 ]
+{
+[v putst@str str `*.4DCuc  1 a 1 wreg ]
+[v putst@str str `*.4DCuc  1 a 1 wreg ]
+[v putst@str str `*.4DCuc  1 a 1 3 ]
+"218
+} 0
+"95
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@c c `uc  1 a 1 wreg ]
+[v putch@c c `uc  1 a 1 wreg ]
+[v putch@c c `uc  1 a 1 1 ]
+"102
+} 0
+"157 D:\Poli\PI-7\Controle\main.c
+[v _motor_reset motor_reset `(v  1 e 1 0 ]
+{
+"162
+} 0
+"152
 [v _resetCounter resetCounter `(v  1 e 1 0 ]
 {
-"149
+"155
 } 0
 "72 D:\Poli\PI-7\Controle\pwm.c
 [v _pwm_set pwm_set `(v  1 e 1 0 ]
@@ -452,70 +527,49 @@
 [v ___aldiv@dividend dividend `l  1 p 4 17 ]
 "41
 } 0
-"25 D:\Poli\PI-7\Controle\pwm.c
-[v _pwm_init pwm_init `(v  1 e 1 0 ]
+"148 D:\Poli\PI-7\Controle\main.c
+[v _SetPoint SetPoint `(v  1 e 1 0 ]
 {
-"64
+[v SetPoint@new_val new_val `i  1 p 2 0 ]
+"150
 } 0
-"211 D:\Poli\PI-7\Controle\serial.c
-[v _putst putst `(v  1 e 1 0 ]
-{
-[v putst@str str `*.4DCuc  1 a 1 wreg ]
-[v putst@str str `*.4DCuc  1 a 1 wreg ]
-[v putst@str str `*.4DCuc  1 a 1 3 ]
-"218
-} 0
-"95
-[v _putch putch `(v  1 e 1 0 ]
-{
-[v putch@c c `uc  1 a 1 wreg ]
-[v putch@c c `uc  1 a 1 wreg ]
-[v putch@c c `uc  1 a 1 1 ]
-"102
-} 0
-"239 D:\Poli\PI-7\Controle\main.c
+"247
 [v _encoders_init encoders_init `(v  1 e 1 0 ]
 {
-"245
+"253
 } 0
 "142 D:\Poli\PI-7\Controle\serial.c
 [v _chkchr chkchr `(uc  1 e 1 0 ]
 {
 "147
 } 0
-"142 D:\Poli\PI-7\Controle\main.c
-[v _SetPoint SetPoint `(v  1 e 1 0 ]
-{
-[v SetPoint@new_val new_val `i  1 p 2 0 ]
-"144
-} 0
-"159
+"167 D:\Poli\PI-7\Controle\main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"185
-[v isr@portB portB `uc  1 a 1 61 ]
-"237
+"193
+[v isr@portB portB `uc  1 a 1 50 ]
+"245
 } 0
-"106
+"109
 [v _SetMotor SetMotor `(v  1 e 1 0 ]
 {
-"127
-[v SetMotor@resp resp `i  1 a 2 53 ]
+"131
+[v SetMotor@I_Response I_Response `i  1 a 2 36 ]
+"129
+[v SetMotor@D_Response D_Response `i  1 a 2 34 ]
+"128
+[v SetMotor@P_Response P_Response `i  1 a 2 32 ]
 "113
-[v SetMotor@err err `i  1 a 2 51 ]
-"126
-[v SetMotor@I_Response I_Response `i  1 a 2 49 ]
-"125
-[v SetMotor@D_Response D_Response `i  1 a 2 47 ]
-"124
-[v SetMotor@P_Response P_Response `i  1 a 2 45 ]
-"107
+[v SetMotor@resp resp `l  1 a 4 38 ]
+"114
+[v SetMotor@err err `i  1 a 2 42 ]
+"110
 [v SetMotor@integral integral `l  1 s 4 integral ]
-"108
-[v SetMotor@derivative derivative `l  1 s 4 derivative ]
-"109
-[v SetMotor@last_err last_err `l  1 s 4 last_err ]
-"140
+"111
+[v SetMotor@derivative derivative `i  1 s 2 derivative ]
+"112
+[v SetMotor@last_err last_err `i  1 s 2 last_err ]
+"146
 } 0
 "72 D:\Poli\PI-7\Controle\pwm.c
 [v i1_pwm_set pwm_set `(v  1 e 1 0 ]
@@ -542,75 +596,34 @@
 [v i1___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
 } 0
-"94 D:\Poli\PI-7\Controle\main.c
+"97 D:\Poli\PI-7\Controle\main.c
 [v _constrain constrain `(l  1 e 4 0 ]
 {
 [v constrain@value value `l  1 p 4 0 ]
 [v constrain@lLimit lLimit `l  1 p 4 4 ]
 [v constrain@uLimit uLimit `l  1 p 4 8 ]
-"102
+"105
 } 0
-"10 D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"15 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 {
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 10 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 9 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 0 ]
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 8 ]
-"44
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
 } 0
-"43 D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
+"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 36 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 35 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 26 ]
-"70
-} 0
-"8 D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
-{
-[s S830 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S835 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S838 . 4 `l 1 i 4 0 `d 1 f 4 0 `S830 1 fAsBytes 4 0 `S835 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S838  1 a 4 20 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 14 ]
-[s S907 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S910 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S907 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S910  1 a 2 24 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 19 ]
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 18 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 13 ]
-"8
-[v ___flmul@b b `d  1 p 4 0 ]
-[v ___flmul@a a `d  1 p 4 4 ]
-"205
-} 0
-"4 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-{
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-"6
-[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
 "5
-[v __Umul8_16@product product `ui  1 a 2 4 ]
-"4
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
-"60
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
 } 0

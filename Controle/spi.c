@@ -1,112 +1,51 @@
-/* 
- * File:     spi.h 
- * Author:   Bruno Alan Miyamoto ou Thiago ?
- * Date:     7/02/2016
- * Comments: Controla interface SPI
- * Revision history:
- *           [jo:160214] código comentado e alguns ajustes 
+ /*
+ * File            : spi.c
+ * Author          : Ligo George
+ * Company         : electroSome
+ * Project         : SPI Library for MPLAB XC8
+ * Microcontroller : PIC 16F877A
+ * Created on April 15, 2017, 5:59 PM
  */
 
-#ifndef SPI_C
-#define	SPI_C
-
 #include "spi.h"
-#include "always.h"
 
-#define SS RC0          // SS para SPI
-#define DUMMYDATA 0
-#define DATA_READY RB0  // Pino de entrada para receber indicação de que há um byte para ser lido por SPI
-
-///
-/// inicializa a comunicacao spi em modo 0, 0
-///
-void spi_init(){
-  ANS12 = DIGITAL;     // RB0 é digital
-  TRISB0 = INPUT;      // RB0 é entrada (DRDY)
-  TRISC0 = OUTPUT;     // RC0 para saída (SS)
-  TRISC3 = OUTPUT;     // RC3 para saída (SCK)
-  TRISC4 = INPUT;      // RC4 para entrada (SDI)
-  TRISC5 = OUTPUT;     // RC5 para saída (SDO)
-  SS = 1;              // SS inativo 
-  SSPEN = 0;           // desabilita modo SPI
-  CKP = 0;             // estado inativo é nível LOW
-  CKE = 0;             // dado transmitido na borda se subida do SCK
-  SMP = 0;             // dado de entrada amostrado no meio do tempo do dado de saída
-  SSPCONbits.SSPM = 1; // SPI em modo Master, clock = FOSC/16
-  SSPEN = 1;           // habilita modo SPI  
-}
-
-void spi_slave_init(){
-  ANS12 = DIGITAL;     // RB0 é digital
-  TRISB0 = INPUT;      // RB0 é entrada (DRDY)
-  TRISC0 = INPUT;      // RC0 para entrada (SS)
-  TRISC3 = INPUT;      // RC3 para entrada (SCK)
-  TRISC4 = INPUT;      // RC4 para entrada (SDI)
-  TRISC5 = OUTPUT;     // RC5 para saída (SDO)
-  SSPEN = 0;           // desabilita modo SPI
-  CKP = 0;             // estado inativo é nível LOW
-  CKE = 0;             // dado transmitido na borda se subida do SCK
-  SMP = 0;             // dado de entrada amostrado no meio do tempo do dado de saída
-  SSPCONbits.SSPM = 4; // SPI em modo slave
-  
-  SSPEN = 1;           // habilita modo SPI  
-}
-
-void spi_interrupt_handler(){
+void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+{
+    TRISC5 = 0;
+    if(sType & 0b00000100) //If Slave Mode
+    {
+        SSPSTAT = sTransmitEdge;
+        TRISC3 = 1;
+    }
+    else              //If Master Mode
+    {
+        SSPSTAT = sDataSample | sTransmitEdge;
+        TRISC3 = 0;
+    }
     
-    SSPIF=0;
+    SSPCON = sType | sClockIdle;
 }
 
-///
-/// Envia e recebe dado pelo SPI
-/// @param data dado a ser transmitido
-/// @return retorna dado recebido
-///
-uint8_t spi_exchange(uint8_t data){
-  WCOL = 0;       // limpa flag de colisão
-  SS = 0;         // seleção de SPI ativado
-  SSPBUF = data;  // transfere dado para o buffer do SPI
-  while(SSPSTATbits.BF == 0); // enquanto o buffer não tiver recebido dado, espera
-  SS = 1;         // recebeu dado, iniativa seleção
-  return SSPBUF;  // retorna o dado recebido
+static void spiReceiveWait()
+{
+    while ( !SSPSTATbits.BF ); // Wait for Data Receive complete
 }
 
-
-//Receive from spi as slave
-uint8_t spi_slave_exchange(uint8_t data){
-    char incoming_data = FALSE;
-    if(SSPSTATbits.BF){
-        incoming_data = SSPBUF;
-        SSPBUF = data;
-    }
-    return incoming_data;
+void spiWrite(uint8_t dat)  //Write data to SPI bus
+{
+    SSPBUF = dat;
 }
 
-//Verify there is data to be read in spi 
-int spi_ready(){
-    if(SSPSTATbits.BF){
-        return TRUE;
-    }
-    return FALSE;
+unsigned spiDataReady() //Check whether the data is ready to read
+{
+    if(SSPSTATbits.BF)
+        return 1;
+    else
+        return 0;
 }
 
-///
-/// Faz a leitura de dados por SPI
-/// @return retorna dado
-///
-uint8_t spi_read(){
-  
-  while (!DATA_READY); // espera os dados estarem prontos para serem lidos
-  
-  return spi_exchange(DUMMYDATA);
+uint8_t spiRead() //REad the received data
+{
+    spiReceiveWait();        // wait until the all bits receive
+    return(SSPBUF); // read the received data from the buffer
 }
-
-
-///
-/// Envia dados por SPI
-/// @param data - dado a ser transmitido
-///
-void spi_write(uint8_t data){
-  spi_exchange(data);
-}
-#endif

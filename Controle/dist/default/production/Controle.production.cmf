@@ -11,72 +11,72 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Sanches\AppData\Local\Temp\s3d0.o
+$C:\Users\Sanches\AppData\Local\Temp\s26s.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 12 12 3 2
 config CONFIG 0 2007 2007 2 2
 $dist/default/production\Controle.production.o
-cinit CODE 0 15 15 24 2
-text1 CODE 0 F2E F2E D2 2
-text2 CODE 0 B13 B13 34 2
-text3 CODE 0 B7D B7D 3E 2
-text4 CODE 0 A5A A5A 1A 2
-text5 CODE 0 A42 A42 18 2
-text6 CODE 0 7EB 7EB 15 2
-text7 CODE 0 CE8 CE8 85 2
-text8 CODE 0 7AA 7AA 41 2
-text9 CODE 0 DFC DFC 8F 2
-text10 CODE 0 AB5 AB5 2A 2
-text11 CODE 0 B47 B47 36 2
-text12 CODE 0 ADF ADF 34 2
-text13 CODE 0 A74 A74 1E 2
-text14 CODE 0 A11 A11 8 2
-text15 CODE 0 A21 A21 C 2
-text16 CODE 0 697 697 113 2
-text17 CODE 0 34E 34E 20E 2
-text18 CODE 0 C67 C67 81 2
-text19 CODE 0 BBB BBB 3F 2
-text20 CODE 0 D6D D6D 8F 2
-text21 CODE 0 A2D A2D 15 2
-text22 CODE 0 E8B E8B A3 2
-text23 CODE 0 BFA BFA 6D 2
-text24 CODE 0 39 39 315 2
-text25 CODE 0 A92 A92 23 2
-maintext CODE 0 55C 55C 13B 2
+cinit CODE 0 15 15 1C 2
+text1 CODE 0 2AD 2AD D2 2
+text2 CODE 0 F96 F96 34 2
+text3 CODE 0 727 727 3E 2
+text4 CODE 0 E7B E7B 8 2
+text5 CODE 0 E6C E6C 7 2
+text6 CODE 0 7FA 7FA 5 2
+text7 CODE 0 EBC EBC 14 2
+text8 CODE 0 E8B E8B C 2
+text9 CODE 0 ED0 ED0 18 2
+text10 CODE 0 F04 F04 2A 2
+text11 CODE 0 FCA FCA 36 2
+text12 CODE 0 F62 F62 34 2
+text13 CODE 0 F2E F2E 34 2
+text14 CODE 0 EA9 EA9 13 2
+text15 CODE 0 548 548 85 2
+text16 CODE 0 6A7 6A7 41 2
+text17 CODE 0 42A 42A 8F 2
+text18 CODE 0 E97 E97 12 2
+text19 CODE 0 EE8 EE8 1C 2
+text20 CODE 0 E73 E73 8 2
+text21 CODE 0 1B0 1B0 FD 2
+text22 CODE 0 31 31 17F 2
+text23 CODE 0 5CD 5CD 81 2
+text24 CODE 0 6E8 6E8 3F 2
+text25 CODE 0 4B9 4B9 8F 2
+text26 CODE 0 79F 79F 3A 2
+text27 CODE 0 7D9 7D9 21 2
+text28 CODE 0 64E 64E 59 2
+maintext CODE 0 37F 37F AB 2
 cstackCOMMON COMMON 1 70 70 E 1
-cstackBANK0 BANK0 1 20 20 3E 1
-cstackBANK1 BANK1 1 A0 A0 37 1
+cstackBANK0 BANK0 1 20 20 33 1
+cstackBANK1 BANK1 1 A0 A0 42 1
 intentry CODE 0 4 4 E 2
-bssBANK0 BANK0 1 5E 5E 11 1
-bssBANK1 BANK1 1 D7 D7 16 1
-bssBANK2 BANK2 1 110 110 33 1
-bssBANK3 BANK3 1 190 190 33 1
-strings STRING 0 800 800 2D 2
-clrtext CODE 0 A19 A19 8 2
+bssBANK0 BANK0 1 53 53 1D 1
+bssBANK1 BANK1 1 E2 E2 B 1
+bssBANK3 BANK3 1 190 190 5C 1
+strings STRING 0 765 765 3A 2
+clrtext CODE 0 E83 E83 8 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 6F-6F 1
 RAM ED-EF 1
-RAM 143-16F 1
-RAM 1C3-1EF 1
-BANK0 6F-6F 1
+RAM 110-16F 1
+RAM 1EC-1EF 1
 BANK1 ED-EF 1
-BANK2 143-16F 1
-BANK3 1C3-1EF 1
+BANK2 110-16F 1
+BANK3 1EC-1EF 1
 CONST 3-3 2
-CONST 82D-A10 2
+CONST 7FF-E6B 2
 CONST 1000-1FFF 2
 ENTRY 3-3 2
-ENTRY 82D-A10 2
+ENTRY 7FF-E6B 2
 ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
-STACK 143-16F 1
+STACK 110-16F 1
 CODE 3-3 2
-CODE 82D-A10 2
+CODE 7FF-E6B 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -84,10 +84,10 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 82D-A10 2
+STRCODE 7FF-E6B 2
 STRCODE 1000-1FFF 2
 STRING 3-3 2
-STRING 82D-A10 2
+STRING 7FF-E6B 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -103,525 +103,418 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Controle.production.o
-15 cinit CODE >1295:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-15 cinit CODE >1298:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-15 cinit CODE >1381:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-16 cinit CODE >1382:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-17 cinit CODE >1383:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-18 cinit CODE >1384:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-19 cinit CODE >1385:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-1E cinit CODE >1388:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-1F cinit CODE >1389:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-20 cinit CODE >1390:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-21 cinit CODE >1391:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-26 cinit CODE >1394:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-27 cinit CODE >1395:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-28 cinit CODE >1396:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-29 cinit CODE >1397:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-2A cinit CODE >1398:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-2F cinit CODE >1401:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-30 cinit CODE >1402:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-31 cinit CODE >1403:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-32 cinit CODE >1404:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-35 cinit CODE >1410:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-35 cinit CODE >1412:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-36 cinit CODE >1413:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-4 intentry CODE >159:D:\Poli\PI-7\Controle\main.c
-A92 text25 CODE >4:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-A93 text25 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-A95 text25 CODE >6:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-A9C text25 CODE >51:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-A9E text25 CODE >52:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-AA4 text25 CODE >53:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-AA4 text25 CODE >54:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-AAB text25 CODE >55:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-AAD text25 CODE >56:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-AB0 text25 CODE >59:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-AB4 text25 CODE >60:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
-39 text24 CODE >8:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-39 text24 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-40 text24 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-46 text24 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-47 text24 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-48 text24 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-4B text24 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-4E text24 CODE >28:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-56 text24 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-57 text24 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-58 text24 CODE >36:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-60 text24 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-65 text24 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-6B text24 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-6C text24 CODE >42:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-6D text24 CODE >45:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-70 text24 CODE >48:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-73 text24 CODE >50:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-7B text24 CODE >53:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-7C text24 CODE >54:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-7D text24 CODE >57:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-85 text24 CODE >65:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-8A text24 CODE >66:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-93 text24 CODE >119:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-A3 text24 CODE >120:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-B0 text24 CODE >121:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-BD text24 CODE >122:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-CD text24 CODE >123:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-E6 text24 CODE >124:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-FF text24 CODE >125:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-10F text24 CODE >126:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-128 text24 CODE >127:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-141 text24 CODE >128:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-14A text24 CODE >129:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-15A text24 CODE >130:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-174 text24 CODE >131:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-184 text24 CODE >132:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-19E text24 CODE >133:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-1A7 text24 CODE >134:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-1B7 text24 CODE >135:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-1D1 text24 CODE >136:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-1E1 text24 CODE >137:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-1FB text24 CODE >138:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-20B text24 CODE >139:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-225 text24 CODE >140:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-235 text24 CODE >141:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-258 text24 CODE >145:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-27D text24 CODE >146:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-286 text24 CODE >149:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-293 text24 CODE >152:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-295 text24 CODE >153:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-29E text24 CODE >154:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-29F text24 CODE >155:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2A0 text24 CODE >157:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2A9 text24 CODE >158:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2AF text24 CODE >152:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2B0 text24 CODE >163:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2B1 text24 CODE >164:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2B3 text24 CODE >165:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2C4 text24 CODE >169:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2C7 text24 CODE >166:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2C9 text24 CODE >174:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2CC text24 CODE >175:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2DA text24 CODE >176:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2DC text24 CODE >177:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2F5 text24 CODE >178:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-2FB text24 CODE >183:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-306 text24 CODE >184:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-310 text24 CODE >185:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-311 text24 CODE >187:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-31E text24 CODE >188:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-328 text24 CODE >190:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-329 text24 CODE >191:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-32A text24 CODE >194:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-330 text24 CODE >195:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-338 text24 CODE >196:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-339 text24 CODE >197:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-33A text24 CODE >199:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-341 text24 CODE >200:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-341 text24 CODE >201:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-345 text24 CODE >203:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-34D text24 CODE >205:D:\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
-BFA text23 CODE >43:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-BFA text23 CODE >47:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C05 text23 CODE >48:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C0E text23 CODE >49:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C23 text23 CODE >50:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C24 text23 CODE >51:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C2C text23 CODE >52:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C2E text23 CODE >53:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C30 text23 CODE >54:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C35 text23 CODE >57:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C3E text23 CODE >58:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C45 text23 CODE >60:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C49 text23 CODE >62:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C49 text23 CODE >65:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C4C text23 CODE >63:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C55 text23 CODE >64:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C57 text23 CODE >62:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C58 text23 CODE >67:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C5B text23 CODE >68:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-C66 text23 CODE >70:D:\Microchip\xc8\v2.05\pic\sources\c90\common\fltol.c
-E8B text22 CODE >10:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-E8C text22 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-E90 text22 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-E9F text22 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EA0 text22 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EA8 text22 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EA8 text22 CODE >21:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EAE text22 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EB7 text22 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EBB text22 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EBF text22 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EC3 text22 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-ECC text22 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-ECD text22 CODE >29:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-ED1 text22 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EDF text22 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EE8 text22 CODE >28:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EE8 text22 CODE >32:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EED text22 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EF1 text22 CODE >34:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EF3 text22 CODE >35:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EFC text22 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-EFE text22 CODE >37:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F00 text22 CODE >38:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F08 text22 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F0A text22 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F20 text22 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F24 text22 CODE >42:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F25 text22 CODE >43:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-F2D text22 CODE >44:D:\Microchip\xc8\v2.05\pic\sources\c90\common\xxtofl.c
-A2D text21 CODE >94:D:\Poli\PI-7\Controle\main.c
-A2D text21 CODE >95:D:\Poli\PI-7\Controle\main.c
-D6D text20 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D6D text20 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D70 text20 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D72 text20 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D7D text20 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D7F text20 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D7F text20 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D81 text20 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D8C text20 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D90 text20 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D98 text20 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-D9E text20 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DA0 text20 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DA2 text20 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DAB text20 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DAF text20 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DB0 text20 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DB9 text20 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DC9 text20 CODE >32:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DD7 text20 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DD8 text20 CODE >35:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DE1 text20 CODE >36:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DE5 text20 CODE >38:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DE8 text20 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DF3 text20 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DFB text20 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-BBB text19 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BBB text19 CODE >119:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BC3 text19 CODE >121:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BC5 text19 CODE >122:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BD9 text19 CODE >123:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BE2 text19 CODE >124:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BEB text19 CODE >125:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BF1 text19 CODE >128:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-BF9 text19 CODE >129:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-C67 text18 CODE >72:D:\Poli\PI-7\Controle\pwm.c
-C67 text18 CODE >76:D:\Poli\PI-7\Controle\pwm.c
-C7D text18 CODE >77:D:\Poli\PI-7\Controle\pwm.c
-C83 text18 CODE >78:D:\Poli\PI-7\Controle\pwm.c
-CD4 text18 CODE >82:D:\Poli\PI-7\Controle\pwm.c
-CD6 text18 CODE >83:D:\Poli\PI-7\Controle\pwm.c
-CD7 text18 CODE >85:D:\Poli\PI-7\Controle\pwm.c
-CD9 text18 CODE >86:D:\Poli\PI-7\Controle\pwm.c
-CDA text18 CODE >80:D:\Poli\PI-7\Controle\pwm.c
-CE7 text18 CODE >90:D:\Poli\PI-7\Controle\pwm.c
-34E text17 CODE >106:D:\Poli\PI-7\Controle\main.c
-34E text17 CODE >113:D:\Poli\PI-7\Controle\main.c
-360 text17 CODE >116:D:\Poli\PI-7\Controle\main.c
-3A7 text17 CODE >118:D:\Poli\PI-7\Controle\main.c
-3AB text17 CODE >121:D:\Poli\PI-7\Controle\main.c
-3F4 text17 CODE >124:D:\Poli\PI-7\Controle\main.c
-431 text17 CODE >125:D:\Poli\PI-7\Controle\main.c
-46D text17 CODE >126:D:\Poli\PI-7\Controle\main.c
-4A9 text17 CODE >127:D:\Poli\PI-7\Controle\main.c
-4B9 text17 CODE >129:D:\Poli\PI-7\Controle\main.c
-4D7 text17 CODE >130:D:\Poli\PI-7\Controle\main.c
-4E4 text17 CODE >131:D:\Poli\PI-7\Controle\main.c
-4F8 text17 CODE >132:D:\Poli\PI-7\Controle\main.c
-509 text17 CODE >133:D:\Poli\PI-7\Controle\main.c
-50E text17 CODE >134:D:\Poli\PI-7\Controle\main.c
-51F text17 CODE >135:D:\Poli\PI-7\Controle\main.c
-538 text17 CODE >136:D:\Poli\PI-7\Controle\main.c
-539 text17 CODE >137:D:\Poli\PI-7\Controle\main.c
-54A text17 CODE >138:D:\Poli\PI-7\Controle\main.c
-55B text17 CODE >140:D:\Poli\PI-7\Controle\main.c
-697 text16 CODE >159:D:\Poli\PI-7\Controle\main.c
-697 text16 CODE >164:D:\Poli\PI-7\Controle\main.c
-69A text16 CODE >166:D:\Poli\PI-7\Controle\main.c
-69F text16 CODE >167:D:\Poli\PI-7\Controle\main.c
-6A4 text16 CODE >168:D:\Poli\PI-7\Controle\main.c
-6AF text16 CODE >169:D:\Poli\PI-7\Controle\main.c
-6B7 text16 CODE >171:D:\Poli\PI-7\Controle\main.c
-6C2 text16 CODE >173:D:\Poli\PI-7\Controle\main.c
-6CA text16 CODE >174:D:\Poli\PI-7\Controle\main.c
-6D0 text16 CODE >177:D:\Poli\PI-7\Controle\main.c
-6D6 text16 CODE >179:D:\Poli\PI-7\Controle\main.c
-6D8 text16 CODE >180:D:\Poli\PI-7\Controle\main.c
-6D9 text16 CODE >184:D:\Poli\PI-7\Controle\main.c
-6DC text16 CODE >185:D:\Poli\PI-7\Controle\main.c
-6E0 text16 CODE >187:D:\Poli\PI-7\Controle\main.c
-6ED text16 CODE >188:D:\Poli\PI-7\Controle\main.c
-6EE text16 CODE >191:D:\Poli\PI-7\Controle\main.c
-6F1 text16 CODE >192:D:\Poli\PI-7\Controle\main.c
-6F3 text16 CODE >195:D:\Poli\PI-7\Controle\main.c
-6F7 text16 CODE >196:D:\Poli\PI-7\Controle\main.c
-6FC text16 CODE >201:D:\Poli\PI-7\Controle\main.c
-6FF text16 CODE >202:D:\Poli\PI-7\Controle\main.c
-700 text16 CODE >203:D:\Poli\PI-7\Controle\main.c
-710 text16 CODE >205:D:\Poli\PI-7\Controle\main.c
-714 text16 CODE >206:D:\Poli\PI-7\Controle\main.c
-718 text16 CODE >207:D:\Poli\PI-7\Controle\main.c
-726 text16 CODE >211:D:\Poli\PI-7\Controle\main.c
-729 text16 CODE >212:D:\Poli\PI-7\Controle\main.c
-72B text16 CODE >215:D:\Poli\PI-7\Controle\main.c
-72F text16 CODE >216:D:\Poli\PI-7\Controle\main.c
-733 text16 CODE >217:D:\Poli\PI-7\Controle\main.c
-743 text16 CODE >221:D:\Poli\PI-7\Controle\main.c
-747 text16 CODE >222:D:\Poli\PI-7\Controle\main.c
-74B text16 CODE >223:D:\Poli\PI-7\Controle\main.c
-758 text16 CODE >224:D:\Poli\PI-7\Controle\main.c
-759 text16 CODE >225:D:\Poli\PI-7\Controle\main.c
-75C text16 CODE >226:D:\Poli\PI-7\Controle\main.c
-760 text16 CODE >227:D:\Poli\PI-7\Controle\main.c
-771 text16 CODE >188:D:\Poli\PI-7\Controle\main.c
-77F text16 CODE >232:D:\Poli\PI-7\Controle\main.c
-79E text16 CODE >233:D:\Poli\PI-7\Controle\main.c
-79F text16 CODE >237:D:\Poli\PI-7\Controle\main.c
-A21 text15 CODE >142:D:\Poli\PI-7\Controle\main.c
-A21 text15 CODE >143:D:\Poli\PI-7\Controle\main.c
-A2C text15 CODE >144:D:\Poli\PI-7\Controle\main.c
-A11 text14 CODE >142:D:\Poli\PI-7\Controle\serial.c
-A11 text14 CODE >143:D:\Poli\PI-7\Controle\serial.c
-A15 text14 CODE >144:D:\Poli\PI-7\Controle\serial.c
-A17 text14 CODE >146:D:\Poli\PI-7\Controle\serial.c
-A18 text14 CODE >147:D:\Poli\PI-7\Controle\serial.c
-A74 text13 CODE >239:D:\Poli\PI-7\Controle\main.c
-A74 text13 CODE >242:D:\Poli\PI-7\Controle\main.c
-A87 text13 CODE >243:D:\Poli\PI-7\Controle\main.c
-A91 text13 CODE >245:D:\Poli\PI-7\Controle\main.c
-ADF text12 CODE >95:D:\Poli\PI-7\Controle\serial.c
-AE2 text12 CODE >96:D:\Poli\PI-7\Controle\serial.c
-AE6 text12 CODE >97:D:\Poli\PI-7\Controle\serial.c
-AFE text12 CODE >98:D:\Poli\PI-7\Controle\serial.c
-AFF text12 CODE >96:D:\Poli\PI-7\Controle\serial.c
-B00 text12 CODE >100:D:\Poli\PI-7\Controle\serial.c
-B06 text12 CODE >101:D:\Poli\PI-7\Controle\serial.c
-B12 text12 CODE >102:D:\Poli\PI-7\Controle\serial.c
-B47 text11 CODE >211:D:\Poli\PI-7\Controle\serial.c
-B4A text11 CODE >212:D:\Poli\PI-7\Controle\serial.c
-B50 text11 CODE >213:D:\Poli\PI-7\Controle\serial.c
-B58 text11 CODE >214:D:\Poli\PI-7\Controle\serial.c
-B67 text11 CODE >215:D:\Poli\PI-7\Controle\serial.c
-B76 text11 CODE >216:D:\Poli\PI-7\Controle\serial.c
-B7C text11 CODE >212:D:\Poli\PI-7\Controle\serial.c
-AB5 text10 CODE >25:D:\Poli\PI-7\Controle\pwm.c
-AB5 text10 CODE >28:D:\Poli\PI-7\Controle\pwm.c
-AB8 text10 CODE >29:D:\Poli\PI-7\Controle\pwm.c
-AB9 text10 CODE >32:D:\Poli\PI-7\Controle\pwm.c
-ABB text10 CODE >35:D:\Poli\PI-7\Controle\pwm.c
-AC1 text10 CODE >36:D:\Poli\PI-7\Controle\pwm.c
-AC5 text10 CODE >39:D:\Poli\PI-7\Controle\pwm.c
-AC6 text10 CODE >40:D:\Poli\PI-7\Controle\pwm.c
-AC8 text10 CODE >41:D:\Poli\PI-7\Controle\pwm.c
-AC9 text10 CODE >45:D:\Poli\PI-7\Controle\pwm.c
-ACA text10 CODE >47:D:\Poli\PI-7\Controle\pwm.c
-ACC text10 CODE >49:D:\Poli\PI-7\Controle\pwm.c
-ACD text10 CODE >51:D:\Poli\PI-7\Controle\pwm.c
-ACF text10 CODE >53:D:\Poli\PI-7\Controle\pwm.c
-AD2 text10 CODE >54:D:\Poli\PI-7\Controle\pwm.c
-AD3 text10 CODE >59:D:\Poli\PI-7\Controle\pwm.c
-AD6 text10 CODE >60:D:\Poli\PI-7\Controle\pwm.c
-AD9 text10 CODE >61:D:\Poli\PI-7\Controle\pwm.c
-ADA text10 CODE >62:D:\Poli\PI-7\Controle\pwm.c
-ADD text10 CODE >63:D:\Poli\PI-7\Controle\pwm.c
-ADE text10 CODE >64:D:\Poli\PI-7\Controle\pwm.c
-DFC text9 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DFC text9 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-DFF text9 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E01 text9 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E0C text9 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E0E text9 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E0E text9 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E10 text9 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E1B text9 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E1F text9 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E27 text9 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E2D text9 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E2F text9 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E31 text9 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E3A text9 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E3E text9 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E3F text9 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E48 text9 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E58 text9 CODE >32:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E66 text9 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E67 text9 CODE >35:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E70 text9 CODE >36:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E74 text9 CODE >38:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E77 text9 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E82 text9 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-E8A text9 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-7AA text8 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7AA text8 CODE >119:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7B4 text8 CODE >121:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7B6 text8 CODE >122:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7CA text8 CODE >123:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7D3 text8 CODE >124:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7DC text8 CODE >125:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7E2 text8 CODE >128:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-7EA text8 CODE >129:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-CE8 text7 CODE >72:D:\Poli\PI-7\Controle\pwm.c
-CE8 text7 CODE >76:D:\Poli\PI-7\Controle\pwm.c
-CFE text7 CODE >77:D:\Poli\PI-7\Controle\pwm.c
-D04 text7 CODE >78:D:\Poli\PI-7\Controle\pwm.c
-D55 text7 CODE >82:D:\Poli\PI-7\Controle\pwm.c
-D59 text7 CODE >83:D:\Poli\PI-7\Controle\pwm.c
-D5A text7 CODE >85:D:\Poli\PI-7\Controle\pwm.c
-D5E text7 CODE >86:D:\Poli\PI-7\Controle\pwm.c
-D5F text7 CODE >80:D:\Poli\PI-7\Controle\pwm.c
-D6C text7 CODE >90:D:\Poli\PI-7\Controle\pwm.c
-7EB text6 CODE >146:D:\Poli\PI-7\Controle\main.c
-7EB text6 CODE >147:D:\Poli\PI-7\Controle\main.c
-7F5 text6 CODE >148:D:\Poli\PI-7\Controle\main.c
-7FF text6 CODE >149:D:\Poli\PI-7\Controle\main.c
-A42 text5 CODE >29:D:\Poli\PI-7\Controle\serial.c
-A42 text5 CODE >65:D:\Poli\PI-7\Controle\serial.c
-A46 text5 CODE >66:D:\Poli\PI-7\Controle\serial.c
-A47 text5 CODE >67:D:\Poli\PI-7\Controle\serial.c
-A48 text5 CODE >68:D:\Poli\PI-7\Controle\serial.c
-A4B text5 CODE >69:D:\Poli\PI-7\Controle\serial.c
-A4C text5 CODE >70:D:\Poli\PI-7\Controle\serial.c
-A4D text5 CODE >71:D:\Poli\PI-7\Controle\serial.c
-A50 text5 CODE >72:D:\Poli\PI-7\Controle\serial.c
-A51 text5 CODE >73:D:\Poli\PI-7\Controle\serial.c
-A52 text5 CODE >74:D:\Poli\PI-7\Controle\serial.c
-A55 text5 CODE >75:D:\Poli\PI-7\Controle\serial.c
-A58 text5 CODE >76:D:\Poli\PI-7\Controle\serial.c
-A59 text5 CODE >77:D:\Poli\PI-7\Controle\serial.c
-A5A text4 CODE >39:D:\Poli\PI-7\Controle\spi.c
-A5A text4 CODE >40:D:\Poli\PI-7\Controle\spi.c
-A5D text4 CODE >41:D:\Poli\PI-7\Controle\spi.c
-A60 text4 CODE >42:D:\Poli\PI-7\Controle\spi.c
-A61 text4 CODE >43:D:\Poli\PI-7\Controle\spi.c
-A62 text4 CODE >44:D:\Poli\PI-7\Controle\spi.c
-A63 text4 CODE >45:D:\Poli\PI-7\Controle\spi.c
-A64 text4 CODE >46:D:\Poli\PI-7\Controle\spi.c
-A67 text4 CODE >47:D:\Poli\PI-7\Controle\spi.c
-A68 text4 CODE >48:D:\Poli\PI-7\Controle\spi.c
-A6B text4 CODE >49:D:\Poli\PI-7\Controle\spi.c
-A6C text4 CODE >50:D:\Poli\PI-7\Controle\spi.c
-A72 text4 CODE >52:D:\Poli\PI-7\Controle\spi.c
-A73 text4 CODE >53:D:\Poli\PI-7\Controle\spi.c
-B7D text3 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B7D text3 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B81 text3 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B85 text3 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B87 text3 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B89 text3 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B90 text3 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B94 text3 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B95 text3 CODE >21:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B9C text3 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-BA4 text3 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-BAA text3 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-BAB text3 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-BB2 text3 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-BB6 text3 CODE >29:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-BBA text3 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-B13 text2 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B13 text2 CODE >12:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B19 text2 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B1B text2 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B1D text2 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B24 text2 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B28 text2 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B29 text2 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B31 text2 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B37 text2 CODE >21:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B3E text2 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B42 text2 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-B46 text2 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-F2E text1 CODE >500:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F31 text1 CODE >545:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F35 text1 CODE >548:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F45 text1 CODE >550:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F49 text1 CODE >553:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F54 text1 CODE >554:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F55 text1 CODE >560:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F56 text1 CODE >654:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F6B text1 CODE >1278:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F77 text1 CODE >1280:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F79 text1 CODE >1281:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F7D text1 CODE >1282:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F82 text1 CODE >1324:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F84 text1 CODE >1325:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-F9D text1 CODE >1324:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FA5 text1 CODE >1457:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FA9 text1 CODE >1458:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FB4 text1 CODE >1491:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FB8 text1 CODE >1493:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FBF text1 CODE >1508:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FEF text1 CODE >1543:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FFA text1 CODE >1493:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FFB text1 CODE >1557:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-FFF text1 CODE >1560:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-55C maintext CODE >283:D:\Poli\PI-7\Controle\main.c
-55C maintext CODE >292:D:\Poli\PI-7\Controle\main.c
-55F maintext CODE >293:D:\Poli\PI-7\Controle\main.c
-560 maintext CODE >294:D:\Poli\PI-7\Controle\main.c
-562 maintext CODE >297:D:\Poli\PI-7\Controle\main.c
-563 maintext CODE >298:D:\Poli\PI-7\Controle\main.c
-566 maintext CODE >299:D:\Poli\PI-7\Controle\main.c
-569 maintext CODE >300:D:\Poli\PI-7\Controle\main.c
-56A maintext CODE >301:D:\Poli\PI-7\Controle\main.c
-56B maintext CODE >302:D:\Poli\PI-7\Controle\main.c
-56C maintext CODE >303:D:\Poli\PI-7\Controle\main.c
-56D maintext CODE >304:D:\Poli\PI-7\Controle\main.c
-570 maintext CODE >305:D:\Poli\PI-7\Controle\main.c
-571 maintext CODE >306:D:\Poli\PI-7\Controle\main.c
-572 maintext CODE >307:D:\Poli\PI-7\Controle\main.c
-573 maintext CODE >308:D:\Poli\PI-7\Controle\main.c
-576 maintext CODE >311:D:\Poli\PI-7\Controle\main.c
-577 maintext CODE >312:D:\Poli\PI-7\Controle\main.c
-57A maintext CODE >313:D:\Poli\PI-7\Controle\main.c
-57B maintext CODE >314:D:\Poli\PI-7\Controle\main.c
-57C maintext CODE >315:D:\Poli\PI-7\Controle\main.c
-57E maintext CODE >316:D:\Poli\PI-7\Controle\main.c
-57F maintext CODE >320:D:\Poli\PI-7\Controle\main.c
-584 maintext CODE >321:D:\Poli\PI-7\Controle\main.c
-589 maintext CODE >324:D:\Poli\PI-7\Controle\main.c
-58E maintext CODE >331:D:\Poli\PI-7\Controle\main.c
-593 maintext CODE >339:D:\Poli\PI-7\Controle\main.c
-5A6 maintext CODE >340:D:\Poli\PI-7\Controle\main.c
-5B9 maintext CODE >345:D:\Poli\PI-7\Controle\main.c
-5C3 maintext CODE >346:D:\Poli\PI-7\Controle\main.c
-5C7 maintext CODE >347:D:\Poli\PI-7\Controle\main.c
-5CC maintext CODE >349:D:\Poli\PI-7\Controle\main.c
-5D6 maintext CODE >350:D:\Poli\PI-7\Controle\main.c
-5D8 maintext CODE >351:D:\Poli\PI-7\Controle\main.c
-5E0 maintext CODE >352:D:\Poli\PI-7\Controle\main.c
-5EB maintext CODE >353:D:\Poli\PI-7\Controle\main.c
-5EE maintext CODE >354:D:\Poli\PI-7\Controle\main.c
-5FB maintext CODE >357:D:\Poli\PI-7\Controle\main.c
-5FE maintext CODE >358:D:\Poli\PI-7\Controle\main.c
-5FF maintext CODE >361:D:\Poli\PI-7\Controle\main.c
-601 maintext CODE >362:D:\Poli\PI-7\Controle\main.c
-615 maintext CODE >363:D:\Poli\PI-7\Controle\main.c
-61B maintext CODE >364:D:\Poli\PI-7\Controle\main.c
-61B maintext CODE >368:D:\Poli\PI-7\Controle\main.c
-628 maintext CODE >365:D:\Poli\PI-7\Controle\main.c
-641 maintext CODE >366:D:\Poli\PI-7\Controle\main.c
-647 maintext CODE >367:D:\Poli\PI-7\Controle\main.c
-64F maintext CODE >364:D:\Poli\PI-7\Controle\main.c
-650 maintext CODE >370:D:\Poli\PI-7\Controle\main.c
-669 maintext CODE >371:D:\Poli\PI-7\Controle\main.c
-66F maintext CODE >372:D:\Poli\PI-7\Controle\main.c
-677 maintext CODE >369:D:\Poli\PI-7\Controle\main.c
-677 maintext CODE >373:D:\Poli\PI-7\Controle\main.c
-684 maintext CODE >374:D:\Poli\PI-7\Controle\main.c
-690 maintext CODE >375:D:\Poli\PI-7\Controle\main.c
-A19 clrtext CODE >1368:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A19 clrtext CODE >1369:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1A clrtext CODE >1370:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1A clrtext CODE >1371:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1B clrtext CODE >1372:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1C clrtext CODE >1373:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1D clrtext CODE >1374:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1E clrtext CODE >1375:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A1F clrtext CODE >1376:C:\Users\Sanches\AppData\Local\Temp\s3d0.
-A20 clrtext CODE >1377:C:\Users\Sanches\AppData\Local\Temp\s3d0.
+15 cinit CODE >1298:C:\Users\Sanches\AppData\Local\Temp\s26s.
+15 cinit CODE >1301:C:\Users\Sanches\AppData\Local\Temp\s26s.
+15 cinit CODE >1390:C:\Users\Sanches\AppData\Local\Temp\s26s.
+16 cinit CODE >1391:C:\Users\Sanches\AppData\Local\Temp\s26s.
+17 cinit CODE >1392:C:\Users\Sanches\AppData\Local\Temp\s26s.
+18 cinit CODE >1393:C:\Users\Sanches\AppData\Local\Temp\s26s.
+19 cinit CODE >1394:C:\Users\Sanches\AppData\Local\Temp\s26s.
+1E cinit CODE >1397:C:\Users\Sanches\AppData\Local\Temp\s26s.
+1F cinit CODE >1398:C:\Users\Sanches\AppData\Local\Temp\s26s.
+20 cinit CODE >1399:C:\Users\Sanches\AppData\Local\Temp\s26s.
+21 cinit CODE >1400:C:\Users\Sanches\AppData\Local\Temp\s26s.
+26 cinit CODE >1403:C:\Users\Sanches\AppData\Local\Temp\s26s.
+27 cinit CODE >1404:C:\Users\Sanches\AppData\Local\Temp\s26s.
+28 cinit CODE >1405:C:\Users\Sanches\AppData\Local\Temp\s26s.
+29 cinit CODE >1406:C:\Users\Sanches\AppData\Local\Temp\s26s.
+2A cinit CODE >1407:C:\Users\Sanches\AppData\Local\Temp\s26s.
+2D cinit CODE >1413:C:\Users\Sanches\AppData\Local\Temp\s26s.
+2D cinit CODE >1415:C:\Users\Sanches\AppData\Local\Temp\s26s.
+2E cinit CODE >1416:C:\Users\Sanches\AppData\Local\Temp\s26s.
+4 intentry CODE >167:D:\Poli\PI-7\Controle\main.c
+64E text28 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+64E text28 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+64F text28 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+651 text28 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+656 text28 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+658 text28 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+65A text28 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+65F text28 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+663 text28 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+665 text28 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+669 text28 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+66B text28 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+66D text28 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+674 text28 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+678 text28 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+679 text28 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+680 text28 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+688 text28 CODE >32:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+68E text28 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+68F text28 CODE >35:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+696 text28 CODE >36:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+69A text28 CODE >38:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+69D text28 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+6A2 text28 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+6A6 text28 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
+7D9 text27 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7D9 text27 CODE >43:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7DB text27 CODE >45:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7DD text27 CODE >46:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7E3 text27 CODE >47:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7EA text27 CODE >48:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7F1 text27 CODE >49:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7F5 text27 CODE >52:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+7F9 text27 CODE >53:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+79F text26 CODE >97:D:\Poli\PI-7\Controle\main.c
+79F text26 CODE >98:D:\Poli\PI-7\Controle\main.c
+7B3 text26 CODE >99:D:\Poli\PI-7\Controle\main.c
+7BC text26 CODE >100:D:\Poli\PI-7\Controle\main.c
+7D0 text26 CODE >101:D:\Poli\PI-7\Controle\main.c
+4B9 text25 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4B9 text25 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4BC text25 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4BE text25 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4C9 text25 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4CB text25 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4CB text25 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4CD text25 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4D8 text25 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4DC text25 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4E4 text25 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4EA text25 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4EC text25 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4EE text25 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4F7 text25 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4FB text25 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4FC text25 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+505 text25 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+515 text25 CODE >32:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+523 text25 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+524 text25 CODE >35:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+52D text25 CODE >36:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+531 text25 CODE >38:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+534 text25 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+53F text25 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+547 text25 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+6E8 text24 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6E8 text24 CODE >119:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6F0 text24 CODE >121:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6F2 text24 CODE >122:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+706 text24 CODE >123:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+70F text24 CODE >124:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+718 text24 CODE >125:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+71E text24 CODE >128:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+726 text24 CODE >129:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+5CD text23 CODE >72:D:\Poli\PI-7\Controle\pwm.c
+5CD text23 CODE >76:D:\Poli\PI-7\Controle\pwm.c
+5E3 text23 CODE >77:D:\Poli\PI-7\Controle\pwm.c
+5E9 text23 CODE >78:D:\Poli\PI-7\Controle\pwm.c
+63A text23 CODE >82:D:\Poli\PI-7\Controle\pwm.c
+63C text23 CODE >83:D:\Poli\PI-7\Controle\pwm.c
+63D text23 CODE >85:D:\Poli\PI-7\Controle\pwm.c
+63F text23 CODE >86:D:\Poli\PI-7\Controle\pwm.c
+640 text23 CODE >80:D:\Poli\PI-7\Controle\pwm.c
+64D text23 CODE >90:D:\Poli\PI-7\Controle\pwm.c
+31 text22 CODE >109:D:\Poli\PI-7\Controle\main.c
+31 text22 CODE >114:D:\Poli\PI-7\Controle\main.c
+3B text22 CODE >116:D:\Poli\PI-7\Controle\main.c
+3F text22 CODE >117:D:\Poli\PI-7\Controle\main.c
+57 text22 CODE >120:D:\Poli\PI-7\Controle\main.c
+5F text22 CODE >121:D:\Poli\PI-7\Controle\main.c
+63 text22 CODE >122:D:\Poli\PI-7\Controle\main.c
+67 text22 CODE >123:D:\Poli\PI-7\Controle\main.c
+71 text22 CODE >125:D:\Poli\PI-7\Controle\main.c
+BA text22 CODE >128:D:\Poli\PI-7\Controle\main.c
+CA text22 CODE >129:D:\Poli\PI-7\Controle\main.c
+DD text22 CODE >131:D:\Poli\PI-7\Controle\main.c
+F1 text22 CODE >132:D:\Poli\PI-7\Controle\main.c
+106 text22 CODE >135:D:\Poli\PI-7\Controle\main.c
+12D text22 CODE >136:D:\Poli\PI-7\Controle\main.c
+13E text22 CODE >137:D:\Poli\PI-7\Controle\main.c
+14F text22 CODE >138:D:\Poli\PI-7\Controle\main.c
+160 text22 CODE >139:D:\Poli\PI-7\Controle\main.c
+163 text22 CODE >140:D:\Poli\PI-7\Controle\main.c
+174 text22 CODE >141:D:\Poli\PI-7\Controle\main.c
+18C text22 CODE >142:D:\Poli\PI-7\Controle\main.c
+18D text22 CODE >143:D:\Poli\PI-7\Controle\main.c
+19E text22 CODE >144:D:\Poli\PI-7\Controle\main.c
+1AF text22 CODE >146:D:\Poli\PI-7\Controle\main.c
+1B0 text21 CODE >167:D:\Poli\PI-7\Controle\main.c
+1B0 text21 CODE >172:D:\Poli\PI-7\Controle\main.c
+1B3 text21 CODE >174:D:\Poli\PI-7\Controle\main.c
+1B8 text21 CODE >175:D:\Poli\PI-7\Controle\main.c
+1BD text21 CODE >176:D:\Poli\PI-7\Controle\main.c
+1C8 text21 CODE >177:D:\Poli\PI-7\Controle\main.c
+1D0 text21 CODE >179:D:\Poli\PI-7\Controle\main.c
+1DB text21 CODE >181:D:\Poli\PI-7\Controle\main.c
+1E3 text21 CODE >182:D:\Poli\PI-7\Controle\main.c
+1E9 text21 CODE >185:D:\Poli\PI-7\Controle\main.c
+1F1 text21 CODE >187:D:\Poli\PI-7\Controle\main.c
+1F5 text21 CODE >188:D:\Poli\PI-7\Controle\main.c
+1F6 text21 CODE >192:D:\Poli\PI-7\Controle\main.c
+1F9 text21 CODE >193:D:\Poli\PI-7\Controle\main.c
+1FD text21 CODE >195:D:\Poli\PI-7\Controle\main.c
+20A text21 CODE >196:D:\Poli\PI-7\Controle\main.c
+20B text21 CODE >199:D:\Poli\PI-7\Controle\main.c
+20E text21 CODE >200:D:\Poli\PI-7\Controle\main.c
+210 text21 CODE >203:D:\Poli\PI-7\Controle\main.c
+214 text21 CODE >204:D:\Poli\PI-7\Controle\main.c
+219 text21 CODE >209:D:\Poli\PI-7\Controle\main.c
+21C text21 CODE >210:D:\Poli\PI-7\Controle\main.c
+21D text21 CODE >211:D:\Poli\PI-7\Controle\main.c
+22B text21 CODE >213:D:\Poli\PI-7\Controle\main.c
+22F text21 CODE >214:D:\Poli\PI-7\Controle\main.c
+233 text21 CODE >215:D:\Poli\PI-7\Controle\main.c
+23F text21 CODE >219:D:\Poli\PI-7\Controle\main.c
+242 text21 CODE >220:D:\Poli\PI-7\Controle\main.c
+244 text21 CODE >223:D:\Poli\PI-7\Controle\main.c
+248 text21 CODE >224:D:\Poli\PI-7\Controle\main.c
+24C text21 CODE >225:D:\Poli\PI-7\Controle\main.c
+25A text21 CODE >229:D:\Poli\PI-7\Controle\main.c
+25E text21 CODE >230:D:\Poli\PI-7\Controle\main.c
+262 text21 CODE >231:D:\Poli\PI-7\Controle\main.c
+26D text21 CODE >232:D:\Poli\PI-7\Controle\main.c
+26E text21 CODE >233:D:\Poli\PI-7\Controle\main.c
+271 text21 CODE >234:D:\Poli\PI-7\Controle\main.c
+275 text21 CODE >235:D:\Poli\PI-7\Controle\main.c
+284 text21 CODE >196:D:\Poli\PI-7\Controle\main.c
+292 text21 CODE >240:D:\Poli\PI-7\Controle\main.c
+2A1 text21 CODE >241:D:\Poli\PI-7\Controle\main.c
+2A2 text21 CODE >245:D:\Poli\PI-7\Controle\main.c
+E73 text20 CODE >142:D:\Poli\PI-7\Controle\serial.c
+E73 text20 CODE >143:D:\Poli\PI-7\Controle\serial.c
+E77 text20 CODE >144:D:\Poli\PI-7\Controle\serial.c
+E79 text20 CODE >146:D:\Poli\PI-7\Controle\serial.c
+E7A text20 CODE >147:D:\Poli\PI-7\Controle\serial.c
+EE8 text19 CODE >247:D:\Poli\PI-7\Controle\main.c
+EE8 text19 CODE >250:D:\Poli\PI-7\Controle\main.c
+EFB text19 CODE >251:D:\Poli\PI-7\Controle\main.c
+F03 text19 CODE >253:D:\Poli\PI-7\Controle\main.c
+E97 text18 CODE >148:D:\Poli\PI-7\Controle\main.c
+E97 text18 CODE >149:D:\Poli\PI-7\Controle\main.c
+EA8 text18 CODE >150:D:\Poli\PI-7\Controle\main.c
+42A text17 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+42A text17 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+42D text17 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+42F text17 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+43A text17 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+43C text17 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+43C text17 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+43E text17 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+449 text17 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+44D text17 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+455 text17 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+45B text17 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+45D text17 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+45F text17 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+468 text17 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+46C text17 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+46D text17 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+476 text17 CODE >31:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+486 text17 CODE >32:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+494 text17 CODE >33:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+495 text17 CODE >35:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+49E text17 CODE >36:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4A2 text17 CODE >38:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4A5 text17 CODE >39:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4B0 text17 CODE >40:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+4B8 text17 CODE >41:D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
+6A7 text16 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6A7 text16 CODE >119:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6B1 text16 CODE >121:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6B3 text16 CODE >122:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6C7 text16 CODE >123:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6D0 text16 CODE >124:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6D9 text16 CODE >125:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6DF text16 CODE >128:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+6E7 text16 CODE >129:D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
+548 text15 CODE >72:D:\Poli\PI-7\Controle\pwm.c
+548 text15 CODE >76:D:\Poli\PI-7\Controle\pwm.c
+55E text15 CODE >77:D:\Poli\PI-7\Controle\pwm.c
+564 text15 CODE >78:D:\Poli\PI-7\Controle\pwm.c
+5B5 text15 CODE >82:D:\Poli\PI-7\Controle\pwm.c
+5B9 text15 CODE >83:D:\Poli\PI-7\Controle\pwm.c
+5BA text15 CODE >85:D:\Poli\PI-7\Controle\pwm.c
+5BE text15 CODE >86:D:\Poli\PI-7\Controle\pwm.c
+5BF text15 CODE >80:D:\Poli\PI-7\Controle\pwm.c
+5CC text15 CODE >90:D:\Poli\PI-7\Controle\pwm.c
+EA9 text14 CODE >152:D:\Poli\PI-7\Controle\main.c
+EA9 text14 CODE >153:D:\Poli\PI-7\Controle\main.c
+EB3 text14 CODE >154:D:\Poli\PI-7\Controle\main.c
+EBB text14 CODE >155:D:\Poli\PI-7\Controle\main.c
+F2E text13 CODE >157:D:\Poli\PI-7\Controle\main.c
+F2E text13 CODE >158:D:\Poli\PI-7\Controle\main.c
+F41 text13 CODE >159:D:\Poli\PI-7\Controle\main.c
+F54 text13 CODE >160:D:\Poli\PI-7\Controle\main.c
+F59 text13 CODE >161:D:\Poli\PI-7\Controle\main.c
+F61 text13 CODE >162:D:\Poli\PI-7\Controle\main.c
+F62 text12 CODE >95:D:\Poli\PI-7\Controle\serial.c
+F65 text12 CODE >96:D:\Poli\PI-7\Controle\serial.c
+F69 text12 CODE >97:D:\Poli\PI-7\Controle\serial.c
+F81 text12 CODE >98:D:\Poli\PI-7\Controle\serial.c
+F82 text12 CODE >96:D:\Poli\PI-7\Controle\serial.c
+F83 text12 CODE >100:D:\Poli\PI-7\Controle\serial.c
+F89 text12 CODE >101:D:\Poli\PI-7\Controle\serial.c
+F95 text12 CODE >102:D:\Poli\PI-7\Controle\serial.c
+FCA text11 CODE >211:D:\Poli\PI-7\Controle\serial.c
+FCD text11 CODE >212:D:\Poli\PI-7\Controle\serial.c
+FD3 text11 CODE >213:D:\Poli\PI-7\Controle\serial.c
+FDB text11 CODE >214:D:\Poli\PI-7\Controle\serial.c
+FEA text11 CODE >215:D:\Poli\PI-7\Controle\serial.c
+FF9 text11 CODE >216:D:\Poli\PI-7\Controle\serial.c
+FFF text11 CODE >212:D:\Poli\PI-7\Controle\serial.c
+F04 text10 CODE >25:D:\Poli\PI-7\Controle\pwm.c
+F04 text10 CODE >28:D:\Poli\PI-7\Controle\pwm.c
+F07 text10 CODE >29:D:\Poli\PI-7\Controle\pwm.c
+F08 text10 CODE >32:D:\Poli\PI-7\Controle\pwm.c
+F0A text10 CODE >35:D:\Poli\PI-7\Controle\pwm.c
+F10 text10 CODE >36:D:\Poli\PI-7\Controle\pwm.c
+F14 text10 CODE >39:D:\Poli\PI-7\Controle\pwm.c
+F15 text10 CODE >40:D:\Poli\PI-7\Controle\pwm.c
+F17 text10 CODE >41:D:\Poli\PI-7\Controle\pwm.c
+F18 text10 CODE >45:D:\Poli\PI-7\Controle\pwm.c
+F19 text10 CODE >47:D:\Poli\PI-7\Controle\pwm.c
+F1B text10 CODE >49:D:\Poli\PI-7\Controle\pwm.c
+F1C text10 CODE >51:D:\Poli\PI-7\Controle\pwm.c
+F1E text10 CODE >53:D:\Poli\PI-7\Controle\pwm.c
+F21 text10 CODE >54:D:\Poli\PI-7\Controle\pwm.c
+F22 text10 CODE >59:D:\Poli\PI-7\Controle\pwm.c
+F25 text10 CODE >60:D:\Poli\PI-7\Controle\pwm.c
+F28 text10 CODE >61:D:\Poli\PI-7\Controle\pwm.c
+F29 text10 CODE >62:D:\Poli\PI-7\Controle\pwm.c
+F2C text10 CODE >63:D:\Poli\PI-7\Controle\pwm.c
+F2D text10 CODE >64:D:\Poli\PI-7\Controle\pwm.c
+ED0 text9 CODE >29:D:\Poli\PI-7\Controle\serial.c
+ED0 text9 CODE >65:D:\Poli\PI-7\Controle\serial.c
+ED4 text9 CODE >66:D:\Poli\PI-7\Controle\serial.c
+ED5 text9 CODE >67:D:\Poli\PI-7\Controle\serial.c
+ED6 text9 CODE >68:D:\Poli\PI-7\Controle\serial.c
+ED9 text9 CODE >69:D:\Poli\PI-7\Controle\serial.c
+EDA text9 CODE >70:D:\Poli\PI-7\Controle\serial.c
+EDB text9 CODE >71:D:\Poli\PI-7\Controle\serial.c
+EDE text9 CODE >72:D:\Poli\PI-7\Controle\serial.c
+EDF text9 CODE >73:D:\Poli\PI-7\Controle\serial.c
+EE0 text9 CODE >74:D:\Poli\PI-7\Controle\serial.c
+EE3 text9 CODE >75:D:\Poli\PI-7\Controle\serial.c
+EE6 text9 CODE >76:D:\Poli\PI-7\Controle\serial.c
+EE7 text9 CODE >77:D:\Poli\PI-7\Controle\serial.c
+E8B text8 CODE >39:D:\Poli\PI-7\Controle\spi.c
+E8B text8 CODE >41:D:\Poli\PI-7\Controle\spi.c
+E8F text8 CODE >42:D:\Poli\PI-7\Controle\spi.c
+E94 text8 CODE >44:D:\Poli\PI-7\Controle\spi.c
+E96 text8 CODE >45:D:\Poli\PI-7\Controle\spi.c
+EBC text7 CODE >12:D:\Poli\PI-7\Controle\spi.c
+EBF text7 CODE >14:D:\Poli\PI-7\Controle\spi.c
+EC0 text7 CODE >15:D:\Poli\PI-7\Controle\spi.c
+EC2 text7 CODE >17:D:\Poli\PI-7\Controle\spi.c
+EC4 text7 CODE >18:D:\Poli\PI-7\Controle\spi.c
+EC5 text7 CODE >19:D:\Poli\PI-7\Controle\spi.c
+EC6 text7 CODE >22:D:\Poli\PI-7\Controle\spi.c
+EC9 text7 CODE >23:D:\Poli\PI-7\Controle\spi.c
+ECA text7 CODE >24:D:\Poli\PI-7\Controle\spi.c
+ECA text7 CODE >26:D:\Poli\PI-7\Controle\spi.c
+ECF text7 CODE >27:D:\Poli\PI-7\Controle\spi.c
+7FA text6 CODE >29:D:\Poli\PI-7\Controle\spi.c
+7FA text6 CODE >31:D:\Poli\PI-7\Controle\spi.c
+E6C text5 CODE >47:D:\Poli\PI-7\Controle\spi.c
+E6C text5 CODE >49:D:\Poli\PI-7\Controle\spi.c
+E6F text5 CODE >50:D:\Poli\PI-7\Controle\spi.c
+E72 text5 CODE >51:D:\Poli\PI-7\Controle\spi.c
+E7B text4 CODE >34:D:\Poli\PI-7\Controle\spi.c
+E7E text4 CODE >36:D:\Poli\PI-7\Controle\spi.c
+E82 text4 CODE >37:D:\Poli\PI-7\Controle\spi.c
+727 text3 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+727 text3 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+72B text3 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+72F text3 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+731 text3 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+733 text3 CODE >17:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+73A text3 CODE >18:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+73E text3 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+73F text3 CODE >21:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+746 text3 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+74E text3 CODE >23:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+754 text3 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+755 text3 CODE >26:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+75C text3 CODE >27:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+760 text3 CODE >29:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+764 text3 CODE >30:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+F96 text2 CODE >5:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+F96 text2 CODE >12:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+F9C text2 CODE >13:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+F9E text2 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FA0 text2 CODE >15:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FA7 text2 CODE >16:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FAB text2 CODE >14:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FAC text2 CODE >19:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FB4 text2 CODE >20:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FBA text2 CODE >21:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FC1 text2 CODE >22:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FC5 text2 CODE >24:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+FC9 text2 CODE >25:D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+2AD text1 CODE >500:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2B0 text1 CODE >545:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2B4 text1 CODE >548:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2C4 text1 CODE >550:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2C8 text1 CODE >553:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2D3 text1 CODE >554:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2D4 text1 CODE >560:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2D5 text1 CODE >654:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2EA text1 CODE >1278:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2F6 text1 CODE >1280:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2F8 text1 CODE >1281:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+2FC text1 CODE >1282:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+301 text1 CODE >1324:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+303 text1 CODE >1325:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+31C text1 CODE >1324:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+324 text1 CODE >1457:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+328 text1 CODE >1458:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+333 text1 CODE >1491:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+337 text1 CODE >1493:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+33E text1 CODE >1508:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+36E text1 CODE >1543:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+379 text1 CODE >1493:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+37A text1 CODE >1557:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+37E text1 CODE >1560:D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+37F maintext CODE >291:D:\Poli\PI-7\Controle\main.c
+37F maintext CODE >300:D:\Poli\PI-7\Controle\main.c
+382 maintext CODE >301:D:\Poli\PI-7\Controle\main.c
+383 maintext CODE >302:D:\Poli\PI-7\Controle\main.c
+385 maintext CODE >305:D:\Poli\PI-7\Controle\main.c
+386 maintext CODE >306:D:\Poli\PI-7\Controle\main.c
+389 maintext CODE >307:D:\Poli\PI-7\Controle\main.c
+38C maintext CODE >308:D:\Poli\PI-7\Controle\main.c
+38D maintext CODE >309:D:\Poli\PI-7\Controle\main.c
+38E maintext CODE >310:D:\Poli\PI-7\Controle\main.c
+38F maintext CODE >311:D:\Poli\PI-7\Controle\main.c
+390 maintext CODE >312:D:\Poli\PI-7\Controle\main.c
+393 maintext CODE >313:D:\Poli\PI-7\Controle\main.c
+394 maintext CODE >314:D:\Poli\PI-7\Controle\main.c
+395 maintext CODE >315:D:\Poli\PI-7\Controle\main.c
+396 maintext CODE >316:D:\Poli\PI-7\Controle\main.c
+399 maintext CODE >319:D:\Poli\PI-7\Controle\main.c
+39A maintext CODE >320:D:\Poli\PI-7\Controle\main.c
+39D maintext CODE >321:D:\Poli\PI-7\Controle\main.c
+39E maintext CODE >322:D:\Poli\PI-7\Controle\main.c
+39F maintext CODE >323:D:\Poli\PI-7\Controle\main.c
+3A1 maintext CODE >324:D:\Poli\PI-7\Controle\main.c
+3A2 maintext CODE >328:D:\Poli\PI-7\Controle\main.c
+3A7 maintext CODE >330:D:\Poli\PI-7\Controle\main.c
+3B2 maintext CODE >333:D:\Poli\PI-7\Controle\main.c
+3B7 maintext CODE >340:D:\Poli\PI-7\Controle\main.c
+3BC maintext CODE >348:D:\Poli\PI-7\Controle\main.c
+3CF maintext CODE >349:D:\Poli\PI-7\Controle\main.c
+3E2 maintext CODE >360:D:\Poli\PI-7\Controle\main.c
+3ED maintext CODE >362:D:\Poli\PI-7\Controle\main.c
+3F1 maintext CODE >363:D:\Poli\PI-7\Controle\main.c
+3FE maintext CODE >364:D:\Poli\PI-7\Controle\main.c
+404 maintext CODE >365:D:\Poli\PI-7\Controle\main.c
+40A maintext CODE >367:D:\Poli\PI-7\Controle\main.c
+40E maintext CODE >369:D:\Poli\PI-7\Controle\main.c
+41F maintext CODE >370:D:\Poli\PI-7\Controle\main.c
+425 maintext CODE >371:D:\Poli\PI-7\Controle\main.c
+E83 clrtext CODE >1377:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E83 clrtext CODE >1378:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E84 clrtext CODE >1379:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E84 clrtext CODE >1380:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E85 clrtext CODE >1381:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E86 clrtext CODE >1382:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E87 clrtext CODE >1383:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E88 clrtext CODE >1384:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E89 clrtext CODE >1385:C:\Users\Sanches\AppData\Local\Temp\s26s.
+E8A clrtext CODE >1386:C:\Users\Sanches\AppData\Local\Temp\s26s.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -635,19 +528,20 @@ A20 clrtext CODE >1377:C:\Users\Sanches\AppData\Local\Temp\s3d0.
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\Controle.production.o
-_spi_slave_init 14B4 0 CODE 0 text4 dist/default/production\Controle.production.o
+___awdiv@counter 75 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 ___lwmod@counter AD 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __Hspace_0 2009 0 ABS 0 - -
-__Hspace_1 1C3 0 ABS 0 - -
+__Hspace_1 1EC 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 constrain@lLimit 74 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-_set_point DB 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
+spiInit@sTransmitEdge A2 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+_set_point 57 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\Controle.production.o
 i1pwm_set@duty_cycle 30 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __Hstrings 0 0 ABS 0 strings -
-__end_of_encoders_init 1524 0 CODE 0 text13 dist/default/production\Controle.production.o
+__end_of_encoders_init 1E08 0 CODE 0 text19 dist/default/production\Controle.production.o
 _ANS4 C44 0 ABS 0 - dist/default/production\Controle.production.o
 _ANS8 C48 0 ABS 0 - dist/default/production\Controle.production.o
 _ANS9 C49 0 ABS 0 - dist/default/production\Controle.production.o
@@ -670,149 +564,146 @@ _TMR0 1 0 ABS 0 - dist/default/production\Controle.production.o
 _TXEN 4C5 0 ABS 0 - dist/default/production\Controle.production.o
 _TXIE 464 0 ABS 0 - dist/default/production\Controle.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\Controle.production.o
-_WCOL A7 0 ABS 0 - dist/default/production\Controle.production.o
-___sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-_main AB8 0 CODE 0 maintext dist/default/production\Controle.production.o
+___sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\s26s.o
+_main 6FE 0 CODE 0 maintext dist/default/production\Controle.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Controle.production.o
-start 24 0 CODE 0 init C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-SetMotor@err 53 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___flmul@aexp 32 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___flmul@bexp 33 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___flmul@prod 34 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___flmul@sign 2D 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___flmul@temp 38 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+start 24 0 CODE 0 init C:\Users\Sanches\AppData\Local\Temp\s26s.o
+SetMotor@err 4A 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 i1pwm_set@channel 2E 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\Controle.production.o
-__size_of___flmul 0 0 ABS 0 - dist/default/production\Controle.production.o
-__size_of___fltol 0 0 ABS 0 - dist/default/production\Controle.production.o
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\Controle.production.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of___lwmod 0 0 ABS 0 - dist/default/production\Controle.production.o
 ?___lmul A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+?___wmul 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 i1___lmul@multiplicand 74 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\Controle.production.o
-_last_pos 5E 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_last_pos 53 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
 __size_of_SetMotor 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of_SetPoint 0 0 ABS 0 - dist/default/production\Controle.production.o
 constrain@uLimit 78 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 SetMotor@integral E9 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
-SetMotor@resp 55 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-__end_of_spi_slave_init 14E8 0 CODE 0 text4 dist/default/production\Controle.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s3d0.o
+SetMotor@resp 46 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+__size_of_motor_reset 0 0 ABS 0 - dist/default/production\Controle.production.o
+_spiDataReady 1D16 0 CODE 0 text8 dist/default/production\Controle.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s26s.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s26s.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s26s.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s26s.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s26s.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\s26s.o
 ___aldiv@divisor AD 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Controle.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 ___aldiv@sign B7 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+___awdiv@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 i1___aldiv@quotient 2A 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 pwm_set@duty_cycle BE 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__end_of__Umul8_16 156A 0 CODE 0 text25 dist/default/production\Controle.production.o
-_SSPCONbits 14 0 ABS 0 - dist/default/production\Controle.production.o
-__size_of__Umul8_16 0 0 ABS 0 - dist/default/production\Controle.production.o
+___wmul@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+___awdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 _CCPR1L 15 0 ABS 0 - dist/default/production\Controle.production.o
 _CCPR2L 1B 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of_pwm_init 0 0 ABS 0 - dist/default/production\Controle.production.o
-__end_of___lmul FD6 0 CODE 0 text8 dist/default/production\Controle.production.o
-_SetMotor 69C 0 CODE 0 text17 dist/default/production\Controle.production.o
-_SetPoint 1442 0 CODE 0 text15 dist/default/production\Controle.production.o
-__end_ofi1___aldiv 1BF8 0 CODE 0 text20 dist/default/production\Controle.production.o
+__size_of_spiDataReady 0 0 ABS 0 - dist/default/production\Controle.production.o
+__end_of___lmul DD0 0 CODE 0 text16 dist/default/production\Controle.production.o
+__end_of___wmul FF4 0 CODE 0 text27 dist/default/production\Controle.production.o
+_SetMotor 62 0 CODE 0 text22 dist/default/production\Controle.production.o
+_SetPoint 1D2E 0 CODE 0 text18 dist/default/production\Controle.production.o
+main@sVar_387 D8 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+__size_of_spiInit 0 0 ABS 0 - dist/default/production\Controle.production.o
+__size_of_spiRead 0 0 ABS 0 - dist/default/production\Controle.production.o
+__end_ofi1___aldiv A90 0 CODE 0 text25 dist/default/production\Controle.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 __size_of_sprintf 0 0 ABS 0 - dist/default/production\Controle.production.o
+___awdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 __size_ofi1___aldiv 0 0 ABS 0 - dist/default/production\Controle.production.o
-__end_of_SetMotor AB8 0 CODE 0 text17 dist/default/production\Controle.production.o
-__end_of_SetPoint 145A 0 CODE 0 text15 dist/default/production\Controle.production.o
+__end_of_SetMotor 360 0 CODE 0 text22 dist/default/production\Controle.production.o
+__end_of_SetPoint 1D52 0 CODE 0 text18 dist/default/production\Controle.production.o
 ___lwmod@divisor A8 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__end_of___aldiv 1D16 0 CODE 0 text9 dist/default/production\Controle.production.o
-__Umul8_16 1524 0 CODE 0 text25 dist/default/production\Controle.production.o
-__end_of___flmul 69C 0 CODE 0 text24 dist/default/production\Controle.production.o
-__end_of___fltol 18CE 0 CODE 0 text23 dist/default/production\Controle.production.o
-__end_of___lwdiv 1776 0 CODE 0 text3 dist/default/production\Controle.production.o
-__end_of___lwmod 168E 0 CODE 0 text2 dist/default/production\Controle.production.o
-__end_of_chkchr 1432 0 CODE 0 text14 dist/default/production\Controle.production.o
-__Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-___stacklo 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-_dpowers 100C 0 STRING 0 strings dist/default/production\Controle.production.o
+__end_of___aldiv 972 0 CODE 0 text17 dist/default/production\Controle.production.o
+__end_of___awdiv D4E 0 CODE 0 text28 dist/default/production\Controle.production.o
+__end_of___lwdiv ECA 0 CODE 0 text3 dist/default/production\Controle.production.o
+__end_of___lwmod 1F94 0 CODE 0 text2 dist/default/production\Controle.production.o
+__end_of_chkchr 1CF6 0 CODE 0 text20 dist/default/production\Controle.production.o
+___stackhi 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\s26s.o
+___stacklo 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\s26s.o
+_dpowers ED6 0 STRING 0 strings dist/default/production\Controle.production.o
 __size_ofi1___lmul 0 0 ABS 0 - dist/default/production\Controle.production.o
+__end_of_spiDataReady 1D2E 0 CODE 0 text8 dist/default/production\Controle.production.o
 i1___aldiv@counter 28 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 ___lwdiv@quotient A5 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __size_of_putch 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of_putst 0 0 ABS 0 - dist/default/production\Controle.production.o
-___flmul@a 24 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___flmul@b 20 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-i1___aldiv 1ADA 0 CODE 0 text20 dist/default/production\Controle.production.o
-__end_of_constrain 1484 0 CODE 0 text21 dist/default/production\Controle.production.o
+i1___aldiv 972 0 CODE 0 text25 dist/default/production\Controle.production.o
+__end_of_constrain FB2 0 CODE 0 text26 dist/default/production\Controle.production.o
 i1___lmul@product 79 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-SetMotor@derivative E5 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
+SetMotor@derivative 6E 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
 __size_of_constrain 0 0 ABS 0 - dist/default/production\Controle.production.o
 SetPoint@new_val A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 ___lwmod@dividend AA 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-_resetCounter FD6 0 CODE 0 text6 dist/default/production\Controle.production.o
-SetMotor@D_Response 4F 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+spiInit@sDataSample A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+_resetCounter 1D52 0 CODE 0 text14 dist/default/production\Controle.production.o
+SetMotor@D_Response 42 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 start_initialization 2A 0 CODE 0 cinit dist/default/production\Controle.production.o
+?_spiDataReady A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 ___aldiv@quotient B8 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-_pwm_init 156A 0 CODE 0 text10 dist/default/production\Controle.production.o
-_constrain 145A 0 CODE 0 text21 dist/default/production\Controle.production.o
-clear_ram0 1432 0 CODE 0 clrtext dist/default/production\Controle.production.o
+_pwm_init 1E08 0 CODE 0 text10 dist/default/production\Controle.production.o
+_constrain F3E 0 CODE 0 text26 dist/default/production\Controle.production.o
+clear_ram0 1D06 0 CODE 0 clrtext dist/default/production\Controle.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\Controle.production.o
-__end_of_pwm_init 15BE 0 CODE 0 text10 dist/default/production\Controle.production.o
-__end_of_serial_init 14B4 0 CODE 0 text5 dist/default/production\Controle.production.o
+_SSPCON 14 0 ABS 0 - dist/default/production\Controle.production.o
+__end_of_pwm_init 1E5C 0 CODE 0 text10 dist/default/production\Controle.production.o
+__end_of_serial_init 1DD0 0 CODE 0 text9 dist/default/production\Controle.production.o
 _TMR1IE 460 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISA5 42D 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISA6 42E 0 ABS 0 - dist/default/production\Controle.production.o
-_TRISB0 430 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISB1 431 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISB2 432 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISB3 433 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISB4 434 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISB5 435 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISB7 437 0 ABS 0 - dist/default/production\Controle.production.o
-_TRISC0 438 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISC1 439 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISC2 43A 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Controle.production.o
-_TRISC4 43C 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\Controle.production.o
-SetMotor@I_Response 51 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+SetMotor@I_Response 44 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+_nSPIData E4 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
 __size_of_pwm_set 0 0 ABS 0 - dist/default/production\Controle.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-i1___lmul 1776 0 CODE 0 text19 dist/default/production\Controle.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\s26s.o
+i1___lmul DD0 0 CODE 0 text24 dist/default/production\Controle.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
-__Hcinit 72 0 CODE 0 cinit -
+__Hcinit 62 0 CODE 0 cinit -
+__size_of_spiReceiveWait 0 0 ABS 0 - dist/default/production\Controle.production.o
 __Hidloc 0 0 IDLOC 0 idloc -
 __size_of_resetCounter 0 0 ABS 0 - dist/default/production\Controle.production.o
 __Hstack 0 0 STACK 2 stack -
-__stringbase 100A 0 STRING 0 strings dist/default/production\Controle.production.o
+__stringbase ED4 0 STRING 0 strings dist/default/production\Controle.production.o
 ___lwdiv@counter A7 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__size_of___xxtofl 0 0 ABS 0 - dist/default/production\Controle.production.o
 __Hmaintext 0 0 ABS 0 maintext -
-___xxtofl@arg 7A 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-___xxtofl@exp 79 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-___xxtofl@val 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-__end_of_sprintf 2000 0 CODE 0 text1 dist/default/production\Controle.production.o
+__end_of_spiInit 1DA0 0 CODE 0 text7 dist/default/production\Controle.production.o
+__end_of_spiRead 1CE6 0 CODE 0 text5 dist/default/production\Controle.production.o
+__end_of_sprintf 6FE 0 CODE 0 text1 dist/default/production\Controle.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 0 config -
-__end_ofi1___lmul 17F4 0 CODE 0 text19 dist/default/production\Controle.production.o
+__end_ofi1___lmul E4E 0 CODE 0 text24 dist/default/production\Controle.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
 __Lcinit 2A 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
+_motor_reset 1E5C 0 CODE 0 text13 dist/default/production\Controle.production.o
 __Lstack 0 0 STACK 2 stack -
-___flmul@grs 2E 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 24 0 CODE 0 init -
@@ -829,85 +720,79 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-__end_of_resetCounter 1000 0 CODE 0 text6 dist/default/production\Controle.production.o
-___lmul F54 0 CODE 0 text8 dist/default/production\Controle.production.o
+__end_of_resetCounter 1D78 0 CODE 0 text14 dist/default/production\Controle.production.o
+___lmul D4E 0 CODE 0 text16 dist/default/production\Controle.production.o
+___wmul FB2 0 CODE 0 text27 dist/default/production\Controle.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_delayus_variable 6E 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-_CKE 4A6 0 ABS 0 - dist/default/production\Controle.production.o
-_CKP A4 0 ABS 0 - dist/default/production\Controle.production.o
+_delayus_variable 6D 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
 _GIE 5F 0 ABS 0 - dist/default/production\Controle.production.o
 _PR2 92 0 ABS 0 - dist/default/production\Controle.production.o
 _RA5 2D 0 ABS 0 - dist/default/production\Controle.production.o
 _RA6 2E 0 ABS 0 - dist/default/production\Controle.production.o
-_RB0 30 0 ABS 0 - dist/default/production\Controle.production.o
 _RB5 35 0 ABS 0 - dist/default/production\Controle.production.o
-_RC0 38 0 ABS 0 - dist/default/production\Controle.production.o
 _RX9 C6 0 ABS 0 - dist/default/production\Controle.production.o
-_SMP 4A7 0 ABS 0 - dist/default/production\Controle.production.o
 _TX9 4C6 0 ABS 0 - dist/default/production\Controle.production.o
 __S0 2009 0 ABS 0 - -
-__S1 1C3 0 ABS 0 - -
+__S1 1EC 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_ab1 6B 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-_isr D2E 0 CODE 0 text16 dist/default/production\Controle.production.o
+_ab1 6A 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_isr 360 0 CODE 0 text21 dist/default/production\Controle.production.o
 i1___lmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 constrain@value 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 __CFG_BOR4V$BOR21V 0 0 ABS 0 - dist/default/production\Controle.production.o
-_sampling 6A 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-SetMotor@P_Response 4D 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+_sampling 69 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+SetMotor@P_Response 40 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Controle.production.o
-_chkchr 1422 0 CODE 0 text14 dist/default/production\Controle.production.o
-sprintf@val B9 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+_chkchr 1CE6 0 CODE 0 text20 dist/default/production\Controle.production.o
+sprintf@val B7 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 i1___aldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-___xxtofl 1D16 0 CODE 0 text22 dist/default/production\Controle.production.o
-__end_of_isr F54 0 CODE 0 text16 dist/default/production\Controle.production.o
+__end_of_isr 55A 0 CODE 0 text21 dist/default/production\Controle.production.o
 __Lintentry 8 0 CODE 0 intentry -
-__size_of_spi_slave_init 0 0 ABS 0 - dist/default/production\Controle.production.o
-__stringtab 1000 0 STRING 0 strings dist/default/production\Controle.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Sanches\AppData\Local\Temp\s3d0.o
-__end_of___xxtofl 1E5C 0 CODE 0 text22 dist/default/production\Controle.production.o
-__end_ofi1_pwm_set 19D0 0 CODE 0 text18 dist/default/production\Controle.production.o
+__stringtab ECA 0 STRING 0 strings dist/default/production\Controle.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Sanches\AppData\Local\Temp\s26s.o
+__end_ofi1_pwm_set C9C 0 CODE 0 text23 dist/default/production\Controle.production.o
 __size_of___lmul 0 0 ABS 0 - dist/default/production\Controle.production.o
+__size_of___wmul 0 0 ABS 0 - dist/default/production\Controle.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
-__LbssBANK2 0 0 ABS 0 bssBANK2 -
 __LbssBANK3 0 0 ABS 0 bssBANK3 -
 __size_ofi1_pwm_set 0 0 ABS 0 - dist/default/production\Controle.production.o
-_encoder1_counter DF 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
+_encoder1_counter 5F 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\Controle.production.o
-__end_of_pwm_set 1ADA 0 CODE 0 text7 dist/default/production\Controle.production.o
-sprintf@flag B7 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-sprintf@prec B8 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__ptext10 156A 0 CODE 0 text10 dist/default/production\Controle.production.o
-__ptext11 168E 0 CODE 0 text11 dist/default/production\Controle.production.o
-__ptext12 15BE 0 CODE 0 text12 dist/default/production\Controle.production.o
-__ptext13 14E8 0 CODE 0 text13 dist/default/production\Controle.production.o
-__ptext14 1422 0 CODE 0 text14 dist/default/production\Controle.production.o
-__ptext15 1442 0 CODE 0 text15 dist/default/production\Controle.production.o
-__ptext16 D2E 0 CODE 0 text16 dist/default/production\Controle.production.o
-__ptext17 69C 0 CODE 0 text17 dist/default/production\Controle.production.o
-__ptext18 18CE 0 CODE 0 text18 dist/default/production\Controle.production.o
-__ptext19 1776 0 CODE 0 text19 dist/default/production\Controle.production.o
-__ptext20 1ADA 0 CODE 0 text20 dist/default/production\Controle.production.o
-__ptext21 145A 0 CODE 0 text21 dist/default/production\Controle.production.o
-__ptext22 1D16 0 CODE 0 text22 dist/default/production\Controle.production.o
-__ptext23 17F4 0 CODE 0 text23 dist/default/production\Controle.production.o
-__ptext24 72 0 CODE 0 text24 dist/default/production\Controle.production.o
-__ptext25 1524 0 CODE 0 text25 dist/default/production\Controle.production.o
-___aldiv 1BF8 0 CODE 0 text9 dist/default/production\Controle.production.o
+__end_of_pwm_set B9A 0 CODE 0 text15 dist/default/production\Controle.production.o
+sprintf@flag B5 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+sprintf@prec B6 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+__ptext10 1E08 0 CODE 0 text10 dist/default/production\Controle.production.o
+__ptext11 1F94 0 CODE 0 text11 dist/default/production\Controle.production.o
+__ptext12 1EC4 0 CODE 0 text12 dist/default/production\Controle.production.o
+__ptext13 1E5C 0 CODE 0 text13 dist/default/production\Controle.production.o
+__ptext14 1D52 0 CODE 0 text14 dist/default/production\Controle.production.o
+__ptext15 A90 0 CODE 0 text15 dist/default/production\Controle.production.o
+__ptext16 D4E 0 CODE 0 text16 dist/default/production\Controle.production.o
+__ptext17 854 0 CODE 0 text17 dist/default/production\Controle.production.o
+__ptext18 1D2E 0 CODE 0 text18 dist/default/production\Controle.production.o
+__ptext19 1DD0 0 CODE 0 text19 dist/default/production\Controle.production.o
+__ptext20 1CE6 0 CODE 0 text20 dist/default/production\Controle.production.o
+__ptext21 360 0 CODE 0 text21 dist/default/production\Controle.production.o
+__ptext22 62 0 CODE 0 text22 dist/default/production\Controle.production.o
+__ptext23 B9A 0 CODE 0 text23 dist/default/production\Controle.production.o
+__ptext24 DD0 0 CODE 0 text24 dist/default/production\Controle.production.o
+__ptext25 972 0 CODE 0 text25 dist/default/production\Controle.production.o
+__ptext26 F3E 0 CODE 0 text26 dist/default/production\Controle.production.o
+__ptext27 FB2 0 CODE 0 text27 dist/default/production\Controle.production.o
+__ptext28 C9C 0 CODE 0 text28 dist/default/production\Controle.production.o
+___aldiv 854 0 CODE 0 text17 dist/default/production\Controle.production.o
+___awdiv C9C 0 CODE 0 text28 dist/default/production\Controle.production.o
 __size_of_chkchr 0 0 ABS 0 - dist/default/production\Controle.production.o
-___flmul 72 0 CODE 0 text24 dist/default/production\Controle.production.o
-___fltol 17F4 0 CODE 0 text23 dist/default/production\Controle.production.o
-___lwdiv 16FA 0 CODE 0 text3 dist/default/production\Controle.production.o
-___lwmod 1626 0 CODE 0 text2 dist/default/production\Controle.production.o
-__pmaintext AB8 0 CODE 0 maintext dist/default/production\Controle.production.o
+___lwdiv E4E 0 CODE 0 text3 dist/default/production\Controle.production.o
+___lwmod 1F2C 0 CODE 0 text2 dist/default/production\Controle.production.o
+__pmaintext 6FE 0 CODE 0 maintext dist/default/production\Controle.production.o
 ___lmul@multiplier A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 pwm_set@channel BC 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-i1_pwm_set 18CE 0 CODE 0 text18 dist/default/production\Controle.production.o
-__Umul8_16@multiplier 78 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+i1_pwm_set B9A 0 CODE 0 text23 dist/default/production\Controle.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 i1___aldiv@dividend 24 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
@@ -915,14 +800,15 @@ __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of_serial_init 0 0 ABS 0 - dist/default/production\Controle.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
+___wmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 i1___aldiv@sign 29 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-_samples 68 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-main@sVar CC 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+_samples 67 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+main@sVar CD 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 ___lwdiv@divisor A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-_state1 6C 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_state1 6B 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
 ?i1___lmul 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-_motor_pos 62 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-__end_of__stringtab 100C 0 STRING 0 strings dist/default/production\Controle.production.o
+_motor_pos 5B 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+__end_of__stringtab ED6 0 STRING 0 strings dist/default/production\Controle.production.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -930,107 +816,109 @@ __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__Umul8_16@product 74 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 _PIR1bits C 0 ABS 0 - dist/default/production\Controle.production.o
 __Lend_init 24 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-___fltol@exp1 44 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-end_of_initialization 6A 0 CODE 0 cinit dist/default/production\Controle.production.o
+end_of_initialization 5A 0 CODE 0 cinit dist/default/production\Controle.production.o
 __Hintentry 24 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
+___awdiv@quotient 77 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 ?___aldiv AD 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+?___awdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
 ___lwdiv@dividend A2 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-?___flmul 20 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-?___fltol 3A 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 ?___lwdiv A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 ?___lwmod A8 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-isr@portB 5D 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+isr@portB 52 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
-__HbssBANK2 0 0 ABS 0 bssBANK2 -
 __HbssBANK3 0 0 ABS 0 bssBANK3 -
-main@serialIn_346 D6 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__ptext1 1E5C 0 CODE 0 text1 dist/default/production\Controle.production.o
-__ptext2 1626 0 CODE 0 text2 dist/default/production\Controle.production.o
-__ptext3 16FA 0 CODE 0 text3 dist/default/production\Controle.production.o
-__ptext4 14B4 0 CODE 0 text4 dist/default/production\Controle.production.o
-__ptext5 1484 0 CODE 0 text5 dist/default/production\Controle.production.o
-__ptext6 FD6 0 CODE 0 text6 dist/default/production\Controle.production.o
-__ptext7 19D0 0 CODE 0 text7 dist/default/production\Controle.production.o
-__ptext8 F54 0 CODE 0 text8 dist/default/production\Controle.production.o
-__ptext9 1BF8 0 CODE 0 text9 dist/default/production\Controle.production.o
-_encoders_init 14E8 0 CODE 0 text13 dist/default/production\Controle.production.o
-?__Umul8_16 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+__ptext1 55A 0 CODE 0 text1 dist/default/production\Controle.production.o
+__ptext2 1F2C 0 CODE 0 text2 dist/default/production\Controle.production.o
+__ptext3 E4E 0 CODE 0 text3 dist/default/production\Controle.production.o
+__ptext4 1CF6 0 CODE 0 text4 dist/default/production\Controle.production.o
+__ptext5 1CD8 0 CODE 0 text5 dist/default/production\Controle.production.o
+__ptext6 FF4 0 CODE 0 text6 dist/default/production\Controle.production.o
+__ptext7 1D78 0 CODE 0 text7 dist/default/production\Controle.production.o
+__ptext8 1D16 0 CODE 0 text8 dist/default/production\Controle.production.o
+__ptext9 1DA0 0 CODE 0 text9 dist/default/production\Controle.production.o
+_encoders_init 1DD0 0 CODE 0 text19 dist/default/production\Controle.production.o
+_spiInit 1D78 0 CODE 0 text7 dist/default/production\Controle.production.o
+_spiRead 1CD8 0 CODE 0 text5 dist/default/production\Controle.production.o
 ___aldiv@dividend B1 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-_sprintf 1E5C 0 CODE 0 text1 dist/default/production\Controle.production.o
+_sprintf 55A 0 CODE 0 text1 dist/default/production\Controle.production.o
 putch@c A1 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+spiWrite@dat A0 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __Lpowerup 0 0 CODE 0 powerup -
-?___xxtofl 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+spiInit@sType A3 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-sprintf@ap B6 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-sprintf@sp BB 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__Umul8_16@word_mpld 76 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-___fltol@sign1 43 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
+sprintf@ap B4 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+sprintf@sp B9 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 ?i1___aldiv 20 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __CFG_FOSC$EC 0 0 ABS 0 - dist/default/production\Controle.production.o
-___fltol@f1 3A 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
-__end_of__initialization 6A 0 CODE 0 cinit dist/default/production\Controle.production.o
+__end_of__initialization 5A 0 CODE 0 cinit dist/default/production\Controle.production.o
+__size_of_spiWrite 0 0 ABS 0 - dist/default/production\Controle.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
+__end_of_motor_reset 1EC4 0 CODE 0 text13 dist/default/production\Controle.production.o
 putst@str A3 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+_spiReceiveWait FF4 0 CODE 0 text6 dist/default/production\Controle.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
+_SPIData E8 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
 ___lmul@product A9 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 ___lmul@multiplicand A4 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+?_constrain 70 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+_SSPSTAT 94 0 ABS 0 - dist/default/production\Controle.production.o
 __Hend_init 2A 0 CODE 0 end_init -
 ___aldiv@counter B6 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-sprintf@c BC 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
+sprintf@c BA 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 sprintf@f AE 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
-__end_of_main D2E 0 CODE 0 maintext dist/default/production\Controle.production.o
+__end_of_main 854 0 CODE 0 maintext dist/default/production\Controle.production.o
 _CCP2CONbits 1D 0 ABS 0 - dist/default/production\Controle.production.o
 _ANS10 C4A 0 ABS 0 - dist/default/production\Controle.production.o
 _ANS11 C4B 0 ABS 0 - dist/default/production\Controle.production.o
-_ANS12 C4C 0 ABS 0 - dist/default/production\Controle.production.o
 _ANS13 C4D 0 ABS 0 - dist/default/production\Controle.production.o
-__end_of_dpowers 1020 0 STRING 0 strings dist/default/production\Controle.production.o
+__end_of_dpowers EEA 0 STRING 0 strings dist/default/production\Controle.production.o
 ?_sprintf AE 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Controle.production.o
 _RCREG 1A 0 ABS 0 - dist/default/production\Controle.production.o
 _SPBRG 99 0 ABS 0 - dist/default/production\Controle.production.o
-_SSPEN A5 0 ABS 0 - dist/default/production\Controle.production.o
-_SSPIF 63 0 ABS 0 - dist/default/production\Controle.production.o
 _TXREG 19 0 ABS 0 - dist/default/production\Controle.production.o
-__end_of_putch 1626 0 CODE 0 text12 dist/default/production\Controle.production.o
-__end_of_putst 16FA 0 CODE 0 text11 dist/default/production\Controle.production.o
+__end_of_putch 1F2C 0 CODE 0 text12 dist/default/production\Controle.production.o
+__end_of_putst 2000 0 CODE 0 text11 dist/default/production\Controle.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Controle.production.o
-_dummy 6D 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-_putch 15BE 0 CODE 0 text12 dist/default/production\Controle.production.o
-_putst 168E 0 CODE 0 text11 dist/default/production\Controle.production.o
+_dummy 6C 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_onlyK 65 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_putch 1EC4 0 CODE 0 text12 dist/default/production\Controle.production.o
+_putst 1F94 0 CODE 0 text11 dist/default/production\Controle.production.o
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
-_com_time 66 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_com_time E6 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
 _SSPSTATbits 94 0 ABS 0 - dist/default/production\Controle.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Controle.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\Controle.production.o
-_pwm_set 19D0 0 CODE 0 text7 dist/default/production\Controle.production.o
+_pwm_set A90 0 CODE 0 text15 dist/default/production\Controle.production.o
+spiInit@sClockIdle A1 0 BANK1 1 cstackBANK1 dist/default/production\Controle.production.o
 __initialization 2A 0 CODE 0 cinit dist/default/production\Controle.production.o
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
-___xxtofl@sign 78 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
-__pbssBANK0 5E 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
-__pbssBANK1 D7 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
-__pbssBANK2 110 0 BANK2 1 bssBANK2 dist/default/production\Controle.production.o
+__pbssBANK0 53 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+__pbssBANK1 E2 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
 __pbssBANK3 190 0 BANK3 1 bssBANK3 dist/default/production\Controle.production.o
-SetMotor@last_err D7 0 BANK1 1 bssBANK1 dist/default/production\Controle.production.o
+SetMotor@last_err 63 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
+_spiWrite 1CF6 0 CODE 0 text4 dist/default/production\Controle.production.o
 _T2CONbits 12 0 ABS 0 - dist/default/production\Controle.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
-_serial_init 1484 0 CODE 0 text5 dist/default/production\Controle.production.o
-__pstrings 1000 0 STRING 0 strings dist/default/production\Controle.production.o
+_serial_init 1DA0 0 CODE 0 text9 dist/default/production\Controle.production.o
+__pstrings ECA 0 STRING 0 strings dist/default/production\Controle.production.o
+___wmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production\Controle.production.o
+__end_of_spiReceiveWait FFE 0 CODE 0 text6 dist/default/production\Controle.production.o
 __size_of_encoders_init 0 0 ABS 0 - dist/default/production\Controle.production.o
 _CCP1CONbits 17 0 ABS 0 - dist/default/production\Controle.production.o
-_pos_log1 190 0 BANK3 1 bssBANK3 dist/default/production\Controle.production.o
-_pos_log2 110 0 BANK2 1 bssBANK2 dist/default/production\Controle.production.o
+_pos_log1 1BE 0 BANK3 1 bssBANK3 dist/default/production\Controle.production.o
+_pos_log2 190 0 BANK3 1 bssBANK3 dist/default/production\Controle.production.o
+__end_of_spiWrite 1D06 0 CODE 0 text4 dist/default/production\Controle.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1056,33 +944,27 @@ _pos_log2 110 0 BANK2 1 bssBANK2 dist/default/production\Controle.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 F2E 1E5C D2 2
-text2 0 B13 1626 34 2
-text3 0 B7D 16FA 3E 2
-text4 0 A5A 14B4 1A 2
-text5 0 A42 1484 18 2
-text7 0 CE8 19D0 85 2
-text9 0 DFC 1BF8 8F 2
-text10 0 AB5 156A 2A 2
-text11 0 B47 168E 36 2
-text12 0 ADF 15BE 34 2
-text13 0 A74 14E8 1E 2
-text14 0 A11 1422 8 2
-text15 0 A21 1442 C 2
-text18 0 C67 18CE 81 2
-text19 0 BBB 1776 3F 2
-text20 0 D6D 1ADA 8F 2
-text21 0 A2D 145A 15 2
-text22 0 E8B 1D16 A3 2
-text23 0 BFA 17F4 6D 2
-text25 0 A92 1524 23 2
+text2 0 F96 1F2C 34 2
+text4 0 E7B 1CF6 8 2
+text5 0 E6C 1CD8 7 2
+text7 0 EBC 1D78 14 2
+text8 0 E8B 1D16 C 2
+text9 0 ED0 1DA0 18 2
+text10 0 F04 1E08 2A 2
+text11 0 FCA 1F94 36 2
+text12 0 F62 1EC4 34 2
+text13 0 F2E 1E5C 34 2
+text14 0 EA9 1D52 13 2
+text18 0 E97 1D2E 12 2
+text19 0 EE8 1DD0 1C 2
+text20 0 E73 1CE6 8 2
+text26 0 79F F3E 60 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 4F 1
+cstackBANK0 1 20 20 50 1
 cstackBANK1 1 A0 A0 4D 1
-intentry 0 4 8 7FC 2
+intentry 0 4 8 761 2
 reset_vec 0 0 0 3 2
-bssBANK2 1 110 110 33 1
-bssBANK3 1 190 190 33 1
-strings 0 800 1000 2D 2
-clrtext 0 A19 1432 8 2
+bssBANK3 1 190 190 5C 1
+strings 0 765 ECA 3A 2
+clrtext 0 E83 1D06 8 2
 config 0 2007 400E 2 2
