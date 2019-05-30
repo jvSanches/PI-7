@@ -13,4 +13,5 @@ typedef struct {
 
 extern void pic_sendToPIC(pic_Data data);
 extern void pic_init();
+extern void pic_StopMotors();
 #endif

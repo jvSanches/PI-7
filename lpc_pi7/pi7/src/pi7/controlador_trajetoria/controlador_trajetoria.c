@@ -36,11 +36,11 @@ void trj_generateSetpoint() {
    printf("CurrLine %d\n", currLine);
    line = ptj_getLine(currLine);
 
-   //Fazer aqui a conversão para q1, q2 e q3
    toPic.setPoint1 = line.x;
    toPic.setPoint2 = line.y;
    toPic.setPoint3 = line.z;
    xQueueSend(qCommPIC, &toPic, portMAX_DELAY);
+
    currLine++;
    stt_setCurrentLine(currLine);
 } // trj_generateSetpoint
@@ -57,6 +57,19 @@ void trj_processCommand(trj_Data data) {
 
    if (data.command == CMD_START) {
 	   stt_setCurrentLine(0);
+   }
+   if (data.command == CMD_JOG){
+	   pic_Data jog_data;
+	   if (data.cDir == 1){
+		   jog_data.setPoint1 = stt_getX() + data.cValue;
+		   jog_data.setPoint2 = stt_getY();
+		   jog_data.setPoint3 = stt_getZ();
+	   }else if(data.cDir == 2){
+		   jog_data.setPoint1 = stt_getX();
+		   jog_data.setPoint2 = stt_getX() + data.cValue;
+		   jog_data.setPoint3 = stt_getZ();
+	   }
+	   xQueueSend(qCommPIC, &jog_data, portMAX_DELAY);
    }
 } // trj_executeCommand
 

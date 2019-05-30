@@ -23,6 +23,16 @@ void spi_init() {
   LPC_PINCON->PINSEL1 &= ~(3 | (3 << 2) | (3 << 4));
   LPC_PINCON->PINSEL1 |= 2 | (2 << 2) | (2 << 4);
 
+  ///Pinos de controle Slave Select
+  //Pinos 38 - p0_4
+
+  // Set GPIO - P0_22 - to be output
+  LPC_GPIO0->FIODIR |= (1 << 4);
+  LPC_GPIO0->FIOSET = (1 << 4);
+  //      39 - p0_5
+  LPC_GPIO0->FIODIR |= (1 << 5);
+  LPC_GPIO0->FIOSET = (1 << 5);
+
   // SSP0 Control Register 0
   //   8-bit transfers (7 at 3:0)
   //   SPI (0 at 5:4)
@@ -67,6 +77,23 @@ void spi_txrx(uint8_t* tx, uint8_t* rx, uint16_t len)
     }
   }
 }
+
+void spi_select(uint8_t CS){
+	if (CS ==1){
+			LPC_GPIO0->FIOCLR = (1 << 4); //Select
+			LPC_GPIO0->FIOSET = (1 << 5);
+		}else if (CS == 2){
+			LPC_GPIO0->FIOCLR = (1 << 5); //Select
+			LPC_GPIO0->FIOSET = (1 << 4);
+		}else if (!CS){
+			LPC_GPIO0->FIOCLR = (1 << 4); //Select both
+			LPC_GPIO0->FIOCLR = (1 << 5); //Select both
+
+		}else{
+			LPC_GPIO0->FIOSET = (1 << 4); //Select none
+			LPC_GPIO0->FIOSET = (1 << 5); //Select none
+		}
+}
 uint8_t spi_txrx2(uint8_t tx)
 {
 	/* Embed: transmit and receive len bytes
@@ -78,6 +105,7 @@ uint8_t spi_txrx2(uint8_t tx)
 
 	volatile uint_fast8_t rx;
 
+
     if (tx == NULL) {
       LPC_SSP0->DR = 0xff;
     } else {
@@ -88,6 +116,8 @@ uint8_t spi_txrx2(uint8_t tx)
     while ( (LPC_SSP0->SR & (SSP_BSY | SSP_RNE)) != SSP_RNE );
 
     rx = LPC_SSP0->DR;
+
+
     return (rx);
 
 }

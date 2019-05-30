@@ -10,6 +10,7 @@
 #define CMD_SUSPEND 2
 #define CMD_RESUME  3
 #define CMD_STOP    4
+#define CMD_JOG     5
 
 // Possible status for TrajectoryController
 #define STATUS_RUNNING   0
@@ -18,6 +19,8 @@
 // struct for communication between TrajectoryController and Controller
 typedef struct {
 	int command;
+	int cValue;
+	int cDir;
 } trj_Data;
 
 // external interface

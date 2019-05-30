@@ -1,26 +1,13 @@
-17:02:47 **** Incremental Build of configuration Debug for project pi7 ****
+09:18:02 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-Building file: ../src/drivers/spi/spi.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/drivers/spi/spi.d" -MT"src/drivers/spi/spi.o" -MT"src/drivers/spi/spi.d" -o "src/drivers/spi/spi.o" "../src/drivers/spi/spi.c"
-../src/drivers/spi/spi.c: In function 'spi_txrx':
-../src/drivers/spi/spi.c:52:24: warning: variable 'dummy' set but not used [-Wunused-but-set-variable]
-  volatile uint_fast8_t dummy;
-                        ^
-../src/drivers/spi/spi.c: In function 'spi_txrx2':
-../src/drivers/spi/spi.c:81:12: warning: comparison between pointer and integer
-     if (tx == NULL) {
-            ^
-Finished building: ../src/drivers/spi/spi.c
- 
 Building file: ../src/main.c
 Invoking: MCU C Compiler
 arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
 ../src/main.c: In function 'main':
-../src/main.c:175:7: warning: unused variable 'ch' [-Wunused-variable]
+../src/main.c:192:7: warning: unused variable 'ch' [-Wunused-variable]
   char ch;
        ^
-../src/main.c:174:6: warning: unused variable 'i' [-Wunused-variable]
+../src/main.c:191:6: warning: unused variable 'i' [-Wunused-variable]
   int i;
       ^
 Finished building: ../src/main.c
@@ -34,8 +21,5 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  47000	   1260	  22968	  71228	  1163c	pi7.axf
+  48136	   1260	  22968	  72364	  11aac	pi7.axf
  
-17:11:07 **** Incremental Build of configuration Debug for project pi7 ****
-make -r all 
-make: Nothing to be done for `all'.

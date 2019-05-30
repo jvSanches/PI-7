@@ -99,13 +99,19 @@ void taskCommPIC(void *pvParameters) {
 
     } //task loop
 } // taskCommPIC
+int readEndStops(){
+	int pins = (LPC_GPIO0->FIOPIN);
+	return (pins % 0b1111 << 23 );
+}
 
 void taskEmergencyController(void *pvParameters){
 	while(1){
 		if (readEndStops()){
 			pic_StopMotors();
-			xQueueReset(qCommPIC);
+			//cQueueReset(qCommPIC);
+
 		}
+		vTaskDelay(DELAY_1MS);
 	}
 }
 
