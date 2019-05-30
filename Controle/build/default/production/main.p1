@@ -1,6 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "19 pwm.h
 [v _pwm_set `(v ~T0 @X0 0 ef2`i`l ]
+"194 D:\Microchip\xc8\v2.05\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"36 serial.h
+[v _putst `(v ~T0 @X0 0 ef1`*Cuc ]
 "4101 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [v _T0IE `Vb ~T0 @X0 0 e@93 ]
 "4104
@@ -13,8 +17,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 "228
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"47 spi.h
+[v _spiDataReady `(ui ~T0 @X0 0 ef ]
+"48
+[v _spiRead `(uc ~T0 @X0 0 ef ]
 [p mainexit ]
-"1273
+"1273 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [s S48 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S48 . PS PSA T0SE T0CS INTEDG nRBPU ]
 "1281
@@ -59,7 +67,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IOCB `Vuc ~T0 @X0 0 e@150 ]
 "8 serial.h
 [v _serial_init `(v ~T0 @X0 0 ef ]
-"330 main.c
+"326 main.c
 [c E1366 32 33 34 35 36 37 .. ]
 [n E1366 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1374 0 128 .. ]
@@ -72,17 +80,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spiInit `(v ~T0 @X0 0 ef4`E1366`E1374`E1378`E1382 ]
 "17 pwm.h
 [v _pwm_init `(v ~T0 @X0 0 ef ]
-"47 spi.h
-[v _spiDataReady `(ui ~T0 @X0 0 ef ]
-"48
-[v _spiRead `(uc ~T0 @X0 0 ef ]
-"46
+"46 spi.h
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
-"194 D:\Microchip\xc8\v2.05\pic\include\c90\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"36 serial.h
-[v _putst `(v ~T0 @X0 0 ef1`*Cuc ]
-"30
+"30 serial.h
 [v _chkchr `(uc ~T0 @X0 0 ef ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
@@ -1904,685 +1904,769 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _SetPoint ]
 [v _new_val `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 149: set_point = new_val;
 "149
-[e = _set_point -> _new_val `l ]
-[; ;main.c: 150: }
+[v _sVar `uc ~T0 @X0 -> 20 `i a ]
+[; ;main.c: 149: char sVar[20];
+[; ;main.c: 150: sprintf(sVar, "SetPoint: %d \r\n", new_val);
 "150
+[e ( _sprintf (1 , (. , &U _sVar :s 1C _new_val ]
+[; ;main.c: 151: putst(sVar);
+"151
+[e ( _putst (1 -> &U _sVar `*Cuc ]
+[; ;main.c: 152: set_point = new_val;
+"152
+[e = _set_point -> _new_val `l ]
+[; ;main.c: 153: }
+"153
 [e :UE 154 ]
 }
-"152
+"155
 [v _resetCounter `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 152: void resetCounter(){
+[; ;main.c: 155: void resetCounter(){
 [e :U _resetCounter ]
 [f ]
-[; ;main.c: 153: encoder1_counter = 0;
-"153
+[; ;main.c: 156: encoder1_counter = 0;
+"156
 [e = _encoder1_counter -> -> 0 `i `l ]
-[; ;main.c: 154: motor_pos = 0;
-"154
+[; ;main.c: 157: motor_pos = 0;
+"157
 [e = _motor_pos -> -> 0 `i `l ]
-[; ;main.c: 155: }
-"155
+[; ;main.c: 158: }
+"158
 [e :UE 155 ]
 }
-"157
+"160
 [v _motor_reset `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 157: void motor_reset(){
+[; ;main.c: 160: void motor_reset(){
 [e :U _motor_reset ]
 [f ]
-[; ;main.c: 158: pwm_set(1, 0);
-"158
-[e ( _pwm_set (2 , -> 1 `i -> -> 0 `i `l ]
-[; ;main.c: 159: pwm_set(2, 0);
-"159
-[e ( _pwm_set (2 , -> 2 `i -> -> 0 `i `l ]
-[; ;main.c: 160: resetCounter();
-"160
-[e ( _resetCounter ..  ]
-[; ;main.c: 161: SetPoint(0);
+[; ;main.c: 161: pwm_set(1, 0);
 "161
-[e ( _SetPoint (1 -> 0 `i ]
-[; ;main.c: 162: }
+[e ( _pwm_set (2 , -> 1 `i -> -> 0 `i `l ]
+[; ;main.c: 162: pwm_set(2, 0);
 "162
+[e ( _pwm_set (2 , -> 2 `i -> -> 0 `i `l ]
+[; ;main.c: 163: resetCounter();
+"163
+[e ( _resetCounter ..  ]
+[; ;main.c: 164: SetPoint(0);
+"164
+[e ( _SetPoint (1 -> 0 `i ]
+[; ;main.c: 165: }
+"165
 [e :UE 156 ]
 }
-"164
-[v _SPIData `uc ~T0 @X0 1 e ]
-[; ;main.c: 164: uint8_t SPIData;
-"165
-[v _nSPIData `i ~T0 @X0 1 e ]
-[; ;main.c: 165: int nSPIData;
-[v $root$_isr `(v ~T0 @X0 0 e ]
-[v F1428 `(v ~T0 @X0 1 tf ]
 "167
-[v _isr `IF1428 ~T0 @X0 1 e ]
+[v _SPIData `uc ~T0 @X0 1 e ]
+[; ;main.c: 167: uint8_t SPIData;
+"168
+[v _nSPIData `i ~T0 @X0 1 e ]
+[; ;main.c: 168: int nSPIData;
+[v $root$_isr `(v ~T0 @X0 0 e ]
+[v F1429 `(v ~T0 @X0 1 tf ]
+"170
+[v _isr `IF1429 ~T0 @X0 1 e ]
 {
-[; ;main.c: 167: void interrupt isr(void) {
+[; ;main.c: 170: void interrupt isr(void) {
 [e :U _isr ]
 [f ]
-"168
-[v F1429 `i ~T0 @X0 1 s tick ]
-[; ;main.c: 168: static int tick;
-[; ;main.c: 172: if (T0IE && T0IF) {
-"172
+"171
+[v F1430 `i ~T0 @X0 1 s tick ]
+[; ;main.c: 171: static int tick;
+[; ;main.c: 175: if (T0IE && T0IF) {
+"175
 [e $ ! && _T0IE _T0IF 158  ]
 {
-[; ;main.c: 174: SetMotor();
-"174
+[; ;main.c: 177: SetMotor();
+"177
 [e ( _SetMotor ..  ]
-[; ;main.c: 175: if (sampling){
-"175
+[; ;main.c: 178: if (sampling){
+"178
 [e $ ! != -> _sampling `i -> -> -> 0 `i `Vuc `i 159  ]
 {
-[; ;main.c: 176: if (samples < 90/2){
-"176
+[; ;main.c: 179: if (samples < 90/2){
+"179
 [e $ ! < _samples / -> 90 `i -> 2 `i 160  ]
 {
-[; ;main.c: 177: pos_log1[samples] = motor_pos-last_pos;
-"177
+[; ;main.c: 180: pos_log1[samples] = motor_pos-last_pos;
+"180
 [e = *U + &U _pos_log1 * -> -> _samples `ui `ux -> -> # *U &U _pos_log1 `ui `ux -> - _motor_pos _last_pos `c ]
-"178
+"181
 }
-[; ;main.c: 178: }else{
+[; ;main.c: 181: }else{
 [e $U 161  ]
 [e :U 160 ]
 {
-[; ;main.c: 179: pos_log2[samples-(90/2)] = motor_pos-last_pos;
-"179
-[e = *U + &U _pos_log2 * -> -> - _samples / -> 90 `i -> 2 `i `ui `ux -> -> # *U &U _pos_log2 `ui `ux -> - _motor_pos _last_pos `c ]
-"180
-}
-[e :U 161 ]
-[; ;main.c: 180: }
-[; ;main.c: 181: last_pos = motor_pos;
-"181
-[e = _last_pos _motor_pos ]
-[; ;main.c: 182: samples++;
+[; ;main.c: 182: pos_log2[samples-(90/2)] = motor_pos-last_pos;
 "182
-[e ++ _samples -> 1 `i ]
+[e = *U + &U _pos_log2 * -> -> - _samples / -> 90 `i -> 2 `i `ui `ux -> -> # *U &U _pos_log2 `ui `ux -> - _motor_pos _last_pos `c ]
 "183
 }
-[e :U 159 ]
+[e :U 161 ]
 [; ;main.c: 183: }
-[; ;main.c: 185: com_time++;
+[; ;main.c: 184: last_pos = motor_pos;
+"184
+[e = _last_pos _motor_pos ]
+[; ;main.c: 185: samples++;
 "185
-[e ++ _com_time -> -> 1 `i `ui ]
-[; ;main.c: 187: TMR0 = (0xff - 195);
-"187
-[e = _TMR0 -> - -> 255 `i -> 195 `i `uc ]
-[; ;main.c: 188: T0IF = 0;
+[e ++ _samples -> 1 `i ]
+"186
+}
+[e :U 159 ]
+[; ;main.c: 186: }
+[; ;main.c: 188: com_time++;
 "188
+[e ++ _com_time -> -> 1 `i `ui ]
+[; ;main.c: 190: TMR0 = (0xff - 195);
+"190
+[e = _TMR0 -> - -> 255 `i -> 195 `i `uc ]
+[; ;main.c: 191: T0IF = 0;
+"191
 [e = _T0IF -> -> 0 `i `b ]
-"189
+"192
 }
 [e :U 158 ]
-[; ;main.c: 189: }
-[; ;main.c: 192: if (RBIE && RBIF) {
-"192
+[; ;main.c: 192: }
+[; ;main.c: 195: if (RBIE && RBIF) {
+"195
 [e $ ! && _RBIE _RBIF 162  ]
 {
-"193
-[v _portB `uc ~T0 @X0 1 a ]
-[; ;main.c: 193: char portB = PORTB;
-[e = _portB _PORTB ]
-[; ;main.c: 195: ab1 = (portB & 0b00011000) >>3;
-"195
-[e = _ab1 -> >> & -> _portB `i -> 24 `i -> 3 `i `uc ]
-[; ;main.c: 196: switch(state1)
 "196
-[e $U 164  ]
-[; ;main.c: 197: {
-"197
-{
-[; ;main.c: 198: case 0:
+[v _portB `uc ~T0 @X0 1 a ]
+[; ;main.c: 196: char portB = PORTB;
+[e = _portB _PORTB ]
+[; ;main.c: 198: ab1 = (portB & 0b00011000) >>3;
 "198
-[e :U 165 ]
-[; ;main.c: 199: if(ab1 == 1){
+[e = _ab1 -> >> & -> _portB `i -> 24 `i -> 3 `i `uc ]
+[; ;main.c: 199: switch(state1)
 "199
+[e $U 164  ]
+[; ;main.c: 200: {
+"200
+{
+[; ;main.c: 201: case 0:
+"201
+[e :U 165 ]
+[; ;main.c: 202: if(ab1 == 1){
+"202
 [e $ ! == -> _ab1 `i -> 1 `i 166  ]
 {
-[; ;main.c: 200: state1 = 1;
-"200
-[e = _state1 -> -> 1 `i `uc ]
-[; ;main.c: 201: encoder1_counter--;
-"201
-[e -- _encoder1_counter -> -> 1 `i `l ]
-"202
-}
-[; ;main.c: 202: }
-[e $U 167  ]
+[; ;main.c: 203: state1 = 1;
 "203
+[e = _state1 -> -> 1 `i `uc ]
+[; ;main.c: 204: encoder1_counter--;
+"204
+[e -- _encoder1_counter -> -> 1 `i `l ]
+"205
+}
+[; ;main.c: 205: }
+[e $U 167  ]
+"206
 [e :U 166 ]
-[; ;main.c: 203: else if(ab1 == 2){
+[; ;main.c: 206: else if(ab1 == 2){
 [e $ ! == -> _ab1 `i -> 2 `i 168  ]
 {
-[; ;main.c: 204: state1 = 2;
-"204
+[; ;main.c: 207: state1 = 2;
+"207
 [e = _state1 -> -> 2 `i `uc ]
-[; ;main.c: 205: encoder1_counter++;
-"205
+[; ;main.c: 208: encoder1_counter++;
+"208
 [e ++ _encoder1_counter -> -> 1 `i `l ]
-"206
+"209
 }
 [e :U 168 ]
-"207
+"210
 [e :U 167 ]
-[; ;main.c: 206: }
-[; ;main.c: 207: break;
+[; ;main.c: 209: }
+[; ;main.c: 210: break;
 [e $U 163  ]
-[; ;main.c: 208: case 1:
-"208
+[; ;main.c: 211: case 1:
+"211
 [e :U 169 ]
-[; ;main.c: 209: if(ab1 == 0){
-"209
+[; ;main.c: 212: if(ab1 == 0){
+"212
 [e $ ! == -> _ab1 `i -> 0 `i 170  ]
 {
-[; ;main.c: 210: state1 = 0;
-"210
-[e = _state1 -> -> 0 `i `uc ]
-[; ;main.c: 211: encoder1_counter++;
-"211
-[e ++ _encoder1_counter -> -> 1 `i `l ]
-"212
-}
-[; ;main.c: 212: }
-[e $U 171  ]
+[; ;main.c: 213: state1 = 0;
 "213
+[e = _state1 -> -> 0 `i `uc ]
+[; ;main.c: 214: encoder1_counter++;
+"214
+[e ++ _encoder1_counter -> -> 1 `i `l ]
+"215
+}
+[; ;main.c: 215: }
+[e $U 171  ]
+"216
 [e :U 170 ]
-[; ;main.c: 213: else if (ab1 == 3){
+[; ;main.c: 216: else if (ab1 == 3){
 [e $ ! == -> _ab1 `i -> 3 `i 172  ]
 {
-[; ;main.c: 214: state1 = 3;
-"214
+[; ;main.c: 217: state1 = 3;
+"217
 [e = _state1 -> -> 3 `i `uc ]
-[; ;main.c: 215: encoder1_counter--;
-"215
+[; ;main.c: 218: encoder1_counter--;
+"218
 [e -- _encoder1_counter -> -> 1 `i `l ]
-"216
+"219
 }
 [e :U 172 ]
-"217
+"220
 [e :U 171 ]
-[; ;main.c: 216: }
-[; ;main.c: 217: break;
+[; ;main.c: 219: }
+[; ;main.c: 220: break;
 [e $U 163  ]
-[; ;main.c: 218: case 2:
-"218
+[; ;main.c: 221: case 2:
+"221
 [e :U 173 ]
-[; ;main.c: 219: if(ab1 == 0){
-"219
+[; ;main.c: 222: if(ab1 == 0){
+"222
 [e $ ! == -> _ab1 `i -> 0 `i 174  ]
 {
-[; ;main.c: 220: state1 = 0;
-"220
-[e = _state1 -> -> 0 `i `uc ]
-[; ;main.c: 221: encoder1_counter--;
-"221
-[e -- _encoder1_counter -> -> 1 `i `l ]
-"222
-}
-[; ;main.c: 222: }
-[e $U 175  ]
+[; ;main.c: 223: state1 = 0;
 "223
+[e = _state1 -> -> 0 `i `uc ]
+[; ;main.c: 224: encoder1_counter--;
+"224
+[e -- _encoder1_counter -> -> 1 `i `l ]
+"225
+}
+[; ;main.c: 225: }
+[e $U 175  ]
+"226
 [e :U 174 ]
-[; ;main.c: 223: else if(ab1 == 3){
+[; ;main.c: 226: else if(ab1 == 3){
 [e $ ! == -> _ab1 `i -> 3 `i 176  ]
 {
-[; ;main.c: 224: state1 = 3;
-"224
+[; ;main.c: 227: state1 = 3;
+"227
 [e = _state1 -> -> 3 `i `uc ]
-[; ;main.c: 225: encoder1_counter++;
-"225
+[; ;main.c: 228: encoder1_counter++;
+"228
 [e ++ _encoder1_counter -> -> 1 `i `l ]
-"226
+"229
 }
 [e :U 176 ]
-"227
+"230
 [e :U 175 ]
-[; ;main.c: 226: }
-[; ;main.c: 227: break;
+[; ;main.c: 229: }
+[; ;main.c: 230: break;
 [e $U 163  ]
-[; ;main.c: 228: case 3:
-"228
+[; ;main.c: 231: case 3:
+"231
 [e :U 177 ]
-[; ;main.c: 229: if(ab1 == 2){
-"229
+[; ;main.c: 232: if(ab1 == 2){
+"232
 [e $ ! == -> _ab1 `i -> 2 `i 178  ]
 {
-[; ;main.c: 230: state1 = 2;
-"230
-[e = _state1 -> -> 2 `i `uc ]
-[; ;main.c: 231: encoder1_counter--;
-"231
-[e -- _encoder1_counter -> -> 1 `i `l ]
-"232
-}
-[; ;main.c: 232: }
-[e $U 179  ]
+[; ;main.c: 233: state1 = 2;
 "233
+[e = _state1 -> -> 2 `i `uc ]
+[; ;main.c: 234: encoder1_counter--;
+"234
+[e -- _encoder1_counter -> -> 1 `i `l ]
+"235
+}
+[; ;main.c: 235: }
+[e $U 179  ]
+"236
 [e :U 178 ]
-[; ;main.c: 233: else if (ab1 == 1){
+[; ;main.c: 236: else if (ab1 == 1){
 [e $ ! == -> _ab1 `i -> 1 `i 180  ]
 {
-[; ;main.c: 234: state1 = 1;
-"234
-[e = _state1 -> -> 1 `i `uc ]
-[; ;main.c: 235: encoder1_counter++;
-"235
-[e ++ _encoder1_counter -> -> 1 `i `l ]
-"236
-}
-[e :U 180 ]
+[; ;main.c: 237: state1 = 1;
 "237
-[e :U 179 ]
-[; ;main.c: 236: }
-[; ;main.c: 237: break;
-[e $U 163  ]
+[e = _state1 -> -> 1 `i `uc ]
+[; ;main.c: 238: encoder1_counter++;
+"238
+[e ++ _encoder1_counter -> -> 1 `i `l ]
 "239
 }
+[e :U 180 ]
+"240
+[e :U 179 ]
 [; ;main.c: 239: }
+[; ;main.c: 240: break;
 [e $U 163  ]
-"196
+"242
+}
+[; ;main.c: 242: }
+[e $U 163  ]
+"199
 [e :U 164 ]
 [e [\ _state1 , $ -> -> 0 `i `uc 165
  , $ -> -> 1 `i `uc 169
  , $ -> -> 2 `i `uc 173
  , $ -> -> 3 `i `uc 177
  163 ]
-"239
-[e :U 163 ]
-[; ;main.c: 240: motor_pos = -encoder1_counter;
-"240
-[e = _motor_pos -U _encoder1_counter ]
-[; ;main.c: 241: RBIF = 0;
-"241
-[e = _RBIF -> -> 0 `i `b ]
 "242
+[e :U 163 ]
+[; ;main.c: 243: motor_pos = -encoder1_counter;
+"243
+[e = _motor_pos -U _encoder1_counter ]
+[; ;main.c: 244: RBIF = 0;
+"244
+[e = _RBIF -> -> 0 `i `b ]
+"245
 }
 [e :U 162 ]
-[; ;main.c: 242: }
 [; ;main.c: 245: }
-"245
+[; ;main.c: 248: }
+"248
 [e :UE 157 ]
 }
-"247
+"250
 [v _encoders_init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 247: void encoders_init(){
+[; ;main.c: 250: void encoders_init(){
 [e :U _encoders_init ]
 [f ]
-[; ;main.c: 250: state1 = (PORTB & 0b00011000) >>3;
-"250
-[e = _state1 -> >> & -> _PORTB `i -> 24 `i -> 3 `i `uc ]
-[; ;main.c: 251: encoder1_counter = 0;
-"251
-[e = _encoder1_counter -> -> 0 `i `l ]
-[; ;main.c: 253: }
+[; ;main.c: 253: state1 = (PORTB & 0b00011000) >>3;
 "253
+[e = _state1 -> >> & -> _PORTB `i -> 24 `i -> 3 `i `uc ]
+[; ;main.c: 254: encoder1_counter = 0;
+"254
+[e = _encoder1_counter -> -> 0 `i `l ]
+[; ;main.c: 256: }
+"256
 [e :UE 181 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"291
-[v _main `(v ~T0 @X0 1 ef ]
+"260
+[v _read_command `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 291: void main (void) {
-[e :U _main ]
+[; ;main.c: 260: void read_command(){
+[e :U _read_command ]
 [f ]
-"294
-[v _serialIn `uc ~T0 @X0 1 a ]
-[; ;main.c: 294: char serialIn = 255;
-[e = _serialIn -> -> 255 `i `uc ]
-[; ;main.c: 300: OPTION_REGbits.T0CS = 0;
-"300
-[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 301: OPTION_REGbits.PSA = 0;
-"301
-[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 302: OPTION_REGbits.PS = 7;
-"302
-[e = . . _OPTION_REGbits 0 0 -> -> 7 `i `uc ]
-[; ;main.c: 305: TRISB5 = 0;
-"305
-[e = _TRISB5 -> -> 0 `i `b ]
-[; ;main.c: 306: ANS13 = 0;
-"306
-[e = _ANS13 -> -> 0 `i `b ]
-[; ;main.c: 307: TRISB7 = 0;
-"307
-[e = _TRISB7 -> -> 0 `i `b ]
-[; ;main.c: 308: TRISB1 = 1;
-"308
-[e = _TRISB1 -> -> 1 `i `b ]
-[; ;main.c: 309: TRISB2 = 1;
-"309
-[e = _TRISB2 -> -> 1 `i `b ]
-[; ;main.c: 310: TRISB3 = 1;
-"310
-[e = _TRISB3 -> -> 1 `i `b ]
-[; ;main.c: 311: TRISB4 = 1;
-"311
-[e = _TRISB4 -> -> 1 `i `b ]
-[; ;main.c: 312: ANS10 = 0;
-"312
-[e = _ANS10 -> -> 0 `i `b ]
-[; ;main.c: 313: ANS9 = 0;
-"313
-[e = _ANS9 -> -> 0 `i `b ]
-[; ;main.c: 314: ANS8 = 0;
-"314
-[e = _ANS8 -> -> 0 `i `b ]
-[; ;main.c: 315: ANS11 = 0;
-"315
-[e = _ANS11 -> -> 0 `i `b ]
-[; ;main.c: 316: RB5=1;
-"316
-[e = _RB5 -> -> 1 `i `b ]
-[; ;main.c: 319: T0IE = 1;
-"319
-[e = _T0IE -> -> 1 `i `b ]
-[; ;main.c: 320: TMR1IE = 0;
-"320
-[e = _TMR1IE -> -> 0 `i `b ]
-[; ;main.c: 321: PEIE = 1;
-"321
-[e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 322: GIE = 1;
-"322
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 323: IOCB=0b00011000;
-"323
-[e = _IOCB -> -> 24 `i `uc ]
-[; ;main.c: 324: RBIE = 1;
-"324
-[e = _RBIE -> -> 1 `i `b ]
-[; ;main.c: 328: serial_init();
-"328
-[e ( _serial_init ..  ]
-[; ;main.c: 330: spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
-"330
-[e ( _spiInit (4 , , , . `E1366 4 . `E1374 0 . `E1378 1 . `E1382 0 ]
-[; ;main.c: 333: pwm_init();
-"333
-[e ( _pwm_init ..  ]
-[; ;main.c: 340: encoders_init();
-"340
-[e ( _encoders_init ..  ]
-"341
-[v _enc1 `i ~T0 @X0 1 a ]
-[; ;main.c: 341: int enc1 = -1;
-[e = _enc1 -U -> 1 `i ]
-[; ;main.c: 348: pwm_set(1, 0);
-"348
-[e ( _pwm_set (2 , -> 1 `i -> -> 0 `i `l ]
-[; ;main.c: 349: pwm_set(2, 0);
-"349
-[e ( _pwm_set (2 , -> 2 `i -> -> 0 `i `l ]
-"350
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 350: int i = 0;
-[e = _i -> 0 `i ]
-[; ;main.c: 352: while (1) {
-"352
-[e :U 184 ]
+"261
+[v _command `uc ~T0 @X0 1 a ]
+"262
+[v _com_state `uc ~T0 @X0 1 a ]
+[; ;main.c: 261: char command;
+[; ;main.c: 262: char com_state = 0;
+[e = _com_state -> -> 0 `i `uc ]
+"263
+[v _set_point_hi `uc ~T0 @X0 1 a ]
+"264
+[v _set_point_lo `uc ~T0 @X0 1 a ]
+[; ;main.c: 263: char set_point_hi;
+[; ;main.c: 264: char set_point_lo;
+[; ;main.c: 265: if (spiDataReady()){
+"265
+[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 183  ]
 {
-[; ;main.c: 360: if(spiDataReady())
-"360
-[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 186  ]
-[; ;main.c: 361: {
-"361
-{
-[; ;main.c: 362: RB5 = !RB5;
-"362
-[e = _RB5 ! _RB5 ]
-[; ;main.c: 363: SPIData = spiRead() >> 1;
-"363
-[e = _SPIData -> >> -> ( _spiRead ..  `i -> 1 `i `uc ]
-[; ;main.c: 364: spiWrite(240);
-"364
-[e ( _spiWrite (1 -> -> 240 `i `uc ]
-[; ;main.c: 365: nSPIData = 1;
-"365
-[e = _nSPIData -> 1 `i ]
-"366
-}
-[e :U 186 ]
-[; ;main.c: 366: }
-[; ;main.c: 367: if (nSPIData){
-"367
-[e $ ! != _nSPIData -> 0 `i 187  ]
-{
-"368
-[v _sVar `uc ~T0 @X0 -> 10 `i a ]
-[; ;main.c: 368: char sVar[10];
-[; ;main.c: 369: sprintf(sVar, "SPIRx: %d \r\n", SPIData);
-"369
-[e ( _sprintf (1 , (. , &U _sVar :s 1C -> _SPIData `i ]
-[; ;main.c: 370: putst(sVar);
-"370
-[e ( _putst (1 -> &U _sVar `*Cuc ]
-[; ;main.c: 371: nSPIData = 0;
-"371
-[e = _nSPIData -> 0 `i ]
-"372
-}
-[e :U 187 ]
-[; ;main.c: 372: }
-[; ;main.c: 374: continue;
-"374
-[e $U 183  ]
-[v _serialIn `uc ~T0 @X0 1 a ]
-[; ;main.c: 376: char serialIn = chkchr();
-"376
-[e = _serialIn ( _chkchr ..  ]
-[; ;main.c: 377: if (serialIn == 'u'){
-"377
-[e $ ! == -> _serialIn `ui -> 117 `ui 188  ]
-{
-[; ;main.c: 378: resetCounter();
-"378
-[e ( _resetCounter ..  ]
-[; ;main.c: 380: last_pos = 0;
-"380
-[e = _last_pos -> -> 0 `i `l ]
-[; ;main.c: 381: samples = 0;
-"381
-[e = _samples -> 0 `i ]
-[; ;main.c: 382: sampling = 1;
-"382
-[e = _sampling -> -> 1 `i `uc ]
-[; ;main.c: 383: SetPoint(100);
-"383
-[e ( _SetPoint (1 -> 100 `i ]
-[; ;main.c: 384: RB5=0;
-"384
-[e = _RB5 -> -> 0 `i `b ]
-[; ;main.c: 385: while (samples < 90){
-"385
-[e $U 189  ]
-[e :U 190 ]
-{
-"387
-}
-[e :U 189 ]
-"385
-[e $ < _samples -> 90 `i 190  ]
-[e :U 191 ]
-[; ;main.c: 387: }
-[; ;main.c: 388: sampling = 0;
-"388
-[e = _sampling -> -> 0 `i `uc ]
-[; ;main.c: 389: RB5=1;
-"389
-[e = _RB5 -> -> 1 `i `b ]
-"391
-[v _sVar `uc ~T0 @X0 -> 10 `i a ]
-[; ;main.c: 391: char sVar[10];
-[; ;main.c: 392: samples = 0;
-"392
-[e = _samples -> 0 `i ]
-[; ;main.c: 393: sprintf(sVar, "Kp: %d -> ", 4);
-"393
-[e ( _sprintf (1 , (. , &U _sVar :s 2C -> 4 `i ]
-[; ;main.c: 394: putst(sVar);
-"394
-[e ( _putst (1 -> &U _sVar `*Cuc ]
-[; ;main.c: 395: while (samples <= 90 /2){
-"395
-[e $U 192  ]
-[e :U 193 ]
-{
-[; ;main.c: 396: sprintf(sVar, "%d ", pos_log1[samples]);
-"396
-[e ( _sprintf (1 , (. , &U _sVar :s 3C -> *U + &U _pos_log1 * -> -> _samples `ui `ux -> -> # *U &U _pos_log1 `ui `ux `i ]
-[; ;main.c: 397: putst(sVar);
-"397
-[e ( _putst (1 -> &U _sVar `*Cuc ]
-[; ;main.c: 398: samples++;
-"398
-[e ++ _samples -> 1 `i ]
-"399
-}
-[e :U 192 ]
-"395
-[e $ <= _samples / -> 90 `i -> 2 `i 193  ]
-[e :U 194 ]
-[; ;main.c: 399: }
-[; ;main.c: 400: while (samples < 90){
-"400
-[e $U 195  ]
-[e :U 196 ]
-{
-[; ;main.c: 401: sprintf(sVar, "%d ", pos_log2[samples - 90 / 2]);
-"401
-[e ( _sprintf (1 , (. , &U _sVar :s 4C -> *U + &U _pos_log2 * -> -> - _samples / -> 90 `i -> 2 `i `ui `ux -> -> # *U &U _pos_log2 `ui `ux `i ]
-[; ;main.c: 402: putst(sVar);
-"402
-[e ( _putst (1 -> &U _sVar `*Cuc ]
-[; ;main.c: 403: samples++;
-"403
-[e ++ _samples -> 1 `i ]
-"404
-}
-[e :U 195 ]
-"400
-[e $ < _samples -> 90 `i 196  ]
-[e :U 197 ]
-[; ;main.c: 404: }
-[; ;main.c: 405: sprintf(sVar, "Fim do teste ");
-"405
-[e ( _sprintf (1 , &U _sVar :s 5C ]
-[; ;main.c: 406: putst(sVar);
-"406
-[e ( _putst (1 -> &U _sVar `*Cuc ]
-"407
-}
-[; ;main.c: 407: }else if (serialIn == 'w' ){
-[e $U 198  ]
-[e :U 188 ]
-[e $ ! == -> _serialIn `ui -> 119 `ui 199  ]
-{
-[; ;main.c: 408: SetPoint(set_point + 100);
-"408
-[e ( _SetPoint (1 -> + _set_point -> -> 100 `i `l `i ]
-"409
-}
-[; ;main.c: 409: }else if (serialIn == 's'){
-[e $U 200  ]
-[e :U 199 ]
-[e $ ! == -> _serialIn `ui -> 115 `ui 201  ]
-{
-[; ;main.c: 410: SetPoint(set_point - 100);
-"410
-[e ( _SetPoint (1 -> - _set_point -> -> 100 `i `l `i ]
-"411
-}
-[; ;main.c: 411: }else if (serialIn == ' '){
-[e $U 202  ]
-[e :U 201 ]
-[e $ ! == -> _serialIn `ui -> 32 `ui 203  ]
-{
-[; ;main.c: 412: motor_reset();
-"412
-[e ( _motor_reset ..  ]
-"413
-}
-[; ;main.c: 413: }else if (serialIn == 'e' ){
-[e $U 204  ]
-[e :U 203 ]
-[e $ ! == -> _serialIn `ui -> 101 `ui 205  ]
-{
-[; ;main.c: 414: SetPoint(set_point + 50);
-"414
-[e ( _SetPoint (1 -> + _set_point -> -> 50 `i `l `i ]
-"415
-}
-[; ;main.c: 415: }else if (serialIn == 'd'){
-[e $U 206  ]
-[e :U 205 ]
-[e $ ! == -> _serialIn `ui -> 100 `ui 207  ]
-{
-[; ;main.c: 416: SetPoint(set_point - 50);
-"416
-[e ( _SetPoint (1 -> - _set_point -> -> 50 `i `l `i ]
-"417
-}
-[; ;main.c: 417: }else if (serialIn == '0'){
-[e $U 208  ]
-[e :U 207 ]
-[e $ ! == -> _serialIn `ui -> 48 `ui 209  ]
-{
-[; ;main.c: 418: SetPoint(0);
-"418
-[e ( _SetPoint (1 -> 0 `i ]
-"419
-}
-[; ;main.c: 419: }else if (serialIn == 'k'){
-[e $U 210  ]
-[e :U 209 ]
-[e $ ! == -> _serialIn `ui -> 107 `ui 211  ]
-{
-[; ;main.c: 420: onlyK = 1;
-"420
-[e = _onlyK -> 1 `i ]
-"421
-}
-[; ;main.c: 421: }else if (serialIn == 'l'){
-[e $U 212  ]
-[e :U 211 ]
-[e $ ! == -> _serialIn `ui -> 108 `ui 213  ]
-{
-[; ;main.c: 422: onlyK = 0;
-"422
-[e = _onlyK -> 0 `i ]
-"423
-}
-[e :U 213 ]
-"425
-[e :U 212 ]
-[e :U 210 ]
-[e :U 208 ]
-[e :U 206 ]
-[e :U 204 ]
-[e :U 202 ]
-[e :U 200 ]
-[e :U 198 ]
-}
-[e :U 183 ]
-"352
+[; ;main.c: 266: com_time = 0;
+"266
+[e = _com_time -> -> 0 `i `ui ]
+[; ;main.c: 267: com_state = 1;
+"267
+[e = _com_state -> -> 1 `i `uc ]
+[; ;main.c: 268: while(com_state != 3){
+"268
 [e $U 184  ]
 [e :U 185 ]
-[; ;main.c: 423: }
-[; ;main.c: 425: }
-[; ;main.c: 426: }
-"426
+{
+[; ;main.c: 269: if (com_time > 3 ){
+"269
+[e $ ! > _com_time -> -> 3 `i `ui 187  ]
+{
+[; ;main.c: 270: com_state = 3;
+"270
+[e = _com_state -> -> 3 `i `uc ]
+"271
+}
+[; ;main.c: 271: }else if(spiDataReady() && (com_state == 1)){
+[e $U 188  ]
+[e :U 187 ]
+[e $ ! && != ( _spiDataReady ..  -> -> 0 `i `ui == -> _com_state `i -> 1 `i 189  ]
+{
+[; ;main.c: 272: set_point_hi = spiRead() >> 1;
+"272
+[e = _set_point_hi -> >> -> ( _spiRead ..  `i -> 1 `i `uc ]
+[; ;main.c: 273: com_state = 2;
+"273
+[e = _com_state -> -> 2 `i `uc ]
+"274
+}
+[; ;main.c: 274: }else if (spiDataReady() && (com_state == 2)){
+[e $U 190  ]
+[e :U 189 ]
+[e $ ! && != ( _spiDataReady ..  -> -> 0 `i `ui == -> _com_state `i -> 2 `i 191  ]
+{
+[; ;main.c: 275: set_point_lo = spiRead() >> 1;
+"275
+[e = _set_point_lo -> >> -> ( _spiRead ..  `i -> 1 `i `uc ]
+[; ;main.c: 276: com_state = 3;
+"276
+[e = _com_state -> -> 3 `i `uc ]
+[; ;main.c: 277: SetPoint((set_point_hi<<7) | (set_point_lo));
+"277
+[e ( _SetPoint (1 | << -> _set_point_hi `i -> 7 `i -> _set_point_lo `i ]
+"278
+}
+[e :U 191 ]
+"279
+[e :U 190 ]
+[e :U 188 ]
+}
+[e :U 184 ]
+"268
+[e $ != -> _com_state `i -> 3 `i 185  ]
+[e :U 186 ]
+"281
+}
+[e :U 183 ]
+[; ;main.c: 278: }
+[; ;main.c: 279: }
+[; ;main.c: 281: }
+[; ;main.c: 282: }
+"282
 [e :UE 182 ]
 }
+[v $root$_main `(v ~T0 @X0 0 e ]
+"287
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 287: void main (void) {
+[e :U _main ]
+[f ]
+"290
+[v _serialIn `uc ~T0 @X0 1 a ]
+[; ;main.c: 290: char serialIn = 255;
+[e = _serialIn -> -> 255 `i `uc ]
+[; ;main.c: 296: OPTION_REGbits.T0CS = 0;
+"296
+[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 297: OPTION_REGbits.PSA = 0;
+"297
+[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 298: OPTION_REGbits.PS = 7;
+"298
+[e = . . _OPTION_REGbits 0 0 -> -> 7 `i `uc ]
+[; ;main.c: 301: TRISB5 = 0;
+"301
+[e = _TRISB5 -> -> 0 `i `b ]
+[; ;main.c: 302: ANS13 = 0;
+"302
+[e = _ANS13 -> -> 0 `i `b ]
+[; ;main.c: 303: TRISB7 = 0;
+"303
+[e = _TRISB7 -> -> 0 `i `b ]
+[; ;main.c: 304: TRISB1 = 1;
+"304
+[e = _TRISB1 -> -> 1 `i `b ]
+[; ;main.c: 305: TRISB2 = 1;
+"305
+[e = _TRISB2 -> -> 1 `i `b ]
+[; ;main.c: 306: TRISB3 = 1;
+"306
+[e = _TRISB3 -> -> 1 `i `b ]
+[; ;main.c: 307: TRISB4 = 1;
+"307
+[e = _TRISB4 -> -> 1 `i `b ]
+[; ;main.c: 308: ANS10 = 0;
+"308
+[e = _ANS10 -> -> 0 `i `b ]
+[; ;main.c: 309: ANS9 = 0;
+"309
+[e = _ANS9 -> -> 0 `i `b ]
+[; ;main.c: 310: ANS8 = 0;
+"310
+[e = _ANS8 -> -> 0 `i `b ]
+[; ;main.c: 311: ANS11 = 0;
+"311
+[e = _ANS11 -> -> 0 `i `b ]
+[; ;main.c: 312: RB5=1;
+"312
+[e = _RB5 -> -> 1 `i `b ]
+[; ;main.c: 315: T0IE = 1;
+"315
+[e = _T0IE -> -> 1 `i `b ]
+[; ;main.c: 316: TMR1IE = 0;
+"316
+[e = _TMR1IE -> -> 0 `i `b ]
+[; ;main.c: 317: PEIE = 1;
+"317
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 318: GIE = 1;
+"318
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 319: IOCB=0b00011000;
+"319
+[e = _IOCB -> -> 24 `i `uc ]
+[; ;main.c: 320: RBIE = 1;
+"320
+[e = _RBIE -> -> 1 `i `b ]
+[; ;main.c: 324: serial_init();
+"324
+[e ( _serial_init ..  ]
+[; ;main.c: 326: spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
+"326
+[e ( _spiInit (4 , , , . `E1366 4 . `E1374 0 . `E1378 1 . `E1382 0 ]
+[; ;main.c: 329: pwm_init();
+"329
+[e ( _pwm_init ..  ]
+[; ;main.c: 336: encoders_init();
+"336
+[e ( _encoders_init ..  ]
+"337
+[v _enc1 `i ~T0 @X0 1 a ]
+[; ;main.c: 337: int enc1 = -1;
+[e = _enc1 -U -> 1 `i ]
+[; ;main.c: 344: pwm_set(1, 0);
+"344
+[e ( _pwm_set (2 , -> 1 `i -> -> 0 `i `l ]
+[; ;main.c: 345: pwm_set(2, 0);
+"345
+[e ( _pwm_set (2 , -> 2 `i -> -> 0 `i `l ]
+"346
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 346: int i = 0;
+[e = _i -> 0 `i ]
+[; ;main.c: 348: while (1) {
+"348
+[e :U 194 ]
+{
+[; ;main.c: 352: if(spiDataReady())
+"352
+[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 196  ]
+[; ;main.c: 353: {
+"353
+{
+[; ;main.c: 354: RB5 = !RB5;
+"354
+[e = _RB5 ! _RB5 ]
+[; ;main.c: 355: SPIData = spiRead() >> 1;
+"355
+[e = _SPIData -> >> -> ( _spiRead ..  `i -> 1 `i `uc ]
+[; ;main.c: 356: spiWrite(0);
+"356
+[e ( _spiWrite (1 -> -> 0 `i `uc ]
+"357
+[v _sVar `uc ~T0 @X0 -> 20 `i a ]
+[; ;main.c: 357: char sVar[20];
+[; ;main.c: 358: sprintf(sVar, "SPIRx: %d \r\n", SPIData);
+"358
+[e ( _sprintf (1 , (. , &U _sVar :s 2C -> _SPIData `i ]
+[; ;main.c: 359: putst(sVar);
+"359
+[e ( _putst (1 -> &U _sVar `*Cuc ]
+"360
+}
+[e :U 196 ]
+[v _serialIn `uc ~T0 @X0 1 a ]
+[; ;main.c: 360: }
+[; ;main.c: 363: char serialIn = chkchr();
+"363
+[e = _serialIn ( _chkchr ..  ]
+[; ;main.c: 364: if (serialIn == 'u'){
+"364
+[e $ ! == -> _serialIn `ui -> 117 `ui 197  ]
+{
+[; ;main.c: 365: resetCounter();
+"365
+[e ( _resetCounter ..  ]
+[; ;main.c: 367: last_pos = 0;
+"367
+[e = _last_pos -> -> 0 `i `l ]
+[; ;main.c: 368: samples = 0;
+"368
+[e = _samples -> 0 `i ]
+[; ;main.c: 369: sampling = 1;
+"369
+[e = _sampling -> -> 1 `i `uc ]
+[; ;main.c: 370: SetPoint(100);
+"370
+[e ( _SetPoint (1 -> 100 `i ]
+[; ;main.c: 371: RB5=0;
+"371
+[e = _RB5 -> -> 0 `i `b ]
+[; ;main.c: 372: while (samples < 90){
+"372
+[e $U 198  ]
+[e :U 199 ]
+{
+"374
+}
+[e :U 198 ]
+"372
+[e $ < _samples -> 90 `i 199  ]
+[e :U 200 ]
+[; ;main.c: 374: }
+[; ;main.c: 375: sampling = 0;
+"375
+[e = _sampling -> -> 0 `i `uc ]
+[; ;main.c: 376: RB5=1;
+"376
+[e = _RB5 -> -> 1 `i `b ]
+"378
+[v _sVar `uc ~T0 @X0 -> 10 `i a ]
+[; ;main.c: 378: char sVar[10];
+[; ;main.c: 379: samples = 0;
+"379
+[e = _samples -> 0 `i ]
+[; ;main.c: 380: sprintf(sVar, "Kp: %d -> ", 4);
+"380
+[e ( _sprintf (1 , (. , &U _sVar :s 3C -> 4 `i ]
+[; ;main.c: 381: putst(sVar);
+"381
+[e ( _putst (1 -> &U _sVar `*Cuc ]
+[; ;main.c: 382: while (samples <= 90 /2){
+"382
+[e $U 201  ]
+[e :U 202 ]
+{
+[; ;main.c: 383: sprintf(sVar, "%d ", pos_log1[samples]);
+"383
+[e ( _sprintf (1 , (. , &U _sVar :s 4C -> *U + &U _pos_log1 * -> -> _samples `ui `ux -> -> # *U &U _pos_log1 `ui `ux `i ]
+[; ;main.c: 384: putst(sVar);
+"384
+[e ( _putst (1 -> &U _sVar `*Cuc ]
+[; ;main.c: 385: samples++;
+"385
+[e ++ _samples -> 1 `i ]
+"386
+}
+[e :U 201 ]
+"382
+[e $ <= _samples / -> 90 `i -> 2 `i 202  ]
+[e :U 203 ]
+[; ;main.c: 386: }
+[; ;main.c: 387: while (samples < 90){
+"387
+[e $U 204  ]
+[e :U 205 ]
+{
+[; ;main.c: 388: sprintf(sVar, "%d ", pos_log2[samples - 90 / 2]);
+"388
+[e ( _sprintf (1 , (. , &U _sVar :s 5C -> *U + &U _pos_log2 * -> -> - _samples / -> 90 `i -> 2 `i `ui `ux -> -> # *U &U _pos_log2 `ui `ux `i ]
+[; ;main.c: 389: putst(sVar);
+"389
+[e ( _putst (1 -> &U _sVar `*Cuc ]
+[; ;main.c: 390: samples++;
+"390
+[e ++ _samples -> 1 `i ]
+"391
+}
+[e :U 204 ]
+"387
+[e $ < _samples -> 90 `i 205  ]
+[e :U 206 ]
+[; ;main.c: 391: }
+[; ;main.c: 392: sprintf(sVar, "Fim do teste ");
+"392
+[e ( _sprintf (1 , &U _sVar :s 6C ]
+[; ;main.c: 393: putst(sVar);
+"393
+[e ( _putst (1 -> &U _sVar `*Cuc ]
+"394
+}
+[; ;main.c: 394: }else if (serialIn == 'w' ){
+[e $U 207  ]
+[e :U 197 ]
+[e $ ! == -> _serialIn `ui -> 119 `ui 208  ]
+{
+[; ;main.c: 395: SetPoint(set_point + 100);
+"395
+[e ( _SetPoint (1 -> + _set_point -> -> 100 `i `l `i ]
+"396
+}
+[; ;main.c: 396: }else if (serialIn == 's'){
+[e $U 209  ]
+[e :U 208 ]
+[e $ ! == -> _serialIn `ui -> 115 `ui 210  ]
+{
+[; ;main.c: 397: SetPoint(set_point - 100);
+"397
+[e ( _SetPoint (1 -> - _set_point -> -> 100 `i `l `i ]
+"398
+}
+[; ;main.c: 398: }else if (serialIn == ' '){
+[e $U 211  ]
+[e :U 210 ]
+[e $ ! == -> _serialIn `ui -> 32 `ui 212  ]
+{
+[; ;main.c: 399: motor_reset();
+"399
+[e ( _motor_reset ..  ]
+"400
+}
+[; ;main.c: 400: }else if (serialIn == 'e' ){
+[e $U 213  ]
+[e :U 212 ]
+[e $ ! == -> _serialIn `ui -> 101 `ui 214  ]
+{
+[; ;main.c: 401: SetPoint(set_point + 50);
+"401
+[e ( _SetPoint (1 -> + _set_point -> -> 50 `i `l `i ]
+"402
+}
+[; ;main.c: 402: }else if (serialIn == 'd'){
+[e $U 215  ]
+[e :U 214 ]
+[e $ ! == -> _serialIn `ui -> 100 `ui 216  ]
+{
+[; ;main.c: 403: SetPoint(set_point - 50);
+"403
+[e ( _SetPoint (1 -> - _set_point -> -> 50 `i `l `i ]
+"404
+}
+[; ;main.c: 404: }else if (serialIn == '0'){
+[e $U 217  ]
+[e :U 216 ]
+[e $ ! == -> _serialIn `ui -> 48 `ui 218  ]
+{
+[; ;main.c: 405: SetPoint(0);
+"405
+[e ( _SetPoint (1 -> 0 `i ]
+"406
+}
+[; ;main.c: 406: }else if (serialIn == 'k'){
+[e $U 219  ]
+[e :U 218 ]
+[e $ ! == -> _serialIn `ui -> 107 `ui 220  ]
+{
+[; ;main.c: 407: onlyK = 1;
+"407
+[e = _onlyK -> 1 `i ]
+"408
+}
+[; ;main.c: 408: }else if (serialIn == 'l'){
+[e $U 221  ]
+[e :U 220 ]
+[e $ ! == -> _serialIn `ui -> 108 `ui 222  ]
+{
+[; ;main.c: 409: onlyK = 0;
+"409
+[e = _onlyK -> 0 `i ]
+"410
+}
+[e :U 222 ]
+"412
+[e :U 221 ]
+[e :U 219 ]
+[e :U 217 ]
+[e :U 215 ]
+[e :U 213 ]
+[e :U 211 ]
+[e :U 209 ]
+[e :U 207 ]
+}
+[e :U 193 ]
+"348
+[e $U 194  ]
+[e :U 195 ]
+[; ;main.c: 410: }
+[; ;main.c: 412: }
+[; ;main.c: 413: }
+"413
+[e :UE 192 ]
+}
 [p f _sprintf 8388736 ]
-[a 5C 70 105 109 32 100 111 32 116 101 115 116 101 32 0 ]
-[a 3C 37 100 32 0 ]
+[a 6C 70 105 109 32 100 111 32 116 101 115 116 101 32 0 ]
 [a 4C 37 100 32 0 ]
-[a 2C 75 112 58 32 37 100 32 45 62 32 0 ]
-[a 1C 83 80 73 82 120 58 32 37 100 32 13 10 0 ]
+[a 5C 37 100 32 0 ]
+[a 3C 75 112 58 32 37 100 32 45 62 32 0 ]
+[a 2C 83 80 73 82 120 58 32 37 100 32 13 10 0 ]
+[a 1C 83 101 116 80 111 105 110 116 58 32 37 100 32 13 10 0 ]

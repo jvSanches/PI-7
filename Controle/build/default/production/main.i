@@ -2738,6 +2738,9 @@ pwm_set(2, 0 );
 }
 
 void SetPoint(int new_val){
+char sVar[20];
+sprintf(sVar, "SetPoint: %d \r\n", new_val);
+putst(sVar);
 set_point = new_val;
 }
 
@@ -2844,13 +2847,41 @@ encoder1_counter = 0;
 
 }
 
-# 291
+
+
+void read_command(){
+char command;
+char com_state = 0;
+char set_point_hi;
+char set_point_lo;
+if (spiDataReady()){
+com_time = 0;
+com_state = 1;
+while(com_state != 3){
+if (com_time > 3 ){
+com_state = 3;
+}else if(spiDataReady() && (com_state == 1)){
+set_point_hi = spiRead() >> 1;
+com_state = 2;
+}else if (spiDataReady() && (com_state == 2)){
+set_point_lo = spiRead() >> 1;
+com_state = 3;
+SetPoint((set_point_hi<<7) | (set_point_lo));
+}
+}
+
+}
+}
+
+
+
+
 void main (void) {
 
 
 char serialIn = 255;
 
-# 300
+# 296
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2886,33 +2917,29 @@ spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_A
 
 pwm_init();
 
-# 340
+# 336
 encoders_init();
 int enc1 = -1;
 
-# 348
+# 344
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
 
 while (1) {
 
-# 360
+
+
 if(spiDataReady())
 {
 RB5 = !RB5;
 SPIData = spiRead() >> 1;
-spiWrite(240);
-nSPIData = 1;
-}
-if (nSPIData){
-char sVar[10];
+spiWrite(0);
+char sVar[20];
 sprintf(sVar, "SPIRx: %d \r\n", SPIData);
 putst(sVar);
-nSPIData = 0;
 }
 
-continue;
 
 char serialIn = chkchr();
 if (serialIn == 'u'){

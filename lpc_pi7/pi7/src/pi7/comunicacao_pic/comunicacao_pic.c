@@ -28,6 +28,8 @@ void pic_init(){
 
 void xSend(int nPos){
 	spi_select(1);
+	vTaskDelay(1);
+	printf("Sent %d and %d\r\n", nPos >> 7, nPos & 0b1111111);
 	spi_txrx2(nPos >> 7);
 	spi_txrx2(nPos & 0b1111111);
 	spi_select(0);
@@ -51,7 +53,7 @@ void pic_sendToPIC(pic_Data data) {
 	stt_setY(data.setPoint2);
 	stt_setZ(data.setPoint3);
 
-	xSend(TICKS_FACTOR * data.setPoint1);
+	xSend(data.setPoint1);
 	ySend(TICKS_FACTOR * data.setPoint2);
 
     //test implementation: show values on debug console

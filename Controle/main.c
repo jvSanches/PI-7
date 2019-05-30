@@ -146,6 +146,9 @@ void SetMotor(){
 }
 
 void SetPoint(int new_val){           //Conversão de unidade de entrada p/ ticks
+    char sVar[20];
+    sprintf(sVar, "SetPoint: %d \r\n", new_val);
+    putst(sVar);
     set_point = new_val;
 }
 
@@ -252,39 +255,32 @@ void encoders_init(){
  
 }
 
-/*
+
 //Read commands from spi
 void read_command(){
     char command;
     char com_state = 0;
     char set_point_hi;
     char set_point_lo;
-    if (spi_ready()){
-        command = spi_slave_exchange(0);
-        switch (command){
-            case CMD_RESET:
-                motor_reset();
-                break;
-            case SET_POINT:
-                com_time = 0;
-                com_state = COM_SP_HI;
-                while(com_state != COM_END){
-                    if (com_time > COM_TIMEOUT ){
-                        com_state = COM_END;
-                    }else if(spi_ready && (com_state == COM_SP_HI)){
-                        set_point_hi = spi_slave_exchange(0);
-                        com_state = COM_SP_LO;
-                    }else if (spi_ready && (com_state == COM_SP_LO)){
-                        set_point_lo = spi_slave_exchange(0);
-                        com_state = COM_END;
-                        SetPoint((set_point_hi<<8) | (set_point_lo));
-                    }                    
-                }
-                break;                            
+    if (spiDataReady()){
+        com_time = 0;
+        com_state = COM_SP_HI;
+        while(com_state != COM_END){
+            if (com_time > COM_TIMEOUT ){
+                com_state = COM_END;
+            }else if(spiDataReady() && (com_state == COM_SP_HI)){
+                set_point_hi = spiRead() >> 1;
+                com_state = COM_SP_LO;
+            }else if (spiDataReady() && (com_state == COM_SP_LO)){
+                set_point_lo = spiRead() >> 1;
+                com_state = COM_END;
+                SetPoint((set_point_hi<<7) | (set_point_lo));
+            }                    
         }
+
     }    
 }
-*/
+
 
 
 /// Programa Principal
@@ -350,28 +346,19 @@ void main (void) {
   int i = 0;
   
   while (1) {  // para sempre
+//      read_command();
     //Produz entrada em degrau
-//      if (spi_ready()){
-//        char command = spi_slave_exchange(3);
-//        char sVar[10];
-//        sprintf(sVar, "SPIRx: %d \r\n", command);
-//        putst(sVar);
-//      }
+
       if(spiDataReady()) 
       {
         LED = !LED;
         SPIData = spiRead() >> 1; // Read The Buffer
-        spiWrite(240);
-        nSPIData = 1;
-      }
-      if (nSPIData){
-        char sVar[10];
+        spiWrite(0);
+        char sVar[20];
         sprintf(sVar, "SPIRx: %d \r\n", SPIData);
         putst(sVar);
-        nSPIData = 0;
       }
       
-      continue;
       
       char serialIn = chkchr();
       if (serialIn == 'u'){

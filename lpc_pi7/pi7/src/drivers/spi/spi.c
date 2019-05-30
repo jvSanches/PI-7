@@ -26,10 +26,12 @@ void spi_init() {
   ///Pinos de controle Slave Select
   //Pinos 38 - p0_4
 
-  // Set GPIO - P0_22 - to be output
+  // Set GPIO - P0_4 - to be output
+  LPC_PINCON->PINSEL0	&= (~(3 << 8));
   LPC_GPIO0->FIODIR |= (1 << 4);
   LPC_GPIO0->FIOSET = (1 << 4);
   //      39 - p0_5
+  LPC_PINCON->PINSEL0	&= (~(3 << 10));
   LPC_GPIO0->FIODIR |= (1 << 5);
   LPC_GPIO0->FIOSET = (1 << 5);
 

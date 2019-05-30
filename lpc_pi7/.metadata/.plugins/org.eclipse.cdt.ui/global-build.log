@@ -1,15 +1,8 @@
-09:18:02 **** Incremental Build of configuration Debug for project pi7 ****
+18:56:56 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
 Building file: ../src/main.c
 Invoking: MCU C Compiler
 arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-../src/main.c: In function 'main':
-../src/main.c:192:7: warning: unused variable 'ch' [-Wunused-variable]
-  char ch;
-       ^
-../src/main.c:191:6: warning: unused variable 'i' [-Wunused-variable]
-  int i;
-      ^
 Finished building: ../src/main.c
  
 Building target: pi7.axf
@@ -21,5 +14,14 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  48136	   1260	  22968	  72364	  11aac	pi7.axf
+  48184	   1260	  23568	  73012	  11d34	pi7.axf
  
+18:57:12 **** Incremental Build of configuration Debug for project pi7 ****
+make -r all 
+make: Nothing to be done for `all'.
+18:57:54 **** Incremental Build of configuration Debug for project pi7 ****
+make -r all 
+make: Nothing to be done for `all'.
+18:59:45 **** Incremental Build of configuration Debug for project pi7 ****
+make -r all 
+make: Nothing to be done for `all'.

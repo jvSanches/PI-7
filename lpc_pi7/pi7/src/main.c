@@ -93,10 +93,13 @@ void taskCommPIC(void *pvParameters) {
 	pic_Data setpoints;
 	while(1) {
 
-		 xQueueReceive(qCommPIC, &setpoints, portMAX_DELAY);
+		 //xQueueReceive(qCommPIC, &setpoints, portMAX_DELAY);
+		 setpoints.setPoint1 = 0;
+		 setpoints.setPoint2 = 0;
+		 setpoints.setPoint3 = 0;
 
 		 pic_sendToPIC(setpoints);
-
+		 vTaskDelay(DELAY_1MS);
     } //task loop
 } // taskCommPIC
 int readEndStops(){
@@ -120,20 +123,25 @@ unsigned int ki = 0;
 void taskBlinkLed(void *lpParameters) {
 	while(1) {
 
-		if (ki >255){
+		if (ki >50){
 			ki = 0;
 		}
+
 		led2_invert();
-		unsigned char dados= ki;
-		unsigned char rxd;
-		rxd = spi_txrx2(dados);
-		printf("spirx %x\n", (char)rxd);
+//		unsigned char dados= ki;
+//		unsigned char rxd;
+		spi_select(1);
+		vTaskDelay(DELAY_1MS);
+		spi_txrx2(95);
+		vTaskDelay(DELAY_1MS);
+		spi_select(0);
+//		printf("spirx %x\n", (char)rxd);
 		ki++;
 
 //		char sVar[10];
 //		sprintf(sVar, "%d \n", ki);
 //		UARTSendNullTerminated(0, sVar);
-		vTaskDelay(DELAY_500MS);
+		vTaskDelay(DELAY_1SEC);
 
 	} // task loop
 } //taskBlinkLed
@@ -188,8 +196,6 @@ uint8_t msgWriteRegister[] = {0x3a, 0x30, 0x31, 0x30, 0x36, 0x30, 0x30, 0x30, 0x
 
 int main(void) {
 
-	int i;
-	char ch;
 
 	//MB+ init Console(debug)
 	printf("Nao apague esta linha\n");
@@ -206,7 +212,7 @@ int main(void) {
 	xTaskCreate( taskController, ( signed portCHAR * ) "Controller", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskBlinkLed, ( signed portCHAR * ) "BlinkLed", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	//xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	//xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+//	xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 
 	//*************** DEBUG FOR ReadRegister
 	// insert ReadRegister msg on qCommDev for debug

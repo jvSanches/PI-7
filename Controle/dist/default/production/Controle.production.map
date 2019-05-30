@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=D:\Microchip\xc8\v2.05\pic\dat\en_msgs.txt -cs \
   -h+dist/default/production\Controle.production.sym \
   --cmf=dist/default/production\Controle.production.cmf -z -Q16F886 \
-  -oC:\Users\Sanches\AppData\Local\Temp\s26s.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\Sanches\AppData\Local\Temp\s954.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Controle.production.map -E1 -ver=XC8 \
-  --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
+  --acfsm=1493 -ASTACK=013Eh-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
   -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Sanches\AppData\Local\Temp\s26s.o \
+  -DENTRY=2 -k C:\Users\Sanches\AppData\Local\Temp\s954.o \
   dist/default/production\Controle.production.o 
 
 Object code version is 3.11
@@ -28,94 +28,96 @@ Machine type is 16F886
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Sanches\AppData\Local\Temp\s26s.o
+C:\Users\Sanches\AppData\Local\Temp\s954.o
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\Controle.production.o
-                cinit                                15       15       1C        8       0
+                cinit                                15       15       24        8       0
                 intentry                              4        4        E        8       0
-                text28                              64E      64E       59        8       0
-                text27                              7D9      7D9       21      F3E       0
-                text26                              79F      79F       3A      F3E       0
-                text25                              4B9      4B9       8F        8       0
-                text24                              6E8      6E8       3F        8       0
-                text23                              5CD      5CD       81        8       0
-                text22                               31       31      17F        8       0
-                text21                              1B0      1B0       FD        8       0
-                text20                              E73      E73        8     1CE6       0
-                text19                              EE8      EE8       1C     1DD0       0
-                text18                              E97      E97       12     1D2E       0
-                text17                              42A      42A       8F        8       0
-                text16                              6A7      6A7       41        8       0
-                text15                              548      548       85        8       0
-                text14                              EA9      EA9       13     1D52       0
-                text13                              F2E      F2E       34     1E5C       0
-                text12                              F62      F62       34     1EC4       0
-                text11                              FCA      FCA       36     1F94       0
-                text10                              F04      F04       2A     1E08       0
-                text9                               ED0      ED0       18     1DA0       0
-                text8                               E8B      E8B        C     1D16       0
-                text7                               EBC      EBC       14     1D78       0
-                text6                               7FA      7FA        5      F3E       0
-                text5                               E6C      E6C        7     1CD8       0
-                text4                               E7B      E7B        8     1CF6       0
-                text3                               727      727       3E        8       0
-                text2                               F96      F96       34     1F2C       0
-                text1                               2AD      2AD       D2        8       0
-                maintext                            37F      37F       AB        8       0
+                text28                              FA7      FA7       59     1F4E       0
+                text27                              D5A      D5A       21     1AB4       0
+                text26                              E6F      E6F       3A     1CDE       0
+                text25                              660      660       8F        8       0
+                text24                              EE7      EE7       3F     1DCE       0
+                text23                              774      774       81        8       0
+                text22                              276      276      17F        8       0
+                text21                              3F5      3F5       FD        8       0
+                text20                              CE3      CE3        8     19C6       0
+                text19                              D3E      D3E       1C     1A7C       0
+                text18                              DD3      DD3       34     1BA6       0
+                text17                              F26      F26       40     1E4C       0
+                text16                              EA9      EA9       3E     1D52       0
+                text15                              E07      E07       34     1C0E       0
+                text14                              4F2      4F2       DF        8       0
+                text13                              DA5      DA5       2E     1B4A       0
+                text12                              5D1      5D1       8F        8       0
+                text11                              F66      F66       41     1ECC       0
+                text10                              6EF      6EF       85        8       0
+                text9                               CFF      CFF       13     19FE       0
+                text8                               E3B      E3B       34     1C76       0
+                text7                               D7B      D7B       2A     1AF6       0
+                text6                               D26      D26       18     1A4C       0
+                text5                               CF3      CF3        C     19E6       0
+                text4                               D12      D12       14     1A24       0
+                text3                               CD7      CD7        5     19AE       0
+                text2                               CDC      CDC        7     19B8       0
+                text1                               CEB      CEB        8     19D6       0
+                maintext                             39       39      23D        8       0
                 cstackBANK0                          20       20       33       20       1
                 cstackCOMMON                         70       70        E       70       1
-                cstackBANK1                          A0       A0       42       A0       1
-                clrtext                             E83      E83        8     1D06       0
-                bssBANK3                            190      190       5C      190       1
-                bssBANK1                             E2       E2        B       A0       1
+                cstackBANK1                          A0       A0       36       A0       1
+                cstackBANK3                         1BF      1BF       24      190       1
+                clrtext                             7F5      7F5        8        8       0
+                bssBANK2                            110      110       2E      110       1
+                bssBANK3                            190      190       2F      190       1
+                bssBANK1                             D6       D6        A       A0       1
                 bssBANK0                             53       53       1D       20       1
-                strings                             765      765       3A      ECA       0
+                strings                             800      800       4A     1000       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                             12       12        3         0
-                cinit                                15       15       1C         0
+                cinit                                15       15       24         0
                 intentry                              4        4        E         0
                 reset_vec                             0        0        3         0
-                text28                              64E      64E       59         0
-                text27                              7D9      7D9       21         0
-                text26                              79F      79F       3A         0
-                text25                              4B9      4B9       8F         0
-                text24                              6E8      6E8       3F         0
-                text23                              5CD      5CD       81         0
-                text22                               31       31      17F         0
-                text21                              1B0      1B0       FD         0
-                text20                              E73      E73        8         0
-                text19                              EE8      EE8       1C         0
-                text18                              E97      E97       12         0
-                text17                              42A      42A       8F         0
-                text16                              6A7      6A7       41         0
-                text15                              548      548       85         0
-                text14                              EA9      EA9       13         0
-                text13                              F2E      F2E       34         0
-                text12                              F62      F62       34         0
-                text11                              FCA      FCA       36         0
-                text10                              F04      F04       2A         0
-                text9                               ED0      ED0       18         0
-                text8                               E8B      E8B        C         0
-                text7                               EBC      EBC       14         0
-                text6                               7FA      7FA        5         0
-                text5                               E6C      E6C        7         0
-                text4                               E7B      E7B        8         0
-                text3                               727      727       3E         0
-                text2                               F96      F96       34         0
-                text1                               2AD      2AD       D2         0
-                maintext                            37F      37F       AB         0
-                clrtext                             E83      E83        8         0
+                text28                              FA7      FA7       59         0
+                text27                              D5A      D5A       21         0
+                text26                              E6F      E6F       3A         0
+                text25                              660      660       8F         0
+                text24                              EE7      EE7       3F         0
+                text23                              774      774       81         0
+                text22                              276      276      17F         0
+                text21                              3F5      3F5       FD         0
+                text20                              CE3      CE3        8         0
+                text19                              D3E      D3E       1C         0
+                text18                              DD3      DD3       34         0
+                text17                              F26      F26       40         0
+                text16                              EA9      EA9       3E         0
+                text15                              E07      E07       34         0
+                text14                              4F2      4F2       DF         0
+                text13                              DA5      DA5       2E         0
+                text12                              5D1      5D1       8F         0
+                text11                              F66      F66       41         0
+                text10                              6EF      6EF       85         0
+                text9                               CFF      CFF       13         0
+                text8                               E3B      E3B       34         0
+                text7                               D7B      D7B       2A         0
+                text6                               D26      D26       18         0
+                text5                               CF3      CF3        C         0
+                text4                               D12      D12       14         0
+                text3                               CD7      CD7        5         0
+                text2                               CDC      CDC        7         0
+                text1                               CEB      CEB        8         0
+                maintext                             39       39      23D         0
+                clrtext                             7F5      7F5        8         0
 
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                             765      765       3A         0
+                strings                             800      800       4A         0
 
         CLASS   CONST          
 
@@ -129,13 +131,15 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssBANK0                             53       53       1D         1
 
         CLASS   BANK1          
-                cstackBANK1                          A0       A0       42         1
-                bssBANK1                             E2       E2        B         1
+                cstackBANK1                          A0       A0       36         1
+                bssBANK1                             D6       D6        A         1
 
         CLASS   BANK2          
+                bssBANK2                            110      110       2E         1
 
         CLASS   BANK3          
-                bssBANK3                            190      190       5C         1
+                cstackBANK3                         1BF      1BF       24         1
+                bssBANK3                            190      190       2F         1
 
         CLASS   RAM            
 
@@ -162,61 +166,72 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  000761  000765         8       0  CODE        2
+                intentry                       000004  0007F9  0007FD         8       0  CODE        2
                 cstackBANK0                    000020  000050  000070        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                cstackBANK1                    0000A0  00004D  0000ED        A0       1  BANK1       1
-                bssBANK3                       000190  00005C  0001EC       190       1  BANK3       1
-                strings                        000765  00003A  00079F       ECA       0  STRING      2
-                text26                         00079F  000060  0007FF       F3E       0  CODE        2
-                text5                          000E6C  000007  000E73      1CD8       0  CODE        2
-                text20                         000E73  000008  000E7B      1CE6       0  CODE        2
-                text4                          000E7B  000008  000E83      1CF6       0  CODE        2
-                clrtext                        000E83  000008  000E8B      1D06       0  CODE        2
-                text8                          000E8B  00000C  000E97      1D16       0  CODE        2
-                text18                         000E97  000012  000EA9      1D2E       0  CODE        2
-                text14                         000EA9  000013  000EBC      1D52       0  CODE        2
-                text7                          000EBC  000014  000ED0      1D78       0  CODE        2
-                text9                          000ED0  000018  000EE8      1DA0       0  CODE        2
-                text19                         000EE8  00001C  000F04      1DD0       0  CODE        2
-                text10                         000F04  00002A  000F2E      1E08       0  CODE        2
-                text13                         000F2E  000034  000F62      1E5C       0  CODE        2
-                text12                         000F62  000034  000F96      1EC4       0  CODE        2
-                text2                          000F96  000034  000FCA      1F2C       0  CODE        2
-                text11                         000FCA  000036  001000      1F94       0  CODE        2
+                cstackBANK1                    0000A0  000040  0000E0        A0       1  BANK1       1
+                bssBANK2                       000110  00002E  00013E       110       1  BANK2       1
+                bssBANK3                       000190  000053  0001E3       190       1  BANK3       1
+                strings                        000800  00004A  00084A      1000       0  STRING      2
+                text3                          000CD7  000005  000CDC      19AE       0  CODE        2
+                text2                          000CDC  000007  000CE3      19B8       0  CODE        2
+                text20                         000CE3  000008  000CEB      19C6       0  CODE        2
+                text1                          000CEB  000008  000CF3      19D6       0  CODE        2
+                text5                          000CF3  00000C  000CFF      19E6       0  CODE        2
+                text9                          000CFF  000013  000D12      19FE       0  CODE        2
+                text4                          000D12  000014  000D26      1A24       0  CODE        2
+                text6                          000D26  000018  000D3E      1A4C       0  CODE        2
+                text19                         000D3E  00001C  000D5A      1A7C       0  CODE        2
+                text27                         000D5A  000021  000D7B      1AB4       0  CODE        2
+                text7                          000D7B  00002A  000DA5      1AF6       0  CODE        2
+                text13                         000DA5  00002E  000DD3      1B4A       0  CODE        2
+                text18                         000DD3  000034  000E07      1BA6       0  CODE        2
+                text15                         000E07  000034  000E3B      1C0E       0  CODE        2
+                text8                          000E3B  000034  000E6F      1C76       0  CODE        2
+                text26                         000E6F  00003A  000EA9      1CDE       0  CODE        2
+                text16                         000EA9  00003E  000EE7      1D52       0  CODE        2
+                text24                         000EE7  00003F  000F26      1DCE       0  CODE        2
+                text17                         000F26  000040  000F66      1E4C       0  CODE        2
+                text11                         000F66  000041  000FA7      1ECC       0  CODE        2
+                text28                         000FA7  000059  001000      1F4E       0  CODE        2
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK1            00ED-00EF              3           1
-        BANK2            0110-016F             60           1
-        BANK3            01EC-01EF              4           1
+        BANK1            00E0-00EF             10           1
+        BANK2            013E-016F             32           1
+        BANK3            01E3-01EF              D           1
         CODE             0003-0003              1           2
-                         07FF-0E6B              1
+                         07FD-07FF              3
+                         084A-0CD6            48D
                          1000-1FFF            800
         CONST            0003-0003              1           2
-                         07FF-0E6B            100
+                         07FD-07FF              3
+                         084A-0CD6            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         07FF-0E6B            100
+                         07FD-07FF              3
+                         084A-0CD6            100
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              00ED-00EF              3           1
-                         0110-016F             60
-                         01EC-01EF              4
+        RAM              00E0-00EF             10           1
+                         013E-016F             32
+                         01E3-01EF              D
         SFR0             0000-001F             20           1
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STACK            0110-016F             60           1
+        STACK            013E-016F             32           1
         STRCODE          0003-0003              1           2
-                         07FF-0E6B            66D
+                         07FD-07FF              3
+                         084A-0CD6            48D
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         07FF-0E6B            100
+                         07FD-07FF              3
+                         084A-0CD6            100
                          1000-1FFF            100
 
                                   Symbol Table
@@ -237,10 +252,11 @@ SetMotor@I_Response      cstackBANK0  0044
 SetMotor@P_Response      cstackBANK0  0040
 SetMotor@derivative      bssBANK0     006E
 SetMotor@err             cstackBANK0  004A
-SetMotor@integral        bssBANK1     00E9
+SetMotor@integral        bssBANK1     00DC
 SetMotor@last_err        bssBANK0     0063
 SetMotor@resp            cstackBANK0  0046
-SetPoint@new_val         cstackBANK1  00A0
+SetPoint@new_val         cstackBANK1  00BC
+SetPoint@sVar            cstackBANK1  00BF
 _ANS10                   (abs)        0C4A
 _ANS11                   (abs)        0C4B
 _ANS13                   (abs)        0C4D
@@ -273,15 +289,15 @@ _RCREG                   (abs)        001A
 _RX9                     (abs)        00C6
 _SPBRG                   (abs)        0099
 _SPEN                    (abs)        00C7
-_SPIData                 bssBANK1     00E8
+_SPIData                 bssBANK3     01BE
 _SREN                    (abs)        00C5
 _SSPBUF                  (abs)        0013
 _SSPCON                  (abs)        0014
 _SSPSTAT                 (abs)        0094
 _SSPSTATbits             (abs)        0094
 _SYNC                    (abs)        04C4
-_SetMotor                text22       0031
-_SetPoint                text18       0E97
+_SetMotor                text22       0276
+_SetPoint                text13       0DA5
 _T0IE                    (abs)        005D
 _T0IF                    (abs)        005A
 _T2CONbits               (abs)        0012
@@ -323,14 +339,16 @@ __Hbank2                 bank2        0000
 __Hbank3                 bank3        0000
 __HbssBANK0              bssBANK0     0000
 __HbssBANK1              bssBANK1     0000
+__HbssBANK2              bssBANK2     0000
 __HbssBANK3              bssBANK3     0000
-__Hcinit                 cinit        0031
+__Hcinit                 cinit        0039
 __Hclrtext               clrtext      0000
 __Hcode                  code         0000
 __Hcommon                common       0000
 __Hconfig                config       2009
 __HcstackBANK0           cstackBANK0  0000
 __HcstackBANK1           cstackBANK1  0000
+__HcstackBANK3           cstackBANK3  0000
 __HcstackCOMMON          cstackCOMMON 0000
 __Heeprom_data           eeprom_data  0000
 __Hend_init              end_init     0015
@@ -347,7 +365,7 @@ __Hsfr1                  sfr1         0000
 __Hsfr2                  sfr2         0000
 __Hsfr3                  sfr3         0000
 __Hspace_0               (abs)        2009
-__Hspace_1               (abs)        01EC
+__Hspace_1               (abs)        01E3
 __Hspace_2               (abs)        0000
 __Hspace_3               (abs)        0000
 __Hstack                 stack        0000
@@ -360,6 +378,7 @@ __Lbank2                 bank2        0000
 __Lbank3                 bank3        0000
 __LbssBANK0              bssBANK0     0000
 __LbssBANK1              bssBANK1     0000
+__LbssBANK2              bssBANK2     0000
 __LbssBANK3              bssBANK3     0000
 __Lcinit                 cinit        0015
 __Lclrtext               clrtext      0000
@@ -368,6 +387,7 @@ __Lcommon                common       0000
 __Lconfig                config       2007
 __LcstackBANK0           cstackBANK0  0000
 __LcstackBANK1           cstackBANK1  0000
+__LcstackBANK3           cstackBANK3  0000
 __LcstackCOMMON          cstackCOMMON 0000
 __Leeprom_data           eeprom_data  0000
 __Lend_init              end_init     0012
@@ -391,16 +411,16 @@ __Lstack                 stack        0000
 __Lstrings               strings      0000
 __Ltext                  text         0000
 __S0                     (abs)        2009
-__S1                     (abs)        01EC
+__S1                     (abs)        01E3
 __S2                     (abs)        0000
 __S3                     (abs)        0000
-___aldiv                 text17       042A
+___aldiv                 text12       05D1
 ___aldiv@counter         cstackBANK1  00B6
 ___aldiv@dividend        cstackBANK1  00B1
 ___aldiv@divisor         cstackBANK1  00AD
 ___aldiv@quotient        cstackBANK1  00B8
 ___aldiv@sign            cstackBANK1  00B7
-___awdiv                 text28       064E
+___awdiv                 text28       0FA7
 ___awdiv@counter         cstackCOMMON 0075
 ___awdiv@dividend        cstackCOMMON 0072
 ___awdiv@divisor         cstackCOMMON 0070
@@ -408,96 +428,98 @@ ___awdiv@quotient        cstackCOMMON 0077
 ___awdiv@sign            cstackCOMMON 0076
 ___int_sp                stack        0000
 ___latbits               (abs)        0002
-___lmul                  text16       06A7
+___lmul                  text11       0F66
 ___lmul@multiplicand     cstackBANK1  00A4
 ___lmul@multiplier       cstackBANK1  00A0
 ___lmul@product          cstackBANK1  00A9
-___lwdiv                 text3        0727
+___lwdiv                 text16       0EA9
 ___lwdiv@counter         cstackBANK1  00A7
 ___lwdiv@dividend        cstackBANK1  00A2
 ___lwdiv@divisor         cstackBANK1  00A0
 ___lwdiv@quotient        cstackBANK1  00A5
-___lwmod                 text2        0F96
+___lwmod                 text15       0E07
 ___lwmod@counter         cstackBANK1  00AD
 ___lwmod@dividend        cstackBANK1  00AA
 ___lwmod@divisor         cstackBANK1  00A8
 ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-___wmul                  text27       07D9
+___wmul                  text27       0D5A
 ___wmul@multiplicand     cstackCOMMON 0072
 ___wmul@multiplier       cstackCOMMON 0070
 ___wmul@product          cstackCOMMON 0074
-__end_of_SetMotor        text22       01B0
-__end_of_SetPoint        text18       0EA9
-__end_of___aldiv         text17       04B9
-__end_of___awdiv         text28       06A7
-__end_of___lmul          text16       06E8
-__end_of___lwdiv         text3        0765
-__end_of___lwmod         text2        0FCA
-__end_of___wmul          text27       07FA
-__end_of__initialization cinit        002D
-__end_of__stringtab      strings      076B
-__end_of_chkchr          text20       0E7B
-__end_of_constrain       text26       07D9
-__end_of_dpowers         strings      0775
-__end_of_encoders_init   text19       0F04
-__end_of_isr             text21       02AD
-__end_of_main            maintext     042A
-__end_of_motor_reset     text13       0F62
-__end_of_putch           text12       0F96
-__end_of_putst           text11       1000
-__end_of_pwm_init        text10       0F2E
-__end_of_pwm_set         text15       05CD
-__end_of_resetCounter    text14       0EBC
-__end_of_serial_init     text9        0EE8
-__end_of_spiDataReady    text8        0E97
-__end_of_spiInit         text7        0ED0
-__end_of_spiRead         text5        0E73
-__end_of_spiReceiveWait  text6        07FF
-__end_of_spiWrite        text4        0E83
-__end_of_sprintf         text1        037F
-__end_ofi1___aldiv       text25       0548
-__end_ofi1___lmul        text24       0727
-__end_ofi1_pwm_set       text23       064E
+__end_of_SetMotor        text22       03F5
+__end_of_SetPoint        text13       0DD3
+__end_of___aldiv         text12       0660
+__end_of___awdiv         text28       1000
+__end_of___lmul          text11       0FA7
+__end_of___lwdiv         text16       0EE7
+__end_of___lwmod         text15       0E3B
+__end_of___wmul          text27       0D7B
+__end_of__initialization cinit        0035
+__end_of__stringtab      strings      0806
+__end_of_chkchr          text20       0CEB
+__end_of_constrain       text26       0EA9
+__end_of_dpowers         strings      0810
+__end_of_encoders_init   text19       0D5A
+__end_of_isr             text21       04F2
+__end_of_main            maintext     0276
+__end_of_motor_reset     text8        0E6F
+__end_of_putch           text18       0E07
+__end_of_putst           text17       0F66
+__end_of_pwm_init        text7        0DA5
+__end_of_pwm_set         text10       0774
+__end_of_resetCounter    text9        0D12
+__end_of_serial_init     text6        0D3E
+__end_of_spiDataReady    text5        0CFF
+__end_of_spiInit         text4        0D26
+__end_of_spiRead         text2        0CE3
+__end_of_spiReceiveWait  text3        0CDC
+__end_of_spiWrite        text1        0CF3
+__end_of_sprintf         text14       05D1
+__end_ofi1___aldiv       text25       06EF
+__end_ofi1___lmul        text24       0F26
+__end_ofi1_pwm_set       text23       07F5
 __initialization         cinit        0015
 __pbssBANK0              bssBANK0     0053
-__pbssBANK1              bssBANK1     00E2
+__pbssBANK1              bssBANK1     00D6
+__pbssBANK2              bssBANK2     0110
 __pbssBANK3              bssBANK3     0190
 __pcstackBANK0           cstackBANK0  0020
 __pcstackBANK1           cstackBANK1  00A0
+__pcstackBANK3           cstackBANK3  01BF
 __pcstackCOMMON          cstackCOMMON 0070
 __pintentry              intentry     0004
-__pmaintext              maintext     037F
-__pstrings               strings      0765
-__ptext1                 text1        02AD
-__ptext10                text10       0F04
-__ptext11                text11       0FCA
-__ptext12                text12       0F62
-__ptext13                text13       0F2E
-__ptext14                text14       0EA9
-__ptext15                text15       0548
-__ptext16                text16       06A7
-__ptext17                text17       042A
-__ptext18                text18       0E97
-__ptext19                text19       0EE8
-__ptext2                 text2        0F96
-__ptext20                text20       0E73
-__ptext21                text21       01B0
-__ptext22                text22       0031
-__ptext23                text23       05CD
-__ptext24                text24       06E8
-__ptext25                text25       04B9
-__ptext26                text26       079F
-__ptext27                text27       07D9
-__ptext28                text28       064E
-__ptext3                 text3        0727
-__ptext4                 text4        0E7B
-__ptext5                 text5        0E6C
-__ptext6                 text6        07FA
-__ptext7                 text7        0EBC
-__ptext8                 text8        0E8B
-__ptext9                 text9        0ED0
+__pmaintext              maintext     0039
+__pstrings               strings      0800
+__ptext1                 text1        0CEB
+__ptext10                text10       06EF
+__ptext11                text11       0F66
+__ptext12                text12       05D1
+__ptext13                text13       0DA5
+__ptext14                text14       04F2
+__ptext15                text15       0E07
+__ptext16                text16       0EA9
+__ptext17                text17       0F26
+__ptext18                text18       0DD3
+__ptext19                text19       0D3E
+__ptext2                 text2        0CDC
+__ptext20                text20       0CE3
+__ptext21                text21       03F5
+__ptext22                text22       0276
+__ptext23                text23       0774
+__ptext24                text24       0EE7
+__ptext25                text25       0660
+__ptext26                text26       0E6F
+__ptext27                text27       0D5A
+__ptext28                text28       0FA7
+__ptext3                 text3        0CD7
+__ptext4                 text4        0D12
+__ptext5                 text5        0CF3
+__ptext6                 text6        0D26
+__ptext7                 text7        0D7B
+__ptext8                 text8        0E3B
+__ptext9                 text9        0CFF
 __size_of_SetMotor       (abs)        0000
 __size_of_SetPoint       (abs)        0000
 __size_of___aldiv        (abs)        0000
@@ -527,59 +549,58 @@ __size_of_sprintf        (abs)        0000
 __size_ofi1___aldiv      (abs)        0000
 __size_ofi1___lmul       (abs)        0000
 __size_ofi1_pwm_set      (abs)        0000
-__stringbase             strings      076A
-__stringtab              strings      0765
+__stringbase             strings      0805
+__stringtab              strings      0800
 _ab1                     bssBANK0     006A
-_chkchr                  text20       0E73
-_com_time                bssBANK1     00E6
-_constrain               text26       079F
+_chkchr                  text20       0CE3
+_com_time                bssBANK1     00DA
+_constrain               text26       0E6F
 _delayus_variable        bssBANK0     006D
-_dpowers                 strings      076B
+_dpowers                 strings      0806
 _dummy                   bssBANK0     006C
 _encoder1_counter        bssBANK0     005F
-_encoders_init           text19       0EE8
-_isr                     text21       01B0
+_encoders_init           text19       0D3E
+_isr                     text21       03F5
 _last_pos                bssBANK0     0053
-_main                    maintext     037F
+_main                    maintext     0039
 _motor_pos               bssBANK0     005B
-_motor_reset             text13       0F2E
-_nSPIData                bssBANK1     00E4
+_motor_reset             text8        0E3B
 _onlyK                   bssBANK0     0065
-_pos_log1                bssBANK3     01BE
-_pos_log2                bssBANK3     0190
-_putch                   text12       0F62
-_putst                   text11       0FCA
-_pwm_init                text10       0F04
-_pwm_set                 text15       0548
-_resetCounter            text14       0EA9
+_pos_log1                bssBANK3     0190
+_pos_log2                bssBANK2     0110
+_putch                   text18       0DD3
+_putst                   text17       0F26
+_pwm_init                text7        0D7B
+_pwm_set                 text10       06EF
+_resetCounter            text9        0CFF
 _samples                 bssBANK0     0067
 _sampling                bssBANK0     0069
-_serial_init             text9        0ED0
+_serial_init             text6        0D26
 _set_point               bssBANK0     0057
-_spiDataReady            text8        0E8B
-_spiInit                 text7        0EBC
-_spiRead                 text5        0E6C
-_spiReceiveWait          text6        07FA
-_spiWrite                text4        0E7B
-_sprintf                 text1        02AD
+_spiDataReady            text5        0CF3
+_spiInit                 text4        0D12
+_spiRead                 text2        0CDC
+_spiReceiveWait          text3        0CD7
+_spiWrite                text1        0CEB
+_sprintf                 text14       04F2
 _state1                  bssBANK0     006B
 btemp                    (abs)        007E
-clear_ram0               clrtext      0E83
+clear_ram0               clrtext      07F5
 constrain@lLimit         cstackCOMMON 0074
 constrain@uLimit         cstackCOMMON 0078
 constrain@value          cstackCOMMON 0070
-end_of_initialization    cinit        002D
-i1___aldiv               text25       04B9
+end_of_initialization    cinit        0035
+i1___aldiv               text25       0660
 i1___aldiv@counter       cstackBANK0  0028
 i1___aldiv@dividend      cstackBANK0  0024
 i1___aldiv@divisor       cstackBANK0  0020
 i1___aldiv@quotient      cstackBANK0  002A
 i1___aldiv@sign          cstackBANK0  0029
-i1___lmul                text24       06E8
+i1___lmul                text24       0EE7
 i1___lmul@multiplicand   cstackCOMMON 0074
 i1___lmul@multiplier     cstackCOMMON 0070
 i1___lmul@product        cstackCOMMON 0079
-i1_pwm_set               text23       05CD
+i1_pwm_set               text23       0774
 i1pwm_set@channel        cstackBANK0  002E
 i1pwm_set@duty_cycle     cstackBANK0  0030
 interrupt_function       intentry     0004
@@ -590,10 +611,11 @@ intlevel3                functab      0000
 intlevel4                functab      0000
 intlevel5                functab      0000
 isr@portB                cstackBANK0  0052
-main@sVar                cstackBANK1  00CD
-main@sVar_387            cstackBANK1  00D8
+main@sVar                cstackBANK3  01BF
+main@sVar_394            cstackBANK3  01D8
+main@serialIn_392        cstackBANK3  01E2
 putch@c                  cstackBANK1  00A1
-putst@str                cstackBANK1  00A3
+putst@str                cstackBANK1  00A2
 pwm_set@channel          cstackBANK1  00BC
 pwm_set@duty_cycle       cstackBANK1  00BE
 reset_vec                reset_vec    0000
@@ -603,13 +625,13 @@ spiInit@sDataSample      cstackBANK1  00A0
 spiInit@sTransmitEdge    cstackBANK1  00A2
 spiInit@sType            cstackBANK1  00A3
 spiWrite@dat             cstackBANK1  00A0
-sprintf@ap               cstackBANK1  00B4
-sprintf@c                cstackBANK1  00BA
-sprintf@f                cstackBANK1  00AE
-sprintf@flag             cstackBANK1  00B5
-sprintf@prec             cstackBANK1  00B6
-sprintf@sp               cstackBANK1  00B9
-sprintf@val              cstackBANK1  00B7
+sprintf@ap               cstackBANK1  00B6
+sprintf@c                cstackBANK1  00BB
+sprintf@f                cstackBANK1  00B0
+sprintf@flag             cstackBANK1  00B7
+sprintf@prec             cstackBANK1  00B8
+sprintf@sp               cstackBANK1  00AE
+sprintf@val              cstackBANK1  00B9
 start                    init         0012
 start_initialization     cinit        0015
 wtemp0                   (abs)        007E
@@ -619,13 +641,13 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 291 in file "main.c"
+		line 287 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  sVar           10   56[BANK1 ] unsigned char [10]
-  sVar           10   45[BANK1 ] unsigned char [10]
-  serialIn        1    0        unsigned char 
+  sVar           10   25[BANK3 ] unsigned char [10]
+  sVar           20    0[BANK3 ] unsigned char [20]
+  serialIn        1   35[BANK3 ] unsigned char 
   i               2    0        int 
   enc1            2    0        int 
   serialIn        1    0        unsigned char 
@@ -639,11 +661,11 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
-      Locals:         0       0      26       0       0
+      Locals:         0       0       0      36       0
       Temps:          0       0       3       0       0
-      Totals:         0       0      29       0       0
-Total ram usage:       29 bytes
- Hardware stack levels required when called:    7
+      Totals:         0       0       3      36       0
+Total ram usage:       39 bytes
+ Hardware stack levels required when called:    8
  This function calls:
 		_SetPoint
 		_chkchr
@@ -661,114 +683,6 @@ Total ram usage:       29 bytes
 		_sprintf
  This function is called by:
 		Startup code after reset
- This function uses a non-reentrant model
-
-
- *************** function _sprintf *****************
- Defined at:
-		line 500 in file "D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c"
- Parameters:    Size  Location     Type
-  sp              1    wreg     PTR unsigned char 
-		 -> main@sVar_387(10), main@sVar(10), 
-  f               1   14[BANK1 ] PTR const unsigned char 
-		 -> STR_5(14), STR_4(4), STR_3(4), STR_2(11), 
-		 -> STR_1(13), 
- Auto vars:     Size  Location     Type
-  sp              1   25[BANK1 ] PTR unsigned char 
-		 -> main@sVar_387(10), main@sVar(10), 
-  tmpval          4    0        struct .
-  val             2   23[BANK1 ] unsigned int 
-  cp              2    0        PTR const unsigned char 
-  len             2    0        unsigned int 
-  c               1   26[BANK1 ] unsigned char 
-  prec            1   22[BANK1 ] char 
-  flag            1   21[BANK1 ] unsigned char 
-  ap              1   20[BANK1 ] PTR void [1]
-		 -> ?_sprintf(2), 
- Return value:  Size  Location     Type
-                  2   14[BANK1 ] int 
- Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       3       0       0
-      Locals:         0       0       7       0       0
-      Temps:          0       0       3       0       0
-      Totals:         0       0      13       0       0
-Total ram usage:       13 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    5
- This function calls:
-		___lwdiv
-		___lwmod
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function ___lwmod *****************
- Defined at:
-		line 5 in file "D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c"
- Parameters:    Size  Location     Type
-  divisor         2    8[BANK1 ] unsigned int 
-  dividend        2   10[BANK1 ] unsigned int 
- Auto vars:     Size  Location     Type
-  counter         1   13[BANK1 ] unsigned char 
- Return value:  Size  Location     Type
-                  2    8[BANK1 ] unsigned int 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       4       0       0
-      Locals:         0       0       1       0       0
-      Temps:          0       0       1       0       0
-      Totals:         0       0       6       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		Nothing
- This function is called by:
-		_sprintf
- This function uses a non-reentrant model
-
-
- *************** function ___lwdiv *****************
- Defined at:
-		line 5 in file "D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c"
- Parameters:    Size  Location     Type
-  divisor         2    0[BANK1 ] unsigned int 
-  dividend        2    2[BANK1 ] unsigned int 
- Auto vars:     Size  Location     Type
-  quotient        2    5[BANK1 ] unsigned int 
-  counter         1    7[BANK1 ] unsigned char 
- Return value:  Size  Location     Type
-                  2    0[BANK1 ] unsigned int 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       4       0       0
-      Locals:         0       0       3       0       0
-      Temps:          0       0       1       0       0
-      Totals:         0       0       8       0       0
-Total ram usage:        8 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		Nothing
- This function is called by:
-		_sprintf
  This function uses a non-reentrant model
 
 
@@ -829,6 +743,7 @@ Total ram usage:        0 bytes
 		_spiReceiveWait
  This function is called by:
 		_main
+		_read_command
  This function uses a non-reentrant model
 
 
@@ -922,6 +837,7 @@ Total ram usage:        2 bytes
 		Nothing
  This function is called by:
 		_main
+		_read_command
  This function uses a non-reentrant model
 
 
@@ -985,73 +901,9 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _putst *****************
- Defined at:
-		line 211 in file "serial.c"
- Parameters:    Size  Location     Type
-  str             1    wreg     PTR const unsigned char 
-		 -> main@sVar_387(10), main@sVar(10), 
- Auto vars:     Size  Location     Type
-  str             1    3[BANK1 ] PTR const unsigned char 
-		 -> main@sVar_387(10), main@sVar(10), 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       0       0       0
-      Locals:         0       0       1       0       0
-      Temps:          0       0       1       0       0
-      Totals:         0       0       2       0       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    5
- This function calls:
-		_putch
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _putch *****************
- Defined at:
-		line 95 in file "serial.c"
- Parameters:    Size  Location     Type
-  c               1    wreg     unsigned char 
- Auto vars:     Size  Location     Type
-  c               1    1[BANK1 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       0       0       0
-      Locals:         0       0       1       0       0
-      Temps:          0       0       1       0       0
-      Totals:         0       0       2       0       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		Nothing
- This function is called by:
-		_putst
-		_putchhex
-		_putchdec
- This function uses a non-reentrant model
-
-
  *************** function _motor_reset *****************
  Defined at:
-		line 157 in file "main.c"
+		line 160 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1059,7 +911,7 @@ Total ram usage:        2 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1071,7 +923,7 @@ Total ram usage:        2 bytes
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    6
+ Hardware stack levels required when called:    7
  This function calls:
 		_SetPoint
 		_pwm_set
@@ -1083,7 +935,7 @@ Total ram usage:        0 bytes
 
  *************** function _resetCounter *****************
  Defined at:
-		line 152 in file "main.c"
+		line 155 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1213,13 +1065,154 @@ Total ram usage:       15 bytes
  Defined at:
 		line 148 in file "main.c"
  Parameters:    Size  Location     Type
-  new_val         2    0[BANK1 ] int 
+  new_val         2   28[BANK1 ] int 
+ Auto vars:     Size  Location     Type
+  sVar           20   31[BANK1 ] unsigned char [20]
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       2       0       0
+      Locals:         0       0      20       0       0
+      Temps:          0       0       1       0       0
+      Totals:         0       0      23       0       0
+Total ram usage:       23 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_putst
+		_sprintf
+ This function is called by:
+		_motor_reset
+		_main
+		_read_command
+ This function uses a non-reentrant model
+
+
+ *************** function _sprintf *****************
+ Defined at:
+		line 500 in file "D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c"
+ Parameters:    Size  Location     Type
+  sp              2   14[BANK1 ] PTR unsigned char 
+		 -> main@sVar_394(10), main@sVar(20), SetPoint@sVar(20), 
+  f               1   16[BANK1 ] PTR const unsigned char 
+		 -> STR_6(14), STR_5(4), STR_4(4), STR_3(11), 
+		 -> STR_2(13), STR_1(16), 
+ Auto vars:     Size  Location     Type
+  tmpval          4    0        struct .
+  val             2   25[BANK1 ] unsigned int 
+  cp              2    0        PTR const unsigned char 
+  len             2    0        unsigned int 
+  c               1   27[BANK1 ] unsigned char 
+  prec            1   24[BANK1 ] char 
+  flag            1   23[BANK1 ] unsigned char 
+  ap              1   22[BANK1 ] PTR void [1]
+		 -> ?_sprintf(2), 
+ Return value:  Size  Location     Type
+                  2   14[BANK1 ] int 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       5       0       0
+      Locals:         0       0       6       0       0
+      Temps:          0       0       3       0       0
+      Totals:         0       0      14       0       0
+Total ram usage:       14 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		___lwdiv
+		___lwmod
+ This function is called by:
+		_SetPoint
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwmod *****************
+ Defined at:
+		line 5 in file "D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c"
+ Parameters:    Size  Location     Type
+  divisor         2    8[BANK1 ] unsigned int 
+  dividend        2   10[BANK1 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  counter         1   13[BANK1 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    8[BANK1 ] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       4       0       0
+      Locals:         0       0       1       0       0
+      Temps:          0       0       1       0       0
+      Totals:         0       0       6       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwdiv *****************
+ Defined at:
+		line 5 in file "D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c"
+ Parameters:    Size  Location     Type
+  divisor         2    0[BANK1 ] unsigned int 
+  dividend        2    2[BANK1 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  quotient        2    5[BANK1 ] unsigned int 
+  counter         1    7[BANK1 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    0[BANK1 ] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       4       0       0
+      Locals:         0       0       3       0       0
+      Temps:          0       0       1       0       0
+      Totals:         0       0       8       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function _putst *****************
+ Defined at:
+		line 211 in file "serial.c"
+ Parameters:    Size  Location     Type
+  str             2    2[BANK1 ] PTR const unsigned char 
+		 -> main@sVar_394(10), main@sVar(20), SetPoint@sVar(20), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1231,18 +1224,50 @@ Total ram usage:       15 bytes
       Totals:         0       0       2       0       0
 Total ram usage:        2 bytes
  Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_putch
+ This function is called by:
+		_SetPoint
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _putch *****************
+ Defined at:
+		line 95 in file "serial.c"
+ Parameters:    Size  Location     Type
+  c               1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  c               1    1[BANK1 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       1       0       0
+      Temps:          0       0       1       0       0
+      Totals:         0       0       2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
 		Nothing
  This function is called by:
-		_motor_reset
-		_main
+		_putst
+		_putchhex
+		_putchdec
  This function uses a non-reentrant model
 
 
  *************** function _encoders_init *****************
  Defined at:
-		line 247 in file "main.c"
+		line 250 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1302,7 +1327,7 @@ Total ram usage:        0 bytes
 
  *************** function _isr *****************
  Defined at:
-		line 167 in file "main.c"
+		line 170 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1560,82 +1585,82 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 serial.c
-		_putch         		CODE           	0F62	0000	53
-		_chkchr        		CODE           	0E73	0000	9
-		_putst         		CODE           	0FCA	0000	55
-		_serial_init   		CODE           	0ED0	0000	25
+		_putch         		CODE           	0DD3	0000	53
+		_chkchr        		CODE           	0CE3	0000	9
+		_putst         		CODE           	0F26	0000	65
+		_serial_init   		CODE           	0D26	0000	25
 
-serial.c estimated size: 142
+serial.c estimated size: 152
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-		_sprintf       		CODE           	02AD	0000	211
+		_sprintf       		CODE           	04F2	0000	224
 
-D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c estimated size: 211
+D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c estimated size: 224
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
-		___wmul        		CODE           	07D9	0000	34
+		___wmul        		CODE           	0D5A	0000	34
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c estimated size: 34
 
 pwm.c
-		_pwm_set       		CODE           	0548	0000	134
-		_pwm_init      		CODE           	0F04	0000	43
+		_pwm_set       		CODE           	06EF	0000	134
+		_pwm_init      		CODE           	0D7B	0000	43
 
 pwm.c estimated size: 177
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-		___lwmod       		CODE           	0F96	0000	53
+		___lwmod       		CODE           	0E07	0000	53
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c estimated size: 53
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
-		___lmul        		CODE           	06A7	0000	66
+		___lmul        		CODE           	0F66	0000	66
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c estimated size: 66
 
 spi.c
-		_spiWrite      		CODE           	0E7B	0000	9
-		_spiInit       		CODE           	0EBC	0000	21
-		_spiDataReady  		CODE           	0E8B	0000	13
-		_spiReceiveWait		CODE           	07FA	0000	6
-		_spiRead       		CODE           	0E6C	0000	8
+		_spiWrite      		CODE           	0CEB	0000	9
+		_spiInit       		CODE           	0D12	0000	21
+		_spiDataReady  		CODE           	0CF3	0000	13
+		_spiReceiveWait		CODE           	0CD7	0000	6
+		_spiRead       		CODE           	0CDC	0000	8
 
 spi.c estimated size: 57
 
 shared
-		__stringtab    		STRING         	0765	0000	7
-		_dpowers       		STRING         	076B	0000	11
-		i1_pwm_set     		CODE           	05CD	0000	130
-		__initialization		CODE           	0015	0000	25
-		i1___lmul      		CODE           	06E8	0000	64
-		i1___aldiv     		CODE           	04B9	0000	144
+		__stringtab    		STRING         	0800	0000	7
+		_dpowers       		STRING         	0806	0000	11
+		i1_pwm_set     		CODE           	0774	0000	130
+		__initialization		CODE           	0015	0000	33
+		i1___lmul      		CODE           	0EE7	0000	64
+		i1___aldiv     		CODE           	0660	0000	144
 
-shared estimated size: 381
+shared estimated size: 389
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-		___lwdiv       		CODE           	0727	0000	63
+		___lwdiv       		CODE           	0EA9	0000	63
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c estimated size: 63
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
-		___awdiv       		CODE           	064E	0000	90
+		___awdiv       		CODE           	0FA7	0000	90
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c estimated size: 90
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-		___aldiv       		CODE           	042A	0000	144
+		___aldiv       		CODE           	05D1	0000	144
 
 D:\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c estimated size: 144
 
 main.c
-		_constrain     		CODE           	079F	0000	59
-		_SetMotor      		CODE           	0031	0000	384
-		_main          		CODE           	037F	0000	172
-		_resetCounter  		CODE           	0EA9	0000	20
-		_isr           		CODE           	01B0	0000	254
-		_encoders_init 		CODE           	0EE8	0000	29
-		_SetPoint      		CODE           	0E97	0000	19
-		_motor_reset   		CODE           	0F2E	0000	53
+		_constrain     		CODE           	0E6F	0000	59
+		_SetMotor      		CODE           	0276	0000	384
+		_main          		CODE           	0039	0000	574
+		_resetCounter  		CODE           	0CFF	0000	20
+		_isr           		CODE           	03F5	0000	254
+		_encoders_init 		CODE           	0D3E	0000	29
+		_SetPoint      		CODE           	0DA5	0000	47
+		_motor_reset   		CODE           	0E3B	0000	53
 
-main.c estimated size: 990
+main.c estimated size: 1420
 
