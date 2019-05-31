@@ -16,7 +16,9 @@
 #define JOG_X_NEGATIVE 5
 #define JOG_Y_POSITIVE 6
 #define JOG_Y_NEGATIVE 7
-#define REG_AUX 9
+#define TOGGLE_Z 8
+#define REF 9
+#define START_FILE 10
 
 // error
 #define CTL_ERR -1

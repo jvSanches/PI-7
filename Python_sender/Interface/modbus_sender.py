@@ -14,10 +14,10 @@
 import serial
 from time import sleep
 
-def LPC_connect():
+def LPC_connect(port):
     #Open Serial port for LPC
     global lpc
-    lpc = serial.Serial("COM13", 9600)
+    lpc = serial.Serial(port, 9600)
     lpc.timeout = 3
 
 
@@ -32,18 +32,19 @@ def LPC_getChar():
             return reading
         else:
             return False
+
 def LPC_readLine():
     #If available, reads one line from serial. Else, returns False
     return lpc.readline().decode('utf-8')
-        
-        
+
+
 def LPC_write(data):
     #Write data to serial
     lpc.write(data.encode('utf-8'))
 
 # a = [0xF7, 0x03, 0x13, 0x89, 0x00, 0x0A]
-# b = '010300010001' 
-def getLRC(messageBytes): 
+# b = '010300010001'
+def getLRC(messageBytes):
     #calculates LRC for a byte array
     return 0xff&(0x100-(sum(messageBytes)&0xff))
 
@@ -59,7 +60,7 @@ def GetMessageLRC(message):
     for char in message:
         messageBytes.append(ord(char))
     return getLRC(messageBytes)
-                
+
 def ReadRegister(slave, regAddress, numOfRegs = 1):
     #Send message asking for a register values
     payload = ("%4.4x" %regAddress)+ ("%4.4x" %numOfRegs)
@@ -68,10 +69,10 @@ def ReadRegister(slave, regAddress, numOfRegs = 1):
     transmit(message)
     #sleep(2)
     response = receiveResponse()
-    
+
     if response and int(response[2:4],16)==fCode:
         rByteCount = int(response[4:8],16)
-        rValue = int(response[8:12],16)        
+        rValue = int(response[8:12],16)
         return rValue
     else:
         #Pass response to correct handler
@@ -109,7 +110,7 @@ def receiveResponse():
         return receiveResponse()
 
 def checkLRC(rMessage):
-    #Receive the message without : an \r\n. 
+    #Receive the message without : an \r\n.
     rLRC = int(rMessage[-2:],16)
     cLRC = GetMessageLRC(rMessage[:-2])
     return rLRC==cLRC
@@ -122,23 +123,37 @@ def WriteSingleRegister(slave, regAddress,nValue):
     response = receiveResponse()
     if response and int(response[2:4],16)==fCode:
         rRegAddr = int(response[4:8],16)
-        rValue = int(response[8:12],16)        
+        rValue = int(response[8:12],16)
         return rValue
-    
+
     else:
         #Pass response to correct handler
         print("Returned wrong function code")
         return False
 
+def sendLines(slave, coords):
+    fCode=9
+    for line in coords:
+        payload = ("%4.4x" %line[0]) + ("%4.4x" %line[1]) + ("%4.4x" %line[2])
+        message = buildMessage(slave, fCode, payload)
+        transmit(message)
+        response = receiveResponse()
+        if response and int(response[2:4],16)==fCode:
+            rRegAddr = int(response[4:8],16)
+            rValue = int(response[8:12],16)
+            return rValue
 
+        else:
+            #Pass response to correct handler
+            print("Returned wrong function code")
+            return False
 
 def test():
-    LPC_connect()
+    LPC_connect("COM13")
     print(ReadRegister(1,1))     #prints register 1 value
     # LPC_disconnect()
 
-
-"""
+'''
 #################################################################
 Exemplo de uso das funções implementadas
 
@@ -161,4 +176,4 @@ Data trasmitted:  ['0x3a', '0x30', '0x31', '0x30', '0x33', '0x30', '0x30', '0x30
 Message from LPC:  :01030001004EA2
 78
 >>>
-"""
+'''
