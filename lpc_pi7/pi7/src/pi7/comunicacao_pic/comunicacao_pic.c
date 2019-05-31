@@ -20,41 +20,87 @@
 #include "comunicacao_pic.h"
 
 #define TICKS_FACTOR 48.89
-
+//PINS FOR PIC COMUNICATIONS
+#define PIC1_ENABLE 9
+#define PIC1_DIR 8
+#define PIC1_STEP 7
+#define PIC2_ENABLE 6
+#define PIC2_DIR 0
+#define PIC2_STEP 1
 
 void pic_init(){
-	spi_init();
+
+	LPC_GPIO0->FIODIR |= (1 << PIC1_ENABLE);     //pic1 enable
+	LPC_GPIO0->FIOCLR = (1 << PIC1_ENABLE);
+
+	LPC_GPIO0->FIODIR |= (1 << PIC1_DIR);     //pic1 dir
+	LPC_GPIO0->FIOCLR = (1 << PIC1_DIR);
+
+	LPC_GPIO0->FIODIR |= (1 << PIC1_STEP);     //pic1 step
+	LPC_GPIO0->FIOCLR = (1 << PIC1_STEP);
+
+	LPC_GPIO0->FIODIR |= (1 << PIC2_ENABLE);     //pic2 enable
+	LPC_GPIO0->FIOCLR = (1 << PIC2_ENABLE);
+
+	LPC_GPIO0->FIODIR |= (1 << PIC2_DIR);     //pic2 dir
+	LPC_GPIO0->FIOCLR = (1 << PIC2_DIR);
+
+	LPC_GPIO0->FIODIR |= (1 << PIC2_STEP);     //pic 2 step
+	LPC_GPIO0->FIOCLR = (1 << PIC2_STEP);
+
 } // pic_init
 
-void xSend(int nPos){
-	spi_select(1);
-	vTaskDelay(1);
-	printf("Sent %d and %d\r\n", nPos >> 7, nPos & 0b1111111);
-	spi_txrx2(nPos >> 7);
-	spi_txrx2(nPos & 0b1111111);
-	spi_select(0);
-}
-void ySend(int nPos){
-	spi_select(2);
-	spi_txrx2(nPos >> 7);
-	spi_txrx2(nPos & 0b1111111);
-	spi_select(0);
+void pic_StopMotors(){
+	LPC_GPIO0->FIOCLR = (1 << PIC1_ENABLE);    //Disables pic 1
+	LPC_GPIO0->FIOCLR = (1 << PIC2_ENABLE);    //Disables pic 2
 }
 
-void pic_StopMotors(){
-	spi_select(3);
-	spi_txrx2(0b1111111);
-	spi_txrx2(0b1111111);
-	spi_select(0);
+void pic_ResetMotors(){
+	LPC_GPIO0->FIOCLR = (1 << PIC1_ENABLE);    //Disables pic 1
+	LPC_GPIO0->FIOCLR = (1 << PIC2_ENABLE);    //Disables pic 2
+	VtaskDelay(DELAY_10MS);
+	LPC_GPIO0->FIOSET = (1 << PIC1_ENABLE);    //Enables pic 1
+	LPC_GPIO0->FIOSET = (1 << PIC2_ENABLE);    //Enables pic 2
 }
+
+void sendSteps(int xSteps, int ySteps){
+	if (xSteps >= 0){
+		LPC_GPIO0->FIOSET = (1 << PIC1_DIR);
+	}else{
+		LPC_GPIO0->FIOCLR = (1 << PIC1_DIR);
+		xStep = - xStep;
+	}
+	if (ySteps >=0){
+		LPC_GPIO0->FIOSET = (1 << PIC2_DIR);
+	}else{
+		LPC_GPIO0->FIOCLR = (1 << PIC2_DIR);
+		yStep = - yStep;
+	}
+	int i=0;
+	int lastState;
+
+	while ((i < xSteps) && (i < ySteps)){
+		if (i < xSteps){
+			lastState = LPC_GPIO0->FIOPIN;
+			LPC_GPIO0->FIOCLR = ledstate & (1 << PIC1_STEP);
+			LPC_GPIO0->FIOSET = ((~ledstate) & (1 << PIC1_STEP));
+		}
+		if (i < ySteps){
+			lastState = LPC_GPIO0->FIOPIN;
+			LPC_GPIO0->FIOCLR = ledstate & (1 << PIC2_STEP);
+			LPC_GPIO0->FIOSET = ((~ledstate) & (1 << PIC2_STEP));
+		}
+		i++;
+		vTaskDelay(DELAY_1MS);
+	}
+}
+
 
 void pic_sendToPIC(pic_Data data) {
 	stt_setX(data.setPoint1);
 	stt_setY(data.setPoint2);
 	stt_setZ(data.setPoint3);
 
-	xSend(data.setPoint1);
-	ySend(TICKS_FACTOR * data.setPoint2);
 
     //test implementation: show values on debug console
 	printf("X=%d Y=%d Z=%d\n", data.setPoint1, data.setPoint2, data.setPoint3);

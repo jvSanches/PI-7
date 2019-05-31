@@ -2666,6 +2666,12 @@ return(value);
 }
 }
 
+void PrintSetpoint(){
+char sVar[20];
+sprintf(sVar, "SetPoint: %d \r\n", set_point);
+putst(sVar);
+}
+
 
 
 void SetMotor(){
@@ -2676,7 +2682,7 @@ long resp;
 int err = set_point - motor_pos;
 
 if (onlyK){
-resp = (err)/5;
+resp = (err) * 4;
 }else{
 
 derivative = (err - last_err);
@@ -2709,9 +2715,7 @@ pwm_set(2, 0 );
 
 void SetPoint(int new_val){
 if (new_val != set_point){
-char sVar[20];
-sprintf(sVar, "SetPoint: %d \r\n", new_val);
-putst(sVar);
+
 set_point = new_val;
 }
 }
@@ -2738,7 +2742,6 @@ static int tick;
 
 if (T0IE && T0IF) {
 set_motor_flag = 1;
-
 if (sampling){
 if (samples < 90/2){
 pos_log1[samples] = motor_pos-last_pos;
@@ -2749,7 +2752,7 @@ last_pos = motor_pos;
 samples++;
 }
 
-com_time++;
+
 
 TMR0 = (0xff - 195);
 T0IF = 0;
@@ -2819,13 +2822,13 @@ encoder1_counter = 0;
 
 }
 
-# 290
+# 293
 void main (void) {
 
 
 char serialIn = 255;
 
-# 299
+# 302
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2861,43 +2864,30 @@ serial_init();
 
 pwm_init();
 
-# 339
+# 342
 encoders_init();
 int enc1 = -1;
 
-# 347
+# 350
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
 
 while (1) {
-if (!getServoState()){
-motor_reset();
-}else{
-SetPoint(set_point + getServoCommand());
-}
+
+# 363
 if (set_motor_flag){
 SetMotor();
 set_motor_flag = 0;
 }
 
-continue;
-char serialIn = chkchr();
-if (serialIn == 'u'){
-resetCounter();
+if (sampling && (samples > 90)){
 
-last_pos = 0;
-samples = 0;
-sampling = 1;
-SetPoint(100);
-RB5=0;
-while (samples < 90){
-
-}
 sampling = 0;
+
 RB5=1;
 
-char sVar[10];
+char sVar[20];
 samples = 0;
 sprintf(sVar, "Kp: %d -> ", 4);
 putst(sVar);
@@ -2913,6 +2903,17 @@ samples++;
 }
 sprintf(sVar, "Fim do teste ");
 putst(sVar);
+}
+char serialIn = chkchr();
+if (serialIn == 'u'){
+resetCounter();
+
+last_pos = 0;
+samples = 0;
+sampling = 1;
+SetPoint(100);
+RB5=0;
+
 }else if (serialIn == 'w' ){
 SetPoint(set_point + 100);
 }else if (serialIn == 's'){

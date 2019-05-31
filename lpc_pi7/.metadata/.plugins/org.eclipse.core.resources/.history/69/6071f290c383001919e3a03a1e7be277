@@ -40,7 +40,6 @@
 const portTickType DELAY_1SEC = 1000 / portTICK_RATE_MS;
 const portTickType DELAY_500MS = 500 / portTICK_RATE_MS;
 const portTickType DELAY_200MS = 200 / portTICK_RATE_MS;
-const portTickType DELAY_10MS = 10 / portTICK_RATE_MS;
 const portTickType DELAY_1MS = 1 / portTICK_RATE_MS;
 
 
@@ -127,9 +126,21 @@ void taskBlinkLed(void *lpParameters) {
 		if (ki >50){
 			ki = 0;
 		}
+
 		led2_invert();
+//		unsigned char dados= ki;
+//		unsigned char rxd;
+		//spi_select(1);
+		//vTaskDelay(DELAY_1MS);
+		spi_txrx2(95);
+//		vTaskDelay(DELAY_1MS);
+//		spi_select(0);
+//		printf("spirx %x\n", (char)rxd);
 		ki++;
 
+//		char sVar[10];
+//		sprintf(sVar, "%d \n", ki);
+//		UARTSendNullTerminated(0, sVar);
 		vTaskDelay(DELAY_1SEC);
 
 	} // task loop
@@ -143,7 +154,6 @@ static void setupHardware(void) {
 
 	// init onboard led
 	led2_init();
-
 
     //vPrintStringAndNumber("Hardware setup completed; portTickRateMS=", portTICK_RATE_MS);
 	printf("Hardware setup completed.\n");

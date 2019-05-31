@@ -105,6 +105,12 @@ long constrain(long value, long lLimit, long uLimit){
     }
 }
 
+void PrintSetpoint(){
+    char sVar[20];
+    sprintf(sVar, "SetPoint: %d \r\n", set_point);
+    putst(sVar);
+}
+
 //SetMotor
 //Define saida do motor segundo o erro]
 void SetMotor(){
@@ -113,9 +119,9 @@ void SetMotor(){
     static int last_err;
     long resp;
     int err = set_point - motor_pos;      //calcula o erro
-    
+        
     if (onlyK){
-        resp = (err)/5;            //Controle proporcional
+        resp = (err) * KP;            //Controle proporcional
     }else{
     
     derivative = (err - last_err);  //Calcula 1/100 da derivada
@@ -148,10 +154,8 @@ void SetMotor(){
 
 void SetPoint(int new_val){           //Conversão de unidade de entrada p/ ticks
     if (new_val != set_point){
-    char sVar[20];
-    sprintf(sVar, "SetPoint: %d \r\n", new_val);
-    putst(sVar);
-    set_point = new_val;
+
+        set_point = new_val;
     }
 }
 
@@ -177,7 +181,6 @@ void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
   // Interrompe a cada 10 ms aproximadamente.
   if (T0IE && T0IF) {    // se for interrupção do Timer 0
       set_motor_flag = 1;
-      
       if (sampling){
           if (samples < MAX_SAMPLES/2){
             pos_log1[samples] = motor_pos-last_pos;
@@ -188,7 +191,7 @@ void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
         samples++;
       }
       
-      com_time++;
+      
       
      TMR0 = TMR0_SETTING;       // recarrega contagem no Timer 0
      T0IF = 0;                  // limpa interrupção
@@ -349,17 +352,42 @@ void main (void) {
   int i = 0;
   
   while (1) {  // para sempre
+      /*
       if (!getServoState()){
           motor_reset();
       }else{
           SetPoint(set_point + getServoCommand());
       }
+      
+      */
       if (set_motor_flag){
           SetMotor();
           set_motor_flag = 0;
       }
-      
-      continue;
+      //continue;
+      if (sampling && (samples > MAX_SAMPLES)){
+              //Espera a realizacao de leituras
+            sampling = 0;
+
+            LED=1;
+            //Transmissao do log no serial
+            char sVar[20];
+            samples = 0;
+            sprintf(sVar, "Kp: %d -> ", KP);
+            putst(sVar);
+            while (samples <= MAX_SAMPLES /2){
+                sprintf(sVar, "%d ", pos_log1[samples]);
+                putst(sVar);
+                samples++;
+            }
+            while (samples < MAX_SAMPLES){
+                sprintf(sVar, "%d ", pos_log2[samples - MAX_SAMPLES / 2]);
+                putst(sVar);
+                samples++;
+            }
+            sprintf(sVar, "Fim do teste ");
+            putst(sVar);
+          }
       char serialIn = chkchr();
       if (serialIn == 'u'){
           resetCounter();
@@ -369,28 +397,7 @@ void main (void) {
           sampling = 1;
           SetPoint(100);
           LED=0;
-          while (samples < MAX_SAMPLES){
-              //Espera a realizacao de leituras
-          }
-          sampling = 0;
-          LED=1;
-          //Transmissao do log no serial
-          char sVar[10];
-          samples = 0;
-          sprintf(sVar, "Kp: %d -> ", KP);
-          putst(sVar);
-          while (samples <= MAX_SAMPLES /2){
-              sprintf(sVar, "%d ", pos_log1[samples]);
-              putst(sVar);
-              samples++;
-          }
-          while (samples < MAX_SAMPLES){
-              sprintf(sVar, "%d ", pos_log2[samples - MAX_SAMPLES / 2]);
-              putst(sVar);
-              samples++;
-          }
-          sprintf(sVar, "Fim do teste ");
-          putst(sVar);
+          
       }else if (serialIn == 'w' ){
           SetPoint(set_point + 100);
       }else if (serialIn == 's'){
