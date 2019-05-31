@@ -130,11 +130,11 @@ void taskBlinkLed(void *lpParameters) {
 		led2_invert();
 //		unsigned char dados= ki;
 //		unsigned char rxd;
-		//spi_select(1);
-		//vTaskDelay(DELAY_1MS);
+		spi_select(1);
+		vTaskDelay(DELAY_1MS);
 		spi_txrx2(95);
-//		vTaskDelay(DELAY_1MS);
-//		spi_select(0);
+		vTaskDelay(DELAY_1MS);
+		spi_select(0);
 //		printf("spirx %x\n", (char)rxd);
 		ki++;
 
@@ -193,7 +193,6 @@ static void initComponents() {
 uint8_t msgReadRegister[] = {0x3a, 0x00, 0x00, 0x30, 0x33, 0x00, 0x00, 0x30, 0x31, 0x33, 0x3c, 0x0d, 0x0a};
 // test data for WriteRegister: write reg 0 (START NC PROGRAM)
 uint8_t msgWriteRegister[] = {0x3a, 0x30, 0x31, 0x30, 0x36, 0x30, 0x30, 0x30, 0x30, 0x30, 0x31, 0x30, 0x30, 0x0d, 0x0a};
-
 
 int main(void) {
 

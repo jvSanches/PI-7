@@ -1,49 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13 spi.c
-[c E1233 32 33 34 35 36 37 .. ]
-[n E1233 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
-[c E1241 0 128 .. ]
-[n E1241 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
-[c E1245 16 0 .. ]
-[n E1245 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
-[c E1249 0 64 .. ]
-[n E1249 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
-"4245 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
-[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
-"2019
-[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
-"4239
+"4239 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
-"771
-[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
-"2025
-[s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S78 . BF UA R_nW S P D_nA CKE SMP ]
-"2035
-[s S79 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S79 . . R . D ]
-"2041
-[s S80 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S80 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
-"2048
-[s S81 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S81 . . nW . nA ]
-"2054
-[s S82 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S82 . . nWRITE . nADDRESS ]
-"2060
-[s S83 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S83 . . R_W . D_A ]
-"2066
-[s S84 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S84 . . READ_WRITE . DATA_ADDRESS ]
-"2024
-[u S77 `S78 1 `S79 1 `S80 1 `S81 1 `S82 1 `S83 1 `S84 1 ]
-[n S77 . . . . . . . . ]
-"2073
-[v _SSPSTATbits `VS77 ~T0 @X0 0 e@148 ]
-"764
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"4242
+[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
+"4245
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"3957
+[v _RC3 `Vb ~T0 @X0 0 e@59 ]
+"3960
+[v _RC4 `Vb ~T0 @X0 0 e@60 ]
+"3963
+[v _RC5 `Vb ~T0 @X0 0 e@61 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1462,199 +1429,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 137: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 138: extern __bank0 __bit __powerdown;
 [; ;pic.h: 139: extern __bank0 __bit __timeout;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef __int24 int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 52: typedef unsigned char uint8_t;
-[; ;stdint.h: 58: typedef unsigned int uint16_t;
-[; ;stdint.h: 65: typedef __uint24 uint24_t;
-[; ;stdint.h: 72: typedef unsigned long int uint32_t;
-[; ;stdint.h: 88: typedef signed char int_least8_t;
-[; ;stdint.h: 96: typedef signed int int_least16_t;
-[; ;stdint.h: 109: typedef __int24 int_least24_t;
-[; ;stdint.h: 118: typedef signed long int int_least32_t;
-[; ;stdint.h: 136: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 143: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 154: typedef __uint24 uint_least24_t;
-[; ;stdint.h: 162: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 181: typedef signed char int_fast8_t;
-[; ;stdint.h: 188: typedef signed int int_fast16_t;
-[; ;stdint.h: 200: typedef __int24 int_fast24_t;
-[; ;stdint.h: 208: typedef signed long int int_fast32_t;
-[; ;stdint.h: 224: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 230: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 240: typedef __uint24 uint_fast24_t;
-[; ;stdint.h: 247: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 268: typedef int32_t intmax_t;
-[; ;stdint.h: 282: typedef uint32_t uintmax_t;
-[; ;stdint.h: 289: typedef int16_t intptr_t;
-[; ;stdint.h: 294: typedef uint16_t uintptr_t;
-[; ;spi.h: 16: typedef enum
-[; ;spi.h: 17: {
-[; ;spi.h: 18: SPI_MASTER_OSC_DIV4 = 0b00100000,
-[; ;spi.h: 19: SPI_MASTER_OSC_DIV16 = 0b00100001,
-[; ;spi.h: 20: SPI_MASTER_OSC_DIV64 = 0b00100010,
-[; ;spi.h: 21: SPI_MASTER_TMR2 = 0b00100011,
-[; ;spi.h: 22: SPI_SLAVE_SS_EN = 0b00100100,
-[; ;spi.h: 23: SPI_SLAVE_SS_DIS = 0b00100101
-[; ;spi.h: 24: }Spi_Type;
-[; ;spi.h: 26: typedef enum
-[; ;spi.h: 27: {
-[; ;spi.h: 28: SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-[; ;spi.h: 29: SPI_DATA_SAMPLE_END = 0b10000000
-[; ;spi.h: 30: }Spi_Data_Sample;
-[; ;spi.h: 32: typedef enum
-[; ;spi.h: 33: {
-[; ;spi.h: 34: SPI_CLOCK_IDLE_HIGH = 0b00010000,
-[; ;spi.h: 35: SPI_CLOCK_IDLE_LOW = 0b00000000
-[; ;spi.h: 36: }Spi_Clock_Idle;
-[; ;spi.h: 38: typedef enum
-[; ;spi.h: 39: {
-[; ;spi.h: 40: SPI_IDLE_2_ACTIVE = 0b00000000,
-[; ;spi.h: 41: SPI_ACTIVE_2_IDLE = 0b01000000
-[; ;spi.h: 42: }Spi_Transmit_Edge;
-[; ;spi.h: 45: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-[; ;spi.h: 46: void spiWrite(uint8_t);
-[; ;spi.h: 47: unsigned spiDataReady();
-[; ;spi.h: 48: uint8_t spiRead();
-"12 spi.c
-[v _spiInit `(v ~T0 @X0 1 ef4`E1233`E1241`E1245`E1249 ]
-"13
+[; ;always.h: 177: struct sixteen_bits {
+[; ;always.h: 178: unsigned char bit0 :1;
+[; ;always.h: 179: unsigned char bit1 :1;
+[; ;always.h: 180: unsigned char bit2 :1;
+[; ;always.h: 181: unsigned char bit3 :1;
+[; ;always.h: 182: unsigned char bit4 :1;
+[; ;always.h: 183: unsigned char bit5 :1;
+[; ;always.h: 184: unsigned char bit6 :1;
+[; ;always.h: 185: unsigned char bit7 :1;
+[; ;always.h: 186: unsigned char bit8 :1;
+[; ;always.h: 187: unsigned char bit9 :1;
+[; ;always.h: 188: unsigned char bit10 :1;
+[; ;always.h: 189: unsigned char bit11 :1;
+[; ;always.h: 190: unsigned char bit12 :1;
+[; ;always.h: 191: unsigned char bit13 :1;
+[; ;always.h: 192: unsigned char bit14 :1;
+[; ;always.h: 193: unsigned char bit15 :1;
+[; ;always.h: 194: };
+[; ;always.h: 196: struct eight_bits {
+[; ;always.h: 197: unsigned char bit0 :1;
+[; ;always.h: 198: unsigned char bit1 :1;
+[; ;always.h: 199: unsigned char bit2 :1;
+[; ;always.h: 200: unsigned char bit3 :1;
+[; ;always.h: 201: unsigned char bit4 :1;
+[; ;always.h: 202: unsigned char bit5 :1;
+[; ;always.h: 203: unsigned char bit6 :1;
+[; ;always.h: 204: unsigned char bit7 :1;
+[; ;always.h: 205: };
+[; ;always.h: 207: struct two_bytes {
+[; ;always.h: 208: unsigned char low;
+[; ;always.h: 209: unsigned char high;
+[; ;always.h: 210: };
+[; ;always.h: 212: union wordtype {
+[; ;always.h: 213: unsigned int word;
+[; ;always.h: 214: struct two_bytes byte;
+[; ;always.h: 215: struct sixteen_bits part;
+[; ;always.h: 216: };
+[; ;always.h: 218: union chartype {
+[; ;always.h: 219: unsigned char byte;
+[; ;always.h: 220: struct eight_bits part;
+[; ;always.h: 221: };
+[; ;servoController.h: 8: void servoInit();
+[; ;servoController.h: 9: int getServoState();
+[; ;servoController.h: 10: int getServoCommand();
+"12 servoController.c
+[v _servoInit `(v ~T0 @X0 1 ef ]
 {
-[; ;spi.c: 12: void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
-[; ;spi.c: 13: {
-[e :U _spiInit ]
-"12
-[v _sType `E1233 ~T0 @X0 1 r1 ]
-[v _sDataSample `E1241 ~T0 @X0 1 r2 ]
-[v _sClockIdle `E1245 ~T0 @X0 1 r3 ]
-[v _sTransmitEdge `E1249 ~T0 @X0 1 r4 ]
-"13
+[; ;servoController.c: 12: void servoInit(){
+[e :U _servoInit ]
 [f ]
-[; ;spi.c: 14: TRISC5 = 0;
+[; ;servoController.c: 14: TRISC3 = 1;
 "14
-[e = _TRISC5 -> -> 0 `i `b ]
-[; ;spi.c: 15: if(sType & 0b00000100)
-"15
-[e $ ! != & -> _sType `i -> 4 `i -> 0 `i 135  ]
-[; ;spi.c: 16: {
-"16
-{
-[; ;spi.c: 17: SSPSTAT = sTransmitEdge;
-"17
-[e = _SSPSTAT -> _sTransmitEdge `uc ]
-[; ;spi.c: 18: TRISC3 = 1;
-"18
 [e = _TRISC3 -> -> 1 `i `b ]
+[; ;servoController.c: 15: TRISC4 = 1;
+"15
+[e = _TRISC4 -> -> 1 `i `b ]
+[; ;servoController.c: 16: TRISC5 = 1;
+"16
+[e = _TRISC5 -> -> 1 `i `b ]
+[; ;servoController.c: 17: }
+"17
+[e :UE 139 ]
+}
+"18
+[v _getServoState `(i ~T0 @X0 1 ef ]
+{
+[; ;servoController.c: 18: int getServoState(){
+[e :U _getServoState ]
+[f ]
+[; ;servoController.c: 19: return RC3;
 "19
-}
-[; ;spi.c: 19: }
-[e $U 136  ]
+[e ) -> _RC3 `i ]
+[e $UE 140  ]
+[; ;servoController.c: 20: }
 "20
-[e :U 135 ]
-[; ;spi.c: 20: else
-[; ;spi.c: 21: {
-"21
-{
-[; ;spi.c: 22: SSPSTAT = sDataSample | sTransmitEdge;
+[e :UE 140 ]
+}
 "22
-[e = _SSPSTAT -> | -> _sDataSample `i -> _sTransmitEdge `i `uc ]
-[; ;spi.c: 23: TRISC3 = 0;
+[v _getServoCommand `(i ~T0 @X0 1 ef ]
+{
+[; ;servoController.c: 22: int getServoCommand(){
+[e :U _getServoCommand ]
+[f ]
 "23
-[e = _TRISC3 -> -> 0 `i `b ]
+[v F1244 `uc ~T0 @X0 1 s lStep ]
+[; ;servoController.c: 23: static char lStep;
+[; ;servoController.c: 24: if (RC4 != lStep){
 "24
-}
-[e :U 136 ]
-[; ;spi.c: 24: }
-[; ;spi.c: 26: SSPCON = sType | sClockIdle;
+[e $ ! != -> _RC4 `i -> F1244 `i 142  ]
+{
+[; ;servoController.c: 25: lStep = !lStep;
+"25
+[e = F1244 -> -> ! != -> F1244 `i -> -> -> 0 `i `uc `i `i `uc ]
+[; ;servoController.c: 26: return ((2*RC5) - 1);
 "26
-[e = _SSPCON -> | -> _sType `i -> _sClockIdle `i `uc ]
-[; ;spi.c: 27: }
+[e ) - * -> 2 `i -> _RC5 `i -> 1 `i ]
+[e $UE 141  ]
 "27
-[e :UE 134 ]
 }
+[; ;servoController.c: 27: }else{
+[e $U 143  ]
+[e :U 142 ]
+{
+[; ;servoController.c: 28: return 0;
+"28
+[e ) -> 0 `i ]
+[e $UE 141  ]
 "29
-[v _spiReceiveWait `(v ~T0 @X0 1 sf ]
-"30
-{
-[; ;spi.c: 29: static void spiReceiveWait()
-[; ;spi.c: 30: {
-[e :U _spiReceiveWait ]
-[f ]
-[; ;spi.c: 31: while ( !SSPSTATbits.BF );
-"31
-[e $U 138  ]
-[e :U 139 ]
-[e :U 138 ]
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 139  ]
-[e :U 140 ]
-[; ;spi.c: 32: }
-"32
-[e :UE 137 ]
 }
-"34
-[v _spiWrite `(v ~T0 @X0 1 ef1`uc ]
-"35
-{
-[; ;spi.c: 34: void spiWrite(uint8_t dat)
-[; ;spi.c: 35: {
-[e :U _spiWrite ]
-"34
-[v _dat `uc ~T0 @X0 1 r1 ]
-"35
-[f ]
-[; ;spi.c: 36: SSPBUF = dat;
-"36
-[e = _SSPBUF _dat ]
-[; ;spi.c: 37: }
-"37
-[e :UE 141 ]
-}
-"39
-[v _spiDataReady `(ui ~T0 @X0 1 ef ]
-"40
-{
-[; ;spi.c: 39: unsigned spiDataReady()
-[; ;spi.c: 40: {
-[e :U _spiDataReady ]
-[f ]
-[; ;spi.c: 41: if(SSPSTATbits.BF)
-"41
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 143  ]
-[; ;spi.c: 42: return 1;
-"42
-[e ) -> -> 1 `i `ui ]
-[e $UE 142  ]
-[e $U 144  ]
-"43
 [e :U 143 ]
-[; ;spi.c: 43: else
-[; ;spi.c: 44: return 0;
-"44
-[e ) -> -> 0 `i `ui ]
-[e $UE 142  ]
-[e :U 144 ]
-[; ;spi.c: 45: }
-"45
-[e :UE 142 ]
-}
-"47
-[v _spiRead `(uc ~T0 @X0 1 ef ]
-"48
-{
-[; ;spi.c: 47: uint8_t spiRead()
-[; ;spi.c: 48: {
-[e :U _spiRead ]
-[f ]
-[; ;spi.c: 49: spiReceiveWait();
-"49
-[e ( _spiReceiveWait ..  ]
-[; ;spi.c: 50: return(SSPBUF);
-"50
-[e ) _SSPBUF ]
-[e $UE 145  ]
-[; ;spi.c: 51: }
-"51
-[e :UE 145 ]
+[; ;servoController.c: 29: }
+[; ;servoController.c: 31: }
+"31
+[e :UE 141 ]
 }

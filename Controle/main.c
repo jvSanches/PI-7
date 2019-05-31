@@ -37,7 +37,8 @@
 #include "delay.h"
 #include "pwm.h"
 #include "serial.h"
-#include "spi.h"
+//#include "spi.h"
+#include "servoController.h"
 // Definições
 
 // Timer 0
@@ -146,10 +147,12 @@ void SetMotor(){
 }
 
 void SetPoint(int new_val){           //Conversão de unidade de entrada p/ ticks
+    if (new_val != set_point){
     char sVar[20];
     sprintf(sVar, "SetPoint: %d \r\n", new_val);
     putst(sVar);
     set_point = new_val;
+    }
 }
 
 void resetCounter(){                 //Reinicia o contador do encoder
@@ -166,15 +169,15 @@ void motor_reset(){
 
 uint8_t SPIData; 
 int nSPIData;
-
+char set_motor_flag =0;
 void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
   static int tick;              // contador de vezes que o Timer 0 interrompe
   
   // Timer 0
   // Interrompe a cada 10 ms aproximadamente.
   if (T0IE && T0IF) {    // se for interrupção do Timer 0
-  
-      SetMotor();
+      set_motor_flag = 1;
+      
       if (sampling){
           if (samples < MAX_SAMPLES/2){
             pos_log1[samples] = motor_pos-last_pos;
@@ -255,7 +258,7 @@ void encoders_init(){
  
 }
 
-
+/*
 //Read commands from spi
 void read_command(){
     char command;
@@ -280,7 +283,7 @@ void read_command(){
 
     }    
 }
-
+*/
 
 
 /// Programa Principal
@@ -323,7 +326,7 @@ void main (void) {
   // Inicializações
   serial_init();
   //spi_slave_init();
-  spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
+//  spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
  
   // Inicializações da placa local
   pwm_init();     // inicializa PWM
@@ -346,20 +349,17 @@ void main (void) {
   int i = 0;
   
   while (1) {  // para sempre
-//      read_command();
-    //Produz entrada em degrau
-
-      if(spiDataReady()) 
-      {
-        LED = !LED;
-        SPIData = spiRead() >> 1; // Read The Buffer
-        spiWrite(0);
-        char sVar[20];
-        sprintf(sVar, "SPIRx: %d \r\n", SPIData);
-        putst(sVar);
+      if (!getServoState()){
+          motor_reset();
+      }else{
+          SetPoint(set_point + getServoCommand());
+      }
+      if (set_motor_flag){
+          SetMotor();
+          set_motor_flag = 0;
       }
       
-      
+      continue;
       char serialIn = chkchr();
       if (serialIn == 'u'){
           resetCounter();

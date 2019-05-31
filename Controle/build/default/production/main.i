@@ -2631,42 +2631,12 @@ void putchhex(unsigned char c);
 
 void putinthex(unsigned int c);
 
-# 16 "spi.h"
-typedef enum
-{
-SPI_MASTER_OSC_DIV4 = 0b00100000,
-SPI_MASTER_OSC_DIV16 = 0b00100001,
-SPI_MASTER_OSC_DIV64 = 0b00100010,
-SPI_MASTER_TMR2 = 0b00100011,
-SPI_SLAVE_SS_EN = 0b00100100,
-SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
+# 8 "servoController.h"
+void servoInit();
+int getServoState();
+int getServoCommand();
 
-typedef enum
-{
-SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-SPI_DATA_SAMPLE_END = 0b10000000
-}Spi_Data_Sample;
-
-typedef enum
-{
-SPI_CLOCK_IDLE_HIGH = 0b00010000,
-SPI_CLOCK_IDLE_LOW = 0b00000000
-}Spi_Clock_Idle;
-
-typedef enum
-{
-SPI_IDLE_2_ACTIVE = 0b00000000,
-SPI_ACTIVE_2_IDLE = 0b01000000
-}Spi_Transmit_Edge;
-
-
-void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-void spiWrite(uint8_t);
-unsigned spiDataReady();
-uint8_t spiRead();
-
-# 78 "main.c"
+# 79 "main.c"
 volatile long encoder1_counter;
 volatile char state1;
 volatile char ab1;
@@ -2738,10 +2708,12 @@ pwm_set(2, 0 );
 }
 
 void SetPoint(int new_val){
+if (new_val != set_point){
 char sVar[20];
 sprintf(sVar, "SetPoint: %d \r\n", new_val);
 putst(sVar);
 set_point = new_val;
+}
 }
 
 void resetCounter(){
@@ -2758,15 +2730,15 @@ SetPoint(0);
 
 uint8_t SPIData;
 int nSPIData;
-
+char set_motor_flag =0;
 void interrupt isr(void) {
 static int tick;
 
 
 
 if (T0IE && T0IF) {
+set_motor_flag = 1;
 
-SetMotor();
 if (sampling){
 if (samples < 90/2){
 pos_log1[samples] = motor_pos-last_pos;
@@ -2847,41 +2819,13 @@ encoder1_counter = 0;
 
 }
 
-
-
-void read_command(){
-char command;
-char com_state = 0;
-char set_point_hi;
-char set_point_lo;
-if (spiDataReady()){
-com_time = 0;
-com_state = 1;
-while(com_state != 3){
-if (com_time > 3 ){
-com_state = 3;
-}else if(spiDataReady() && (com_state == 1)){
-set_point_hi = spiRead() >> 1;
-com_state = 2;
-}else if (spiDataReady() && (com_state == 2)){
-set_point_lo = spiRead() >> 1;
-com_state = 3;
-SetPoint((set_point_hi<<7) | (set_point_lo));
-}
-}
-
-}
-}
-
-
-
-
+# 290
 void main (void) {
 
 
 char serialIn = 255;
 
-# 296
+# 299
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2912,35 +2856,32 @@ RBIE = 1;
 
 serial_init();
 
-spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
+
 
 
 pwm_init();
 
-# 336
+# 339
 encoders_init();
 int enc1 = -1;
 
-# 344
+# 347
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
 
 while (1) {
-
-
-
-if(spiDataReady())
-{
-RB5 = !RB5;
-SPIData = spiRead() >> 1;
-spiWrite(0);
-char sVar[20];
-sprintf(sVar, "SPIRx: %d \r\n", SPIData);
-putst(sVar);
+if (!getServoState()){
+motor_reset();
+}else{
+SetPoint(set_point + getServoCommand());
+}
+if (set_motor_flag){
+SetMotor();
+set_motor_flag = 0;
 }
 
-
+continue;
 char serialIn = chkchr();
 if (serialIn == 'u'){
 resetCounter();
