@@ -1,5 +1,5 @@
 
-# 1 "spi.c"
+# 1 "servoController.c"
 
 # 18 "D:\Microchip\xc8\v2.05\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2369,165 +2369,76 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 13 "D:\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
-typedef signed char int8_t;
+# 177 "always.h"
+struct sixteen_bits {
+unsigned char bit0 :1;
+unsigned char bit1 :1;
+unsigned char bit2 :1;
+unsigned char bit3 :1;
+unsigned char bit4 :1;
+unsigned char bit5 :1;
+unsigned char bit6 :1;
+unsigned char bit7 :1;
+unsigned char bit8 :1;
+unsigned char bit9 :1;
+unsigned char bit10 :1;
+unsigned char bit11 :1;
+unsigned char bit12 :1;
+unsigned char bit13 :1;
+unsigned char bit14 :1;
+unsigned char bit15 :1;
+};
 
-# 20
-typedef signed int int16_t;
+struct eight_bits {
+unsigned char bit0 :1;
+unsigned char bit1 :1;
+unsigned char bit2 :1;
+unsigned char bit3 :1;
+unsigned char bit4 :1;
+unsigned char bit5 :1;
+unsigned char bit6 :1;
+unsigned char bit7 :1;
+};
 
-# 28
-typedef __int24 int24_t;
+struct two_bytes {
+unsigned char low;
+unsigned char high;
+};
 
-# 36
-typedef signed long int int32_t;
+union wordtype {
+unsigned int word;
+struct two_bytes byte;
+struct sixteen_bits part;
+};
 
-# 52
-typedef unsigned char uint8_t;
+union chartype {
+unsigned char byte;
+struct eight_bits part;
+};
 
-# 58
-typedef unsigned int uint16_t;
+# 8 "servoController.h"
+void servoInit();
+int getServoState();
+int getServoCommand();
 
-# 65
-typedef __uint24 uint24_t;
+# 12 "servoController.c"
+void servoInit(){
 
-# 72
-typedef unsigned long int uint32_t;
-
-# 88
-typedef signed char int_least8_t;
-
-# 96
-typedef signed int int_least16_t;
-
-# 109
-typedef __int24 int_least24_t;
-
-# 118
-typedef signed long int int_least32_t;
-
-# 136
-typedef unsigned char uint_least8_t;
-
-# 143
-typedef unsigned int uint_least16_t;
-
-# 154
-typedef __uint24 uint_least24_t;
-
-# 162
-typedef unsigned long int uint_least32_t;
-
-# 181
-typedef signed char int_fast8_t;
-
-# 188
-typedef signed int int_fast16_t;
-
-# 200
-typedef __int24 int_fast24_t;
-
-# 208
-typedef signed long int int_fast32_t;
-
-# 224
-typedef unsigned char uint_fast8_t;
-
-# 230
-typedef unsigned int uint_fast16_t;
-
-# 240
-typedef __uint24 uint_fast24_t;
-
-# 247
-typedef unsigned long int uint_fast32_t;
-
-# 268
-typedef int32_t intmax_t;
-
-# 282
-typedef uint32_t uintmax_t;
-
-# 289
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 16 "spi.h"
-typedef enum
-{
-SPI_MASTER_OSC_DIV4 = 0b00100000,
-SPI_MASTER_OSC_DIV16 = 0b00100001,
-SPI_MASTER_OSC_DIV64 = 0b00100010,
-SPI_MASTER_TMR2 = 0b00100011,
-SPI_SLAVE_SS_EN = 0b00100100,
-SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
-
-typedef enum
-{
-SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-SPI_DATA_SAMPLE_END = 0b10000000
-}Spi_Data_Sample;
-
-typedef enum
-{
-SPI_CLOCK_IDLE_HIGH = 0b00010000,
-SPI_CLOCK_IDLE_LOW = 0b00000000
-}Spi_Clock_Idle;
-
-typedef enum
-{
-SPI_IDLE_2_ACTIVE = 0b00000000,
-SPI_ACTIVE_2_IDLE = 0b01000000
-}Spi_Transmit_Edge;
-
-
-void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-void spiWrite(uint8_t);
-unsigned spiDataReady();
-uint8_t spiRead();
-
-# 12 "spi.c"
-void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
-{
-TRISC5 = 0;
-if(sType & 0b00000100)
-{
-SSPSTAT = sTransmitEdge;
 TRISC3 = 1;
+TRISC4 = 1;
+TRISC5 = 1;
 }
-else
-{
-SSPSTAT = sDataSample | sTransmitEdge;
-TRISC3 = 0;
-}
-
-SSPCON = sType | sClockIdle;
+int getServoState(){
+return RC3;
 }
 
-static void spiReceiveWait()
-{
-while ( !SSPSTATbits.BF );
-}
-
-void spiWrite(uint8_t dat)
-{
-SSPBUF = dat;
-}
-
-unsigned spiDataReady()
-{
-if(SSPSTATbits.BF)
-return 1;
-else
+int getServoCommand(){
+static char lStep;
+if (RC4 != lStep){
+lStep = !lStep;
+return ((2*RC5) - 1);
+}else{
 return 0;
 }
 
-uint8_t spiRead()
-{
-spiReceiveWait();
-return(SSPBUF);
 }

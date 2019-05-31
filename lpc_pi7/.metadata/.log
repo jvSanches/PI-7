@@ -10042,3 +10042,72 @@ Press 'Cancel' to terminate this launch.
 !MESSAGE 10: Could not start execution from stop
 !SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 18:51:46.776
 !MESSAGE ACK Fault
+
+!ENTRY com.crt.log 1 0 2019-05-30 19:51:07.194
+!MESSAGE Drivers loaded in 1265 milliseconds
+
+!ENTRY com.crt.dsfdebug 4 0 2019-05-30 19:51:38.688
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:51:38.688
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:51:38.688
+!MESSAGE Hardware Transfer Error
+
+!ENTRY com.crt.dsfdebug 4 0 2019-05-30 19:53:03.084
+!MESSAGE 16: Target error from status-poll: Ee(FF). Redlink interface error 255.
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:53:03.084
+!MESSAGE 16: Target error from status-poll: Ee(FF). Redlink interface error 255.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-05-30 19:53:07.686
+!MESSAGE Request for monitor: 'RequestMonitor (com.crt.etmetb.redlink.RedlinkClient$3@e4ddd9): Status ERROR: com.crt.etmetb code=0 Problem obtaining SWO buffer content. java.net.SocketException: Connection reset by peer: socket write error' resulted in an error.
+!SUBENTRY 1 com.crt.etmetb 4 0 2019-05-30 19:53:07.686
+!MESSAGE Problem obtaining SWO buffer content.
+!STACK 0
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:109)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:141)
+	at com.crt.etmetb.redlink.RedlinkClient$2.run(RedlinkClient.java:135)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-05-30 19:53:11.489
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@147273): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2019-05-30 19:53:11.489
+!MESSAGE Interrupt failed.
+
+!ENTRY com.crt.log 1 0 2019-05-30 19:53:19.573
+!MESSAGE Drivers loaded in 1172 milliseconds
+
+!ENTRY com.crt.dsfdebug 4 0 2019-05-30 19:54:27.975
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:54:27.975
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:54:27.975
+!MESSAGE Hardware Transfer Error
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:54:27.975
+!MESSAGE 16: Target error from status-poll: Ee(FF). Redlink interface error 255.
+
+!ENTRY com.crt.log 1 0 2019-05-30 19:55:40.265
+!MESSAGE Drivers loaded in 1164 milliseconds
+
+!ENTRY com.crt.dsfdebug 4 0 2019-05-30 19:57:39.106
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:57:39.106
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:57:39.106
+!MESSAGE Hardware Transfer Error
+
+!ENTRY com.crt.dsfdebug 4 0 2019-05-30 19:57:59.756
+!MESSAGE 16: Target error from status-poll: Ee(FF). Redlink interface error 255.
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2019-05-30 19:57:59.756
+!MESSAGE 16: Target error from status-poll: Ee(FF). Redlink interface error 255.
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-05-30 20:00:55.514
+!MESSAGE The workspace will exit with unsaved changes in this session.
+
+!ENTRY org.eclipse.core.jobs 2 2 2019-05-30 20:00:55.858
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.core.DebugPlugin$EventDispatchJob
