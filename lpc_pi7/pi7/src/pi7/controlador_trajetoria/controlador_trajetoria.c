@@ -71,6 +71,9 @@ void trj_processCommand(trj_Data data) {
 	   }
 	   xQueueSend(qCommPIC, &jog_data, portMAX_DELAY);
    }
+   if (data.command == CMD_FILE){
+	   ptj_startFile(data.cValue);
+   }
 } // trj_executeCommand
 
 void trj_init() {

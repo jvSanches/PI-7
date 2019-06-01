@@ -9,6 +9,7 @@
 #include "FreeRTOS.h"
 #include "queue.h"
 #include <stdio.h>
+#include "task.h"
 
 // Drivers for UART, LED and Console(debug)
 #include <cr_section_macros.h>
@@ -58,7 +59,7 @@ void pic_StopMotors(){
 void pic_ResetMotors(){
 	LPC_GPIO0->FIOCLR = (1 << PIC1_ENABLE);    //Disables pic 1
 	LPC_GPIO0->FIOCLR = (1 << PIC2_ENABLE);    //Disables pic 2
-	VtaskDelay(DELAY_10MS);
+	vTaskDelay(10);
 	LPC_GPIO0->FIOSET = (1 << PIC1_ENABLE);    //Enables pic 1
 	LPC_GPIO0->FIOSET = (1 << PIC2_ENABLE);    //Enables pic 2
 }
@@ -68,13 +69,13 @@ void sendSteps(int xSteps, int ySteps){
 		LPC_GPIO0->FIOSET = (1 << PIC1_DIR);
 	}else{
 		LPC_GPIO0->FIOCLR = (1 << PIC1_DIR);
-		xStep = - xStep;
+		xSteps = - xSteps;
 	}
 	if (ySteps >=0){
 		LPC_GPIO0->FIOSET = (1 << PIC2_DIR);
 	}else{
 		LPC_GPIO0->FIOCLR = (1 << PIC2_DIR);
-		yStep = - yStep;
+		ySteps = - ySteps;
 	}
 	int i=0;
 	int lastState;
@@ -82,16 +83,16 @@ void sendSteps(int xSteps, int ySteps){
 	while ((i < xSteps) && (i < ySteps)){
 		if (i < xSteps){
 			lastState = LPC_GPIO0->FIOPIN;
-			LPC_GPIO0->FIOCLR = ledstate & (1 << PIC1_STEP);
-			LPC_GPIO0->FIOSET = ((~ledstate) & (1 << PIC1_STEP));
+			LPC_GPIO0->FIOCLR = lastState & (1 << PIC1_STEP);
+			LPC_GPIO0->FIOSET = ((~lastState) & (1 << PIC1_STEP));
 		}
 		if (i < ySteps){
 			lastState = LPC_GPIO0->FIOPIN;
-			LPC_GPIO0->FIOCLR = ledstate & (1 << PIC2_STEP);
-			LPC_GPIO0->FIOSET = ((~ledstate) & (1 << PIC2_STEP));
+			LPC_GPIO0->FIOCLR = lastState & (1 << PIC2_STEP);
+			LPC_GPIO0->FIOSET = ((~lastState) & (1 << PIC2_STEP));
 		}
 		i++;
-		vTaskDelay(DELAY_1MS);
+		vTaskDelay(1);
 	}
 }
 

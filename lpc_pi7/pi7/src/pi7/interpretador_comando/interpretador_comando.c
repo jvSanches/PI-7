@@ -105,6 +105,7 @@ int ctl_WriteRegister(int registerToWrite, int value) {
 	  command.command = CMD_JOG;
 	  command.cDir = 1;
 	  command.cValue = -value;
+	  printf("Jog x neg %d \n", command.cValue);
 	  break;
   case JOG_Y_POSITIVE:
 	  command.command = CMD_JOG;
@@ -116,6 +117,16 @@ int ctl_WriteRegister(int registerToWrite, int value) {
 	  command.cDir = 2;
 	  command.cValue = -value;
   	  break;
+  case TOGGLE_Z:
+	  command.command = CMD_ZTOGG;
+	  command.cDir = 3;
+	  command.cValue = value;
+	  break;
+  case START_FILE:
+	  command.command = CMD_FILE;
+	  command.cValue = value;
+	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+	  break;
   case REG_AUX_RD:
 	  printf("Aux register\n");
 	  setAUX(value);

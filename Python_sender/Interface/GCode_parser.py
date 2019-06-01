@@ -8,12 +8,13 @@ import re
 
 def refine(prog):
     ''' breaks a program into lists of lists of strings'''
-    # refined_prog = []
-    # for line in prog:
-    #     no_comments = re.sub(r'\([^()]*\)', '', line)
-    #     refined_prog.append(no_comments.split())
-    # return refined_prog
-    return [re.sub(r'\([^()]*\)', '', line).split() for line in prog]
+    refined_prog = []
+    prog = prog.split("\n")
+    for line in prog:
+        no_comments = re.sub(r'\([^()]*\)', '', line)
+        refined_prog.append(no_comments.split())
+    return refined_prog
+    #return [re.sub(r'\([^()]*\)', '', line).split(" ") for line in prog]
 
 
 def parse(prog):
@@ -23,7 +24,7 @@ def parse(prog):
         coord_line = [0, 0, 0]
         for instruction in line:
             func = instruction[0]
-            value = int(instruction[1:])
+            value = int(float(instruction[1:])*10)
             if func == 'M' and value == 30:
                 return coords
 
@@ -36,5 +37,5 @@ def parse(prog):
 
         coords.append(coord_line)
 
-    return coords
+    return coords[:-1]
 

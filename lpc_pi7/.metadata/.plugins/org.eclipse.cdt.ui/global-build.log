@@ -1,9 +1,17 @@
-18:56:56 **** Incremental Build of configuration Debug for project pi7 ****
+20:26:23 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-Building file: ../src/main.c
+Building file: ../src/pi7/comunicacao_pc/modbus.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/comunicacao_pc/modbus.d" -MT"src/pi7/comunicacao_pc/modbus.o" -MT"src/pi7/comunicacao_pc/modbus.d" -o "src/pi7/comunicacao_pc/modbus.o" "../src/pi7/comunicacao_pc/modbus.c"
+../src/pi7/comunicacao_pc/modbus.c: In function 'putCharToSerial':
+../src/pi7/comunicacao_pc/modbus.c:122:19: warning: pointer targets in passing argument 1 of 'vPrintString' differ in signedness [-Wpointer-sign]
+      vPrintString(txBuffer);
+                   ^
+In file included from ../src/pi7/comunicacao_pc/modbus.c:20:0:
+../src/drivers/console/basic_io.h:36:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void vPrintString( const portCHAR *pcString );
+      ^
+Finished building: ../src/pi7/comunicacao_pc/modbus.c
  
 Building target: pi7.axf
 Invoking: MCU Linker
@@ -14,23 +22,29 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  48184	   1260	  23568	  73012	  11d34	pi7.axf
+  48584	   1260	  23568	  73412	  11ec4	pi7.axf
  
-18:57:12 **** Incremental Build of configuration Debug for project pi7 ****
+20:26:29 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
 make: Nothing to be done for `all'.
-18:57:54 **** Incremental Build of configuration Debug for project pi7 ****
+20:28:18 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-make: Nothing to be done for `all'.
-18:59:45 **** Incremental Build of configuration Debug for project pi7 ****
-make -r all 
-make: Nothing to be done for `all'.
-19:27:00 **** Incremental Build of configuration Debug for project pi7 ****
-make -r all 
-Building file: ../src/main.c
+Building file: ../src/pi7/comunicacao_pc/modbus.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/comunicacao_pc/modbus.d" -MT"src/pi7/comunicacao_pc/modbus.o" -MT"src/pi7/comunicacao_pc/modbus.d" -o "src/pi7/comunicacao_pc/modbus.o" "../src/pi7/comunicacao_pc/modbus.c"
+../src/pi7/comunicacao_pc/modbus.c: In function 'putCharToSerial':
+../src/pi7/comunicacao_pc/modbus.c:122:19: warning: pointer targets in passing argument 1 of 'vPrintString' differ in signedness [-Wpointer-sign]
+      vPrintString(txBuffer);
+                   ^
+In file included from ../src/pi7/comunicacao_pc/modbus.c:20:0:
+../src/drivers/console/basic_io.h:36:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void vPrintString( const portCHAR *pcString );
+      ^
+../src/pi7/comunicacao_pc/modbus.c: In function 'processWriteFile':
+../src/pi7/comunicacao_pc/modbus.c:294:6: warning: unused variable 'other' [-Wunused-variable]
+  int other = (decode(rxBuffer[7], rxBuffer[8]));
+      ^
+Finished building: ../src/pi7/comunicacao_pc/modbus.c
  
 Building target: pi7.axf
 Invoking: MCU Linker
@@ -41,14 +55,18 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  48152	   1260	  23568	  72980	  11d14	pi7.axf
+  48584	   1260	  23568	  73412	  11ec4	pi7.axf
  
-19:28:26 **** Incremental Build of configuration Debug for project pi7 ****
+20:29:34 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-Building file: ../src/main.c
+Building file: ../src/pi7/programa_trajetoria/programa_trajetoria.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/programa_trajetoria/programa_trajetoria.d" -MT"src/pi7/programa_trajetoria/programa_trajetoria.o" -MT"src/pi7/programa_trajetoria/programa_trajetoria.d" -o "src/pi7/programa_trajetoria/programa_trajetoria.o" "../src/pi7/programa_trajetoria/programa_trajetoria.c"
+../src/pi7/programa_trajetoria/programa_trajetoria.c: In function 'ptj_storeProgram':
+../src/pi7/programa_trajetoria/programa_trajetoria.c:26:2: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  printf("X = %f Y = %f  Z = %f   |  line = %d \n",nX,nY,nZ,line);
+  ^
+Finished building: ../src/pi7/programa_trajetoria/programa_trajetoria.c
  
 Building target: pi7.axf
 Invoking: MCU Linker
@@ -59,17 +77,14 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  48160	   1260	  23568	  72988	  11d1c	pi7.axf
+  48584	   1260	  23568	  73412	  11ec4	pi7.axf
  
-19:51:01 **** Incremental Build of configuration Debug for project pi7 ****
+20:33:49 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-make: Nothing to be done for `all'.
-19:53:12 **** Incremental Build of configuration Debug for project pi7 ****
-make -r all 
-Building file: ../src/main.c
+Building file: ../src/pi7/programa_trajetoria/programa_trajetoria.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/programa_trajetoria/programa_trajetoria.d" -MT"src/pi7/programa_trajetoria/programa_trajetoria.o" -MT"src/pi7/programa_trajetoria/programa_trajetoria.d" -o "src/pi7/programa_trajetoria/programa_trajetoria.o" "../src/pi7/programa_trajetoria/programa_trajetoria.c"
+Finished building: ../src/pi7/programa_trajetoria/programa_trajetoria.c
  
 Building target: pi7.axf
 Invoking: MCU Linker
@@ -80,8 +95,23 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  48160	   1260	  23568	  72988	  11d1c	pi7.axf
+  48488	   1260	  23568	  73316	  11e64	pi7.axf
  
-19:55:33 **** Incremental Build of configuration Debug for project pi7 ****
+20:35:33 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-make: Nothing to be done for `all'.
+Building file: ../src/pi7/programa_trajetoria/programa_trajetoria.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/programa_trajetoria/programa_trajetoria.d" -MT"src/pi7/programa_trajetoria/programa_trajetoria.o" -MT"src/pi7/programa_trajetoria/programa_trajetoria.d" -o "src/pi7/programa_trajetoria/programa_trajetoria.o" "../src/pi7/programa_trajetoria/programa_trajetoria.c"
+Finished building: ../src/pi7/programa_trajetoria/programa_trajetoria.c
+ 
+Building target: pi7.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L../Libraries -msoft-float -DMALLOC_PROVIDED -Xlinker -Map="pi7.map" -mcpu=cortex-m3 -mthumb -T "pi7_Debug.ld" -o "pi7.axf"  ./src/pi7/programa_trajetoria/programa_trajetoria.o  ./src/pi7/interpretador_comando/interpretador_comando.o  ./src/pi7/estado_trajetoria/estado_trajetoria.o  ./src/pi7/controlador_trajetoria/controlador_trajetoria.o  ./src/pi7/comunicacao_pic/comunicacao_pic.o  ./src/pi7/comunicacao_pc/modbus.o  ./src/drivers/uart/uart.o  ./src/drivers/spi/spi.o  ./src/drivers/pwm/pwm.o  ./src/drivers/ledonboard/leds.o  ./src/drivers/console/alloc.o ./src/drivers/console/basic_io.o ./src/drivers/console/consoleprint.o  ./src/cr_startup_lpc17.o ./src/main.o  ./FreeRTOS_src/croutine.o ./FreeRTOS_src/list.o ./FreeRTOS_src/queue.o ./FreeRTOS_src/tasks.o ./FreeRTOS_src/timers.o  ./FreeRTOS_portable/MemMang/heap_2.o  ./FreeRTOS_portable/port.o   -lCMSISv2_LPC17xx
+Finished building target: pi7.axf
+ 
+/usr/bin/make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
+   text	   data	    bss	    dec	    hex	filename
+  48488	   1260	  23568	  73316	  11e64	pi7.axf
+ 

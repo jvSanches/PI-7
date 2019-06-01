@@ -114,7 +114,7 @@ void PrintSetpoint(){
 //SetMotor
 //Define saida do motor segundo o erro]
 void SetMotor(){
-    static long integral;
+    
     static int derivative;
     static int last_err;
     long resp;
@@ -126,17 +126,11 @@ void SetMotor(){
     
     derivative = (err - last_err);  //Calcula 1/100 da derivada
     last_err = err;
-    if (err == 0){
-        integral = 0;
-    }else{
-        integral = integral + err;
-    }
-            
+                
     int P_Response  = KP * err;    
     int D_Response = (KD * derivative);
-    //D_Response = constrain(D_Response, -300,300);
-    int I_Response = 0 * integral;
-    resp = P_Response + D_Response + I_Response;
+        
+    resp = P_Response + D_Response;
     }
     
     resp = constrain(resp, -255,255 );            //Restringe o duty_cycle
@@ -154,8 +148,9 @@ void SetMotor(){
 
 void SetPoint(int new_val){           //Conversão de unidade de entrada p/ ticks
     if (new_val != set_point){
-
+        
         set_point = new_val;
+        PrintSetpoint();
     }
 }
 
@@ -352,14 +347,13 @@ void main (void) {
   int i = 0;
   
   while (1) {  // para sempre
-      /*
+     
       if (!getServoState()){
           motor_reset();
       }else{
           SetPoint(set_point + getServoCommand());
       }
       
-      */
       if (set_motor_flag){
           SetMotor();
           set_motor_flag = 0;

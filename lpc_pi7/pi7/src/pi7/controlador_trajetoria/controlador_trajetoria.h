@@ -11,6 +11,8 @@
 #define CMD_RESUME  3
 #define CMD_STOP    4
 #define CMD_JOG     5
+#define CMD_ZTOGG   6
+#define CMD_FILE    7
 
 // Possible status for TrajectoryController
 #define STATUS_RUNNING   0

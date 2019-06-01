@@ -2675,7 +2675,7 @@ putst(sVar);
 
 
 void SetMotor(){
-static long integral;
+
 static int derivative;
 static int last_err;
 long resp;
@@ -2687,17 +2687,11 @@ resp = (err) * 4;
 
 derivative = (err - last_err);
 last_err = err;
-if (err == 0){
-integral = 0;
-}else{
-integral = integral + err;
-}
 
 int P_Response = 4 * err;
 int D_Response = (13 * derivative);
 
-int I_Response = 0 * integral;
-resp = P_Response + D_Response + I_Response;
+resp = P_Response + D_Response;
 }
 
 resp = constrain(resp, -255,255 );
@@ -2717,6 +2711,7 @@ void SetPoint(int new_val){
 if (new_val != set_point){
 
 set_point = new_val;
+PrintSetpoint();
 }
 }
 
@@ -2822,13 +2817,13 @@ encoder1_counter = 0;
 
 }
 
-# 293
+# 288
 void main (void) {
 
 
 char serialIn = 255;
 
-# 302
+# 297
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2864,18 +2859,23 @@ serial_init();
 
 pwm_init();
 
-# 342
+# 337
 encoders_init();
 int enc1 = -1;
 
-# 350
+# 345
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
 
 while (1) {
 
-# 363
+if (!getServoState()){
+motor_reset();
+}else{
+SetPoint(set_point + getServoCommand());
+}
+
 if (set_motor_flag){
 SetMotor();
 set_motor_flag = 0;

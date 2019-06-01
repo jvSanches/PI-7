@@ -90,6 +90,7 @@ def transmit(message):
     #Send message
     print("Data trasmitted: ", [hex(ord(no)) for no in message])
     LPC_write(message)
+    sleep(5)
 
 def receiveResponse():
     #Wait for a response. Timeout returns False
@@ -120,33 +121,34 @@ def WriteSingleRegister(slave, regAddress,nValue):
     fCode=6
     message = buildMessage(slave, fCode, payload)
     transmit(message)
-    response = receiveResponse()
-    if response and int(response[2:4],16)==fCode:
-        rRegAddr = int(response[4:8],16)
-        rValue = int(response[8:12],16)
-        return rValue
-
-    else:
-        #Pass response to correct handler
-        print("Returned wrong function code")
-        return False
+    #response = receiveResponse()
+    # if response and int(response[2:4],16)==fCode:
+    #     rRegAddr = int(response[4:8],16)
+    #     rValue = int(response[8:12],16)
+    #     return rValue
+    # else:
+    #     #Pass response to correct handler
+    #     print("Returned wrong function code")
+    #     return False
+    return
 
 def sendLines(slave, coords):
-    fCode=9
+    fCode=0x15
     for line in coords:
-        payload = ("%4.4x" %line[0]) + ("%4.4x" %line[1]) + ("%4.4x" %line[2])
+        payload = ("%4.4x" %line[0]) # + ("%4.4x" %line[1]) + ("%4.4x" %line[2])
         message = buildMessage(slave, fCode, payload)
         transmit(message)
-        response = receiveResponse()
-        if response and int(response[2:4],16)==fCode:
-            rRegAddr = int(response[4:8],16)
-            rValue = int(response[8:12],16)
-            return rValue
+        
+        # response = receiveResponse()
+        # if response and int(response[2:4],16)==fCode:
+        #     rRegAddr = int(response[4:8],16)
+        #     rValue = int(response[8:12],16)
+        #     return rValue
 
-        else:
-            #Pass response to correct handler
-            print("Returned wrong function code")
-            return False
+        # else:
+        #     #Pass response to correct handler
+        #     print("Returned wrong function code")
+        #     return False
 
 def test():
     LPC_connect("COM13")

@@ -31,19 +31,21 @@
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
 "98 D:\Poli\PI-7\Controle\main.c
 [v _constrain constrain `(l  1 e 4 0 ]
+"108
+[v _PrintSetpoint PrintSetpoint `(v  1 e 1 0 ]
 "116
 [v _SetMotor SetMotor `(v  1 e 1 0 ]
-"155
+"149
 [v _SetPoint SetPoint `(v  1 e 1 0 ]
-"162
+"157
 [v _resetCounter resetCounter `(v  1 e 1 0 ]
-"167
+"162
 [v _motor_reset motor_reset `(v  1 e 1 0 ]
-"177
+"172
 [v _isr isr `II(v  1 e 1 0 ]
-"256
+"251
 [v _encoders_init encoders_init `(v  1 e 1 0 ]
-"293
+"288
 [v _main main `(v  1 e 1 0 ]
 "25 D:\Poli\PI-7\Controle\pwm.c
 [v _pwm_init pwm_init `(v  1 e 1 0 ]
@@ -59,6 +61,10 @@
 [v _putchhex putchhex `(v  1 e 1 0 ]
 "211
 [v _putst putst `(v  1 e 1 0 ]
+"18 D:\Poli\PI-7\Controle\servoController.c
+[v _getServoState getServoState `(i  1 e 2 0 ]
+"22
+[v _getServoCommand getServoCommand `(i  1 e 2 0 ]
 "59 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
 "228
@@ -271,18 +277,51 @@
 [v _com_time com_time `VEui  1 e 2 0 ]
 "94
 [v _onlyK onlyK `i  1 e 2 0 ]
-"176
+"171
 [v _set_motor_flag set_motor_flag `uc  1 e 1 0 ]
 "79 D:\Poli\PI-7\Controle\serial.c
 [v _dummy dummy `uc  1 e 1 0 ]
-"293 D:\Poli\PI-7\Controle\main.c
+"288 D:\Poli\PI-7\Controle\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"374
+"368
 [v main@sVar sVar `[20]uc  1 a 20 0 ]
-"390
-[v main@serialIn_355 serialIn `uc  1 a 1 25 ]
-"420
+"384
+[v main@serialIn_363 serialIn `uc  1 a 1 25 ]
+"414
+} 0
+"29 D:\Poli\PI-7\Controle\serial.c
+[v _serial_init serial_init `(v  1 e 1 0 ]
+{
+"77
+} 0
+"25 D:\Poli\PI-7\Controle\pwm.c
+[v _pwm_init pwm_init `(v  1 e 1 0 ]
+{
+"64
+} 0
+"162 D:\Poli\PI-7\Controle\main.c
+[v _motor_reset motor_reset `(v  1 e 1 0 ]
+{
+"167
+} 0
+"157
+[v _resetCounter resetCounter `(v  1 e 1 0 ]
+{
+"160
+} 0
+"149
+[v _SetPoint SetPoint `(v  1 e 1 0 ]
+{
+[v SetPoint@new_val new_val `i  1 p 2 50 ]
+"155
+} 0
+"108
+[v _PrintSetpoint PrintSetpoint `(v  1 e 1 0 ]
+{
+"109
+[v PrintSetpoint@sVar sVar `[20]uc  1 a 20 30 ]
+"112
 } 0
 "500 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -327,16 +366,6 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"29 D:\Poli\PI-7\Controle\serial.c
-[v _serial_init serial_init `(v  1 e 1 0 ]
-{
-"77
-} 0
-"25 D:\Poli\PI-7\Controle\pwm.c
-[v _pwm_init pwm_init `(v  1 e 1 0 ]
-{
-"64
-} 0
 "211 D:\Poli\PI-7\Controle\serial.c
 [v _putst putst `(v  1 e 1 0 ]
 {
@@ -353,26 +382,22 @@
 [v putch@c c `uc  1 a 1 1 ]
 "102
 } 0
-"167 D:\Poli\PI-7\Controle\main.c
-[v _motor_reset motor_reset `(v  1 e 1 0 ]
+"18 D:\Poli\PI-7\Controle\servoController.c
+[v _getServoState getServoState `(i  1 e 2 0 ]
 {
-"172
+"20
 } 0
-"162
-[v _resetCounter resetCounter `(v  1 e 1 0 ]
+"22
+[v _getServoCommand getServoCommand `(i  1 e 2 0 ]
 {
-"165
+"23
+[v getServoCommand@lStep lStep `uc  1 s 1 lStep ]
+"31
 } 0
-"155
-[v _SetPoint SetPoint `(v  1 e 1 0 ]
-{
-[v SetPoint@new_val new_val `i  1 p 2 0 ]
-"160
-} 0
-"256
+"251 D:\Poli\PI-7\Controle\main.c
 [v _encoders_init encoders_init `(v  1 e 1 0 ]
 {
-"262
+"257
 } 0
 "142 D:\Poli\PI-7\Controle\serial.c
 [v _chkchr chkchr `(uc  1 e 1 0 ]
@@ -382,23 +407,19 @@
 "116 D:\Poli\PI-7\Controle\main.c
 [v _SetMotor SetMotor `(v  1 e 1 0 ]
 {
-"138
-[v SetMotor@I_Response I_Response `i  1 a 2 50 ]
-"136
-[v SetMotor@D_Response D_Response `i  1 a 2 48 ]
-"135
-[v SetMotor@P_Response P_Response `i  1 a 2 46 ]
+"131
+[v SetMotor@D_Response D_Response `i  1 a 2 42 ]
+"130
+[v SetMotor@P_Response P_Response `i  1 a 2 40 ]
 "120
-[v SetMotor@resp resp `l  1 a 4 52 ]
+[v SetMotor@resp resp `l  1 a 4 46 ]
 "121
-[v SetMotor@err err `i  1 a 2 56 ]
-"117
-[v SetMotor@integral integral `l  1 s 4 integral ]
+[v SetMotor@err err `i  1 a 2 44 ]
 "118
 [v SetMotor@derivative derivative `i  1 s 2 derivative ]
 "119
 [v SetMotor@last_err last_err `i  1 s 2 last_err ]
-"153
+"147
 } 0
 "72 D:\Poli\PI-7\Controle\pwm.c
 [v _pwm_set pwm_set `(v  1 e 1 0 ]
@@ -448,10 +469,10 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"177 D:\Poli\PI-7\Controle\main.c
+"172 D:\Poli\PI-7\Controle\main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"202
+"197
 [v isr@portB portB `uc  1 a 1 6 ]
-"254
+"249
 } 0

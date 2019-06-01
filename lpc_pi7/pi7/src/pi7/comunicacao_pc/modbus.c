@@ -23,6 +23,7 @@
 // Includes for PI7
 #include "modbus.h"
 #include "pi7/interpretador_comando/interpretador_comando.h"
+#include "pi7/programa_trajetoria/programa_trajetoria.h"
 
 // CommModes: Dev_mode para debug; escreve na console
 //            Real_mode para execucao real
@@ -287,7 +288,17 @@ void processWriteRegister() {
 } // processWriteRegister
 
 void processWriteFile() {
-	//TODO implementar
+	int newX, newY, newZ;
+	newX = (decode(rxBuffer[5], rxBuffer[6]) << 8 );
+	newX |= (decode(rxBuffer[7], rxBuffer[8]));
+	int other = (decode(rxBuffer[7], rxBuffer[8]));
+	printf("X:%d 5:%d 6:%d 7:%d 8:%d\n", newX, rxBuffer[5], rxBuffer[6],rxBuffer[7], rxBuffer[8]);
+	newY = (decode(rxBuffer[9], rxBuffer[10]) << 8 ) | (decode(rxBuffer[11], rxBuffer[12]));
+	newZ = (decode(rxBuffer[13], rxBuffer[14]) << 8 ) | (decode(rxBuffer[15], rxBuffer[16]));
+	ptj_storeProgram(newX, newY, newZ);
+	printf("linha de programa");
+
+
 } // processWriteProgram
 
 /************************************************************************
@@ -328,6 +339,7 @@ int decodeFunctionCode() {
          case WRITE_FILE:
              processWriteFile();
              break;
+
        } // switch on FunctionCode
     }
     _state = HUNTING_FOR_START_OF_MESSAGE;

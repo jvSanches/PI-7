@@ -62,7 +62,7 @@ portTickType lastWakeTime;
 void taskController(void *pvParameters) {
    while(1) {
       com_executeCommunication(); //internally, it calls Controller to process events
-      vTaskDelayUntil(&lastWakeTime, DELAY_1MS);
+      //vTaskDelayUntil(&lastWakeTime, DELAY_1MS);
    } //task loop
 } // taskController
 

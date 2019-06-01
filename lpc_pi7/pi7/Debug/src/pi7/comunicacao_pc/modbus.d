@@ -8,7 +8,8 @@ src/pi7/comunicacao_pc/modbus.o src/pi7/comunicacao_pc/modbus.d: \
  ../OtherIncludes/type.h ../src/drivers/uart/uart.h \
  ../src/drivers/console/basic_io.h ../src/drivers/ledonboard/leds.h \
  ../src/pi7/comunicacao_pc/modbus.h \
- ../src/pi7/interpretador_comando/interpretador_comando.h
+ ../src/pi7/interpretador_comando/interpretador_comando.h \
+ ../src/pi7/programa_trajetoria/programa_trajetoria.h
 
 ../FreeRTOS_include/FreeRTOS.h:
 
@@ -43,3 +44,5 @@ src/pi7/comunicacao_pc/modbus.o src/pi7/comunicacao_pc/modbus.d: \
 ../src/pi7/comunicacao_pc/modbus.h:
 
 ../src/pi7/interpretador_comando/interpretador_comando.h:
+
+../src/pi7/programa_trajetoria/programa_trajetoria.h:

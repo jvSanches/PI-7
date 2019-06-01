@@ -43,7 +43,7 @@ def readSerial():
 def updateTime():
     root.after(100, updateTime)
 
-    readSerial()
+    #readSerial()
 
 def disableMeasures():
     global x_measure, y_measure
@@ -118,7 +118,9 @@ def openFile():
 
 def sendFile():
     global loaded_prog
+    loaded_prog = prog_show.get("0.0", END)
     coords = GCode_parser.parse(loaded_prog)
+    print(coords)
     coords = [[line[0]+x_offset, line[1]+y_offset, line[2]] for line in coords]
     modbus_sender.WriteSingleRegister(1,10,0)
     modbus_sender.sendLines(1, coords)

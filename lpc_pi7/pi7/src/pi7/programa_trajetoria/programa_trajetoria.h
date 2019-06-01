@@ -8,7 +8,8 @@ typedef struct {
 	float z;
 } ptj_Data;
 
-extern void ptj_storeProgram(char* texto);
+extern void ptj_startFile(int nLine);
+extern void ptj_storeProgram(float nX, float nY, float nZ);
 extern ptj_Data ptj_getLine(int line);
 extern void ptj_init();
 #endif
