@@ -1,6 +1,5 @@
 import time
 from tkinter import*
-import serial
 from tkinter import filedialog
 import struct
 
@@ -20,10 +19,18 @@ def doConnection():
     global connection_state
     if not connection_state:
         modbus_sender.LPC_connect(port_entry.get())
+        port_entry.config(state ='disabled')
+        con_status.config(text = 'Machine Connected', fg= 'green')
+        connect.config(text = 'Disconnect')
+        #root.protocol('WM_DELETE_WINDOW')
         connection_state = True
     else:
         modbus_sender.LPC_disconnect()
+        port_entry.config(state = 'normal')
+        con_status.config(text = 'Machine not Connected', fg = 'red')
+        connect.config(text = 'Connect')
         connection_state = False
+        #root.protocol('WM_DELETE_WINDOW', root.destroy)
 
 def readSerial():
     global root
