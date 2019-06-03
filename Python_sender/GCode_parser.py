@@ -11,7 +11,7 @@ def refine(prog):
     refined_prog = []
     prog = prog.split("\n")
     for line in prog:
-        no_comments = re.sub(r'\([^()]*\)', '', line)
+        no_comments = re.sub(r'\([^()]*\)', '', line).upper()
         refined_prog.append(no_comments.split())
     return refined_prog
     #return [re.sub(r'\([^()]*\)', '', line).split(" ") for line in prog]
@@ -22,6 +22,9 @@ last_z = 0
 
 
 def parse(prog):
+    global last_x
+    global last_y
+    global last_z
     prog = refine(prog)
     coords = []
     for line in prog:
@@ -30,22 +33,22 @@ def parse(prog):
         z = None
         for instruction in line:
             func = instruction[0]
-            value = int(float(instruction[1:])*10)
+            value = int(float(instruction[1:])*10) 
             if func == 'M' and value == 30:
                 return coords
 
             if func == 'X':
-                x = value
+                x = value + 2048
             if func == 'Y':
-                y = value
+                y = value + 2048
             if func == 'Z':
                 z = value
 
-        if not x:
+        if x == None:
             x = last_x
-        if not y:
+        if y == None:
             y = last_y
-        if not z:
+        if z == None:
             z = last_z
 
         last_x, last_y, last_z = x, y, z

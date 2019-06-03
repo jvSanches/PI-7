@@ -18,7 +18,9 @@ m1_stop = False
 def doConnection():
     global connection_state
     if not connection_state:
-        modbus_sender.LPC_connect(port_entry.get())
+        port  =port_entry.get()
+        if port == "": port = "COM13"
+        modbus_sender.LPC_connect(port)
         port_entry.config(state ='disabled')
         con_status.config(text = 'Machine Connected', fg= 'green')
         connect.config(text = 'Disconnect')
@@ -48,9 +50,9 @@ def readSerial():
         lineval.config(text = '%d' %(line))
 
 def updateTime():
-    root.after(100, updateTime)
+    root.after(1000, updateTime)
 
-    #readSerial()
+    readSerial()
 
 def disableMeasures():
     global x_measure, y_measure
@@ -119,7 +121,7 @@ def openFile():
         file.close()
     except:
         pass
-    prog_show.delete('0.0',END)
+    prog_show.delete('1.0','end-1c')
     for l in loaded_prog:
         prog_show.insert(END, l+"\n" )
 

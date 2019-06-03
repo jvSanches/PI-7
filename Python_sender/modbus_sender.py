@@ -90,7 +90,8 @@ def transmit(message):
     #Send message
     print("Data trasmitted: ", [hex(ord(no)) for no in message])
     LPC_write(message)
-    sleep(5)
+    sleep(1)
+    
 
 def receiveResponse():
     #Wait for a response. Timeout returns False
@@ -135,7 +136,7 @@ def WriteSingleRegister(slave, regAddress,nValue):
 def sendLines(slave, coords):
     fCode=0x15
     for line in coords:
-        payload = ("%4.4x" %line[0]) # + ("%4.4x" %line[1]) + ("%4.4x" %line[2])
+        payload = ("%3.3x" %line[0])  + ("%3.3x" %line[1]) + ("%1.1x" %line[2])
         message = buildMessage(slave, fCode, payload)
         transmit(message)
         
