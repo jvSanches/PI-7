@@ -125,7 +125,7 @@ def openFile():
 
 def sendFile():
     global loaded_prog
-    loaded_prog = prog_show.get("0.0", END)
+    loaded_prog = prog_show.get("1.0", "end-1c")
     coords = GCode_parser.parse(loaded_prog)
     print(coords)
     coords = [[line[0]+x_offset, line[1]+y_offset, line[2]] for line in coords]

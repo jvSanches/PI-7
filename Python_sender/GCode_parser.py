@@ -16,12 +16,18 @@ def refine(prog):
     return refined_prog
     #return [re.sub(r'\([^()]*\)', '', line).split(" ") for line in prog]
 
+last_x = 0
+last_y = 0
+last_z = 0
+
 
 def parse(prog):
     prog = refine(prog)
     coords = []
     for line in prog:
-        coord_line = [0, 0, 0]
+        x = None
+        y = None
+        z = None
         for instruction in line:
             func = instruction[0]
             value = int(float(instruction[1:])*10)
@@ -29,13 +35,20 @@ def parse(prog):
                 return coords
 
             if func == 'X':
-                coord_line[0] = value
+                x = value
             if func == 'Y':
-                coord_line[1] = value
+                y = value
             if func == 'Z':
-                coord_line[2] = value
+                z = value
 
-        coords.append(coord_line)
+        if not x:
+            x = last_x
+        if not y:
+            y = last_y
+        if not z:
+            z = last_z
 
-    return coords[:-1]
+        last_x, last_y, last_z = x, y, z
+        coords.append([x,y,z])
 
+    return coords
