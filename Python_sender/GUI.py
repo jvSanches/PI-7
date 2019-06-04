@@ -17,20 +17,30 @@ m1_stop = False
 
 def doConnection():
     global connection_state
+
     if not connection_state:
-        port  =port_entry.get()
-        if port == "": port = "COM13"
-        modbus_sender.LPC_connect(port)
-        port_entry.config(state ='disabled')
-        con_status.config(text = 'Machine Connected', fg= 'green')
-        connect.config(text = 'Disconnect')
-        #root.protocol('WM_DELETE_WINDOW')
-        connection_state = True
+        try:
+            port = port_entry.get()
+            if port == "": port = "COM15"
+            modbus_sender.LPC_connect(port)
+            port_entry.config(state ='disabled')
+            con_status.config(text = 'Machine Connected', fg= 'green')
+            connect.config(text = 'Disconnect')
+            #root.protocol('WM_DELETE_WINDOW')
+            strt.config(state = 'normal')
+            send.config(state = 'normal')
+            ref_buttom.config(state = 'normal')
+            connection_state = True
+        except:
+            print("Could not connect")
     else:
         modbus_sender.LPC_disconnect()
         port_entry.config(state = 'normal')
         con_status.config(text = 'Machine not Connected', fg = 'red')
         connect.config(text = 'Connect')
+        strt.config(state = 'disabled')
+        send.config(state = 'disabled')
+        ref_buttom.config(state = 'disabled')
         connection_state = False
         #root.protocol('WM_DELETE_WINDOW', root.destroy)
 
@@ -39,10 +49,10 @@ def readSerial():
     dateAndTime.config(text = '%s' %(time.ctime()))
 
     if connection_state:
-        xpos = modbus_sender.ReadRegister(1,0)
-        ypos = modbus_sender.ReadRegister(1,1)
-        zpos = modbus_sender.ReadRegister(1,2)
-        line = modbus_sender.ReadRegister(1,3)
+        #xpos = modbus_sender.ReadRegister(1,0)
+        #ypos = modbus_sender.ReadRegister(1,1)
+        #zpos = modbus_sender.ReadRegister(1,2)
+        #line = modbus_sender.ReadRegister(1,3)
 
         xval.config(text = '%.3f' %(xpos-x_offset))
         yval.config(text = '%.3f' %(ypos-y_offset))
@@ -125,28 +135,75 @@ def openFile():
     for l in loaded_prog:
         prog_show.insert(END, l+"\n" )
 
+def textModified():
+    strt.config(state = 'disabled')
+
 def sendFile():
     global loaded_prog
     loaded_prog = prog_show.get("1.0", "end-1c")
     coords = GCode_parser.parse(loaded_prog)
     print(coords)
     coords = [[line[0]+x_offset, line[1]+y_offset, line[2]] for line in coords]
-    modbus_sender.WriteSingleRegister(1,10,0)
-    modbus_sender.sendLines(1, coords)
+    try:
+        modbus_sender.WriteSingleRegister(1,10,0)
+        modbus_sender.sendLines(1, coords)
+        strt.config(state = 'normal')
+        print("Fim de envio")
+    except:
+        print("Not Connected")
 
 
 def start():
-    disableJOG()
-    modbus_sender.WriteSingleRegister(1,0,1)
-
+    try:
+        modbus_sender.WriteSingleRegister(1,0,1)
+        disableJOG()
+        strt.config(state = 'disabled')
+        stp.config(state = 'normal')
+        paus.config(state = 'normal')
+        send.config(state = 'disabled')
+        ref_buttom.config(state = 'disabled')
+    except:
+        print("Not Connected")
 
 def stop():
-    enableJOG()
-    modbus_sender.WriteSingleRegister(1,1,1)
+    try:
+        enableJOG()
+        modbus_sender.WriteSingleRegister(1,1,1)
+        strt.config(state = 'normal')
+        stp.config(state = 'disabled')
+        paus.config(state = 'disabled')
+        cont.config(state = 'disabled')
+        send.config(state = 'normal')
+        ref_buttom.config(state = 'normal')
+    except:
+        print("Not Connected")
 
+def resume():
+    try:
+        modbus_sender.WriteSingleRegister(1,2,1)
+        disableJOG()
+        strt.config(state = 'disabled')
+        stp.config(state = 'normal')
+        paus.config(state = 'normal')
+        cont.config(state = 'disabled')
+    except:
+        print("Not Connected")
+
+def suspend():
+    try:
+        modbus_sender.WriteSingleRegister(1,3,1)
+        strt.config(state = 'disabled')
+        stp.config(state = 'normal')
+        paus.config(state = 'disabled')
+        cont.config(state = 'normal')
+    except:
+        print("Not Connected")
 
 def REF():
-    modbus_sender.WriteSingleRegister(1,9,1)
+    try:
+        modbus_sender.WriteSingleRegister(1,9,1)
+    except:
+        print("Not Connected")
 
 
 root = Tk()
@@ -301,31 +358,49 @@ scrollbar.pack(side = 'right', fill = 'y')
 prog_show.pack(side = 'top')
 scrollbar.config(command=prog_show.yview)
 prog_show.config(yscrollcommand=scrollbar.set)
+prog_show.bind("<<TextModified>>", textModified)
 
 Frame(lowerframe, bg= 'white', width = 2, height = 220, pady = 10).pack(side = 'left')
 
-optionsframe = Frame(lowerframe, bg = 'black', borderwidth = 10)
+optionsframe = Frame(lowerframe, bg = 'black', borderwidth = 9)
 optionsframe.pack(side = 'left')
 
-strt = Button(optionsframe, text = 'Start', command= start, width = 20)
-strt.pack(side = 'top')
-Label(optionsframe, bg = 'black', height = 1).pack()
-stp = Button(optionsframe, text = 'Stop', command = stop, width = 20)
-stp.pack()
-Label(optionsframe, bg = 'black', height = 1).pack()
+strt = Button(optionsframe, text = 'Start', command= start, width = 9)
+strt.grid(row = 0, column = 0)
+strt.config(state = 'disabled')
+
+stp = Button(optionsframe, text = 'Stop', command = stop, width = 9)
+stp.grid(row = 0, column = 1)
+stp.config(state = 'disabled')
+
+Label(optionsframe, bg = 'black', height = 1).grid(row = 1, columnspan = 2)
+
+paus = Button(optionsframe, text = 'Pause', command= suspend, width = 9)
+paus.grid(row = 2, column = 0)
+paus.config(state = 'disabled')
+
+cont = Button(optionsframe, text = 'Resume', command = resume, width = 9)
+cont.grid(row = 2, column = 1)
+cont.config(state = 'disabled')
+
+Label(optionsframe, bg = 'black', height = 1).grid(row = 3, columnspan = 2)
 
 send = Button(optionsframe, text = 'Send File', command= sendFile, width = 20)
-send.pack()
-Label(optionsframe, bg = 'black', height = 1).pack()
+send.grid(row = 4, columnspan = 2)
+send.config(state = 'disabled')
+
+Label(optionsframe, bg = 'black', height = 1).grid(row = 5, columnspan = 2)
+
 ref_buttom = Button(optionsframe, text = 'REF machine', command = REF)
-ref_buttom.pack()
-Label(optionsframe, bg = 'black', height = 1).pack()
+ref_buttom.grid(row = 6, columnspan = 2)
+ref_buttom.config(state = 'disabled')
+Label(optionsframe, bg = 'black', height = 1).grid(row = 7, columnspan = 2)
 
-browse_button = Button(optionsframe, text = 'Open File', command = openFile, width = 10)
-browse_button.pack(side = 'left')
+browse_button = Button(optionsframe, text = 'Open File', command = openFile, width = 9)
+browse_button.grid(row = 8, column = 0)
 
-rld_button = Button(optionsframe, text = 'Clear', command = clear, width = 8)
-rld_button.pack(side = 'right')
+rld_button = Button(optionsframe, text = 'Clear', command = clear, width = 9)
+rld_button.grid(row = 8, column = 1)
 updateTime()
 
 
