@@ -58,22 +58,6 @@ Para o KI, multiplicar por 0.01 (tempo do passo de integração)*/
 
 #define KP 4
 #define KD 13
-#define KI 0
-
-
-//Logger
-#define MAX_SAMPLES 90
-
-//SPI controll
-
-#define CMD_RESET 0
-#define SET_POINT 1
-#define COM_END 3
-#define COM_SP_HI 1
-#define COM_SP_LO 2
-#define COM_TIMEOUT 3
-
-
 
 // variáveis globais vão aqui se existirem
 volatile long encoder1_counter;      //Contador de ticks
@@ -81,17 +65,6 @@ volatile char state1;                //estado do encoder
 volatile char ab1;                   //leitura do encoder
 volatile long motor_pos =0;          //Posicao do motor
 volatile long set_point =0;          // posicao desejada
-
-volatile signed char pos_log1[MAX_SAMPLES/2 + 1];
-volatile signed char pos_log2[MAX_SAMPLES/2 + 1];
-
-volatile int samples =0;
-volatile char sampling = 0;
-volatile long last_pos;
-
-volatile unsigned int com_time;
-
-int onlyK = 0;
 
 //long constrain
 //Restringe um valor entre dois limites
@@ -119,11 +92,7 @@ void SetMotor(){
     static int last_err;
     long resp;
     int err = set_point - motor_pos;      //calcula o erro
-        
-    if (onlyK){
-        resp = (err) * KP;            //Controle proporcional
-    }else{
-    
+     
     derivative = (err - last_err);  //Calcula 1/100 da derivada
     last_err = err;
                 
@@ -131,7 +100,6 @@ void SetMotor(){
     int D_Response = (KD * derivative);
         
     resp = P_Response + D_Response;
-    }
     
     resp = constrain(resp, -255,255 );            //Restringe o duty_cycle
     if (resp > 0){
@@ -147,10 +115,9 @@ void SetMotor(){
 }
 
 void SetPoint(int new_val){           //Conversão de unidade de entrada p/ ticks
-    if (new_val != set_point){
-        
+    if (new_val != set_point){        
         set_point = new_val;
-        PrintSetpoint();
+//        PrintSetpoint();
     }
 }
 
@@ -166,8 +133,6 @@ void motor_reset(){
     SetPoint(0);
 }
 
-uint8_t SPIData; 
-int nSPIData;
 char set_motor_flag =0;
 void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
   static int tick;              // contador de vezes que o Timer 0 interrompe
@@ -176,18 +141,7 @@ void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
   // Interrompe a cada 10 ms aproximadamente.
   if (T0IE && T0IF) {    // se for interrupção do Timer 0
       set_motor_flag = 1;
-      if (sampling){
-          if (samples < MAX_SAMPLES/2){
-            pos_log1[samples] = motor_pos-last_pos;
-          }else{
-              pos_log2[samples-(MAX_SAMPLES/2)] = motor_pos-last_pos;
-          }
-          last_pos = motor_pos;
-        samples++;
-      }
-      
-      
-      
+           
      TMR0 = TMR0_SETTING;       // recarrega contagem no Timer 0
      T0IF = 0;                  // limpa interrupção
   } // fim - tratamento do Timer 0
@@ -256,34 +210,6 @@ void encoders_init(){
  
 }
 
-/*
-//Read commands from spi
-void read_command(){
-    char command;
-    char com_state = 0;
-    char set_point_hi;
-    char set_point_lo;
-    if (spiDataReady()){
-        com_time = 0;
-        com_state = COM_SP_HI;
-        while(com_state != COM_END){
-            if (com_time > COM_TIMEOUT ){
-                com_state = COM_END;
-            }else if(spiDataReady() && (com_state == COM_SP_HI)){
-                set_point_hi = spiRead() >> 1;
-                com_state = COM_SP_LO;
-            }else if (spiDataReady() && (com_state == COM_SP_LO)){
-                set_point_lo = spiRead() >> 1;
-                com_state = COM_END;
-                SetPoint((set_point_hi<<7) | (set_point_lo));
-            }                    
-        }
-
-    }    
-}
-*/
-
-
 /// Programa Principal
 void main (void) {
   
@@ -323,8 +249,6 @@ void main (void) {
   //
   // Inicializações
   serial_init();
-  //spi_slave_init();
-//  spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,SPI_IDLE_2_ACTIVE);
  
   // Inicializações da placa local
   pwm_init();     // inicializa PWM
@@ -340,75 +264,26 @@ void main (void) {
   //
   // Loop principal
   //
- 
   
   pwm_set(1, 0);
   pwm_set(2, 0);
   int i = 0;
   
   while (1) {  // para sempre
-     
+      LED = getServoState();
       if (!getServoState()){
           motor_reset();
+          
       }else{
-          SetPoint(set_point + getServoCommand());
+          SetPoint(set_point - (5 * getServoCommand()));
       }
       
       if (set_motor_flag){
           SetMotor();
           set_motor_flag = 0;
-      }
-      //continue;
-      if (sampling && (samples > MAX_SAMPLES)){
-              //Espera a realizacao de leituras
-            sampling = 0;
-
-            LED=1;
-            //Transmissao do log no serial
-            char sVar[20];
-            samples = 0;
-            sprintf(sVar, "Kp: %d -> ", KP);
-            putst(sVar);
-            while (samples <= MAX_SAMPLES /2){
-                sprintf(sVar, "%d ", pos_log1[samples]);
-                putst(sVar);
-                samples++;
-            }
-            while (samples < MAX_SAMPLES){
-                sprintf(sVar, "%d ", pos_log2[samples - MAX_SAMPLES / 2]);
-                putst(sVar);
-                samples++;
-            }
-            sprintf(sVar, "Fim do teste ");
-            putst(sVar);
-          }
-      char serialIn = chkchr();
-      if (serialIn == 'u'){
-          resetCounter();
-          
-          last_pos = 0;
-          samples = 0;
-          sampling = 1;
-          SetPoint(100);
-          LED=0;
-          
-      }else if (serialIn == 'w' ){
-          SetPoint(set_point + 100);
-      }else if (serialIn == 's'){
-          SetPoint(set_point - 100);
-      }else if (serialIn == ' '){
-          motor_reset();
-      }else if (serialIn == 'e' ){
-          SetPoint(set_point + 50);
-      }else if (serialIn == 'd'){
-          SetPoint(set_point - 50);
-      }else if (serialIn == '0'){
-          SetPoint(0);
-      }else if (serialIn == 'k'){
-          onlyK = 1;
-      }else if (serialIn == 'l'){
-          onlyK = 0;
-      }
-      
+//          char sVar[20];
+//       sprintf(sVar, "%d \n", PORTC >> 3  & 0b00111);
+//       putst(sVar);
+      }      
     } // fim - loop principal
 } // fim - main

@@ -47,9 +47,9 @@ int getAUX(){
 int ctl_ReadRegister(int registerToRead) {
    switch (registerToRead) {
       case REG_X:
-         return (int)stt_getX();
+         return (int)stt_getX()*10;
       case REG_Y:
-         return (int)stt_getY();
+         return (int)stt_getY()*10;
       case REG_Z:
          return (int)stt_getZ();
       case REG_LINHA:
@@ -79,22 +79,22 @@ int ctl_WriteRegister(int registerToWrite, int value) {
   case REG_START:
 	  printf("start program\n");
 	  command.command = CMD_START;
-	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+
 	  break;
   case REG_STOP:
 	  printf("Stop program\n");
 	  command.command = CMD_STOP;
-	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+
 	  break;
   case REG_RESUME:
 	  printf("Resume program\n");
 	  command.command = CMD_RESUME;
-	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+
 	  break;
   case REG_SUSPEND:
 	  printf("Suspend program\n");
 	  command.command = CMD_SUSPEND;
-	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+
 	  break;
   case JOG_X_POSITIVE:
 	  command.command = CMD_JOG;
@@ -125,7 +125,7 @@ int ctl_WriteRegister(int registerToWrite, int value) {
   case START_FILE:
 	  command.command = CMD_FILE;
 	  command.cValue = value;
-	  xQueueSend(qControlCommands, &command, portMAX_DELAY);
+
 	  break;
   case REG_AUX_RD:
 	  printf("Aux register\n");
@@ -135,6 +135,7 @@ int ctl_WriteRegister(int registerToWrite, int value) {
 	  printf("unknown register to write\n");
 	  break;
   } //switch
+  xQueueSend(qControlCommands, &command, portMAX_DELAY);
   return TRUE;
 } // ctl_WriteRegister
 

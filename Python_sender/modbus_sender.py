@@ -61,6 +61,26 @@ def GetMessageLRC(message):
         messageBytes.append(ord(char))
     return getLRC(messageBytes)
 
+def receiveXYZ():
+    response = receiveResponse()
+
+    if response and int(response[2:4],16)==3:
+        rReg = int(response[4:8],16)
+        rValue = int(response[8:12],16)
+        if rReg == 1: 
+            return rValue, None, None, None
+        elif rReg ==2:
+            return None,rValue, None, None
+        elif rReg == 3:
+            return None, None, rValue, None
+        else:
+            return None, None, None, rvalue
+
+    else:
+        #Pass response to correct handler
+        print("Returned wrong function code")
+        return False
+
 def ReadRegister(slave, regAddress, numOfRegs = 1):
     #Send message asking for a register values
     payload = ("%4.4x" %regAddress)+ ("%4.4x" %numOfRegs)
@@ -68,17 +88,13 @@ def ReadRegister(slave, regAddress, numOfRegs = 1):
     message = buildMessage(slave, fCode, payload)
     transmit(message)
     #sleep(2)
-    response = receiveResponse()
 
-    if response and int(response[2:4],16)==fCode:
-        rByteCount = int(response[4:8],16)
-        rValue = int(response[8:12],16)
-        return rValue
-    else:
-        #Pass response to correct handler
-        print("Returned wrong function code")
-        return False
-
+def readAllRegisters():
+    ReadRegister(1, 0)
+    ReadRegister(1,1)
+    ReadRegister(1,2)
+    ReadRegister(1,3)
+    
 def buildMessage(slave, fCode, payload):
     #Prepares a message for transmission
     message = ("%2.2x" %slave)+ ("%2.2x" %fCode)+ payload

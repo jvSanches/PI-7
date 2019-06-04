@@ -81,6 +81,7 @@ extern uint32_t PWM_Init( uint32_t channelNum, uint32_t cycle );
 extern void PWM_Set( uint32_t channelNum, uint32_t cycle);
 extern void PWM_Start( uint32_t channelNum );
 extern void PWM_Stop( uint32_t channelNum );
+extern void penSet(int val);
 
 #endif /* end __PWM_H */
 /****************************************************************************

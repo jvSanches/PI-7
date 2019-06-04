@@ -2421,19 +2421,21 @@ void servoInit();
 int getServoState();
 int getServoCommand();
 
-# 12 "servoController.c"
+# 11 "servoController.c"
+static char lStep = 0 ;
 void servoInit(){
 
 TRISC3 = 1;
 TRISC4 = 1;
 TRISC5 = 1;
+lStep = RC4;
 }
 int getServoState(){
 return RC3;
 }
 
 int getServoCommand(){
-static char lStep;
+
 if (RC4 != lStep){
 lStep = !lStep;
 return ((2*RC5) - 1);

@@ -7,8 +7,8 @@ src/main.o src/main.d: ../src/main.c ../FreeRTOS_include/FreeRTOS.h \
  ../OtherIncludes/LPC17xx.h ../OtherIncludes/core_cm3.h \
  ../OtherIncludes/system_LPC17xx.h ../OtherIncludes/type.h \
  ../OtherIncludes/type.h ../src/drivers/uart/uart.h \
- ../src/drivers/console/basic_io.h ../src/drivers/ledonboard/leds.h \
- ../src/drivers/pwm/pwm.h ../src/drivers/spi/spi.h \
+ ../src/drivers/ledonboard/leds.h ../src/drivers/pwm/pwm.h \
+ ../src/drivers/spi/spi.h \
  ../src/pi7/controlador_trajetoria/controlador_trajetoria.h \
  ../src/pi7/comunicacao_pic/comunicacao_pic.h \
  ../src/pi7/comunicacao_pc/modbus.h \
@@ -49,8 +49,6 @@ src/main.o src/main.d: ../src/main.c ../FreeRTOS_include/FreeRTOS.h \
 ../OtherIncludes/type.h:
 
 ../src/drivers/uart/uart.h:
-
-../src/drivers/console/basic_io.h:
 
 ../src/drivers/ledonboard/leds.h:
 

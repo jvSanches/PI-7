@@ -7,9 +7,10 @@
 #include <stdio.h>
 
 int stt_line;
-float stt_x = 66;
-float stt_y = 67;
-float stt_z = 68;
+float stt_x = 0;
+float stt_y = 0;
+float stt_z = 0;
+int progLen = 0;
 
 int stt_getCurrentLine() {
 	return stt_line;
@@ -18,6 +19,13 @@ int stt_getCurrentLine() {
 void stt_setCurrentLine(int line) {
 	stt_line = line;
 } // stt_setCurrentLine
+
+void stt_setProgLen(int nValue){
+	progLen = nValue;
+}
+int stt_getProgLen(){
+	return progLen;
+}
 
 float stt_getX() {
 	return stt_x;

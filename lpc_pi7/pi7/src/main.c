@@ -24,7 +24,7 @@
 #include "LPC17xx.h"
 #include "type.h"
 #include "drivers/uart/uart.h"
-#include "drivers/console/basic_io.h"
+//#include "drivers/console/basic_io.h"
 #include "drivers/ledonboard/leds.h"
 #include "drivers/pwm/pwm.h"
 #include "drivers/spi/spi.h"
@@ -94,10 +94,10 @@ void taskCommPIC(void *pvParameters) {
 	pic_Data setpoints;
 	while(1) {
 
-		 //xQueueReceive(qCommPIC, &setpoints, portMAX_DELAY);
-		 setpoints.setPoint1 = 0;
-		 setpoints.setPoint2 = 0;
-		 setpoints.setPoint3 = 0;
+		 xQueueReceive(qCommPIC, &setpoints, portMAX_DELAY);
+//		 setpoints.setPoint1 = 0;
+//		 setpoints.setPoint2 = 0;
+//		 setpoints.setPoint3 = 0;
 
 		 pic_sendToPIC(setpoints);
 		 vTaskDelay(DELAY_1MS);
@@ -168,6 +168,7 @@ static void initComponents() {
   PWM_Init(1, 20);
   PWM_Start(1);
   PWM_Set(1, 10);
+  pic_ResetMotors();
 
   // communication between tasks
   qControlCommands = xQueueCreate(CONTROL_Q_SIZE, sizeof(trj_Data));
@@ -197,13 +198,14 @@ int main(void) {
 	// init components
 	initComponents(); // init Modbus
 
+
 	/* 
 	 * Start the tasks defined within this file/specific to this demo. 
 	 */
-	xTaskCreate( taskController, ( signed portCHAR * ) "Controller", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	xTaskCreate( taskController, ( signed portCHAR * ) "Controller", 2 * USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskBlinkLed, ( signed portCHAR * ) "BlinkLed", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	//xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-//	xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 
 	//*************** DEBUG FOR ReadRegister
 	// insert ReadRegister msg on qCommDev for debug
