@@ -18,7 +18,6 @@ FreeRTOS_portable/MemMang \
 FreeRTOS_portable \
 FreeRTOS_src \
 src \
-src/drivers/console \
 src/drivers/ledonboard \
 src/drivers/pwm \
 src/drivers/spi \

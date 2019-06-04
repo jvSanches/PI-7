@@ -24,6 +24,9 @@
 
 volatile uint32_t match_counter0, match_counter1;
 
+#define HI_PEN_VALUE 19
+#define LO_PEN_VALUE 1
+
 /******************************************************************************
 ** Function name:		PWM1_IRQHandler
 **
@@ -155,6 +158,14 @@ void PWM_Stop( uint32_t channelNum )
 	LPC_PWM1->TCR = 0x00;		/* Stop all PWMs */
   }
   return;
+}
+
+void penSet(int val){
+	if (val){
+		PWM_Set(1, HI_PEN_VALUE);
+	}else{
+		PWM_Set(1, LO_PEN_VALUE);
+	}
 }
 
 /******************************************************************************

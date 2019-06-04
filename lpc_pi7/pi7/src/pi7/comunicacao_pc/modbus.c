@@ -17,7 +17,7 @@
 #include "LPC17xx.h"
 #include "type.h"
 #include "drivers/uart/uart.h"
-#include "drivers/console/basic_io.h"
+//#include "drivers/console/basic_io.h"
 #include "drivers/ledonboard/leds.h"
 
 // Includes for PI7
@@ -119,8 +119,8 @@ byte encodeHigh(byte value) {
 void putCharToSerial() {
 
   if (_mode == DEVELOPMENT_MODE ) {
-     vPrintString(txBuffer);
-     vPrintString("\r");
+//     vPrintString(txBuffer);
+//     vPrintString("\r");
   } else {
 
      UARTSendNullTerminated(0, txBuffer);
@@ -200,7 +200,7 @@ int checkLRC() {
   retval = FALSE;
   receivedLRC = decode(rxBuffer[idxRxBuffer-3], rxBuffer[idxRxBuffer-2]);
   calculatedLRC = myLRC(rxBuffer, 1, idxRxBuffer - 3);//calculateLRC(rxBuffer, 1, idxRxBuffer - 3);
-  printf("LCR rx=%x calc=%x \n", receivedLRC, calculatedLRC);
+ // printf("LCR rx=%x calc=%x \n", receivedLRC, calculatedLRC);
   //return TRUE; ///////////Gambiarra
   if ( receivedLRC == calculatedLRC) {
      retval = TRUE;
@@ -235,12 +235,12 @@ void processReadRegister() {
    txBuffer[4] = encodeLow(READ_REGISTER);
    txBuffer[5] = encodeHigh(0);
    txBuffer[6] = encodeLow(0);
-   txBuffer[7] = encodeHigh(1); // byte count field  (high part)
-   txBuffer[8] = encodeLow(1);  // byte count field (low part)
-   txBuffer[9] = encodeHigh(0);
-   txBuffer[10] = encodeLow(0);
-   txBuffer[11] = encodeHigh(registerValue);
-   txBuffer[12] = encodeLow(registerValue);
+   txBuffer[7] = rxBuffer[7]; // byte count field  (high part)
+   txBuffer[8] = rxBuffer[8];  // byte count field (low part)
+   txBuffer[9] = encodeHigh(registerValue >>8 );
+   txBuffer[10] = encodeLow(registerValue >> 8);
+   txBuffer[11] = encodeHigh(registerValue & 0xff);
+   txBuffer[12] = encodeLow(registerValue & 0xff);
    lrc = myLRC(txBuffer, 1, 13);
    txBuffer[13] = encodeHigh(lrc);
    txBuffer[14] = encodeLow(lrc);
@@ -289,17 +289,15 @@ void processWriteRegister() {
 
 void processWriteFile() {
 	int newX, newY, newZ;
-	newX = (decode(rxBuffer[5], rxBuffer[6]) << 8 );
-	newX |= (decode(rxBuffer[7], rxBuffer[8]));
-	int other = (decode(rxBuffer[7], rxBuffer[8]));
-	printf("X:%d 5:%d 6:%d 7:%d 8:%d\n", newX, rxBuffer[5], rxBuffer[6],rxBuffer[7], rxBuffer[8]);
-	newY = (decode(rxBuffer[9], rxBuffer[10]) << 8 ) | (decode(rxBuffer[11], rxBuffer[12]));
-	newZ = (decode(rxBuffer[13], rxBuffer[14]) << 8 ) | (decode(rxBuffer[15], rxBuffer[16]));
-	ptj_storeProgram(newX, newY, newZ);
-	printf("linha de programa");
+	newX = (decode(0x30, rxBuffer[5]) << 8 );
+	newX |= (decode(rxBuffer[6], rxBuffer[7]));
+	newY = (decode(0x30, rxBuffer[8]) << 8 );
+	newY |= (decode(rxBuffer[9], rxBuffer[10]));
+	newZ = (decode(0x30, rxBuffer[11]));
 
-
-} // processWriteProgram
+	printf("X:%d Y:%d Z:%d \n", newX-2048, newY-2048, newZ);
+	ptj_storeProgram(newX-2048, newY-2048, newZ);
+	} // processWriteProgram
 
 /************************************************************************
  decodeFunctionCode
@@ -366,9 +364,9 @@ void receiveMessage() {
    int chInt;
    chInt = getCharFromSerial();
 
-   if (chInt > 0){
-   printf("got %x\n", (char)chInt);
-   }
+//   if (chInt > 0){
+//   printf("got %x\n", (char)chInt);
+//   }
 
    if (chInt != NO_CHAR ) {
       ch = (char)chInt;

@@ -18,7 +18,6 @@ RM := rm -rf
 -include src/drivers/spi/subdir.mk
 -include src/drivers/pwm/subdir.mk
 -include src/drivers/ledonboard/subdir.mk
--include src/drivers/console/subdir.mk
 -include src/subdir.mk
 -include FreeRTOS_src/subdir.mk
 -include FreeRTOS_portable/MemMang/subdir.mk

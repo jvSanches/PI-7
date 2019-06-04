@@ -2636,23 +2636,12 @@ void servoInit();
 int getServoState();
 int getServoCommand();
 
-# 79 "main.c"
+# 63 "main.c"
 volatile long encoder1_counter;
 volatile char state1;
 volatile char ab1;
 volatile long motor_pos =0;
 volatile long set_point =0;
-
-volatile signed char pos_log1[90/2 + 1];
-volatile signed char pos_log2[90/2 + 1];
-
-volatile int samples =0;
-volatile char sampling = 0;
-volatile long last_pos;
-
-volatile unsigned int com_time;
-
-int onlyK = 0;
 
 
 
@@ -2681,10 +2670,6 @@ static int last_err;
 long resp;
 int err = set_point - motor_pos;
 
-if (onlyK){
-resp = (err) * 4;
-}else{
-
 derivative = (err - last_err);
 last_err = err;
 
@@ -2692,7 +2677,6 @@ int P_Response = 4 * err;
 int D_Response = (13 * derivative);
 
 resp = P_Response + D_Response;
-}
 
 resp = constrain(resp, -255,255 );
 if (resp > 0){
@@ -2709,9 +2693,8 @@ pwm_set(2, 0 );
 
 void SetPoint(int new_val){
 if (new_val != set_point){
-
 set_point = new_val;
-PrintSetpoint();
+
 }
 }
 
@@ -2727,8 +2710,6 @@ resetCounter();
 SetPoint(0);
 }
 
-uint8_t SPIData;
-int nSPIData;
 char set_motor_flag =0;
 void interrupt isr(void) {
 static int tick;
@@ -2737,17 +2718,6 @@ static int tick;
 
 if (T0IE && T0IF) {
 set_motor_flag = 1;
-if (sampling){
-if (samples < 90/2){
-pos_log1[samples] = motor_pos-last_pos;
-}else{
-pos_log2[samples-(90/2)] = motor_pos-last_pos;
-}
-last_pos = motor_pos;
-samples++;
-}
-
-
 
 TMR0 = (0xff - 195);
 T0IF = 0;
@@ -2817,13 +2787,13 @@ encoder1_counter = 0;
 
 }
 
-# 288
+
 void main (void) {
 
 
 char serialIn = 255;
 
-# 297
+# 223
 OPTION_REGbits.T0CS = 0;
 OPTION_REGbits.PSA = 0;
 OPTION_REGbits.PS = 7;
@@ -2855,82 +2825,32 @@ RBIE = 1;
 serial_init();
 
 
-
-
 pwm_init();
 
-# 337
+# 261
 encoders_init();
 int enc1 = -1;
 
-# 345
+# 268
 pwm_set(1, 0);
 pwm_set(2, 0);
 int i = 0;
 
 while (1) {
-
+RB5 = getServoState();
 if (!getServoState()){
 motor_reset();
+
 }else{
-SetPoint(set_point + getServoCommand());
+SetPoint(set_point - (5 * getServoCommand()));
 }
 
 if (set_motor_flag){
 SetMotor();
 set_motor_flag = 0;
+
+
+
 }
-
-if (sampling && (samples > 90)){
-
-sampling = 0;
-
-RB5=1;
-
-char sVar[20];
-samples = 0;
-sprintf(sVar, "Kp: %d -> ", 4);
-putst(sVar);
-while (samples <= 90 /2){
-sprintf(sVar, "%d ", pos_log1[samples]);
-putst(sVar);
-samples++;
-}
-while (samples < 90){
-sprintf(sVar, "%d ", pos_log2[samples - 90 / 2]);
-putst(sVar);
-samples++;
-}
-sprintf(sVar, "Fim do teste ");
-putst(sVar);
-}
-char serialIn = chkchr();
-if (serialIn == 'u'){
-resetCounter();
-
-last_pos = 0;
-samples = 0;
-sampling = 1;
-SetPoint(100);
-RB5=0;
-
-}else if (serialIn == 'w' ){
-SetPoint(set_point + 100);
-}else if (serialIn == 's'){
-SetPoint(set_point - 100);
-}else if (serialIn == ' '){
-motor_reset();
-}else if (serialIn == 'e' ){
-SetPoint(set_point + 50);
-}else if (serialIn == 'd'){
-SetPoint(set_point - 50);
-}else if (serialIn == '0'){
-SetPoint(0);
-}else if (serialIn == 'k'){
-onlyK = 1;
-}else if (serialIn == 'l'){
-onlyK = 0;
-}
-
 }
 }

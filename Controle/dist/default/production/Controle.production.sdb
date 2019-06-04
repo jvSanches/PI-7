@@ -29,23 +29,21 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "37 D:\Poli\PI-7\Controle\delay.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
-"98 D:\Poli\PI-7\Controle\main.c
+"71 D:\Poli\PI-7\Controle\main.c
 [v _constrain constrain `(l  1 e 4 0 ]
-"108
-[v _PrintSetpoint PrintSetpoint `(v  1 e 1 0 ]
-"116
+"89
 [v _SetMotor SetMotor `(v  1 e 1 0 ]
-"149
+"117
 [v _SetPoint SetPoint `(v  1 e 1 0 ]
-"157
+"124
 [v _resetCounter resetCounter `(v  1 e 1 0 ]
-"162
+"129
 [v _motor_reset motor_reset `(v  1 e 1 0 ]
-"172
+"137
 [v _isr isr `II(v  1 e 1 0 ]
-"251
+"205
 [v _encoders_init encoders_init `(v  1 e 1 0 ]
-"288
+"214
 [v _main main `(v  1 e 1 0 ]
 "25 D:\Poli\PI-7\Controle\pwm.c
 [v _pwm_init pwm_init `(v  1 e 1 0 ]
@@ -55,15 +53,13 @@
 [v _serial_init serial_init `(v  1 e 1 0 ]
 "95
 [v _putch putch `(v  1 e 1 0 ]
-"142
-[v _chkchr chkchr `(uc  1 e 1 0 ]
 "158
 [v _putchhex putchhex `(v  1 e 1 0 ]
 "211
 [v _putst putst `(v  1 e 1 0 ]
-"18 D:\Poli\PI-7\Controle\servoController.c
+"19 D:\Poli\PI-7\Controle\servoController.c
 [v _getServoState getServoState `(i  1 e 2 0 ]
-"22
+"23
 [v _getServoCommand getServoCommand `(i  1 e 2 0 ]
 "59 D:\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -253,42 +249,26 @@
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
 "21 D:\Poli\PI-7\Controle\delay.c
 [v _delayus_variable delayus_variable `uc  1 e 1 0 ]
-"79 D:\Poli\PI-7\Controle\main.c
+"63 D:\Poli\PI-7\Controle\main.c
 [v _encoder1_counter encoder1_counter `VEl  1 e 4 0 ]
-"80
+"64
 [v _state1 state1 `VEuc  1 e 1 0 ]
-"81
+"65
 [v _ab1 ab1 `VEuc  1 e 1 0 ]
-"82
+"66
 [v _motor_pos motor_pos `VEl  1 e 4 0 ]
-"83
+"67
 [v _set_point set_point `VEl  1 e 4 0 ]
-"85
-[v _pos_log1 pos_log1 `VE[46]c  1 e 46 0 ]
-"86
-[v _pos_log2 pos_log2 `VE[46]c  1 e 46 0 ]
-"88
-[v _samples samples `VEi  1 e 2 0 ]
-"89
-[v _sampling sampling `VEuc  1 e 1 0 ]
-"90
-[v _last_pos last_pos `VEl  1 e 4 0 ]
-"92
-[v _com_time com_time `VEui  1 e 2 0 ]
-"94
-[v _onlyK onlyK `i  1 e 2 0 ]
-"171
+"136
 [v _set_motor_flag set_motor_flag `uc  1 e 1 0 ]
 "79 D:\Poli\PI-7\Controle\serial.c
 [v _dummy dummy `uc  1 e 1 0 ]
-"288 D:\Poli\PI-7\Controle\main.c
+"11 D:\Poli\PI-7\Controle\servoController.c
+[v _lStep lStep `uc  1 s 1 lStep ]
+"214 D:\Poli\PI-7\Controle\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"368
-[v main@sVar sVar `[20]uc  1 a 20 0 ]
-"384
-[v main@serialIn_363 serialIn `uc  1 a 1 25 ]
-"414
+"289
 } 0
 "29 D:\Poli\PI-7\Controle\serial.c
 [v _serial_init serial_init `(v  1 e 1 0 ]
@@ -300,126 +280,53 @@
 {
 "64
 } 0
-"162 D:\Poli\PI-7\Controle\main.c
+"129 D:\Poli\PI-7\Controle\main.c
 [v _motor_reset motor_reset `(v  1 e 1 0 ]
 {
-"167
+"134
 } 0
-"157
+"124
 [v _resetCounter resetCounter `(v  1 e 1 0 ]
 {
-"160
+"127
 } 0
-"149
+"117
 [v _SetPoint SetPoint `(v  1 e 1 0 ]
 {
-[v SetPoint@new_val new_val `i  1 p 2 50 ]
-"155
+[v SetPoint@new_val new_val `i  1 p 2 12 ]
+"122
 } 0
-"108
-[v _PrintSetpoint PrintSetpoint `(v  1 e 1 0 ]
-{
-"109
-[v PrintSetpoint@sVar sVar `[20]uc  1 a 20 30 ]
-"112
-} 0
-"500 D:\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-{
-[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-"540
-[v sprintf@val val `ui  1 a 2 25 ]
-"507
-[v sprintf@c c `uc  1 a 1 28 ]
-"516
-[v sprintf@prec prec `c  1 a 1 24 ]
-"520
-[v sprintf@flag flag `uc  1 a 1 23 ]
-"502
-[v sprintf@ap ap `[1]*.4v  1 a 1 22 ]
-"500
-[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-[v sprintf@f f `*.24DCuc  1 p 1 14 ]
-"545
-[v sprintf@sp sp `*.4uc  1 a 1 27 ]
-"1560
-} 0
-"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwmod@counter counter `uc  1 a 1 13 ]
-"5
-[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
-"25
-} 0
-"5 D:\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
-"11
-[v ___lwdiv@counter counter `uc  1 a 1 7 ]
-"5
-[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
-"30
-} 0
-"211 D:\Poli\PI-7\Controle\serial.c
-[v _putst putst `(v  1 e 1 0 ]
-{
-[v putst@str str `*.4DCuc  1 a 1 wreg ]
-[v putst@str str `*.4DCuc  1 a 1 wreg ]
-[v putst@str str `*.4DCuc  1 a 1 3 ]
-"218
-} 0
-"95
-[v _putch putch `(v  1 e 1 0 ]
-{
-[v putch@c c `uc  1 a 1 wreg ]
-[v putch@c c `uc  1 a 1 wreg ]
-[v putch@c c `uc  1 a 1 1 ]
-"102
-} 0
-"18 D:\Poli\PI-7\Controle\servoController.c
+"19 D:\Poli\PI-7\Controle\servoController.c
 [v _getServoState getServoState `(i  1 e 2 0 ]
 {
-"20
+"21
 } 0
-"22
+"23
 [v _getServoCommand getServoCommand `(i  1 e 2 0 ]
 {
-"23
-[v getServoCommand@lStep lStep `uc  1 s 1 lStep ]
-"31
+"32
 } 0
-"251 D:\Poli\PI-7\Controle\main.c
+"205 D:\Poli\PI-7\Controle\main.c
 [v _encoders_init encoders_init `(v  1 e 1 0 ]
 {
-"257
+"211
 } 0
-"142 D:\Poli\PI-7\Controle\serial.c
-[v _chkchr chkchr `(uc  1 e 1 0 ]
-{
-"147
-} 0
-"116 D:\Poli\PI-7\Controle\main.c
+"89
 [v _SetMotor SetMotor `(v  1 e 1 0 ]
 {
-"131
-[v SetMotor@D_Response D_Response `i  1 a 2 42 ]
-"130
-[v SetMotor@P_Response P_Response `i  1 a 2 40 ]
-"120
+"93
 [v SetMotor@resp resp `l  1 a 4 46 ]
-"121
+"94
 [v SetMotor@err err `i  1 a 2 44 ]
-"118
+"100
+[v SetMotor@D_Response D_Response `i  1 a 2 42 ]
+"99
+[v SetMotor@P_Response P_Response `i  1 a 2 40 ]
+"91
 [v SetMotor@derivative derivative `i  1 s 2 derivative ]
-"119
+"92
 [v SetMotor@last_err last_err `i  1 s 2 last_err ]
-"147
+"115
 } 0
 "72 D:\Poli\PI-7\Controle\pwm.c
 [v _pwm_set pwm_set `(v  1 e 1 0 ]
@@ -451,28 +358,28 @@
 [v ___aldiv@dividend dividend `l  1 p 4 17 ]
 "41
 } 0
-"98 D:\Poli\PI-7\Controle\main.c
+"71 D:\Poli\PI-7\Controle\main.c
 [v _constrain constrain `(l  1 e 4 0 ]
 {
 [v constrain@value value `l  1 p 4 0 ]
 [v constrain@lLimit lLimit `l  1 p 4 4 ]
 [v constrain@uLimit uLimit `l  1 p 4 8 ]
-"106
+"79
 } 0
 "15 D:\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 4 ]
+[v ___wmul@product product `ui  1 a 2 10 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 6 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 8 ]
 "53
 } 0
-"172 D:\Poli\PI-7\Controle\main.c
+"137 D:\Poli\PI-7\Controle\main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"197
-[v isr@portB portB `uc  1 a 1 6 ]
-"249
+"151
+[v isr@portB portB `uc  1 a 1 5 ]
+"203
 } 0

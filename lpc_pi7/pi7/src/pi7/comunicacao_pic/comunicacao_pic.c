@@ -19,15 +19,21 @@
 #include "type.h"
 #include "drivers/uart/uart.h"
 #include "comunicacao_pic.h"
+#include "../estado_trajetoria/estado_trajetoria.h"
+#include "../../drivers/pwm/pwm.h"
+
 
 #define TICKS_FACTOR 48.89
 //PINS FOR PIC COMUNICATIONS
-#define PIC1_ENABLE 9
-#define PIC1_DIR 8
-#define PIC1_STEP 7
+#define PIC1_ENABLE 9 //pin 5   - SCK
+#define PIC1_DIR 8    //pin 6   - MISO
+#define PIC1_STEP 7   //pin 7   - MOSI
 #define PIC2_ENABLE 6
 #define PIC2_DIR 0
 #define PIC2_STEP 1
+// RC3 Servo Enable
+// RC4 Step
+// RC5 dir
 
 void pic_init(){
 
@@ -59,7 +65,7 @@ void pic_StopMotors(){
 void pic_ResetMotors(){
 	LPC_GPIO0->FIOCLR = (1 << PIC1_ENABLE);    //Disables pic 1
 	LPC_GPIO0->FIOCLR = (1 << PIC2_ENABLE);    //Disables pic 2
-	vTaskDelay(10);
+	//vTaskDelay(10);
 	LPC_GPIO0->FIOSET = (1 << PIC1_ENABLE);    //Enables pic 1
 	LPC_GPIO0->FIOSET = (1 << PIC2_ENABLE);    //Enables pic 2
 }
@@ -79,12 +85,15 @@ void sendSteps(int xSteps, int ySteps){
 	}
 	int i=0;
 	int lastState;
+//
+//	printf("xtesps = %d    ysteps = %d \n",xSteps, ySteps);
 
-	while ((i < xSteps) && (i < ySteps)){
+	while ((i < xSteps) || (i < ySteps)){
 		if (i < xSteps){
 			lastState = LPC_GPIO0->FIOPIN;
 			LPC_GPIO0->FIOCLR = lastState & (1 << PIC1_STEP);
 			LPC_GPIO0->FIOSET = ((~lastState) & (1 << PIC1_STEP));
+
 		}
 		if (i < ySteps){
 			lastState = LPC_GPIO0->FIOPIN;
@@ -92,18 +101,26 @@ void sendSteps(int xSteps, int ySteps){
 			LPC_GPIO0->FIOSET = ((~lastState) & (1 << PIC2_STEP));
 		}
 		i++;
-		vTaskDelay(1);
+		vTaskDelay(5);
 	}
 }
 
 
 void pic_sendToPIC(pic_Data data) {
+	float xsteps = data.setPoint1 - stt_getX();
+	float ysteps = data.setPoint2 - stt_getY();
+
+	sendSteps(xsteps * 10 , ysteps * 10);
+	penSet(data.setPoint3);
+
+
 	stt_setX(data.setPoint1);
 	stt_setY(data.setPoint2);
 	stt_setZ(data.setPoint3);
 
 
+
     //test implementation: show values on debug console
-	printf("X=%d Y=%d Z=%d\n", data.setPoint1, data.setPoint2, data.setPoint3);
+	printf("[%.1f %.1f];", data.setPoint1, data.setPoint2);
 } // pic_sendToPIC
 

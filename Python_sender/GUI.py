@@ -49,20 +49,26 @@ def readSerial():
     dateAndTime.config(text = '%s' %(time.ctime()))
 
     if connection_state:
-        #xpos = modbus_sender.ReadRegister(1,0)
-        #ypos = modbus_sender.ReadRegister(1,1)
-        #zpos = modbus_sender.ReadRegister(1,2)
-        #line = modbus_sender.ReadRegister(1,3)
+        nXpos, nYpos, nZpos, nLine = modbus_sender.receiveXYZ()
+        if nXpos != None:
+            xpos = nXpos
+        if nYpos != None:
+            ypos = nYpos
+        if nYpos != None:
+            zpos = nZpos
+        if nLine != None:
+            nLine = nLine
+        modbus_sender.readAllRegisters()
 
-        xval.config(text = '%.3f' %(xpos-x_offset))
-        yval.config(text = '%.3f' %(ypos-y_offset))
-        zval.config(text = '%.3f' %(zpos))
+        xval.config(text = '%.1f' %(xpos-x_offset))
+        yval.config(text = '%.1f' %(ypos-y_offset))
+        zval.config(text = '%.1f' %(zpos))
         lineval.config(text = '%d' %(line))
 
 def updateTime():
     root.after(1000, updateTime)
 
-    readSerial()
+    #readSerial()
 
 def disableMeasures():
     global x_measure, y_measure
@@ -266,13 +272,13 @@ linelabel = Label(positions, bg ='black', text = 'Line:', font = 'verdana 30', f
 linelabel.grid(row = 4 , column = 0)
 
 positions.columnconfigure(1, minsize = 200)
-xval= Label(positions, bg ='black', text = '%.3f' %(xpos), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')
+xval= Label(positions, bg ='black', text = '%.1f' %(xpos), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')
 xval.grid(row = 1 , column = 1,sticky = 'e')
 
-yval = Label(positions, bg ='black', text = '%.3f' %(ypos), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')
+yval = Label(positions, bg ='black', text = '%.1f' %(ypos), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')
 yval.grid(row = 2 , column = 1, sticky = 'e')
 
-zval = Label(positions, bg ='black', text = '%.3f' %(zpos), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')
+zval = Label(positions, bg ='black', text = '%.1f' %(zpos), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')
 zval.grid(row = 3 , column = 1,sticky = 'e')
 
 lineval = Label(positions, bg ='black', text = '%3d' %(line), font = 'verdana 30', fg = 'white', anchor = 'e', justify = 'right')

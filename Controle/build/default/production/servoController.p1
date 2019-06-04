@@ -5,10 +5,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
 "4245
 [v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
-"3957
-[v _RC3 `Vb ~T0 @X0 0 e@59 ]
 "3960
 [v _RC4 `Vb ~T0 @X0 0 e@60 ]
+"3957
+[v _RC3 `Vb ~T0 @X0 0 e@59 ]
 "3963
 [v _RC5 `Vb ~T0 @X0 0 e@61 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
@@ -1473,7 +1473,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;servoController.h: 8: void servoInit();
 [; ;servoController.h: 9: int getServoState();
 [; ;servoController.h: 10: int getServoCommand();
-"12 servoController.c
+"11 servoController.c
+[v _lStep `uc ~T0 @X0 1 s ]
+[i _lStep
+-> -> 0 `i `uc
+]
+[; ;servoController.c: 11: static char lStep = 0 ;
+"12
 [v _servoInit `(v ~T0 @X0 1 ef ]
 {
 [; ;servoController.c: 12: void servoInit(){
@@ -1488,59 +1494,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;servoController.c: 16: TRISC5 = 1;
 "16
 [e = _TRISC5 -> -> 1 `i `b ]
-[; ;servoController.c: 17: }
+[; ;servoController.c: 17: lStep = RC4;
 "17
+[e = _lStep -> -> _RC4 `i `uc ]
+[; ;servoController.c: 18: }
+"18
 [e :UE 139 ]
 }
-"18
+"19
 [v _getServoState `(i ~T0 @X0 1 ef ]
 {
-[; ;servoController.c: 18: int getServoState(){
+[; ;servoController.c: 19: int getServoState(){
 [e :U _getServoState ]
 [f ]
-[; ;servoController.c: 19: return RC3;
-"19
+[; ;servoController.c: 20: return RC3;
+"20
 [e ) -> _RC3 `i ]
 [e $UE 140  ]
-[; ;servoController.c: 20: }
-"20
+[; ;servoController.c: 21: }
+"21
 [e :UE 140 ]
 }
-"22
+"23
 [v _getServoCommand `(i ~T0 @X0 1 ef ]
 {
-[; ;servoController.c: 22: int getServoCommand(){
+[; ;servoController.c: 23: int getServoCommand(){
 [e :U _getServoCommand ]
 [f ]
-"23
-[v F1244 `uc ~T0 @X0 1 s lStep ]
-[; ;servoController.c: 23: static char lStep;
-[; ;servoController.c: 24: if (RC4 != lStep){
-"24
-[e $ ! != -> _RC4 `i -> F1244 `i 142  ]
-{
-[; ;servoController.c: 25: lStep = !lStep;
+[; ;servoController.c: 25: if (RC4 != lStep){
 "25
-[e = F1244 -> -> ! != -> F1244 `i -> -> -> 0 `i `uc `i `i `uc ]
-[; ;servoController.c: 26: return ((2*RC5) - 1);
+[e $ ! != -> _RC4 `i -> _lStep `i 142  ]
+{
+[; ;servoController.c: 26: lStep = !lStep;
 "26
+[e = _lStep -> -> ! != -> _lStep `i -> -> -> 0 `i `uc `i `i `uc ]
+[; ;servoController.c: 27: return ((2*RC5) - 1);
+"27
 [e ) - * -> 2 `i -> _RC5 `i -> 1 `i ]
 [e $UE 141  ]
-"27
+"28
 }
-[; ;servoController.c: 27: }else{
+[; ;servoController.c: 28: }else{
 [e $U 143  ]
 [e :U 142 ]
 {
-[; ;servoController.c: 28: return 0;
-"28
+[; ;servoController.c: 29: return 0;
+"29
 [e ) -> 0 `i ]
 [e $UE 141  ]
-"29
+"30
 }
 [e :U 143 ]
-[; ;servoController.c: 29: }
-[; ;servoController.c: 31: }
-"31
+[; ;servoController.c: 30: }
+[; ;servoController.c: 32: }
+"32
 [e :UE 141 ]
 }
