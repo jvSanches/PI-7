@@ -8,8 +8,7 @@
 # Victor Figueiredo Soares - 9833322
 #Implementação modbus
 #
-#Conexão Serial método read_register e writeSingleRegister
-#LRC e demais verificações funcionando
+
 
 import serial
 from time import sleep
@@ -63,6 +62,7 @@ def GetMessageLRC(message):
 
 def receiveXYZ():
     response = receiveResponse()
+    return None, None, None, None
 
     if response and int(response[2:4],16)==3:
         rReg = int(response[4:8],16)
@@ -74,12 +74,10 @@ def receiveXYZ():
         elif rReg == 3:
             return None, None, rValue, None
         else:
-            return None, None, None, rvalue
+            return None, None, None, rValue
 
     else:
-        #Pass response to correct handler
-        print("Returned wrong function code")
-        return False
+        return None, None, None, None
 
 def ReadRegister(slave, regAddress, numOfRegs = 1):
     #Send message asking for a register values
@@ -106,7 +104,7 @@ def transmit(message):
     #Send message
     print("Data trasmitted: ", [hex(ord(no)) for no in message])
     LPC_write(message)
-    sleep(1)
+    sleep(0.1)
     
 
 def receiveResponse():
@@ -115,6 +113,8 @@ def receiveResponse():
     incoming = LPC_readLine()
     #incoming= incoming.decode()
     if incoming == 0: return False
+    print(incoming)
+    return
     print("Message from LPC: ", incoming[:-2])
     incoming = incoming[1:-2]
     slaveNum = int(incoming[:2])

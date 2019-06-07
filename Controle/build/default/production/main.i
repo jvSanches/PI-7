@@ -2673,8 +2673,8 @@ int err = set_point - motor_pos;
 derivative = (err - last_err);
 last_err = err;
 
-int P_Response = 4 * err;
-int D_Response = (13 * derivative);
+int P_Response = 3 * err;
+int D_Response = (11 * derivative);
 
 resp = P_Response + D_Response;
 
@@ -2842,7 +2842,7 @@ if (!getServoState()){
 motor_reset();
 
 }else{
-SetPoint(set_point - (5 * getServoCommand()));
+SetPoint(set_point + (5 * getServoCommand()));
 }
 
 if (set_motor_flag){

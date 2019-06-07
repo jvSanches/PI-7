@@ -1,9 +1,9 @@
-13:52:54 **** Incremental Build of configuration Debug for project pi7 ****
+18:16:46 **** Incremental Build of configuration Debug for project pi7 ****
 make -r all 
-Building file: ../src/pi7/comunicacao_pc/modbus.c
+Building file: ../src/pi7/programa_trajetoria/programa_trajetoria.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/comunicacao_pc/modbus.d" -MT"src/pi7/comunicacao_pc/modbus.o" -MT"src/pi7/comunicacao_pc/modbus.d" -o "src/pi7/comunicacao_pc/modbus.o" "../src/pi7/comunicacao_pc/modbus.c"
-Finished building: ../src/pi7/comunicacao_pc/modbus.c
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__USE_CMSIS -D__CODE_RED -DPACK_STRUCT_END=__attribute\(\(packed\)\) -DGCC_ARMCM3 -I../src -I../FreeRTOS_include -I../FreeRTOS_portable -I../OtherIncludes -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -msoft-float -DMALLOC_PROVIDED -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pi7/programa_trajetoria/programa_trajetoria.d" -MT"src/pi7/programa_trajetoria/programa_trajetoria.o" -MT"src/pi7/programa_trajetoria/programa_trajetoria.d" -o "src/pi7/programa_trajetoria/programa_trajetoria.o" "../src/pi7/programa_trajetoria/programa_trajetoria.c"
+Finished building: ../src/pi7/programa_trajetoria/programa_trajetoria.c
  
 Building target: pi7.axf
 Invoking: MCU Linker
@@ -14,8 +14,8 @@ Finished building target: pi7.axf
 Performing post-build steps
 arm-none-eabi-size "pi7.axf"; # arm-none-eabi-objcopy -O binary "pi7.axf" "pi7.bin" ; checksum -p LPC1769 -d "pi7.bin";
    text	   data	    bss	    dec	    hex	filename
-  52036	   2296	  23528	  77860	  13024	pi7.axf
+  52092	   2296	  25928	  80316	  139bc	pi7.axf
  
 
-13:52:56 Build Finished (took 1s.705ms)
+18:16:47 Build Finished (took 1s.0ms)
 

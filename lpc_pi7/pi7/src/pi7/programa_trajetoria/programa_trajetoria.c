@@ -4,7 +4,7 @@
  */
 
 // max NC program size
-#define MAX_PROGRAM_LINES 100
+#define MAX_PROGRAM_LINES 300
 
 #include "programa_trajetoria.h"
 #include "../estado_trajetoria/estado_trajetoria.h"

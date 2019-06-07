@@ -1746,12 +1746,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = F1382 _err ]
 "99
 [v _P_Response `i ~T0 @X0 1 a ]
-[; ;main.c: 99: int P_Response = 4 * err;
-[e = _P_Response * -> 4 `i _err ]
+[; ;main.c: 99: int P_Response = 3 * err;
+[e = _P_Response * -> 3 `i _err ]
 "100
 [v _D_Response `i ~T0 @X0 1 a ]
-[; ;main.c: 100: int D_Response = (13 * derivative);
-[e = _D_Response * -> 13 `i F1381 ]
+[; ;main.c: 100: int D_Response = (11 * derivative);
+[e = _D_Response * -> 11 `i F1381 ]
 [; ;main.c: 102: resp = P_Response + D_Response;
 "102
 [e = _resp -> + _P_Response _D_Response `l ]
@@ -2217,9 +2217,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 182  ]
 [e :U 181 ]
 {
-[; ;main.c: 278: SetPoint(set_point - (5 * getServoCommand()));
+[; ;main.c: 278: SetPoint(set_point + (5 * getServoCommand()));
 "278
-[e ( _SetPoint (1 -> - _set_point -> * -> 5 `i ( _getServoCommand ..  `l `i ]
+[e ( _SetPoint (1 -> + _set_point -> * -> 5 `i ( _getServoCommand ..  `l `i ]
 "279
 }
 [e :U 182 ]

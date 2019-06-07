@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/Poli/PI-7/Controle/servoController.c</file>
             <file>file:/D:/Poli/PI-7/Controle/main.c</file>
+            <file>file:/D:/Poli/PI-7/Controle/spi.c</file>
             <file>file:/D:/Poli/PI-7/Controle/servoController.h</file>
         </group>
     </open-files>

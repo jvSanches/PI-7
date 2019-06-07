@@ -13,7 +13,7 @@
 #define CMD_JOG     5
 #define CMD_ZTOGG   6
 #define CMD_FILE    7
-
+#define CMD_REF     8
 // Possible status for TrajectoryController
 #define STATUS_RUNNING   0
 #define STATUS_NOT_RUNNING 2

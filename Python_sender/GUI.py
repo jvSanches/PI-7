@@ -5,6 +5,10 @@ import struct
 
 import GCode_parser
 import modbus_sender
+"""
+Implementação da interface e inserção das funções modbus 
+
+"""
 
 connection_state = False
 
@@ -66,9 +70,9 @@ def readSerial():
         lineval.config(text = '%d' %(line))
 
 def updateTime():
-    root.after(1000, updateTime)
+    root.after(5000, updateTime)
 
-    #readSerial()
+#    readSerial()
 
 def disableMeasures():
     global x_measure, y_measure

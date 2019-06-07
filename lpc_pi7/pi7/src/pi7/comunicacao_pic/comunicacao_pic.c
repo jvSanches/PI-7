@@ -101,7 +101,7 @@ void sendSteps(int xSteps, int ySteps){
 			LPC_GPIO0->FIOSET = ((~lastState) & (1 << PIC2_STEP));
 		}
 		i++;
-		vTaskDelay(5);
+		vTaskDelay(2);
 	}
 }
 

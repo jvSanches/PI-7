@@ -40,6 +40,7 @@
 const portTickType DELAY_1SEC = 1000 / portTICK_RATE_MS;
 const portTickType DELAY_500MS = 500 / portTICK_RATE_MS;
 const portTickType DELAY_200MS = 200 / portTICK_RATE_MS;
+const portTickType DELAY_50MS = 50 / portTICK_RATE_MS;
 const portTickType DELAY_10MS = 10 / portTICK_RATE_MS;
 const portTickType DELAY_1MS = 1 / portTICK_RATE_MS;
 
@@ -83,7 +84,7 @@ void taskNCProcessing(void *pvParameters) {
         	   trj_processCommand(data);
            }
            trj_generateSetpoint();
-		   vTaskDelayUntil(&lastWakeTime, DELAY_200MS);
+		   vTaskDelayUntil(&lastWakeTime, DELAY_50MS);
 	   } //task loop
 } // taskNCProcessing
 /**
@@ -130,7 +131,7 @@ void taskBlinkLed(void *lpParameters) {
 		led2_invert();
 		ki++;
 
-		vTaskDelay(DELAY_1SEC);
+		vTaskDelay(DELAY_500MS);
 
 	} // task loop
 } //taskBlinkLed

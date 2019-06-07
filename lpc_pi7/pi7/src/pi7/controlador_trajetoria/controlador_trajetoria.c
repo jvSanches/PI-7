@@ -66,7 +66,7 @@ void trj_generateSetpoint() {
    //printf("controlador X=%d Y=%d Z=%d\n", toPic.setPoint1, toPic.setPoint2, toPic.setPoint3);
    xQueueSend(qCommPIC, &toPic, portMAX_DELAY);
    while (uxQueueMessagesWaiting(qCommPIC));
-   vTaskDelay(100);
+   vTaskDelay(20);
 
    currLine++;
    stt_setCurrentLine(currLine);
@@ -104,6 +104,10 @@ void trj_processCommand(trj_Data data) {
 
    if (data.command == CMD_ZTOGG){
 	   penSet(data.cValue);
+   }
+   if (data.command == CMD_REF){
+	   stt_setX(0.0);
+	   stt_setY(0.0);
    }
 } // trj_executeCommand
 

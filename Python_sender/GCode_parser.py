@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Dec 26 10:17:07 2016
-
-@author: Sanches
+Interpretador de Gcode simplificado
 """
 import re
 

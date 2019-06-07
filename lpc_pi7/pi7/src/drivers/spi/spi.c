@@ -96,7 +96,7 @@ void spi_select(uint8_t CS){
 			LPC_GPIO0->FIOSET = (1 << 5); //Select none
 		}
 }
-uint8_t spi_txrx2(uint8_t tx)
+uint8_t spi_bytetx(uint8_t tx)
 {
 	/* Embed: transmit and receive len bytes
 	 * Remember:

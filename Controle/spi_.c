@@ -10,7 +10,7 @@
 #ifndef SPI_C
 #define	SPI_C
 
-#include "spi.h"
+#include "spi_.h"
 #include "always.h"
 
 #define SS RC0          // SS para SPI

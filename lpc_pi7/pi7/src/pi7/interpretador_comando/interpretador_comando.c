@@ -26,7 +26,7 @@
 extern xQueueHandle qControlCommands;
 
 //Defines Aux register for testing
-#define REG_AUX_RD 9
+#define REG_AUX_RD 99
 int ctl_AUX = 0;
 //Write Aux register
 void setAUX(int nValue){
@@ -125,7 +125,10 @@ int ctl_WriteRegister(int registerToWrite, int value) {
   case START_FILE:
 	  command.command = CMD_FILE;
 	  command.cValue = value;
+	  break;
 
+  case REF:
+	  command.command = CMD_REF;
 	  break;
   case REG_AUX_RD:
 	  printf("Aux register\n");
