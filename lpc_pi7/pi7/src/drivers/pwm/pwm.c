@@ -21,11 +21,13 @@
 #include "lpc17xx.h"
 #include "type.h"
 #include "pwm.h"
+#include "../../pi7/estado_trajetoria/estado_trajetoria.h"
+
 
 volatile uint32_t match_counter0, match_counter1;
 
-#define HI_PEN_VALUE 19
-#define LO_PEN_VALUE 1
+#define HI_PEN_VALUE 1
+#define LO_PEN_VALUE 2
 
 /******************************************************************************
 ** Function name:		PWM1_IRQHandler
@@ -163,9 +165,12 @@ void PWM_Stop( uint32_t channelNum )
 void penSet(int val){
 	if (val){
 		PWM_Set(1, HI_PEN_VALUE);
+		stt_setZ(1);
 	}else{
 		PWM_Set(1, LO_PEN_VALUE);
+		stt_setZ(0);
 	}
+
 }
 
 /******************************************************************************

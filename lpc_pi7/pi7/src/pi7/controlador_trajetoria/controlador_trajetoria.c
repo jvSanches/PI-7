@@ -22,7 +22,7 @@
 
 // local variables
 
-#define TRJ_FACTOR 1
+#define TRJ_FACTOR 10
 int trj_status;
 extern xQueueHandle qCommPIC;
 
@@ -38,21 +38,23 @@ void trj_generateSetpoint() {
 	   trj_status = STATUS_NOT_RUNNING;
    }
    if (trj_status != STATUS_RUNNING) {
+
 	   return;
    }
 
    //printf("CurrLine %d\n", currLine);
    line = ptj_getLine(currLine);
-   float AcX = stt_getX();
-   float AcY = stt_getY();
+   int AcX = stt_getX();
+   int AcY = stt_getY();
 
-   float dx = line.x - stt_getX();
-   float dy = line.y - stt_getY();
+   float dx = line.x - AcX;
+   float dy = line.y - AcY;
 
    float dist = sqrt(dx*dx + dy*dy);
    int n = dist / TRJ_FACTOR;
    float hx = dx/n;
    float hy = dy/n;
+
    for (int hi = 1; hi < n; hi++){
 	  toPic.setPoint1 = AcX + hi * hx;
 	  toPic.setPoint2 = AcY + hi * hy;
@@ -67,7 +69,6 @@ void trj_generateSetpoint() {
    xQueueSend(qCommPIC, &toPic, portMAX_DELAY);
    while (uxQueueMessagesWaiting(qCommPIC));
    vTaskDelay(20);
-
    currLine++;
    stt_setCurrentLine(currLine);
 } // trj_generateSetpoint
@@ -88,12 +89,12 @@ void trj_processCommand(trj_Data data) {
    if (data.command == CMD_JOG){
 	   pic_Data jog_data;
 	   if (data.cDir == 1){
-		   jog_data.setPoint1 = stt_getX() + data.cValue;
+		   jog_data.setPoint1 = stt_getX() + (10 * data.cValue);
 		   jog_data.setPoint2 = stt_getY();
 		   jog_data.setPoint3 = stt_getZ();
 	   }else if(data.cDir == 2){
 		   jog_data.setPoint1 = stt_getX();
-		   jog_data.setPoint2 = stt_getY() + data.cValue;
+		   jog_data.setPoint2 = stt_getY() + (10 * data.cValue);
 		   jog_data.setPoint3 = stt_getZ();
 	   }
 	   xQueueSend(qCommPIC, &jog_data, portMAX_DELAY);
@@ -106,8 +107,9 @@ void trj_processCommand(trj_Data data) {
 	   penSet(data.cValue);
    }
    if (data.command == CMD_REF){
-	   stt_setX(0.0);
-	   stt_setY(0.0);
+	   stt_setX(0);
+	   stt_setY(0);
+	   penSet(1);
    }
 } // trj_executeCommand
 

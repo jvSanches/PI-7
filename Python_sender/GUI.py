@@ -12,7 +12,7 @@ Implementação da interface e inserção das funções modbus
 
 connection_state = False
 
-xpos, ypos, zpos, line = 0, 0, 0, 0
+xpos, ypos, zpos, line = 2048, 2048, 1, 0
 x_offset, y_offset = 0, 0
 loaded_prog = []
 
@@ -49,10 +49,10 @@ def doConnection():
         #root.protocol('WM_DELETE_WINDOW', root.destroy)
 
 def readSerial():
-    global root
+    global root, xpos, ypos, zpos, line
     dateAndTime.config(text = '%s' %(time.ctime()))
 
-    if connection_state:
+    if connection_state:        
         nXpos, nYpos, nZpos, nLine = modbus_sender.receiveXYZ()
         if nXpos != None:
             xpos = nXpos
@@ -61,18 +61,16 @@ def readSerial():
         if nYpos != None:
             zpos = nZpos
         if nLine != None:
-            nLine = nLine
-        modbus_sender.readAllRegisters()
-
-        xval.config(text = '%.1f' %(xpos-x_offset))
-        yval.config(text = '%.1f' %(ypos-y_offset))
+            line = nLine
+        xval.config(text = '%.1f' %(xpos-x_offset))#xval.config(text = '%.1f' %(xpos-x_offset))
+        yval.config(text = '%.1f' %(ypos-y_offset))#yval.config(text = '%.1f' %(ypos-y_offset))
         zval.config(text = '%.1f' %(zpos))
         lineval.config(text = '%d' %(line))
 
 def updateTime():
-    root.after(5000, updateTime)
+    root.after(100, updateTime)
 
-#    readSerial()
+    readSerial()
 
 def disableMeasures():
     global x_measure, y_measure
@@ -85,10 +83,20 @@ def enableMeasures():
     y_measure.config(state = 'normal')
 
 def measureX():
-    x_pos = x_offset = modbus_sender.ReadRegister(1,0)
+    global x_offset
+
+    offset = float(xwcs_entry.get())
+    
+    x_offset = xpos - offset
 
 def measureY():
-    y_pos = y_offset = modbus_sender.ReadRegister(1,1)
+    global y_offset
+    global x_offset
+
+    offset = float(ywcs_entry.get())
+
+
+    y_offset = ypos - offset
 
 def jogxmore() :
     modbus_sender.WriteSingleRegister(1,4,1)
@@ -154,8 +162,11 @@ def sendFile():
     coords = GCode_parser.parse(loaded_prog)
     print(coords)
     coords = [[line[0]+x_offset, line[1]+y_offset, line[2]] for line in coords]
+    
+    #coords = [[line[0], line[1], line[2]] for line in coords]
     try:
         modbus_sender.WriteSingleRegister(1,10,0)
+        time.sleep(1)
         modbus_sender.sendLines(1, coords)
         strt.config(state = 'normal')
         print("Fim de envio")

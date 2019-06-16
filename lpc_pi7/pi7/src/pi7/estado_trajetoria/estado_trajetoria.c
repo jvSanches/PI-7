@@ -7,9 +7,9 @@
 #include <stdio.h>
 
 int stt_line;
-float stt_x = 0;
-float stt_y = 0;
-float stt_z = 0;
+int stt_x = 0;
+int stt_y = 0;
+int stt_z = 0;
 int progLen = 0;
 
 int stt_getCurrentLine() {
@@ -27,27 +27,27 @@ int stt_getProgLen(){
 	return progLen;
 }
 
-float stt_getX() {
+int stt_getX() {
 	return stt_x;
 } // stt_getX
 
-float stt_getY() {
+int stt_getY() {
 	return stt_y;
 } // stt_getY
 
-float stt_getZ() {
+int stt_getZ() {
 	return stt_z;
 } // stt_getZ
 
-void stt_setX(float x) {
+void stt_setX(int x) {
 	stt_x = x;
 } // stt_setX
 
-void stt_setY(float y) {
+void stt_setY(int y) {
 	stt_y = y;
 } // stt_setY
 
-void stt_setZ(float z) {
+void stt_setZ(int z) {
 	stt_z = z;
 } // stt_setZ
 

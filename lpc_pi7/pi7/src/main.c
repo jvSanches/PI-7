@@ -59,7 +59,7 @@ xQueueHandle qCommDev;
 
 portTickType lastWakeTime;
 
-
+int emergencyFlag = 0;
 void taskController(void *pvParameters) {
    while(1) {
       com_executeCommunication(); //internally, it calls Controller to process events
@@ -96,45 +96,56 @@ void taskCommPIC(void *pvParameters) {
 	while(1) {
 
 		 xQueueReceive(qCommPIC, &setpoints, portMAX_DELAY);
-//		 setpoints.setPoint1 = 0;
-//		 setpoints.setPoint2 = 0;
-//		 setpoints.setPoint3 = 0;
 
-		 pic_sendToPIC(setpoints);
+		 if (!emergencyFlag){
+			 pic_sendToPIC(setpoints);
+		 }
+
 		 vTaskDelay(DELAY_1MS);
     } //task loop
 } // taskCommPIC
-int readEndStops(){
-	int pins = (LPC_GPIO0->FIOPIN);
-	return (pins % 0b1111 << 23 );
+int readEndStops(int ButtPin){
+	int buttPressed = (LPC_GPIO0->FIOPIN);
+	return !(buttPressed & (1 << ButtPin));
+
 }
 
 void taskEmergencyController(void *pvParameters){
 	while(1){
-		if (readEndStops()){
-			pic_StopMotors();
-			//cQueueReset(qCommPIC);
+		if (readEndStops(23)){
 
+			pic_StopMotors();
+			emergencyFlag = 1;
+			trj_init();
+			while (uxQueueMessagesWaiting(qCommPIC));
+
+		}else if(emergencyFlag){
+			pic_ResetMotors();
+			emergencyFlag = 0;
 		}
 		vTaskDelay(DELAY_1MS);
 	}
 }
 
 
-unsigned int ki = 0;
+int ser = 0;
 void taskBlinkLed(void *lpParameters) {
 	while(1) {
-
-		if (ki >50){
-			ki = 0;
-		}
 		led2_invert();
-		ki++;
-
-		vTaskDelay(DELAY_500MS);
+		vTaskDelay(DELAY_200MS);
 
 	} // task loop
 } //taskBlinkLed
+
+void taskReporter(void *lpParameters) {
+	while(1) {
+		sendReport();
+
+
+		vTaskDelay(DELAY_200MS);
+
+	} // task
+} //taskreporter
 
 static void setupHardware(void) {
 	// Put hardware configuration and initialisation in here
@@ -207,23 +218,8 @@ int main(void) {
 	xTaskCreate( taskBlinkLed, ( signed portCHAR * ) "BlinkLed", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-
-	//*************** DEBUG FOR ReadRegister
-	// insert ReadRegister msg on qCommDev for debug
-	/*for (i=0; i<sizeof(msgReadRegister); i++) {
-	   ch = msgReadRegister[i];
-  	   xQueueSend(qCommDev, &ch, portMAX_DELAY);
-	}
-	*/
-
-    // ************** DEBUG FOR WriteRegister
-	// insert WriteRegister msg on qCommDev for debug
-	/*for (i=0; i<sizeof(msgWriteRegister); i++) {
-	   ch = msgWriteRegister[i];
-  	   xQueueSend(qCommDev, &ch, portMAX_DELAY);
-	}
-	*/
-
+	xTaskCreate( taskReporter, ( signed portCHAR * ) "Reporter", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	xTaskCreate( taskEmergencyController, ( signed portCHAR * ) "Emergency", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 
 	/* 
 	 * Start the scheduler. 

@@ -3,13 +3,13 @@
 
 
 typedef struct {
-	float x;
-	float y;
-	float z;
+	int x;
+	int y;
+	char z;
 } ptj_Data;
 
 extern void ptj_startFile(int nLine);
-extern void ptj_storeProgram(float nX, float nY, float nZ);
+extern void ptj_storeProgram(int nX, int nY, int nZ);
 extern ptj_Data ptj_getLine(int line);
 extern void ptj_init();
 #endif

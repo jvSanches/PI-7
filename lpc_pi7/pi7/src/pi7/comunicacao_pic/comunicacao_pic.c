@@ -101,17 +101,23 @@ void sendSteps(int xSteps, int ySteps){
 			LPC_GPIO0->FIOSET = ((~lastState) & (1 << PIC2_STEP));
 		}
 		i++;
-		vTaskDelay(2);
+		vTaskDelay(1);
 	}
 }
 
 
 void pic_sendToPIC(pic_Data data) {
-	float xsteps = data.setPoint1 - stt_getX();
-	float ysteps = data.setPoint2 - stt_getY();
 
-	sendSteps(xsteps * 10 , ysteps * 10);
-	penSet(data.setPoint3);
+
+	int xsteps = data.setPoint1 - stt_getX();
+	int ysteps = data.setPoint2 - stt_getY();
+
+	sendSteps(xsteps, ysteps );
+
+	if (data.setPoint3 != stt_getZ()){
+		penSet(data.setPoint3);
+		vTaskDelay(300);
+	}
 
 
 	stt_setX(data.setPoint1);

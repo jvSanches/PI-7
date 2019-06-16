@@ -35,6 +35,7 @@
 #include "modbus.h"
 #include "pi7/interpretador_comando/interpretador_comando.h"
 #include "pi7/programa_trajetoria/programa_trajetoria.h"
+#include "pi7/estado_trajetoria/estado_trajetoria.h"
 
 // CommModes: Dev_mode para debug; escreve na console
 //            Real_mode para execucao real
@@ -134,7 +135,7 @@ void putCharToSerial() {
 //     vPrintString("\r");
   } else {
 
-     UARTSendNullTerminated(0, txBuffer);
+//     UARTSendNullTerminated(0, txBuffer);
   }
 } // putCharToSerial
 
@@ -394,6 +395,9 @@ void receiveMessage() {
             idxRxBuffer = 0;
             return;
          }
+         if ( ch == ':' ) {
+        	 idxRxBuffer = 0;
+         }
          rxBuffer[idxRxBuffer] = ch;
          if ( (rxBuffer[idxRxBuffer] == 0x0A) && ( rxBuffer[idxRxBuffer-1] == 0x0D) ) {
             _state = MESSAGE_READY;
@@ -432,3 +436,12 @@ void com_executeCommunication() {
        processMessage();
    }
 } // executeCommunication
+
+
+void sendReport(){
+	char report[30];
+	sprintf(report, "X: %4d Y: %4d Z: %2d L: %3d ", stt_getX(), stt_getY(),stt_getZ(), stt_getCurrentLine());
+	report[28] = 0x0d;
+	report[29] = 0x0a;
+	UARTSend(0, report, 30);
+}

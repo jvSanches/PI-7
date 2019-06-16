@@ -17,7 +17,7 @@ def LPC_connect(port):
     #Open Serial port for LPC
     global lpc
     lpc = serial.Serial(port, 9600)
-    lpc.timeout = 3
+    lpc.timeout = 0.1
 
 
 def LPC_disconnect():
@@ -34,7 +34,10 @@ def LPC_getChar():
 
 def LPC_readLine():
     #If available, reads one line from serial. Else, returns False
-    return lpc.readline().decode('utf-8')
+    if lpc.in_waiting > 0:
+        return lpc.readline().decode('utf-8')
+    
+    return False
 
 
 def LPC_write(data):
@@ -61,23 +64,19 @@ def GetMessageLRC(message):
     return getLRC(messageBytes)
 
 def receiveXYZ():
-    response = receiveResponse()
-    return None, None, None, None
+    nx = ny = nz = nl = None
+    if lpc.in_waiting> 0:
+        rx = LPC_readLine()
+        #print(rx)
+        if rx[0] != ':':              
+            nx = int(rx[2:7])/10
+            ny = int(rx[10:15])/10
+            nz = int(rx[18:21])/10
+            nl = int(rx[24:28])
+            
+        
+    return nx, ny, nz, nl
 
-    if response and int(response[2:4],16)==3:
-        rReg = int(response[4:8],16)
-        rValue = int(response[8:12],16)
-        if rReg == 1: 
-            return rValue, None, None, None
-        elif rReg ==2:
-            return None,rValue, None, None
-        elif rReg == 3:
-            return None, None, rValue, None
-        else:
-            return None, None, None, rValue
-
-    else:
-        return None, None, None, None
 
 def ReadRegister(slave, regAddress, numOfRegs = 1):
     #Send message asking for a register values

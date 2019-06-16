@@ -4,12 +4,12 @@
 // external interface
 extern int stt_getCurrentLine();
 extern void stt_setCurrentLine(int line);
-extern float stt_getX();
-extern float stt_getY();
-extern float stt_getZ();
-extern void stt_setX(float x);
-extern void stt_setY(float y);
-extern void stt_setZ(float z);
+extern int stt_getX();
+extern int stt_getY();
+extern int stt_getZ();
+extern void stt_setX(int x);
+extern void stt_setY(int y);
+extern void stt_setZ(int z);
 extern void stt_init();
 void stt_setProgLen(int nValue);
 int stt_getProgLen();

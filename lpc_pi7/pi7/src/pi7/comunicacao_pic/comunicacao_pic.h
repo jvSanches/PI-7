@@ -6,9 +6,9 @@
  */
 
 typedef struct {
-	float setPoint1;
-	float setPoint2;
-	float setPoint3;
+	int setPoint1;
+	int setPoint2;
+	int setPoint3;
 } pic_Data;
 
 extern void pic_sendToPIC(pic_Data data);

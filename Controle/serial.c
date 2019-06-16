@@ -216,6 +216,19 @@ void putst(register const char *str) {
     str++;
   }
 }
+/*
+char readLine(){
+    char str[10];
+    char *rxStrIndex = str;
+    char rxBuff = getch();
+    while (rxBuff != '\n'){
+        *rxStrIndex = rxBuff;
+        rxStrIndex++;
+        rxBuff = getch();
+    }
+    return str;
+}
+*/
 
 //user code
 /*int parseInt(){
