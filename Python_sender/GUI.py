@@ -2,8 +2,6 @@ import time
 from tkinter import*
 from tkinter import filedialog
 import struct
-import threading
-import queue
 
 import GCode_parser
 import modbus_sender
@@ -14,26 +12,30 @@ Implementação da interface e inserção das funções modbus
 
 connection_state = False
 
-xpos, ypos, zpos, line = 0, 0, 1, 0
+xpos, ypos, zpos, line = 0, 0, 0, 0
 x_offset, y_offset = 0, 0
+last_line = 1000
+running = 0
 loaded_prog = []
 
 m1_stop = False
 
+
 def doConnection():
     global connection_state
+
     if not connection_state:
         try:
             port = port_entry.get()
-            if port == "": port = "COM15"
+            if port == "": port = "COM8"
             modbus_sender.LPC_connect(port)
             port_entry.config(state ='disabled')
             con_status.config(text = 'Machine Connected', fg= 'green')
             connect.config(text = 'Disconnect')
+            #root.protocol('WM_DELETE_WINDOW')
             strt.config(state = 'normal')
             send.config(state = 'normal')
             ref_buttom.config(state = 'normal')
-            enableJOG()
             connection_state = True
         except:
             print("Could not connect")
@@ -46,44 +48,33 @@ def doConnection():
         send.config(state = 'disabled')
         ref_buttom.config(state = 'disabled')
         connection_state = False
-        disableJOG()
+        #root.protocol('WM_DELETE_WINDOW', root.destroy)
 
-def updateTime():
+def readSerial():
     global root, xpos, ypos, zpos, line
-    root.after(100, updateTime)
     dateAndTime.config(text = '%s' %(time.ctime()))
 
-    xval.config(text = '%.1f' %(xpos-x_offset))
-    yval.config(text = '%.1f' %(ypos-y_offset))
-    zval.config(text = '%.1f' %(zpos))
-    lineval.config(text = '%d' %(line))
+    if connection_state:        
+        nXpos, nYpos, nZpos, nLine = modbus_sender.receiveXYZ()
+        if nXpos != None:
+            xpos = nXpos
+        if nYpos != None:
+            ypos = nYpos
+        if nYpos != None:
+            zpos = nZpos
+        if nLine != None:
+            line = nLine
+        if running and line >= last_line:
+            stop()
+        xval.config(text = '%.1f' %(xpos-x_offset))#xval.config(text = '%.1f' %(xpos-x_offset))
+        yval.config(text = '%.1f' %(ypos-y_offset))#yval.config(text = '%.1f' %(ypos-y_offset))
+        zval.config(text = '%.1f' %(zpos))
+        lineval.config(text = '%d' %(line))
 
-def serialReceived(nXpos, nYpos, nZpos, nLine):
-    global xpos, ypos, zpos, line
-    if nXpos != None:
-        xpos = nXpos
-    if nYpos != None:
-        ypos = nYpos
-    if nYpos != None:
-        zpos = nZpos
-    if nLine != None:
-        line = nLine
+def updateTime():
+    root.after(100, updateTime)
 
-def processQueue():
-    global comms_queue
-    while(True):
-        time.sleep(0.1)
-        if connection_state:
-            try:
-                items = comms_queue.get(False)
-                func = items[0]
-                ident = items[1]
-                print(ident)
-                args = items[2:]
-                func(*args)
-            except:
-                pass
-                serialReceived(*modbus_sender.receiveXYZ())
+    readSerial()
 
 def disableMeasures():
     global x_measure, y_measure
@@ -98,47 +89,44 @@ def enableMeasures():
 def measureX():
     global x_offset
 
-    offset = xwcs_entry.get()
-    try: 
-        x_offset = xpos - float(offset)
-    except:
-        pass
+    offset = float(xwcs_entry.get())
+    
+    x_offset = xpos - offset
 
 def measureY():
     global y_offset
+    global x_offset
 
-    offset = ywcs_entry.get()
-    try: 
-        y_offset = xpos - float(offset)
-    except:
-        pass
+    offset = float(ywcs_entry.get())
+
+
+    y_offset = ypos - offset
 
 def jogxmore() :
-    comms_queue.put((modbus_sender.WriteSingleRegister,"X+",1,4,1))
+    modbus_sender.WriteSingleRegister(1,4,1)
 
 def jogxless():
-    comms_queue.put((modbus_sender.WriteSingleRegister,"X-",1,5,1))
+    modbus_sender.WriteSingleRegister(1,5,1)
 
 def jogymore():
-    comms_queue.put((modbus_sender.WriteSingleRegister,"Y+",1,6,1))
+    modbus_sender.WriteSingleRegister(1,6,1)
 
 def jogyless():
-    comms_queue.put((modbus_sender.WriteSingleRegister,"Y-",1,7,1))
+    modbus_sender.WriteSingleRegister(1,7,1)
 
 def jogzmore():
-    comms_queue.put((modbus_sender.WriteSingleRegister,"Z+",1,8,1))
+    modbus_sender.WriteSingleRegister(1,8,1)
 
 def jogzless():
-    comms_queue.put((modbus_sender.WriteSingleRegister,"Z-",1,8,0))
+    modbus_sender.WriteSingleRegister(1,8,0)
 
 def enableJOG():
-    if connection_state:
-        jogzpositive.config(state = 'normal')
-        jogznegative.config(state = 'normal')
-        jogxpositive.config(state = 'normal')
-        jogxnegative.config(state = 'normal')
-        jogypositive.config(state = 'normal')
-        jogynegative.config(state = 'normal')
+    jogzpositive.config(state = 'normal')
+    jogznegative.config(state = 'normal')
+    jogxpositive.config(state = 'normal')
+    jogxnegative.config(state = 'normal')
+    jogypositive.config(state = 'normal')
+    jogynegative.config(state = 'normal')
 
 def disableJOG():
     jogzpositive.config(state = 'disabled')
@@ -169,26 +157,35 @@ def openFile():
     for l in loaded_prog:
         prog_show.insert(END, l+"\n" )
 
+def textModified():
+    strt.config(state = 'disabled')
+
 def sendFile():
-    global loaded_prog
+    global loaded_prog, last_line
     loaded_prog = prog_show.get("1.0", "end-1c")
     coords = GCode_parser.parse(loaded_prog)
+    last_line = len(coords)
     print(coords)
     coords = [[line[0]+x_offset, line[1]+y_offset, line[2]] for line in coords]
-
+    
+    #coords = [[line[0], line[1], line[2]] for line in coords]
     try:
-        comms_queue.put((modbus_sender.WriteSingleRegister,"Start File", 1,10,0))
+        modbus_sender.WriteSingleRegister(1,10,0)
         time.sleep(1)
-        comms_queue.put((modbus_sender.sendLines,"Send Lines",1, coords))
+        modbus_sender.sendLines(1, coords)
         strt.config(state = 'normal')
-
+        print("Fim de envio")
     except:
         print("Not Connected")
 
+
 def start():
+    global running
     try:
-        comms_queue.put((modbus_sender.WriteSingleRegister,"Start",1,0,1))
+        modbus_sender.WriteSingleRegister(1,0,1)
         disableJOG()
+        time.sleep(0.15)
+        running = 1
         strt.config(state = 'disabled')
         stp.config(state = 'normal')
         paus.config(state = 'normal')
@@ -198,9 +195,11 @@ def start():
         print("Not Connected")
 
 def stop():
+    global running
     try:
         enableJOG()
-        comms_queue.put((modbus_sender.WriteSingleRegister,"Stop",1,1,1))
+        modbus_sender.WriteSingleRegister(1,1,1)
+        running = 0
         strt.config(state = 'normal')
         stp.config(state = 'disabled')
         paus.config(state = 'disabled')
@@ -211,9 +210,11 @@ def stop():
         print("Not Connected")
 
 def resume():
+    global running
     try:
-        comms_queue.put((modbus_sender.WriteSingleRegister,"Resume",1,2,1))
+        modbus_sender.WriteSingleRegister(1,2,1)
         disableJOG()
+        running = 1
         strt.config(state = 'disabled')
         stp.config(state = 'normal')
         paus.config(state = 'normal')
@@ -222,8 +223,10 @@ def resume():
         print("Not Connected")
 
 def suspend():
+    global running
     try:
-        comms_queue.put((modbus_sender.WriteSingleRegister,"Pause",1,3,1))
+        modbus_sender.WriteSingleRegister(1,3,1)
+        running = 0
         strt.config(state = 'disabled')
         stp.config(state = 'normal')
         paus.config(state = 'disabled')
@@ -233,7 +236,7 @@ def suspend():
 
 def REF():
     try:
-        comms_queue.put((modbus_sender.WriteSingleRegister,"REF",1,9,1))
+        modbus_sender.WriteSingleRegister(1,9,1)
     except:
         print("Not Connected")
 
@@ -373,14 +376,14 @@ jogynegative.grid(row=4,column =2)
 jogstepselector = Frame(jogframe, borderwidth = 10, bg = 'black' )
 jogstepselector.grid(row = 5, column = 0, columnspan = 5)
 
-disableJOG()
+enableJOG()
 
 lowerframe = Frame(root,bg='black', height = 300)
 lowerframe.pack(fill = 'x')
 
 
 
-progframe = Frame(lowerframe, bg = 'black', borderwidth = 10)
+progframe = Frame(lowerframe, bg = 'black', borderwidth = 10);
 progframe.pack(side = 'left', fill = 'y')
 
 
@@ -390,6 +393,7 @@ scrollbar.pack(side = 'right', fill = 'y')
 prog_show.pack(side = 'top')
 scrollbar.config(command=prog_show.yview)
 prog_show.config(yscrollcommand=scrollbar.set)
+prog_show.bind("<<TextModified>>", textModified)
 
 Frame(lowerframe, bg= 'white', width = 2, height = 220, pady = 10).pack(side = 'left')
 
@@ -432,13 +436,10 @@ browse_button.grid(row = 8, column = 0)
 
 rld_button = Button(optionsframe, text = 'Clear', command = clear, width = 9)
 rld_button.grid(row = 8, column = 1)
-
 updateTime()
 
-comms_queue = queue.Queue()
-comms_thread = threading.Thread(daemon = True, target=processQueue)
 
-comms_thread.start()
+
 
 
 root.mainloop()

@@ -14,9 +14,9 @@ def refine(prog):
     return refined_prog
     #return [re.sub(r'\([^()]*\)', '', line).split(" ") for line in prog]
 
-last_x = 0
-last_y = 0
-last_z = 0
+last_x = 2048
+last_y = 2048
+last_z = 1
 
 
 def parse(prog):
