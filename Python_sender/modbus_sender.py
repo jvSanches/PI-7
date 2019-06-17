@@ -101,7 +101,7 @@ def buildMessage(slave, fCode, payload):
 
 def transmit(message):
     #Send message
-    print("Data trasmitted: ", [hex(ord(no)) for no in message])
+    #print("Data trasmitted: ", [hex(ord(no)) for no in message])
     LPC_write(message)
     sleep(0.1)
     
@@ -112,15 +112,15 @@ def receiveResponse():
     incoming = LPC_readLine()
     #incoming= incoming.decode()
     if incoming == 0: return False
-    print(incoming)
+    #print(incoming)
     return
-    print("Message from LPC: ", incoming[:-2])
+    #print("Message from LPC: ", incoming[:-2])
     incoming = incoming[1:-2]
     slaveNum = int(incoming[:2])
     if slaveNum == myAddres:
         if checkLRC(incoming): return incoming
         else:
-            print("LRC missmatch")
+            #print("LRC missmatch")
             return False
     else:
         #Message is not for this slave. Will try again
@@ -154,6 +154,7 @@ def sendLines(slave, coords):
         payload = ("%3.3x" %line[0])  + ("%3.3x" %line[1]) + ("%1.1x" %line[2])
         message = buildMessage(slave, fCode, payload)
         transmit(message)
+        print("End of File Send")
         
         # response = receiveResponse()
         # if response and int(response[2:4],16)==fCode:
