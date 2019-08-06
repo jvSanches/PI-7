@@ -1,24 +1,22 @@
-# -*- coding: utf-8 -*-
 """
 Interpretador de Gcode simplificado
 """
 import re
 
+last_x = 2048
+last_y = 2048
+last_z = 1
+
+# Quebra um programa em uma lista de strings
 def refine(prog):
-    ''' breaks a program into lists of lists of strings'''
     refined_prog = []
     prog = prog.split("\n")
     for line in prog:
         no_comments = re.sub(r'\([^()]*\)', '', line).upper()
         refined_prog.append(no_comments.split())
     return refined_prog
-    #return [re.sub(r'\([^()]*\)', '', line).split(" ") for line in prog]
 
-last_x = 0
-last_y = 0
-last_z = 0
-
-
+# Obtém coordenadas a partir do GCode
 def parse(prog):
     global last_x
     global last_y
