@@ -2673,8 +2673,8 @@ int err = set_point - motor_pos;
 derivative = (err - last_err);
 last_err = err;
 
-int P_Response = 3 * err;
-int D_Response = (11 * derivative);
+int P_Response = 5 * err;
+int D_Response = (23 * derivative);
 
 resp = P_Response + D_Response;
 

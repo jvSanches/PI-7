@@ -42,7 +42,6 @@ const portTickType DELAY_500MS = 500 / portTICK_RATE_MS;
 const portTickType DELAY_200MS = 200 / portTICK_RATE_MS;
 const portTickType DELAY_50MS = 50 / portTICK_RATE_MS;
 const portTickType DELAY_10MS = 10 / portTICK_RATE_MS;
-const portTickType DELAY_20MS = 20 / portTICK_RATE_MS;
 const portTickType DELAY_1MS = 1 / portTICK_RATE_MS;
 
 
@@ -85,7 +84,7 @@ void taskNCProcessing(void *pvParameters) {
         	   trj_processCommand(data);
            }
            trj_generateSetpoint();
-		   vTaskDelayUntil(&lastWakeTime, DELAY_20MS);
+		   vTaskDelayUntil(&lastWakeTime, DELAY_50MS);
 	   } //task loop
 } // taskNCProcessing
 /**
@@ -111,22 +110,22 @@ int readEndStops(int ButtPin){
 
 }
 
-//void taskEmergencyController(void *pvParameters){
-//	while(1){
-//		if (readEndStops(23)){
-//
-//			pic_StopMotors();
-//			emergencyFlag = 1;
-//			trj_init();
-//			while (uxQueueMessagesWaiting(qCommPIC));
-//
-//		}else if(emergencyFlag){
-//			pic_ResetMotors();
-//			emergencyFlag = 0;
-//		}
-//		vTaskDelay(DELAY_1MS);
-//	}
-//}
+void taskEmergencyController(void *pvParameters){
+	while(1){
+		if (readEndStops(23)){
+
+			pic_StopMotors();
+			emergencyFlag = 1;
+			trj_init();
+			while (uxQueueMessagesWaiting(qCommPIC));
+
+		}else if(emergencyFlag){
+			pic_ResetMotors();
+			emergencyFlag = 0;
+		}
+		vTaskDelay(DELAY_1MS);
+	}
+}
 
 
 int ser = 0;
@@ -220,7 +219,7 @@ int main(void) {
 	xTaskCreate( taskNCProcessing, ( signed portCHAR * ) "NCProcessing", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskCommPIC, ( signed portCHAR * ) "CommPIC", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 	xTaskCreate( taskReporter, ( signed portCHAR * ) "Reporter", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	//xTaskCreate( taskEmergencyController, ( signed portCHAR * ) "Emergency", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	xTaskCreate( taskEmergencyController, ( signed portCHAR * ) "Emergency", USERTASK_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
 
 	/* 
 	 * Start the scheduler. 

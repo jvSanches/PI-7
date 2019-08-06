@@ -8,7 +8,7 @@ for Kp = data_start:1:data_end
     delta_pos = data(Kp - (data_start-1), :);
     samples = length(delta_pos)-1;
 
-    t = 0.01: 0.01:(0.01 * samples);
+    t = 0.005: 0.005 :(0.005 * samples);
     pos = zeros(samples,0);
 
     pos(1) = delta_pos(2);

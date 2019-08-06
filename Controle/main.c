@@ -56,8 +56,8 @@
 /* Valores teróricos calculados para rad/s. Para converter, dividir aqui por 306
 Para o KI, multiplicar por 0.01 (tempo do passo de integração)*/
 
-#define KP 3
-#define KD 11
+#define KP 5
+#define KD 23
 
 // variáveis globais vão aqui se existirem
 volatile long encoder1_counter;      //Contador de ticks

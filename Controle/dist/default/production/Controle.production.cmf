@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Sanches\AppData\Local\Temp\smuc.o
+$C:\Users\Sanches\AppData\Local\Temp\secg.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 0 2007 2007 2 2
@@ -86,21 +86,21 @@ STRING 558-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Controle.production.o
-11 cinit CODE >1242:C:\Users\Sanches\AppData\Local\Temp\smuc.
-11 cinit CODE >1245:C:\Users\Sanches\AppData\Local\Temp\smuc.
-11 cinit CODE >1307:C:\Users\Sanches\AppData\Local\Temp\smuc.
-12 cinit CODE >1308:C:\Users\Sanches\AppData\Local\Temp\smuc.
-13 cinit CODE >1309:C:\Users\Sanches\AppData\Local\Temp\smuc.
-14 cinit CODE >1310:C:\Users\Sanches\AppData\Local\Temp\smuc.
-15 cinit CODE >1311:C:\Users\Sanches\AppData\Local\Temp\smuc.
-16 cinit CODE >1314:C:\Users\Sanches\AppData\Local\Temp\smuc.
-17 cinit CODE >1315:C:\Users\Sanches\AppData\Local\Temp\smuc.
-18 cinit CODE >1316:C:\Users\Sanches\AppData\Local\Temp\smuc.
-19 cinit CODE >1317:C:\Users\Sanches\AppData\Local\Temp\smuc.
-1A cinit CODE >1318:C:\Users\Sanches\AppData\Local\Temp\smuc.
-1D cinit CODE >1324:C:\Users\Sanches\AppData\Local\Temp\smuc.
-1D cinit CODE >1326:C:\Users\Sanches\AppData\Local\Temp\smuc.
-1E cinit CODE >1327:C:\Users\Sanches\AppData\Local\Temp\smuc.
+11 cinit CODE >1242:C:\Users\Sanches\AppData\Local\Temp\secg.
+11 cinit CODE >1245:C:\Users\Sanches\AppData\Local\Temp\secg.
+11 cinit CODE >1307:C:\Users\Sanches\AppData\Local\Temp\secg.
+12 cinit CODE >1308:C:\Users\Sanches\AppData\Local\Temp\secg.
+13 cinit CODE >1309:C:\Users\Sanches\AppData\Local\Temp\secg.
+14 cinit CODE >1310:C:\Users\Sanches\AppData\Local\Temp\secg.
+15 cinit CODE >1311:C:\Users\Sanches\AppData\Local\Temp\secg.
+16 cinit CODE >1314:C:\Users\Sanches\AppData\Local\Temp\secg.
+17 cinit CODE >1315:C:\Users\Sanches\AppData\Local\Temp\secg.
+18 cinit CODE >1316:C:\Users\Sanches\AppData\Local\Temp\secg.
+19 cinit CODE >1317:C:\Users\Sanches\AppData\Local\Temp\secg.
+1A cinit CODE >1318:C:\Users\Sanches\AppData\Local\Temp\secg.
+1D cinit CODE >1324:C:\Users\Sanches\AppData\Local\Temp\secg.
+1D cinit CODE >1326:C:\Users\Sanches\AppData\Local\Temp\secg.
+1E cinit CODE >1327:C:\Users\Sanches\AppData\Local\Temp\secg.
 4 intentry CODE >137:D:\Poli\PI-7\Controle\main.c
 114 text15 CODE >137:D:\Poli\PI-7\Controle\main.c
 114 text15 CODE >142:D:\Poli\PI-7\Controle\main.c
@@ -311,16 +311,16 @@ F1 text9 CODE >112:D:\Poli\PI-7\Controle\main.c
 271 maintext CODE >281:D:\Poli\PI-7\Controle\main.c
 276 maintext CODE >282:D:\Poli\PI-7\Controle\main.c
 27B maintext CODE >283:D:\Poli\PI-7\Controle\main.c
-550 clrtext CODE >1294:C:\Users\Sanches\AppData\Local\Temp\smuc.
-550 clrtext CODE >1295:C:\Users\Sanches\AppData\Local\Temp\smuc.
-551 clrtext CODE >1296:C:\Users\Sanches\AppData\Local\Temp\smuc.
-551 clrtext CODE >1297:C:\Users\Sanches\AppData\Local\Temp\smuc.
-552 clrtext CODE >1298:C:\Users\Sanches\AppData\Local\Temp\smuc.
-553 clrtext CODE >1299:C:\Users\Sanches\AppData\Local\Temp\smuc.
-554 clrtext CODE >1300:C:\Users\Sanches\AppData\Local\Temp\smuc.
-555 clrtext CODE >1301:C:\Users\Sanches\AppData\Local\Temp\smuc.
-556 clrtext CODE >1302:C:\Users\Sanches\AppData\Local\Temp\smuc.
-557 clrtext CODE >1303:C:\Users\Sanches\AppData\Local\Temp\smuc.
+550 clrtext CODE >1294:C:\Users\Sanches\AppData\Local\Temp\secg.
+550 clrtext CODE >1295:C:\Users\Sanches\AppData\Local\Temp\secg.
+551 clrtext CODE >1296:C:\Users\Sanches\AppData\Local\Temp\secg.
+551 clrtext CODE >1297:C:\Users\Sanches\AppData\Local\Temp\secg.
+552 clrtext CODE >1298:C:\Users\Sanches\AppData\Local\Temp\secg.
+553 clrtext CODE >1299:C:\Users\Sanches\AppData\Local\Temp\secg.
+554 clrtext CODE >1300:C:\Users\Sanches\AppData\Local\Temp\secg.
+555 clrtext CODE >1301:C:\Users\Sanches\AppData\Local\Temp\secg.
+556 clrtext CODE >1302:C:\Users\Sanches\AppData\Local\Temp\secg.
+557 clrtext CODE >1303:C:\Users\Sanches\AppData\Local\Temp\secg.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -366,10 +366,10 @@ _TMR0 1 0 ABS 0 - dist/default/production\Controle.production.o
 _TXEN 4C5 0 ABS 0 - dist/default/production\Controle.production.o
 _TXIE 464 0 ABS 0 - dist/default/production\Controle.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\Controle.production.o
-___sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\smuc.o
+___sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\secg.o
 _main 3AA 0 CODE 0 maintext dist/default/production\Controle.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Controle.production.o
-start 1C 0 CODE 0 init C:\Users\Sanches\AppData\Local\Temp\smuc.o
+start 1C 0 CODE 0 init C:\Users\Sanches\AppData\Local\Temp\secg.o
 SetMotor@err 4A 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\Controle.production.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Controle.production.o
@@ -385,12 +385,12 @@ __size_of_getServoCommand 0 0 ABS 0 - dist/default/production\Controle.productio
 __Hpowerup 0 0 CODE 0 powerup -
 SetMotor@resp 4C 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 __size_of_motor_reset 0 0 ABS 0 - dist/default/production\Controle.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\smuc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\smuc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\smuc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\smuc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\smuc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\smuc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\secg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\secg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\secg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\secg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\secg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Sanches\AppData\Local\Temp\secg.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 ___aldiv@divisor 2D 0 BANK0 1 cstackBANK0 dist/default/production\Controle.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Controle.production.o
@@ -410,8 +410,8 @@ __Lmaintext 0 0 ABS 0 maintext -
 __end_of_SetMotor 228 0 CODE 0 text9 dist/default/production\Controle.production.o
 __end_of_SetPoint 976 0 CODE 0 text5 dist/default/production\Controle.production.o
 __end_of___aldiv 61C 0 CODE 0 text12 dist/default/production\Controle.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\smuc.o
-___stacklo 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\smuc.o
+___stackhi 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\secg.o
+___stacklo 0 0 ABS 0 - C:\Users\Sanches\AppData\Local\Temp\secg.o
 _dpowers 9C8 0 STRING 0 strings dist/default/production\Controle.production.o
 __end_of_constrain 818 0 CODE 0 text13 dist/default/production\Controle.production.o
 SetMotor@derivative 61 0 BANK0 1 bssBANK0 dist/default/production\Controle.production.o
@@ -442,7 +442,7 @@ _TRISC3 43B 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Controle.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of_pwm_set 0 0 ABS 0 - dist/default/production\Controle.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\smuc.o
+___int_sp 0 0 STACK 2 stack C:\Users\Sanches\AppData\Local\Temp\secg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -510,7 +510,7 @@ _set_motor_flag 60 0 BANK0 1 bssBANK0 dist/default/production\Controle.productio
 __end_of_isr 3AA 0 CODE 0 text15 dist/default/production\Controle.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 9BC 0 STRING 0 strings dist/default/production\Controle.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Sanches\AppData\Local\Temp\smuc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Sanches\AppData\Local\Temp\secg.o
 __size_of___lmul 0 0 ABS 0 - dist/default/production\Controle.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\Controle.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -

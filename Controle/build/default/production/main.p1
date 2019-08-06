@@ -1746,12 +1746,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = F1382 _err ]
 "99
 [v _P_Response `i ~T0 @X0 1 a ]
-[; ;main.c: 99: int P_Response = 3 * err;
-[e = _P_Response * -> 3 `i _err ]
+[; ;main.c: 99: int P_Response = 5 * err;
+[e = _P_Response * -> 5 `i _err ]
 "100
 [v _D_Response `i ~T0 @X0 1 a ]
-[; ;main.c: 100: int D_Response = (11 * derivative);
-[e = _D_Response * -> 11 `i F1381 ]
+[; ;main.c: 100: int D_Response = (23 * derivative);
+[e = _D_Response * -> 23 `i F1381 ]
 [; ;main.c: 102: resp = P_Response + D_Response;
 "102
 [e = _resp -> + _P_Response _D_Response `l ]

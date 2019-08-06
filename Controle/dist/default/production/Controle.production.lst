@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Thu Jun 06 17:21:32 2019
+                                                                                               Tue Jun 18 16:05:16 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	16F886
@@ -1885,12 +1885,12 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1870  0035  084A               	movf	SetMotor@err,w
   1871  0036  00DE               	movwf	SetMotor@last_err
   1872                           
-  1873                           ;main.c: 99: int P_Response = 3 * err;
+  1873                           ;main.c: 99: int P_Response = 5 * err;
   1874  0037  084B               	movf	SetMotor@err+1,w
   1875  0038  00A7               	movwf	___wmul@multiplier+1
   1876  0039  084A               	movf	SetMotor@err,w
   1877  003A  00A6               	movwf	___wmul@multiplier
-  1878  003B  3003               	movlw	3
+  1878  003B  3005               	movlw	5
   1879  003C  00A8               	movwf	___wmul@multiplicand
   1880  003D  3000               	movlw	0
   1881  003E  00A9               	movwf	___wmul@multiplicand+1
@@ -1902,12 +1902,12 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1887  0048  0826               	movf	?___wmul,w
   1888  0049  00C6               	movwf	SetMotor@P_Response
   1889                           
-  1890                           ;main.c: 100: int D_Response = (11 * derivative);
+  1890                           ;main.c: 100: int D_Response = (23 * derivative);
   1891  004A  0862               	movf	SetMotor@derivative+1,w
   1892  004B  00A7               	movwf	___wmul@multiplier+1
   1893  004C  0861               	movf	SetMotor@derivative,w
   1894  004D  00A6               	movwf	___wmul@multiplier
-  1895  004E  300B               	movlw	11
+  1895  004E  3017               	movlw	23
   1896  004F  00A8               	movwf	___wmul@multiplicand
   1897  0050  3000               	movlw	0
   1898  0051  00A9               	movwf	___wmul@multiplicand+1
@@ -3381,7 +3381,7 @@ DATA                 0      0      53      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Thu Jun 06 17:21:32 2019
+Symbol Table                                                                                   Tue Jun 18 16:05:16 2019
 
                        pc 0002               __CFG_CP$OFF 0000                        fsr 0004  
      ___wmul@multiplicand 0028           ??_getServoState 0022                       l170 0484  
