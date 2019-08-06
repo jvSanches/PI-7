@@ -105,28 +105,6 @@ void taskCommPIC(void *pvParameters) {
 		 vTaskDelay(DELAY_1MS);
     } //task loop
 } // taskCommPIC
-int readEndStops(int ButtPin){
-	int buttPressed = (LPC_GPIO0->FIOPIN);
-	return !(buttPressed & (1 << ButtPin));
-
-}
-
-//void taskEmergencyController(void *pvParameters){
-//	while(1){
-//		if (readEndStops(23)){
-//
-//			pic_StopMotors();
-//			emergencyFlag = 1;
-//			trj_init();
-//			while (uxQueueMessagesWaiting(qCommPIC));
-//
-//		}else if(emergencyFlag){
-//			pic_ResetMotors();
-//			emergencyFlag = 0;
-//		}
-//		vTaskDelay(DELAY_1MS);
-//	}
-//}
 
 
 int ser = 0;
@@ -139,10 +117,9 @@ void taskBlinkLed(void *lpParameters) {
 } //taskBlinkLed
 
 void taskReporter(void *lpParameters) {
+	//Sends periodic position report to the interface
 	while(1) {
 		sendReport();
-
-
 		vTaskDelay(DELAY_200MS);
 
 	} // task

@@ -438,6 +438,10 @@ void com_executeCommunication() {
 } // executeCommunication
 
 
+/************************************************************************
+ sendReport
+ Transmite a posicao e a linha atual para o canal serial
+*************************************************************************/
 void sendReport(){
 	char report[30];
 	sprintf(report, "X: %4d Y: %4d Z: %2d L: %3d ", stt_getX(), stt_getY(),stt_getZ(), stt_getCurrentLine());

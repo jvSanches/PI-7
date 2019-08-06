@@ -27,13 +27,14 @@ int trj_status;
 extern xQueueHandle qCommPIC;
 
 void trj_generateSetpoint() {
-   //TODO: implementar
 
    int currLine;
    ptj_Data line;
    pic_Data toPic;
 
    currLine = stt_getCurrentLine();
+
+   //Finaliza a execucao do programa
    if (currLine >= stt_getProgLen()){
 	   trj_status = STATUS_NOT_RUNNING;
    }
@@ -47,6 +48,8 @@ void trj_generateSetpoint() {
    int AcX = stt_getX();
    int AcY = stt_getY();
 
+
+   //Calcula distancias entre setpoints e realiza a divisao dos trechos
    float dx = line.x - AcX;
    float dy = line.y - AcY;
 
@@ -55,6 +58,9 @@ void trj_generateSetpoint() {
    float hx = dx/n;
    float hy = dy/n;
 
+
+
+   //Transmite todos os setpoints calculados
    for (int hi = 1; hi < n; hi++){
 	  toPic.setPoint1 = AcX + hi * hx;
 	  toPic.setPoint2 = AcY + hi * hy;
@@ -67,6 +73,8 @@ void trj_generateSetpoint() {
    toPic.setPoint3 = line.z;
    //printf("controlador X=%d Y=%d Z=%d\n", toPic.setPoint1, toPic.setPoint2, toPic.setPoint3);
    xQueueSend(qCommPIC, &toPic, portMAX_DELAY);
+
+   // Aguarda o fim do movimento atual da maquina
    while (uxQueueMessagesWaiting(qCommPIC));
    vTaskDelay(20);
    currLine++;

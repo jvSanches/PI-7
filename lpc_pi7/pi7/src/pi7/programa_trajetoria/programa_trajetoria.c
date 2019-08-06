@@ -13,12 +13,15 @@
 ptj_Data ptj_program[MAX_PROGRAM_LINES];
 
 
+// Inicia a recepcao de um programa e armazenagem
 void ptj_startFile(int nLine){
 	ptj_init();
 	stt_setCurrentLine( nLine );
 	stt_setProgLen(0);
 }
 
+
+// Registra uma linha de instrucoes recebida
 void ptj_storeProgram(int nX, int nY, int nZ) {
 	stt_setProgLen(stt_getProgLen()+1);
 	int line = stt_getCurrentLine();

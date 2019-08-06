@@ -162,6 +162,12 @@ void PWM_Stop( uint32_t channelNum )
   return;
 }
 
+/******************************************************************************
+** Function name:		penSet
+**
+** Descriptions:		Set pen to draw or travel position
+**
+******************************************************************************/
 void penSet(int val){
 	if (val){
 		PWM_Set(1, HI_PEN_VALUE);

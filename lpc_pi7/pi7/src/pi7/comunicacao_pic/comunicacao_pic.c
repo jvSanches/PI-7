@@ -108,12 +108,13 @@ void sendSteps(int xSteps, int ySteps){
 
 void pic_sendToPIC(pic_Data data) {
 
-
+	// Calculo do numero de passos
 	int xsteps = data.setPoint1 - stt_getX();
 	int ysteps = data.setPoint2 - stt_getY();
 
 	sendSteps(xsteps, ysteps );
 
+	// Posicionamento da caneta segundo Z
 	if (data.setPoint3 != stt_getZ()){
 		penSet(data.setPoint3);
 		vTaskDelay(300);
