@@ -2,7 +2,7 @@
 /*
  * File:   main.c
  * Author: Joao Sanches
- * Teste do controlador P, pi7
+ * Controlador pi7
  * 
  */
 
@@ -28,7 +28,7 @@
 // CONFIG2
 #pragma config BOR4V = BOR21V   // Brown-out Reset Selection bit (Brown-out Res
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits 
-// <--------------- Até aqui
+// <--------------- Atï¿½ aqui
 
 // Includes do projeto
 #include <stdio.h>
@@ -39,27 +39,27 @@
 #include "serial.h"
 //#include "spi.h"
 #include "servoController.h"
-// Definições
+// Definiï¿½ï¿½es
 
 // Timer 0
 #define TMR0_PRESCALER 7                     ///< divide por 4
 #define POLLING_PERIOD 195                    ///< 10 ms
 #define TMR0_SETTING (0xff - POLLING_PERIOD) ///< valor inicial da contagem d
 
-// Saídas
-#define LED RB5                              ///< bit de saída para o LED
+// Saï¿½das
+#define LED RB5                              ///< bit de saï¿½da para o LED
 
 //Controlador 
 //#define Kp  34//pwm 8 bits 26.44
 //int Kp = 1000;
 
-/* Valores teróricos calculados para rad/s. Para converter, dividir aqui por 306
-Para o KI, multiplicar por 0.01 (tempo do passo de integração)*/
+/* Valores terï¿½ricos calculados para rad/s. Para converter, dividir aqui por 306
+Para o KI, multiplicar por 0.01 (tempo do passo de integraï¿½ï¿½o)*/
 
 #define KP 5
 #define KD 23
 
-// variáveis globais vão aqui se existirem
+// variï¿½veis globais vï¿½o aqui se existirem
 volatile long encoder1_counter;      //Contador de ticks
 volatile char state1;                //estado do encoder
 volatile char ab1;                   //leitura do encoder
@@ -114,7 +114,7 @@ void SetMotor(){
     }
 }
 
-void SetPoint(int new_val){           //Conversão de unidade de entrada p/ ticks
+void SetPoint(int new_val){           //Conversï¿½o de unidade de entrada p/ ticks
     if (new_val != set_point){        
         set_point = new_val;
 //        PrintSetpoint();
@@ -134,32 +134,32 @@ void motor_reset(){
 }
 
 char set_motor_flag =0;
-void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
+void interrupt isr(void) {      // Rotina geral de tratamento de interrupï¿½ï¿½o
   static int tick;              // contador de vezes que o Timer 0 interrompe
   
   // Timer 0
   // Interrompe a cada 10 ms aproximadamente.
-  if (T0IE && T0IF) {    // se for interrupção do Timer 0
+  if (T0IE && T0IF) {    // se for interrupï¿½ï¿½o do Timer 0
       set_motor_flag = 1;
            
      TMR0 = TMR0_SETTING;       // recarrega contagem no Timer 0
-     T0IF = 0;                  // limpa interrupção
+     T0IF = 0;                  // limpa interrupï¿½ï¿½o
   } // fim - tratamento do Timer 0
   
   // Interrupt-on-change do PORT B
-  if (RBIE && RBIF) { // se for mudança estado do Port B
-    char portB = PORTB; // faz a leitura do Port B, isso reseta a condição de interrupt
+  if (RBIE && RBIF) { // se for mudanï¿½a estado do Port B
+    char portB = PORTB; // faz a leitura do Port B, isso reseta a condiï¿½ï¿½o de interrupt
     
     ab1 = (portB & 0b00011000) >>3;               //Leitura do estado do encoder
-    switch(state1) //Atualização do encoder 1
+    switch(state1) //Atualizaï¿½ï¿½o do encoder 1
     {
         case 0:                             //Ambos na parte clara
         if(ab1 == 1){                      //giro no sentido positivo
-            state1 = 1;                     //atualização do estado
+            state1 = 1;                     //atualizaï¿½ï¿½o do estado
             encoder1_counter--;             //Incremento do contador
         }
         else if(ab1 == 2){                 //giro no sentido negativo
-            state1 = 2;                     //atualização do estado
+            state1 = 2;                     //atualizaï¿½ï¿½o do estado
             encoder1_counter++;             //Incremento do contador
         }
         break;
@@ -196,11 +196,11 @@ void interrupt isr(void) {      // Rotina geral de tratamento de interrupção
         
         }
     motor_pos = -encoder1_counter;
-    RBIF = 0;           // reseta o flag de interrupção para poder receber outr
+    RBIF = 0;           // reseta o flag de interrupï¿½ï¿½o para poder receber outr
   } // fim - tratamento
   
-  // Outras interrupções aqui
-} // fim - Tratamento de todas as interruções
+  // Outras interrupï¿½ï¿½es aqui
+} // fim - Tratamento de todas as interruï¿½ï¿½es
 
 void encoders_init(){
     // define estado inicial dos encoders
@@ -213,48 +213,48 @@ void encoders_init(){
 /// Programa Principal
 void main (void) {
   
-  // variáveis locais
+  // variï¿½veis locais
   char serialIn = 255;          // caracter recebido pelo canal serial
 
   //
-  // configurações dos periféricos  
+  // configuraï¿½ï¿½es dos perifï¿½ricos  
   // Timer 0
-  // o Timer 0 é utilizado para interrupção periódica a cada 1 ms aproximadamen
+  // o Timer 0 ï¿½ utilizado para interrupï¿½ï¿½o periï¿½dica a cada 1 ms aproximadamen
   OPTION_REGbits.T0CS = 0; // usa clock interno FOSC/4
-  OPTION_REGbits.PSA = 0;  // Prescaler é para Timer 0 e não para WDT
+  OPTION_REGbits.PSA = 0;  // Prescaler ï¿½ para Timer 0 e nï¿½o para WDT
   OPTION_REGbits.PS = TMR0_PRESCALER;  // ajusta Prescaler do Timer 0
   
    // Port B
-  TRISB5 = 0;  // RB5 é saída para LED
-  ANS13 = 0;   // RB5/AN13 é digital
-  TRISB7 = 0;  // RB7 é saída para BUZZER
-  TRISB1 = 1;  // RBx é saída
+  TRISB5 = 0;  // RB5 ï¿½ saï¿½da para LED
+  ANS13 = 0;   // RB5/AN13 ï¿½ digital
+  TRISB7 = 0;  // RB7 ï¿½ saï¿½da para BUZZER
+  TRISB1 = 1;  // RBx ï¿½ saï¿½da
   TRISB2 = 1;  //
   TRISB3 = 1;  //
   TRISB4 = 1;  // 
-  ANS10 = 0;   // RBx é digital
+  ANS10 = 0;   // RBx ï¿½ digital
   ANS9 = 0;    //
   ANS8 = 0;    //
   ANS11 = 0;   //
   LED=1;
   
-  // Controle de interrupções
-  T0IE = 1;   // habilita interrupção do Timer 0
-  TMR1IE = 0; // interrupção para Timer 1
-  PEIE = 1;   // habilita interrupções de periféricos para poder usar Timer 1
-  GIE = 1;    // habilita todas as interrupções
+  // Controle de interrupï¿½ï¿½es
+  T0IE = 1;   // habilita interrupï¿½ï¿½o do Timer 0
+  TMR1IE = 0; // interrupï¿½ï¿½o para Timer 1
+  PEIE = 1;   // habilita interrupï¿½ï¿½es de perifï¿½ricos para poder usar Timer 1
+  GIE = 1;    // habilita todas as interrupï¿½ï¿½es
   IOCB=0b00011000;  //Bits monitorados no PORTB
-  RBIE = 1;   //Habilita interrupção na mudança da porta B
+  RBIE = 1;   //Habilita interrupï¿½ï¿½o na mudanï¿½a da porta B
   
   //
-  // Inicializações
+  // Inicializaï¿½ï¿½es
   serial_init();
  
-  // Inicializações da placa local
+  // Inicializaï¿½ï¿½es da placa local
   pwm_init();     // inicializa PWM
   
   //
-  // Configurações iniciais
+  // Configuraï¿½ï¿½es iniciais
   //
   
   //Inicializa encoders
